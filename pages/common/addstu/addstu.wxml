@@ -1,0 +1,39 @@
+<!--pages/common/addstu/addstu.wxml-->
+<com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话/卡号' />
+<!-- 
+<view class='topBtnArea weui-flex' wx:if="{{!inputShowed}}">
+  <view>
+    <checkbox class='circleCheckbox' wx:if='{{selectMode}}' bindtap='selectAll' checked='{{selectAll}}' />
+    <button type="default" size="mini" bindtap='selectMode' style='background-color:{{selectMode?"#ddd":""}}'>{{selectBtnTxt}}</button>
+  </view>
+</view>
+ -->
+<checkbox-group bindchange='bindchange'>
+  <view class="weui-cell" wx:for="{{students}}" wx:key='{{item.studentId}}'>
+    <view class="weui-cell__hd">
+      <checkbox value='{{index}}' checked='{{item.selected}}' disabled='{{item.stuCourseVos.length==0?true:false}}' bindtap='checkboxtaped' data-stu='{{item}}' />
+    </view>
+    <!--
+    <view class="weui-cell__bd">
+      <view class='studentName'>{{item.studentName}}
+        <text wx:if='{{item.stuCourseVos.length==1}}' >({{item.stuCourseVos[0].courseName}})</text>
+        <text wx:if='{{item.stuCourseVos.length>1}}' class='atext' decode='true' bindtap='changeCard' data-index='{{index}}'>({{item.stuCourseVos[item.cardIndex].courseName}})</text>
+      </view>
+      <view class='desc'>{{item.campusName}}</view>
+    </view>
+    -->
+    <com-imager qnsrc='{{item.avatar}}' classs='avatar' binderror='imgError'></com-imager>
+    <view class='body'>
+      <text class='name'>{{item.studentName}} ({{item.campusName}})</text>
+      <text>\n{{item.stuCourseVos[item.cardIndex].courseNameDisplay}}</text>
+    </view>
+    <view class='status' wx:if='{{item.stuCourseVos.length>1}}' bindtap='changeCard' data-index='{{index}}'>
+      <com-imager src='common/change.png' classs='btn1' binderror='imgError'></com-imager>
+    </view>
+  </view>
+</checkbox-group>
+
+<view style='padding-bottom:100rpx;'></view>
+<view class='down_bar'>
+  <text bindtap='addstu_sub'>{{btnMsg}}</text>
+</view>

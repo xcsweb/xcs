@@ -1,0 +1,12 @@
+<view class='listItem' bindtap='toDetail' wx:for='{{clshour_studenttask_list}}' data-id='{{item.studentTaskCompleteId}}' wx:key='*this'>
+  <view class='body'>
+    <view>{{item.title}}</view>
+    <view>时间：{{item.createDt_}}</view>
+    <view>班级：{{item.classesName}}</view>
+    <view wx:if='{{item.performance}}'>教练/老师评价：<com-rating rating='{{item.performance}}' disabled></com-rating></view>
+  </view>
+  <view class='end'>
+    <view wx:if='{{item.performance}}'>已点评</view>
+    <view style='color:green' wx:if='{{!item.performance}}'>未点评</view>
+  </view>
+</view>

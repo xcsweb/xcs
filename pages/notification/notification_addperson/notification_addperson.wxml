@@ -1,0 +1,38 @@
+<checkbox-group bindchange='checkboxgroupChange'>
+  <view class="weui-cells weui-cells_after-title" wx:for="{{classes}}" wx:for-item="class" wx:key='{{class.id}}'>
+
+    <view class="weui-cell" bindtap='selectClass' data-index='{{index}}'>
+      <view class="weui-cell__hd">
+        <checkbox value='1' checked='{{class.selected}}' />
+      </view>
+      <view class="weui-cell__bd className">{{class.name}}</view>
+      <view class="weui-cell__ft" catchtap='showUser' data-index='{{index}}'>
+        <view style='transform:rotate(-90deg);'>
+          <text class="iconfont icon-arrow" wx:if='{{!class.showUser}}'></text>
+        </view>
+        <text class="iconfont icon-arrowdown" wx:if='{{class.showUser}}'></text>
+      </view>
+    </view>
+    <view class='position' wx:if="{{class.showUser&&class.person.teachers.length>0}}">老师</view>
+    <view class="weui-cell" hidden="{{!class.showUser}}" wx:for="{{class.person.teachers}}" wx:key='{{user.memberId}}' wx:for-item="user" wx:for-index='techIndex'>
+      <view class="weui-cell__hd userName">
+        <checkbox value='{{index+",tech,"+techIndex}}' checked='{{user.selected}}' >{{user.name+' '+user.tel}}</checkbox>
+      </view>
+    </view>
+
+
+    <view class='position' wx:if="{{class.showUser&&class.person.students.length>0}}">学生</view>
+    <view class="weui-cell" hidden="{{!class.showUser}}" wx:for="{{class.person.students}}" wx:key='{{user.studentId}}' wx:for-item="user" wx:for-index='stuIndex'>
+      <view class="weui-cell__hd userName">
+        <checkbox value='{{index+",stu,"+stuIndex}}' checked='{{user.selected}}'>{{user.name+' '+user.tel}}</checkbox>
+      </view>
+    </view>
+
+  </view>
+</checkbox-group>
+<view class='footer btnWrapper'>
+  <checkbox-group bindchange="selectAll" style='color:{{allUserCount==0?"#999":"#333"}}'>
+    <checkbox value="1" checked='{{selectAll}}' disabled='{{allUserCount==0?true:false}}'/>全选
+  </checkbox-group>
+  <button bindtap='finishSelct'>确定</button>
+</view>

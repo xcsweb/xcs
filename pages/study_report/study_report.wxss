@@ -1,0 +1,102 @@
+.topBtnArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 6px;
+  padding-top: 10px;
+  background: #fff;
+  margin-top: -5px;
+  margin-bottom: 20rpx;
+  height: 30px; }
+
+.topBtnArea view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px; }
+
+.topBtnArea button {
+  color: #666;
+  background: white; }
+
+.topBtnArea button image {
+  width: 30rpx;
+  height: 20rpx; }
+
+.weui-search-bar {
+  border-bottom: none; }
+
+.footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background: #FF7547;
+  color: white;
+  display: flex;
+  align-items: center; }
+
+.footer view {
+  flex: 1;
+  text-align: center;
+  height: 90rpx;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.footer view:nth-child(1) {
+  border-right: 1rpx solid #fff; }
+
+.footer view:nth-child(2) {
+  border-right: 1rpx solid #fff; }
+
+.footer_ {
+  height: 90rpx; }
+
+.listItem {
+  display: flex;
+  padding: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: white;
+  justify-content: center;
+  align-items: center; }
+
+.circleCheckbox {
+  padding: 10rpx; }
+
+.listItem .avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  margin-right: 20rpx;
+  background: #ccc; }
+
+.listItem .body {
+  flex: 1;
+  font-size: 34rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 44rpx; }
+
+.listItem .body .name {
+  color: #333; }
+
+.listItem .body .position {
+  font-size: 30rpx;
+  color: #666666; }
+
+.listItem .body .position_ {
+  font-size: 30rpx;
+  color: #FF7547; }
+
+.listItem .status {
+  width: 80rpx;
+  font-size: 30rpx; }
+
+.listItem .num {
+  font-size: 30rpx;
+  color: #FF7547; }

@@ -1,0 +1,86 @@
+.course{
+  background: #f3f3f3;
+  color: #333;
+  font-size: 34rpx;
+  padding: 20rpx;
+}
+.modal-content{
+  border-bottom: 1px solid #dedede;
+}
+.modal-content:last-child{
+  border-bottom: none;
+}
+.discounts{
+  background: #f3f3f3;
+  color: #333;
+  font-size: 34rpx;
+}
+.discounts .discount{
+  display: flex;
+  padding: 20rpx 40rpx;
+  align-items: center;
+}
+.discounts .viewdetail{
+  text-align: center;
+  border-top: 1px solid #ddd;
+  padding: 20rpx;
+}
+.discounts .discount .dot{
+  display: inline-block;
+  width: 14rpx;
+  height: 14rpx;
+  background: #777;
+  margin-right: 20rpx;
+  border-radius: 100px;
+}
+.listItem{
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  align-items: center;
+  overflow: hidden;
+  font-size: 34rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+.listItem .title{
+  color: #000;
+}
+.listItem .arrow{
+  color: #C7C7CC;
+  font-size: 30rpx;
+}
+
+.listItem .arrow_white{
+  color: #fff;
+  font-size: 30rpx;
+}
+.listItem input{
+  flex: 1;
+  text-align: right;
+  padding-left: 50rpx;
+}
+
+.listItem .fakeInput{
+  flex: 1;
+  text-align: right;
+  padding-left: 50rpx;
+  min-height: 50rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.listItem picker,com-picker,com{
+  flex: 1;
+  text-align: right;
+}
+
+.listItem picker view{
+  min-height: 36rpx;
+  max-width: initial;
+}
+.divider{
+  background: #F3F3F7;
+  color: #000;
+  font-size: 34rpx;
+  padding: 20rpx;
+}

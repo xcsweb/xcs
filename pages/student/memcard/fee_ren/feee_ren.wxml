@@ -1,0 +1,53 @@
+<!--pages/student/memcard/fee_ren/feee_ren.wxml-->
+<view class='mess_list'>
+  <view class='li'>
+    <text>校区/分馆</text>
+    <text class='result'>{{campusNames}}</text>
+  </view>
+  <view class='li'>
+    <text>选择的卡</text>
+    <text class='result'>{{name}}</text>
+  </view>
+  <view class='li'>
+    <text>项目</text>
+    <text class='result'>{{trainCategoryNames}}</text>
+  </view>
+  <view class='li'>
+    <text>金额</text>
+    <text class='result'>{{salesAmount}}</text>
+  </view>
+  <view class='li'>
+    <text>扣费类型</text>
+    <text class='result' wx:if="{{chargeType==0}}">课时</text>
+    <text class='result' wx:if="{{chargeType==1}}">课次</text>
+    <text class='result' wx:if="{{chargeType==2}}">储值卡</text>
+    <text class='result' wx:if="{{chargeType==3}}">有效期</text>
+  </view>
+  <view class='li'>
+    <text>优惠活动</text>
+    <picker range='{{courseDiscountDetails}}' range-key='courseDiscountName' value='{{index}}' bindchange='pickerChange' data-indexname='courseindex'>
+    
+    <text class='result'>{{}}</text>
+      <view>{{courseDiscountDetails[courseindex||0].courseDiscountName}}</view>
+    </picker>
+  </view>
+  <view class='li'>
+    <text>实收金额</text>
+    <text class='result'>{{courseDiscountDetails[courseindex||0].discountSalesAmount}}</text>
+  </view>
+</view>
+<!-- <view class='mess_list'>
+  <view class='li'>
+    <text>关联销售</text>
+    <text class='result'>{{courseId}}</text>
+  </view>
+</view>
+<view class='mess_list'>
+  <view class='li'>
+    <text>立即激活使用</text>
+    <text class='result'>{{courseId}}</text>
+  </view>
+</view>
+<view class='btn_li'>
+  <button>提交</button>
+</view> -->

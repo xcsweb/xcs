@@ -1,0 +1,19 @@
+/* pages/my_class/class_blog/class_placard/class_placard.wxss */
+.placard_li{
+  margin-top:20rpx;
+  padding: 20rpx;
+  background: #fff;
+  font-size: 34rpx;
+}
+.placard_li .title{
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+.placard_li .content{
+  display: block;
+  color: #666;
+  line-height: 1.2;
+  word-break: break-all;
+}

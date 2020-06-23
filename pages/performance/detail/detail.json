@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "绩效详情页",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs",
+    "com-picker": "/components/smartPicker/smartPicker",
+    "com-multichoice": "/components/multichoice/multichoice"
+  }
+}

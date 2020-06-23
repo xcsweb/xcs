@@ -1,0 +1,26 @@
+/* pages/student/my_profile/aboutus/aboutus.wxss */
+.mess_top, .mess {
+  margin: 20rpx 0;
+  font-size: 34rpx;
+  line-height: 1;
+  color: #333;
+  background: #fff;
+}
+
+.mess_top image {
+  display: block;
+  margin: 0 auto;
+  padding: 30rpx 0;
+  width: 196rpx;
+  height: 162rpx;
+}
+
+.mess_top text {
+  display: block;
+  padding-bottom: 30rpx;
+  text-align: center;
+}
+
+.mess {
+  padding: 25rpx 40rpx;
+}

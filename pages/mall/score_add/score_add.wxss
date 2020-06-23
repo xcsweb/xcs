@@ -1,0 +1,73 @@
+.info{
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: white;
+  color: #333;
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.info button{
+  height: 60rpx;
+  padding: 0rpx 10rpx;
+  font-size: 34rpx;
+  display: inline-flex;
+  align-items: center;
+  background-color: #A375FF;
+  color: white;
+}
+.inputs{
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: white;
+  color: #333;
+  font-size: 34rpx;
+  display: flex;
+  justify-content: center;
+}
+.inputs com-picker{
+  border: 1px solid #f1f1f1;
+  border-radius: 10rpx;
+  flex: 2;
+  margin-left: 10rpx;
+}
+.inputs picker view{
+  position: relative;
+  padding-left: 10rpx;
+  padding-right: 30rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.inputs picker image{
+  position: absolute;
+  right: 10rpx;
+  top: 20rpx;
+}
+.inputs com-input{
+  border: 1px solid #f1f1f1;
+  margin-left: 10rpx;
+  border-radius: 10rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  font-size: 34rpx;
+  width: 200rpx;
+}
+.textarea{
+  padding: 20rpx;
+  background: white;
+  margin-top: 20rpx;
+}
+.textarea textarea{
+  flex: 1;
+}
+
+.btnWrapper {
+  padding: 15px;
+}
+
+.btnWrapper button {
+  background-color: #fe7446;
+  color: white;
+}

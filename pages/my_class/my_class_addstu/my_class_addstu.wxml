@@ -1,0 +1,9 @@
+<checkbox-group bindchange="checkboxChange">
+  <view class='listItem' wx:for='{{mockData}}' wx:key='*this'>
+    <checkbox value="{{item.classesTimeId}}"  class='circleCheckbox' checked="{{item.checked}}" ><view>{{item.weekStr}}</view></checkbox>
+  </view>
+</checkbox-group>
+<view class='footer_'></view>
+<view class='footer' bindtap='addStu' hover-class='btn-hover'>
+  确定新增
+</view>

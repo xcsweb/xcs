@@ -1,0 +1,73 @@
+<!--components/filterquery/index.wxml-->
+<view class='search_bar'>
+  <view class="{{searchBool=='true'? 'weui-search-bar':'weui-search-bar serchB'}}">
+    <view class="weui-search-bar__form" wx:if="{{searchBool=='true'}}">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="{{placeholder}}" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="_inputTyping" bindconfirm="_search" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="_clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="_showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">{{placeholder}}</view>
+      </label>
+    </view>
+    <view class="btn1" bindtap='_showFilter' wx:if='{{filter&&!inputShowed}}'>
+      {{filterText}}
+      <image src='/imgs/trangle.png' style='width:10px;height:8px' mode='aspectFill' hidden="{{filterimg}}"></image>
+    </view>
+    <button bindtap='bindfilter'>{{filterText}}
+      <image class='trangle' src='/imgs/common/trangle.png'></image>
+    </button>
+  </view>
+</view>
+<view class='animation' animation="{{animationData}}" style="height:100%;position:fixed;{{filtershow ? 'visibility:visible;':'visibility:hidden;'}}">
+  <view class='animation-content'>
+    <view class='option' wx:for='{{filterParam}}' wx:index='index' wx:key='{{index}}'>
+      <view class='option_title'>
+        <text>{{item.title}}</text>
+      </view>
+      <view class='option_param_op' wx:if='{{item.type==1}}'>
+        <picker range="{{item.data}}" value="{{item.index}}" range-key="codeDisplay" data-index="{{index}}" data-value='{{item.data[item.index].codeValue}}' bindchange="bindSelectChange">
+          <view class='mess'>{{item.data[item.index].codeDisplay||'全部'}}
+            <image class="down_s" src='/imgs/common/down_s.png'></image>
+          </view>
+        </picker>
+      </view>
+      <view class='option_param_se' wx:if='{{item.type==2}}'>
+        <input type='digit' placeholder='最低' bindinput="bindKeyInput" data-index="{{index}}" data-num="1" value='{{item.val1}}' />
+        <text>-</text>
+        <input type='digit' placeholder='最高' bindinput="bindKeyInput" data-index="{{index}}" data-num="2" value='{{item.val2}}' />
+        <view class='autoHeight'></view>
+      </view>
+      <view class='option_param_dt' wx:if='{{item.type==3}}'>
+        <picker mode="date" data-index="{{index}}" data-num="1" bindchange="bindDateChange">
+          <input class='mess' value='{{item.val1}}' disabled='true'></input>
+        </picker>
+        <image src='/imgs/common/calendar.png' class='rili'></image>
+        <text style='margin: 0 20rpx;'>-</text>
+        <picker mode="date" data-index="{{index}}" data-num="2" bindchange="bindDateChange">
+          <input class='mess' value='{{item.val2}}' disabled='true'></input>
+        </picker>
+        <image src='/imgs/common/calendar.png' class='rili'></image>
+        <view class='autoHeight'></view>
+      </view>
+      <view class='option_param_bt' wx:if='{{item.type==4}}'>
+        <block wx:for="{{item.data}}" wx:key="item.codeValue" wx:for-index="i">
+          <button class="{{item.type ? 'active':'' }}" data-index='{{index}}' data-i="{{i}}" bindtap='choosebtn'>{{item.codeDisplay}}</button>
+        </block>
+      </view>
+
+      <view class='' wx:if='{{item.type==5}}'>
+        <switch name='isSendDt' checked="{{item.data}}" bindchange='bindIsSend' data-index="{{index}}" />
+      </view>
+
+    </view>
+    <view class='option_btn'>
+      <button class='cancel' bindtap='bindfilterCancel'>取消</button>
+      <button class='submit' bindtap='bindfilterSubmit'>确定</button>
+    </view>
+  </view>
+</view>

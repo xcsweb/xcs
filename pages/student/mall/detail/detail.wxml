@@ -1,0 +1,44 @@
+<swiper autoplay="true" bindchange='swiperChange'>
+  <block wx:for="{{data.imgfiles}}" wx:key='*this'>
+    <swiper-item>
+      <image src="{{item.img}}" class="slide-image" />
+      <view class='swiperNum' wx:if='{{data.imgfiles.length>0}}'>{{current}}/{{data.imgfiles.length}}</view>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='brife'>
+  <view class='price'>{{data.val}}</view>
+  <view class='title'>{{data.name}}
+  </view>
+  <view class='info'>剩余数量：{{data.num}}
+    <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</text>上架时间：{{data.startDt_}}</view>
+</view>
+<view class='detail'>
+  <view class='title'>
+    <view class='blk'></view>
+    商品详情：
+  </view>
+  <view>
+    {{data.content}}
+  </view>
+</view>
+
+<view class='line2'>
+  物品数量
+  <view style='flex:1;color:#999;margin-left:20rpx;'></view>
+  <view class='number'>
+    <view class='reduce' bindtap='reduce' style='color:{{data.number_==0?"#aaa":""}}'>-</view>
+    <view>{{number_}}</view>
+    <view class='add' bindtap='add' style='color:{{data.number_ == data.restrictNum?"#aaa":""}}'>+</view>
+  </view>
+</view>
+<view class='hint' wx:if='{{data.restrictNum>0}}'>备注：每人限{{data.buyTypeTxt+data.restrictNum}}件</view>
+<view class='line2'>
+  校区/分馆
+  <view style='flex:1;color:#999;margin-left:20rpx;'></view>
+  <com-picker border='1' arrow='1' range='{{campus}}' key='name' name='campusIndex'></com-picker>
+</view>
+<view class='footer_'></view>
+<view class='footer'>
+  <button class='stuBtn' hover-class='btn-hover-stu' bindtap='add_goods_order'>{{data.buyBtnText}}</button>
+</view>

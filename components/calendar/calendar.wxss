@@ -1,0 +1,139 @@
+
+@font-face {
+  font-family: 'iconfont';  /* project id 785786 */
+  src: url('//at.alicdn.com/t/font_785786_3258buyblse.eot');
+  src: url('//at.alicdn.com/t/font_785786_3258buyblse.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_785786_3258buyblse.woff') format('woff'),
+  url('//at.alicdn.com/t/font_785786_3258buyblse.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_785786_3258buyblse.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-delete:before { content: "\e61b"; }
+
+.icon-arrowdown:before { content: "\e61a"; }
+
+.icon-arrow:before { content: "\e601"; }
+
+.icon-arrow-up:before { content: "\e60b"; }
+
+.icon-icons-:before { content: "\e67a"; }
+
+.icon-delete1:before { content: "\e769"; }
+
+.animation1{
+  transform: rotateY(360deg);
+  transition: transform 0.32s ease;
+}
+.animation2{
+  transform: rotateY(-360deg);
+  transition: transform 0.2s ease;
+}
+/*日历*/
+.calendar{
+  margin: 20rpx 0; 
+  background: #fff;
+  overflow: hidden;
+  transition: height 0.3s ease;
+  margin-bottom: 0rpx;
+}
+.calendar_body{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.dateBox{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1px solid #F2F2F2;
+  display: flex;
+  z-index: 9;
+}
+.dateBox ._title{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex: 1;
+}
+.dateBox ._title view,picker{
+  flex: 1;
+}
+.dateBox text{
+  font-size: 34rpx!important;
+  padding: 10rpx 20rpx;
+}
+.calendar_body>view{
+  height: 130px;
+  line-height: 130px;
+  text-align: center;
+  font-size: 30rpx;
+  color: #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calendar_body>view>view{
+  padding: 10rpx;
+  border-radius:100%;
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dateOn{
+  background-color: #FFBB00;
+}
+.calendar_footer{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 22rpx;
+  color: #666;
+  margin-top: 10rpx;
+}
+.calendar_footer>view{
+  display: flex;
+  align-items: center;
+}
+.calendar_footer .dot{
+  display: inline-block;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 15rpx;
+  background: red;
+  margin-right: 10rpx;
+}
+.calendar_footer2{
+  text-align: center;
+  background: white;
+  margin-bottom: 20rpx;
+}
+.calendar_footer2 image{
+  width: 40rpx;
+  height: 30rpx;
+  transition: transform 0.3s ease;
+}
+.otherMonth{
+  color: #999;
+  z-index: 8;
+}
+._item{
+  z-index: 8;
+}
+.week{
+  z-index: 9;
+}

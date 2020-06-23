@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "绩效排行榜",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs"
+  }
+}

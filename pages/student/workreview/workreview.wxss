@@ -1,0 +1,146 @@
+/* pages/student/workreview/workreview.wxss */
+.calendar_bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx 0;
+  padding: 25rpx;
+  background: #fff;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.calendar_bar input {
+  margin: 0 20rpx;
+  width: 190rpx;
+  color: #666;
+  border-bottom: 1px solid #bdbdbd;
+}
+
+.calendar_bar image {
+  width: 47rpx;
+  height: 49rpx;
+}
+.li {
+  padding: 25rpx 35rpx;
+  position: relative;
+  background: #fff;
+  font-size: 34rpx;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.li text {
+  display: block;
+}
+
+.li .num_on {
+  display: inline-block;
+  color: #fda7a8;
+}
+
+.li .end_m {
+  display: flex;
+  align-items: center;
+}
+
+.li .ico_up {
+  margin-left: 20rpx;
+  display: inline-block;
+  width: 25rpx;
+  height: 16rpx;
+  padding: 20rpx 40rpx 20rpx 30rpx;
+}
+
+.li .btn_read {
+  position: absolute;
+  right: 35rpx;
+  top: 45%;
+  display: inline-block;
+  font-size: 30rpx;
+  background: #fda7a8;
+  color: #fff;
+  line-height: 2;
+}
+
+.work_li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+  background: #f9f9f9;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 34rpx;
+  color: #666;
+}
+
+.work_li .ico_right {
+  width: 18rpx;
+  height: 29rpx;
+}
+
+.sum_up {
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.sum_li {
+  padding: 20rpx;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.sum_li image {
+  width: 18rpx;
+  height: 29rpx;
+}
+
+.range_top {
+  display: flex;
+  margin: 20rpx 0;
+  padding: 20rpx 0;
+  background: #fff;
+}
+
+.range_top button {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 34rpx;
+  line-height: 2;
+  padding: 0 30rpx;
+}
+
+.range_top .trangle {
+  margin-left: 10rpx;
+  width: 14rpx;
+  height: 10rpx;
+}
+
+.class_li {
+  position: relative;
+  padding: 30rpx;
+  background: #fff;
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.class_li text {
+  display: block;
+}
+
+.class_li image {
+  position: absolute;
+  right: 30rpx;
+  top: 45%;
+  width: 18rpx;
+  height: 29rpx;
+}

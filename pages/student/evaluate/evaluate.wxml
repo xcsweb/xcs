@@ -1,0 +1,18 @@
+<view class='title'>点评课程：
+  <text class='value'>{{evaluate_teacher.clsName}}</text>
+</view>
+<view class='teachersWrapper'>
+  <view class='title'>点评老师</view>
+  <view class='teachers'>
+    <view class='teacher' wx:for='{{evaluate_teacher.teacherList}}' wx:key='{{item.teacherMemberId}}' style='background:{{item.selected?"#ccc":"white"}};color:{{item.selected?"white":"#666"}}' bindtap='teacher' data-index='{{index}}' wx:if='{{item.isEval==0}}'>{{item.teacherMemberName}}</view>
+  </view>
+</view>
+<view class='title'>内容:</view>
+<textarea bindinput='evaluate' value='{{evaluate}}' placeholder='编辑点评内容' placeholder-style='color:#999;'></textarea>
+<view class='title'>星级:</view>
+<view class='title' style='padding-top:0px;'>
+<com-rating size='35' bindchange='rating' starType='1' rating='{{performance}}'/>
+</view>
+<view class='btnWrapper2'>
+  <button bindtap='addevaluate_teacher' disabled='{{disableBtn?true:false}}'>提交</button>
+</view>

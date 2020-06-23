@@ -1,0 +1,110 @@
+.comment {
+  display: flex;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  border-bottom: 1px solid #ddd;
+  background: white; }
+  .comment .avatar {
+    width: 90rpx;
+    height: 90rpx;
+    background: #ccc;
+    border-radius: 100rpx;
+    margin-right: 10rpx; }
+  .comment .zanimg {
+    width: 40rpx;
+    height: 40rpx;
+    float: right;
+    margin-top: 10rpx; }
+  .comment .username {
+    color: #333;
+    font-size: 34rpx;
+    line-height: 46rpx; }
+  .comment .username2 {
+    color: #999;
+    font-size: 34rpx;
+    line-height: 46rpx; }
+    .comment .username2 text {
+      color: #666; }
+  .comment .nameDate {
+    flex: 1; }
+  .comment text {
+    color: #999;
+    font-size: 28rpx;
+    float: right; }
+  .comment .content {
+    color: #666;
+    font-size: 34rpx;
+    padding: 0rpx; }
+  .comment .clsName {
+    color: #333;
+    font-size: 34rpx; }
+
+.title {
+  font-size: 40rpx;
+  color: #333;
+  padding: 10rpx 20rpx;
+  background: white; }
+
+.date {
+  font-size: 30rpx;
+  color: #999;
+  padding: 0rpx 20rpx;
+  background: white; }
+
+.imgs {
+  padding: 20rpx;
+  background: white; }
+
+.content {
+  background: white;
+  font-size: 34rpx;
+  color: #333;
+  padding: 0rpx 20rpx; }
+
+.shenming {
+  color: #999;
+  font-size: 30rpx;
+  background: white;
+  padding: 20rpx; }
+
+.zans {
+  color: #999;
+  font-size: 30rpx;
+  background: white;
+  text-align: center;
+  padding: 20rpx;
+  margin-bottom: 20rpx; }
+  .zans image {
+    width: 40rpx;
+    height: 40rpx; }
+
+.imgs image {
+  height: 400rpx !important; }
+
+.footer_ {
+  height: 100rpx; }
+
+.footer {
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  background: white;
+  display: flex;
+  box-sizing: border-box;
+  padding: 10rpx; }
+  .footer button {
+    background-color: #FE9E9F;
+    color: white; }
+  .footer com-input {
+    flex: 1;
+    border: 1rpx solid #eee;
+    border-radius: 12rpx;
+    margin-right: 10rpx;
+    display: flex;
+    align-items: center;
+    padding-left: 10rpx; }
+    .footer com-input input {
+      padding: 0rpx 10rpx;
+      font-size: 28rpx !important;
+      color: #999 !important;
+      flex: 1; }

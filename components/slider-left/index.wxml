@@ -1,0 +1,16 @@
+<movable-area class="slider-left-item" style="width:calc({{openWidth}}px + 750rpx);margin-left:-{{openWidth}}px;">
+  <movable-view class="slider-left-content" style='background:{{bg}}'
+    damping="100"
+    x="{{x}}"
+    direction="horizontal"
+    bind:touchstart="handleTouchestart"
+    bind:touchend="handleTouchend"
+    bind:change="handleChange">
+    <slot></slot>
+  </movable-view>
+  <view class='slider-left-handle' >
+    <view bind:tap="handleDelete"  style="width:{{openWidth}}px" class='handle-delete'>
+    <image src='/imgs/delete1.png' class='delete'></image>  
+    </view>
+  </view>
+</movable-area>

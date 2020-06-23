@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "课程详情",
+    "usingComponents": {
+      "com-rating": "/components/rating/rating",
+      "com-multichoice": "/components/multichoice/multichoice"
+    }
+}

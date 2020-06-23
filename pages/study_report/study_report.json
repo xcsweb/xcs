@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "学情报告",
+  
+  "usingComponents": {
+    "com-searchfilter": "/components/searchfilter/index"
+  }
+}

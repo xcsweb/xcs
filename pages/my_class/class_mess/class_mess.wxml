@@ -1,0 +1,18 @@
+<!--pages/my_class/class_mess/class_mess.wxml-->
+<navigator class='range_top' url="/pages/my_class/class_mess/class_messlist/class_measslist" hover-class="none">
+  <button>短信记录</button>
+</navigator>
+<view class='choose_class'>
+  <text>选择班级</text>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{classes}}" range-key="name">
+    <button>{{classes[index].name}}
+      <image class='trangle' src='/imgs/common/trangle.png'></image>
+    </button>
+  </picker>
+
+</view>
+<textarea data-dataname='messarea' bindinput="bindKeyInput" placeholder='请输入内容' value='{{messarea}}'></textarea>
+<text class='mess_num'>短信可用条数：{{smsCnt}}</text>
+<view class='btn_bar'>
+  <button bindtap='postmess'>确定</button>
+</view>

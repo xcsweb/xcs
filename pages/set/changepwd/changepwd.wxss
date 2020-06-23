@@ -1,0 +1,29 @@
+/* pages/set/changepwd/changepwd.wxss */
+.list{
+  margin: 20rpx 0;
+  background: #fff;
+}
+.li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 40rpx;
+  font-size: 34rpx;
+  line-height: 1;
+  color: #333;
+  border-bottom: 1px solid #F8F8F8;
+}
+.li input{
+  flex: 1;
+  margin: 0 10rpx;
+  text-align: right;
+}
+.li button{
+  font-size: 30rpx;
+  color: #666;
+}
+.btn_down{
+  margin: 300rpx 30rpx 0 30rpx;
+  background: #FE8359;
+  color: #fff;
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "学员试课",
+  "usingComponents": {
+    "com-searchfilter": "/components/searchfilter/index"
+  }
+}

@@ -1,0 +1,135 @@
+checkbox .wx-checkbox-input{
+   border-radius: 100px;
+   overflow: hidden;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: 1px solid #FF7547;
+
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   color:#FF7547; /* 对勾颜色 白色 */
+   text-align: center;
+}
+.weui-cells{
+  margin-top: 10px;
+}
+.icon-arrow{
+  transform: rotate(90deg)
+}
+.weui-cell__hd{
+  flex: 1;
+}
+checkbox{
+  color: #333;
+  font-size: 34rpx;
+  display: block;
+}
+.weui-cell__ft_in-access{
+  width: 50px;
+  display: inline-block;
+  min-width: 50px;
+  height: 30px;
+  min-height: 30px;
+}
+.footer{
+  display: flex;
+  align-items: center;
+  background: white;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  justify-content: space-around;
+  font-size: 34rpx;
+  color: #333;
+}
+.footer view,button{
+  flex: 1;
+  padding: 20rpx;
+  text-align: center;
+}
+.footer button{
+  height: 90rpx;
+  padding: 0rpx!important;
+  background: #ff6636;
+  border-radius: 0rpx;
+  color: white;
+  line-height: 90rpx;
+  font-size: 34rpx;
+}
+.footer button::after{
+  border: none;
+  border-radius: 0rpx;
+  display: none;
+}
+.footer view:last-child{
+  background: #ff6636;
+  color: white;
+}
+.position{
+  color: #666;
+  font-size: 34rpx;
+  padding-left: 40px;
+  background: #F7F7F7;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* .weui-cells:last-child{
+  margin-bottom: 100px;
+} */
+.userName{
+  color: #666;
+  font-size: 34rpx;
+}
+
+.className{
+  color: #333;
+  font-size: 34rpx;
+}
+.header{
+  margin: 20rpx 0rpx;
+  display: flex;
+  background: white;
+  padding: 20rpx 40rpx;
+  justify-content: center;
+  font-size: 34rpx;
+  color: #333;
+  text-align: center;
+  overflow: hidden;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+.header picker{
+  flex: 1;
+  border:1rpx solid #eee;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+}
+
+.header picker view{
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10rpx;
+  padding-right: 40rpx;
+}
+.header image{
+  width:30rpx;
+  height: 20rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 35%;
+}
+.subheader{
+  background: white;
+  padding: 20rpx 40rpx;
+  padding-bottom: 5rpx;
+}
+.subheader button{
+  height: 70rpx;
+  padding: 0rpx 30rpx!important;
+  line-height:70rpx;
+  color: #333;
+  display: inline-block;
+  font-size: 34rpx;
+}

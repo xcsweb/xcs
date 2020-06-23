@@ -1,0 +1,47 @@
+<view class='wrapper'>
+  <view class='title'>
+    <view class='block'></view>
+    <view class='text'>未查看(<text>{{unread.length}}</text>)</view>
+  </view>
+  <view class='body'>
+    <view class='avatar' wx:for='{{unread}}'>
+      <image src='{{item.avatar}}'></image><view>\n{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<view class='wrapper'>
+  <view class='title'>
+    <view class='block'></view>
+    <view class='text'>已查看(<text>{{isRead.length}}</text>)</view>
+  </view>
+  <view class='body'>
+    <view class='avatar' wx:for='{{isRead}}'>
+      <image src='{{item.avatar}}'></image><view>\n{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<view class='wrapper' wx:if='{{isUseConfirm==1}}'>
+  <view class='title'>
+    <view class='block'></view>
+    <view class='text'>未确认(<text>{{isNotConfirm.length}}</text>)</view>
+  </view>
+  <view class='body'>
+    <view class='avatar' wx:for='{{isNotConfirm}}'>
+      <image src='{{item.avatar}}'></image><view>\n{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<view class='wrapper' wx:if='{{isUseConfirm==1}}'>
+  <view class='title'>
+    <view class='block'></view>
+    <view class='text'>已确认(<text>{{isConfirm.length}}</text>)</view>
+  </view>
+  <view class='body'>
+    <view class='avatar' wx:for='{{isConfirm}}'>
+      <image src='{{item.avatar}}'></image><view>\n{{item.name}}</view>
+    </view>
+  </view>
+</view>

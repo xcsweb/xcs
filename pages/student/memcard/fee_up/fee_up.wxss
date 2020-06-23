@@ -1,0 +1,30 @@
+/* pages/student/memcard/fee_up/fee_up.wxss */
+
+.mess_list {
+  margin-top: 20rpx;
+  background: #fff;
+}
+
+.mess_list .li {
+  padding: 25rpx 35rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.mess_list .li .result {
+  text-align: right;
+  color: #ccc;
+}
+
+.btn_li {
+  padding: 50rpx 30rpx;
+}
+
+.btn_li button {
+  background: #fda7a8;
+  color: #fff;
+}

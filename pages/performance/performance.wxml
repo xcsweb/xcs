@@ -1,0 +1,4 @@
+<com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话' />
+<view class='list' wx:if='{{list&&list.length>0}}'>
+  <com-performance wx:for='{{list}}' wx:key='{{item.id}}' data='{{item}}' bindtap='toDetail' data-index='{{index}}'></com-performance>
+</view>

@@ -1,0 +1,25 @@
+page {
+  background-color: #f7f7f7;
+}
+
+.title {
+  color: #333;
+  font-size: 34rpx;
+  margin: 0 auto;
+}
+
+.content {
+  display: block;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.content {
+  padding: 42rpx;
+  color: #666;
+}

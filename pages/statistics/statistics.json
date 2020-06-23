@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "统计",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs",
+    "com-input": "/components/smartInput/smartInput",
+    "com-daterange": "/components/daterange/daterange",
+    "com-tags": "/components/tags/tags"
+  }
+}

@@ -1,0 +1,18 @@
+<!--pages/my_class/class_mess/class_messnum/class_messnum.wxml-->
+<view class='list'>
+  <view class='li' wx:for="{{sendUser}}" wx:for-item="item" wx:key="item.name">
+    <view class='mess'>
+      <text>接收人名字：{{item.name}}</text>
+      <text>接收人电话：{{item.tel}}</text>
+    </view>
+    <text class='type on' wx:if="{{smsResult == 1}}">发送失败</text>
+    <text class='type' wx:if="{{smsResult == 0}}">发送成功</text>
+  </view>
+  <!-- <view class='li'>
+    <view class='mess'>
+      <text>接收人名字：王佳奥</text>
+      <text>接收人电话：13422348722</text>
+    </view>
+    
+  </view> -->
+</view>

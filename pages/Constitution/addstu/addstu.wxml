@@ -1,0 +1,50 @@
+<view class='header'>
+  体测进行 校区/分馆
+  <picker range='{{campus}}' range-key='name' bindchange='campusChange2'>
+    <view>{{campus[campusIndex2||0].name}}
+      <image src='/imgs/common/trangle.png'></image>
+    </view>
+  </picker>
+</view>
+<view class='header'>
+  学员归属 校区/分馆
+  <picker range='{{campus}}' range-key='name' bindchange='campusChange'>
+    <view>{{campus[campusIndex||0].name}}
+      <image src='/imgs/common/trangle.png'></image>
+    </view>
+  </picker>
+</view>
+<view class='subheader'>
+  <button bindtap='selectAll' style='background:{{selectAll?"#ccc":""}}'>全选</button>
+</view>
+<form bindsubmit="formSubmit">
+  <view wx:for="{{classes}}" wx:for-item="class" wx:key='{{class.id}}' name='classId{{class.id}}'>
+    <checkbox-group bindchange='checkboxgroupChange' data-classId='{{class.id}}'>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__hd">
+            <checkbox value='-{{class.id}}' checked='{{class.checked}}'>{{class.name}}</checkbox>
+          </view>
+          <view class="weui-cell__ft" catchtap='showUser' data-index='{{index}}'>
+            <view style='transform:rotate(-90deg);'>
+              <text class="iconfont icon-arrow" wx:if='{{!class.showUser}}'></text>
+            </view>
+            <text class="iconfont icon-arrowdown" wx:if='{{class.showUser}}'></text>
+          </view>
+        </view>
+      </view>
+    </checkbox-group>
+    <checkbox-group bindchange='checkboxgroupChange' name="classId{{class.id}}" data-classId='{{class.id}}'  hidden="{{!class.showUser}}">
+      <view class="weui-cell" wx:for-item="student" wx:for="{{class.person.students}}" wx:key='{{student.studentId}}'>
+        <view class="weui-cell__hd">
+          <checkbox value='{{student.studentId}}' checked='{{student.checked}}'>{{student.name}}</checkbox>
+        </view>
+      </view>
+    </checkbox-group>
+  </view>
+  <view style='height:100rpx;'></view>
+  <view class='footer'>
+    <view bindtap='back'>取消</view>
+    <button formType="submit">确定</button>
+  </view>
+</form>

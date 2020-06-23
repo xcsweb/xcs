@@ -1,0 +1,101 @@
+.body{
+  padding-bottom:10px;
+}
+.vod_vfra{
+  height: 356rpx;
+}
+.vod_vfra .vod{
+  width: 100%;
+  height: 356rpx;
+  object-fit:cover;
+}
+.vod_vfra .vodflag {
+  width:30px;
+  height:40px;
+  top:120rpx;
+  position:absolute;
+  left:45%;
+}
+.media{
+  border-bottom:1px solid #D7D7D7;
+}
+.media .all{
+  padding: 10px 10px 5px 10px;
+  background-color: #fff;
+  height:auto;
+  text-align: center;
+}
+.vods{
+  overflow: hidden;
+}
+.vods view{
+  width: 58px;
+  height:38px;
+  margin-right: 7px;
+  border-radius: 7rpx;
+  border:2rpx solid #D7D7D7;
+  text-align:center;
+  float:left;
+  line-height:38px;
+  margin-bottom: 15rpx;
+}
+.vods view.selected{
+  border-color: #02A7F0;
+}
+.imgs{
+  height: 95px;
+  margin-top: 10px;
+  border-top: 2rpx solid #D7D7D7;
+  padding-bottom: 10rpx;
+}
+.body .layout{
+  padding: 20rpx 60rpx;
+  border-top: 1px solid #D7D7D7;
+  border-bottom: 1px solid #D7D7D7;
+  background-color: #fff;
+  margin-top: 10px;
+}
+.layout .tt{
+  font-size:32rpx;
+  margin:18rpx 0;
+}
+.layout .ctt{
+  color:#c2c2c2;
+  font-size:30rpx;
+}
+.ctdb{
+  color:#c2c2c2;
+  font-size:30rpx;
+  height:60rpx;
+
+}
+.ctdb .ttl{
+  float: left;
+}
+.ctdb .ttr{
+  float: right;
+}
+.ctdc{
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+.ctdc .ttl{
+  width: 22%;
+  float: left;
+  color:#000;
+  font-size:30rpx;
+}
+.ctdc .progress{
+  padding: 0 10px;
+  width: 55%;
+  float: left;
+}
+.ctdc .ttr{
+  width: 23%;
+  float: right;
+  text-align: center;
+  color:#c2c2c2;
+  font-size:30rpx;
+}

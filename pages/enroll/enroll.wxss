@@ -1,0 +1,83 @@
+/* pages/enroll/enroll.wxss */
+
+.enrollBtnWrapper {
+  background: white;
+  display: flex;
+  justify-content: center;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  padding-bottom:0px;
+}
+
+.enrollBtnWrapper button {
+  background-color: white;
+  color: #666;
+  font-size: 34rpx;
+  line-height: 60rpx;
+  overflow: auto;
+  border: 1rpx solid #dfdfdf;
+}
+
+.enrollBtnWrapper button::after {
+  border: none;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid #dfdfdf;
+  padding: 20rpx;
+}
+.listItem .avatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  margin-right: 20rpx;
+}
+
+.listItem .body {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.listItem .body .name {
+  font-size: 34rpx;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  padding-right:20rpx;
+}
+
+.listItem .body .nameDesc {
+  font-size: 34rpx;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.listItem .body .desc {
+  font-size: 34rpx;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  padding-right:20rpx;
+}
+
+.listItem button {
+  background-color: #FFCC66;
+  color: #333;
+  border-radius: 2px;
+  font-size: 34rpx;
+  padding: 0rpx 15rpx;
+  line-height: 60rpx;
+}
+.listItem button::after{
+  border: none;
+}
+.tab1content,.tab2content,.tab3content,.tab4content{
+  margin-top:20rpx;
+}

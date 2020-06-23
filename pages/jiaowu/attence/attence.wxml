@@ -1,0 +1,47 @@
+<!--pages/jiaowu/attence/attence.wxml-->
+<!--<com-searchbar bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话/卡号/班级名称' />-->
+<com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话/卡号/班级名称' />
+<view class='nav_attence'>
+  <view bindtap='changeTab' data-id='0' class="{{tabid==0 ? 'active':'' }}">签到({{beginsCnt}})
+    <view class='hr'></view>
+  </view>
+  <view bindtap='changeTab' data-id='1' class="{{tabid==1 ? 'active':'' }}">请假({{leaveCnt}})
+    <view class='hr'></view>
+  </view>
+  <view bindtap='changeTab' data-id='2' class="{{tabid==2 ? 'active':'' }}">缺勤({{absenteeismoCnt}})
+    <view class='hr'></view>
+  </view>
+</view>
+
+<view class='attence_list'>
+  <view class='attence_li' wx:for="{{list}}" wx:for-item="item" wx:key="item.id">
+    <view class='mess'>
+      <text class='name'>{{item.studentName}}</text>
+      <text>校区/分馆：{{item.campusName}}</text>
+      <text>上课班级：{{item.classesName}}</text>
+      <text>上课时间：{{item.day}}</text>
+      <view wx:if="{{tabid == 0}}">
+        <text>签到人：{{item.attenMemberName}}</text>
+        <text>签到时间：{{item.checkInDt}}</text>
+      </view>
+      <view wx:elif="{{tabid == 1}}">
+        <text>请假时间：{{item.checkInDt}}</text>
+        <text>操作人：{{item.attenMemberName}}</text>
+      </view>
+      <view wx:else>
+        <text>操作人：{{item.attenMemberName}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- <view class='nomore' hidden='{{isLoad}}'>暂无更多</view> -->
+</view>
+
+<view class='noData' wx:if='{{tabid==0&&(!list||list.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{tabid==1&&(!list||list.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{tabid==2&&(!list||list.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

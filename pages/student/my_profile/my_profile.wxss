@@ -1,0 +1,176 @@
+/* pages/student/my_profile/my_profile.wxss */
+
+page {
+  background: #fff;
+}
+
+.page_bg {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 750rpx;
+  height: 168rpx;
+}
+
+.card {
+  position: relative;
+  padding: 20rpx 0;
+  margin: 10rpx auto;
+  width: 676rpx;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.card .card_bg {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 676rpx;
+  height: 283rpx;
+}
+
+.card .avatar {
+  display: block;
+  margin: 0 auto;
+  width: 130rpx;
+  height: 130rpx;
+  background: #d9d9d9;
+  border-radius: 50%;
+}
+
+.card .set {
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  line-height: 1;
+}
+
+.card .name {
+  display: block;
+  text-align: center;
+  margin-top: 38rpx;
+}
+
+.card .change {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+  bottom: 20rpx;
+  right: 20rpx;
+  border: 1px solid #dcdcdc;
+  border-radius: 15rpx;
+  font-size: 30rpx;
+  line-height: 1;
+  background: #fff;
+}
+
+.card .change image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 8rpx;
+}
+
+.mess_list .li {
+  padding: 25rpx 35rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 34rpx;
+  color: #333;
+}
+
+
+.mess_list .li input {
+  text-align: right;
+  color: #666;
+}
+.mess_list .li picker {
+  text-align: right;
+}
+
+.mess_list .li .result {
+  text-align: right;
+  color: #ccc;
+}
+.mess_list .li .tl {
+  text-align: left;
+  white-space: nowrap;
+}
+.cer{
+  margin-bottom: 30rpx;
+}
+.cer text {
+  text-align: center;
+}
+
+.cer .td1 {
+  width: 90rpx;
+}
+
+.cer .td2 {
+  flex: 1;
+}
+
+.cer .td3 {
+  width: 180rpx;
+}
+
+.cer .td4 {
+  width: 140rpx;
+}
+
+.cer .td5 {
+  width: 140rpx;
+}
+
+.cer_title {
+  display: flex;
+  justify-content: space-between;
+  padding: 25rpx 35rpx;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.cer_li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 35rpx;
+  font-size: 30rpx;
+  color: #666;
+  border: 1px solid #e6e6e6;
+}
+
+.call {
+  text-align: center;
+  margin: 90rpx 0 20rpx 0;
+}
+
+.call>view {
+  display: inline-flex;
+  align-items: center;
+  padding: 12rpx 15rpx;
+  border: 1px solid #dcdcdc;
+  border-radius: 20rpx;
+  font-size: 30rpx;
+  color: #333;
+  line-height: 1;
+}
+
+.call image {
+  margin-right: 12rpx;
+  width: 43rpx;
+  height: 32rpx;
+}
+
+.btn_down {
+  padding: 20rpx 30rpx;
+  background: #F3F2F7;
+}
+
+.btn_down button {
+  background: #f9abac;
+  color: #fff;
+}

@@ -1,0 +1,282 @@
+/* pages/my_class/class_detail/class_detail.wxss */
+
+.header {
+  margin-bottom: 20rpx;
+}
+
+.mess {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 30rpx;
+  background: #fff;
+}
+.name{
+  color: #333;
+}
+
+.mess text {
+  display: block;
+  font-size: 34rpx;
+}
+
+.mess .time {
+  display: flex;
+  align-items: flex-start;
+}
+
+.mess .more {
+  align-items: flex-start;
+  font-size: 30rpx;
+  color: #a375ff;
+  margin-left: 20rpx;
+}
+
+.btn_list {
+  margin-bottom: 20rpx;
+  padding: 30rpx;
+  background: #fff;
+}
+
+.btn_list>view {
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn_list .circleCheckbox {
+  display: inline-block;
+}
+
+.btn_list button {
+  display: inline-block;
+  line-height: 1;
+  padding: 18rpx 35rpx;
+  font-size: 34rpx;
+  color: #333;
+  border-radius: 5rpx;
+  border: 1rpx solid #eee;
+  background: white;
+}
+
+.btn_list button::after {
+  border: none;
+  border-radius: 0px;
+}
+
+.list {
+}
+
+.list .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  font-size: 34rpx;
+}
+
+.list .title .add {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.list .body {
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #eee;
+}
+
+.list .body .avatar {
+  margin-left: 20rpx;
+  margin-right: 30rpx;
+  width: 90rpx;
+  height: 90rpx;
+  background: #d9d9d9;
+  border-radius: 50%;
+}
+
+.list .body text {
+  font-size: 34rpx;
+  color: #333;
+}
+
+.list checkbox {
+  margin-left: 30rpx;
+}
+
+.circleCheckbox .wx-checkbox-input {
+  background: #f7f7f7;
+}
+
+.list .body text:first-of-type {
+  min-width: 3em;
+  margin-right: 30rpx;
+}
+
+.list .body text:last-child {
+  margin-right: 20rpx;
+  flex: 1;
+  text-align: right;
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.down_bar {
+  z-index: 999;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #ff7547;
+  font-size: 34rpx;
+  color: #fff;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.modal_input {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  color: #000;
+  margin-bottom: 28rpx;
+}
+
+.modal_input text {
+  width: 120rpx;
+}
+
+.modal_input input {
+  flex: 1;
+  padding-left: 20rpx;
+  border: 1px solid #e0e0e0;
+  background: #f7f7f7;
+}
+
+.modal_input textarea {
+  padding: 20rpx;
+  height: 150rpx;
+  flex: 1;
+  border: 1px solid #e0e0e0;
+  background: #f7f7f7;
+}
+
+.textarea {
+  align-items: flex-start;
+}
+
+.brife {
+  background: white;
+  padding: 20rpx;
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+  align-items: center;
+}
+
+.brife image {
+  width: 260rpx;
+  height: 260rpx;
+  background: #ddd;
+  margin-right: 20rpx;
+}
+
+.brife .content {
+  font-size: 30rpx;
+  color: #333;
+  flex: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.brife .content .titleArea {
+  display: flex;
+}
+
+.brife .content .titleArea .title {
+  flex: 1;
+  max-height: 100rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brife .content .titleArea .operator {
+  background: #ff7547;
+  border-radius: 100rpx;
+  color: white;
+  height: 50rpx;
+  padding: 0rpx 20rpx;
+}
+
+.brife .address {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666;
+}
+
+.brife .status {
+  color: #666;
+}
+
+.brife .toClassPlace {
+  font-size: 24rpx;
+  text-decoration: underline;
+  color: #a375ff;
+}
+
+.recent {
+  display: flex;
+  background: white;
+  margin: 20rpx;
+  border-radius: 100rpx;
+  color: #333;
+  font-size: 28rpx;
+  padding: 5rpx 30rpx;
+  justify-content: space-between;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background: #efefef;
+}
+
+.recent .viewall {
+  font-size: 22rpx;
+  color: #a375ff;
+}
+
+.down_bar text:nth-child(1) {
+  border-right: 1rpx solid #fff;
+}
+
+.down_bar text:nth-child(2) {
+  border-right: 1rpx solid #fff;
+}
+
+.down_bar>text {
+  flex: 1;
+  text-align: center;
+}
+
+.stuInfo {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 30rpx;
+  color: #333;
+}
+.stuInfo view picker text{
+  font-size: 30rpx!important;
+}
+.avatarWrapper{
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  text-align: center;
+}

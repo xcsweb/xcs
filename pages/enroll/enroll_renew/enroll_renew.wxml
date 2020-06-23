@@ -1,0 +1,304 @@
+<!--优惠活动详情弹框-->
+<modal hidden="{{hiddenModal}}" confirm-text="确定" no-cancel="true" bindconfirm='modalConfirm'>
+  <view class='modal-content' wx:for='{{courseDiscounts}}' wx:if='{{item.checked}}'>
+    <view>{{item.name}}</view>
+    <view>{{item.des}}</view>
+  </view>
+</modal>
+<!--优惠多选框-->
+<com-multichoice items="{{courseDiscounts}}" name="name" value="id" title="选择优惠" bindok='courseDiscountsSelected' bindcancel='courseDiscountsCancel' wx:if='{{courseDiscountsSelectShow}}'></com-multichoice>
+<!--续费-->
+<view wx:if='{{title=="续费"}}'>
+  <view class='listItem'>
+    <view class='title'>校区/分馆</view>
+    <picker range='{{campuses}}' range-key='name' value='{{index}}' bindchange='campusesPickChange'>
+      <view>{{campuses[campusesIndex||0].name}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>选择操作的卡</view>
+    <picker range='{{courses}}' range-key='name' value='{{index}}' bindchange='coursesPickChange'>
+      <view>{{courses[coursesIndex||0].name}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+
+  <view class='course' wx:if="{{courses[coursesIndex||0]}}">
+    <view>项目：{{courses[coursesIndex||0].trainCategorys}}</view>
+    <view>卡类型：{{courses[coursesIndex||0].chargeTypeName}}
+      <text wx:if="{{courses[coursesIndex||0].chargeType==0}}">标准课时：{{courses[coursesIndex||0].chargeVal}}</text>
+      <text wx:if="{{courses[coursesIndex||0].chargeType==1}}">标准课次：{{courses[coursesIndex||0].chargeVal}}</text>
+      <text wx:if="{{courses[coursesIndex||0].chargeType==2}}">储值金额：{{courses[coursesIndex||0].chargeVal}}</text>
+      <text wx:if="{{courses[coursesIndex||0].chargeType==3}}">有效期：{{courses[coursesIndex||0].useTerm}}个月</text>
+    </view>
+  </view>
+  <view class='listItem'>
+    <view class='title'>项目</view>
+    <input placeholder='必填' value='{{courses[coursesIndex||0].trainCategorys}}' disabled></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>金额</view>
+    <input placeholder='必填' disabled value='{{courses[coursesIndex||0].salesAmount}}' bindinput='bindinput' data-name='receivable'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>扣费类型</view>
+    <input placeholder='必填' disabled='true' value='{{courses[coursesIndex||0].chargeTypeName}}' bindinput='bindStudentInfoInput' data-name='tel'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem' wx:if='{{courses[coursesIndex||0].chargeTypeName!="有效期"}}'>
+    <view class='title'>课时</view>
+    <input placeholder='必填'  disabled='true' value='{{courses[coursesIndex||0].chargeVal}}' bindinput='bindStudentInfoInput' data-name='tel'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>关联销售</view>
+    <picker range='{{member_list}}' range-key='name' value='{{index}}' bindchange='member_listPickerChange'>
+      <view>{{member_list[member_listIndex||0].name}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem' hidden='{{!courseDiscounts.length>0}}'>
+    <view class='title'>优惠活动</view>
+    <!-- <com-picker range='{{courseDiscounts}}' range-key='name' key='name' name='courseDiscountsIndex' bindchange='courseDiscountsChange'></com-picker> -->
+    <input disabled='true' value='{{courseDiscountsSelectedStr||"请选择"}}' bindtap='courseDiscountsSelectShow'></input>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='discounts' wx:if="{{courseDiscounts&&courseDiscounts.length>0&&courseDiscountsSelectCount>0}}">
+    <view wx:for='{{courseDiscounts}}' class='discount' wx:if='{{item.checked}}'>
+      <view class='dot'></view>{{item.name}}
+    </view>
+    <view class='viewdetail' bindtap='showModal'>查看优惠详情</view>
+  </view>
+
+  <view class='listItem' wx:if='{{editPower==1}}'>
+    <view class='title'>手动优惠</view>
+    <input placeholder='可填' bindinput='bindinput' data-name='mdiscountAmount'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem'>
+    <view class='title'>优惠后金额</view>
+    <input placeholder='自动显示' disabled='true' value='{{price2}}'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <!-- <view class='listItem'>
+  <view class='title'>应收金额</view>
+  <input placeholder='必填' bindinput='bindinput' data-name='receivable'></input>
+  <text class='iconfont icon-arrow arrow_white'></text>
+</view> -->
+
+  <view class='listItem'>
+    <view class='title'>收款方式</view>
+    <picker range='{{paymentMethod}}' range-key='codeDisplay' value='{{index}}' bindchange='paymentMethodPickerChange'>
+      <view>{{paymentMethod[paymentMethodIndex||0].codeDisplay}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem' hidden='{{!payment.length>0}}'>
+    <view class='title'>收款账户</view>
+    <picker range='{{payment}}' range-key='name' value='{{index}}' bindchange='paymentPickerChange'>
+      <view>{{payment[paymentIndex||0].name}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+
+  <view class='listItem'>
+    <view class='title'>已收金额</view>
+    <input placeholder='必填' value='{{receipts}}' bindinput='bindinput' data-name='receipts'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem' wx:if='{{qianfei}}'>
+    <view class='title'>欠费金额</view>
+    <input placeholder='根据已收金额显示' value='{{qianfei}}' disabled wx:if='{{receipts}}'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem'>
+    <view class='title'>备注</view>
+    <input placeholder='必填' bindinput='bindinput' data-name='des'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem' wx:if='{{title == "补费"}}'>
+    <view class='title'>立即激活使用</view>
+    <input disabled='true'></input>
+    <switch checked bindchange="switch1Change" />
+  </view>
+</view>
+
+<!--补费-->
+
+<view wx:if='{{title=="补费"}}'>
+  <view class='listItem'>
+    <view class='title'>选择操作的卡</view>
+    <picker range='{{courses}}' range-key='name' value='{{index}}' bindchange='coursesPickChange'>
+      <view>{{courses[coursesIndex||0].name}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>项目</view>
+    <input placeholder='必填' value='{{courses[coursesIndex||0].trainCategorys}}' disabled></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>金额</view>
+    <input placeholder='必填' value='{{courses[coursesIndex||0].receivable}}' bindinput='bindinput' data-name='receivable' disabled></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>扣费类型</view>
+    <input placeholder='必填' disabled='true' value='{{courses[coursesIndex||0].chargeTypeName}}' bindinput='bindStudentInfoInput' data-name='tel'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem' wx:if='{{courses[coursesIndex||0].chargeTypeName!="有效期"}}'>
+    <view class='title'>课时</view>
+    <input placeholder='必填' disabled='true' value='{{courses[coursesIndex||0].chargeVal}}' bindinput='bindStudentInfoInput' data-name='tel'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+
+  <view class='listItem'>
+    <view class='title'>已收金额</view>
+    <input placeholder='必填' value='{{courses[coursesIndex||0].receipts}}' bindinput='bindinput' data-name='receipts' disabled></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem' wx:if='{{editPower==1}}'>
+    <view class='title'>手动优惠</view>
+    <input placeholder='可填' value='{{courses[coursesIndex||0].mdiscountAmount}}' disabled></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem' wx:if='{{qianfei}}'>
+    <view class='title'>欠费金额</view>
+    <input placeholder='根据已收金额显示' value='{{qianfei}}' disabled></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem'>
+    <view class='title'>收款方式</view>
+    <picker range='{{paymentMethod}}' range-key='codeDisplay' value='{{index}}' bindchange='paymentMethodPickerChange'>
+      <view>{{paymentMethod[paymentMethodIndex||0].codeDisplay}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem' hidden='{{!payment.length>0}}'>
+    <view class='title'>收款账户</view>
+    <picker range='{{payment}}' range-key='name' value='{{index}}' bindchange='paymentPickerChange'>
+      <view>{{payment[paymentIndex||0].name}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+
+  <view class='listItem' wx:if='{{title == "补费"}}'>
+    <view class='title'>实际补缴</view>
+    <input placeholder='必填' bindinput='bindinput' data-name='price'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+
+  <view class='listItem'>
+    <view class='title'>备注</view>
+    <input placeholder='必填' bindinput='bindinput' data-name='des'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+</view>
+
+<!--退费-->
+
+
+<view wx:if='{{title=="退费"}}'>
+  <view class='listItem'>
+    <view class='title'>选择操作的卡</view>
+    <picker range='{{courses}}' range-key='name' value='{{index}}' bindchange='coursesPickChange'>
+      <view>{{courses[coursesIndex||0].name}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>项目</view>
+    <input placeholder='必填' value='{{courses[coursesIndex||0].trainCategorys}}' disabled></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>金额</view>
+    <input placeholder='必填' disabled value='{{courses[coursesIndex||0].receivable}}' bindinput='bindinput' data-name='receivable'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>扣费类型</view>
+    <input placeholder='必填' disabled='true' value='{{courses[coursesIndex||0].chargeTypeName}}' bindinput='bindStudentInfoInput' data-name='tel'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem' wx:if='{{courses[coursesIndex||0].chargeTypeName!="有效期"}}'>
+    <view class='title'>课时</view>
+    <input placeholder='必填' disabled='true' value='{{courses[coursesIndex||0].chargeVal}}' data-name='tel'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+
+  <view class='listItem' wx:if='{{title == "续费"}}'>
+    <view class='title'>已收金额</view>
+    <input placeholder='必填' bindinput='bindinput' data-name='receipts' value='{{courses[coursesIndex||0].receipts}}'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem' wx:if='{{qianfei}}'>
+    <view class='title'>欠费金额</view>
+    <input placeholder='根据已收金额显示' value='{{qianfei}}' disabled></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+
+  <view class='listItem' wx:if='{{courses[coursesIndex||0].chargeTypeName!="有效期"}}'>
+    <view class='title'>剩余课时</view>
+    <input placeholder='必填' disabled='true' value='{{courses[coursesIndex||0].chargeVal-courses[coursesIndex||0].useVal}}' data-name='tel'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+
+
+  <view class='listItem' wx:if='{{courses[coursesIndex||0].chargeTypeName!="有效期"}}'>
+    <view class='title'>剩余金额</view>
+    <input placeholder='必填' type='digit' disabled='true' value='{{courses[coursesIndex||0].refund}}' data-name='tel'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+
+  <view class='listItem'>
+    <view class='title'>退款方式</view>
+    <picker range='{{paymentMethod}}' range-key='codeDisplay' value='{{index}}' bindchange='paymentMethodPickerChange'>
+      <view>{{paymentMethod[paymentMethodIndex||0].codeDisplay}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem' hidden='{{!payment.length>0}}'>
+    <view class='title'>退款账户</view>
+    <picker range='{{payment}}' range-key='name' value='{{index}}' bindchange='paymentPickerChange'>
+      <view>{{payment[paymentIndex||0].name}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+
+  <view class='listItem' wx:if='{{title == "退费"}}'>
+    <view class='title'>实际退费</view>
+    <input placeholder='必填' bindinput='bindinput' data-name='price' value='{{price}}' type='digit'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem'>
+    <view class='title'>备注</view>
+    <input placeholder='必填' bindinput='bindinput' data-name='des'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+</view>
+<view class='btnWrapper'>
+  <button bindtap='enroll_renew_sub' hover-class="btn-hover" wx:if='{{title=="续费"}}'>保存</button>
+  <button bindtap='enroll_subsidy_sub' hover-class="btn-hover" wx:if='{{title=="补费"}}'>保存</button>
+  <button bindtap='enroll_refund_sub' hover-class="btn-hover" wx:if='{{title=="退费"}}'>保存</button>
+</view>

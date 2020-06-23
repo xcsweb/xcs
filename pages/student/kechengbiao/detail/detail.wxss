@@ -1,0 +1,178 @@
+.body{
+  padding: 25rpx 24rpx 0 24rpx;
+  background-color: #f2f2f2;
+}
+.body .layout{
+  padding: 20rpx 60rpx;
+  border-radius: 15rpx;
+  border: 2rpx solid #d8d8d8;
+  background-color: #fff;
+  margin-bottom: 25rpx;
+}
+.tt1{
+  font-size:36rpx;
+  margin:18rpx 0;
+}
+.tt1 button{
+  height: 48rpx;
+  line-height: 48rpx;
+  background: #02A7F0;
+  width: 228rpx;
+  font-size:22rpx;
+  float: right;
+  border-radius: 20rpx;
+  color: #fff;
+}
+.tt2{
+  font-size:32rpx;
+  margin:18rpx 0;
+}
+.ctt{
+  color: #c2c2c2;
+  font-size:30rpx;
+}
+.ctda{
+  color:#c2c2c2;
+  font-size:30rpx;
+  border-bottom: 2rpx solid #c2c2c2;
+  padding-bottom:40rpx;
+  margin-bottom:30rpx;
+}
+.ctdb{
+  color:#c2c2c2;
+  font-size:30rpx;
+  height:60rpx;
+
+}
+.ctdb .ttl{
+  float: left;
+}
+.ctdb .ttr{
+  float: right;
+}
+.ctdc{
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+.ctdc .ttl{
+  width: 22%;
+  float: left;
+  color:#000;
+  font-size:30rpx;
+}
+.ctdc .progress{
+  padding: 0 10px;
+  width: 55%;
+  float: left;
+}
+.ctdc .ttr{
+  width: 23%;
+  float: right;
+  text-align: center;
+  color:#c2c2c2;
+  font-size:30rpx;
+}
+.teach{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 5px;
+}
+.ctdd{
+  text-align: center;
+  padding-top: 30rpx;
+}
+.one_btn{
+  overflow: hidden;
+  text-align: center;
+}
+.one_btn .btn1{
+  width:228rpx;
+  height: 48rpx;
+  background: #02A7F0;
+  color: #fff;
+  font-size:24rpx;
+  line-height: 48rpx;
+  border-radius: 20rpx;
+}
+.two_btn{
+  overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
+}
+.two_btn .btn1{
+  width:228rpx;
+  height: 48rpx;
+  background: #02A7F0;
+  color: #fff;
+  font-size:24rpx;
+  float: left;
+  line-height: 48rpx;
+}
+.two_btn .btn2{
+  width:228rpx;
+  height: 48rpx;
+  background: #02A7F0;
+  color: #fff;
+  float:right;
+  font-size:24rpx;
+  line-height: 48rpx;
+}
+.rating{
+  text-align: center;
+  color: #F59A22;
+}
+.rating .rating_icon{
+  font-size:35rpx;
+  margin-bottom:5px;
+}
+.rating .rating_icon image{
+  width: 70rpx;
+  height: 70rpx;
+  vertical-align:middle;
+}
+.perfa{
+  color:#c2c2c2;
+  font-size:30rpx;
+  text-align: center;
+  overflow: hidden;
+}
+.perfa .teacher{
+  width: 20%;
+  float: left;
+  text-align: center;
+}
+.perfa image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  border:4rpx solid #fff;
+}
+.teacher image.selected{
+  border:4rpx solid #02A7F0;
+}
+.perfb{
+  text-align:center;
+  margin:20rpx 0;
+}
+.perfc textarea{
+  border:2rpx solid #D7D7D7;
+  border-radius:10rpx;
+  padding:10rpx;
+  font-size:30rpx;
+  width: 100%;
+}
+.perfd{
+  text-align: center;
+  padding-top: 10px;
+}
+.perfd button{
+  width:228rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  border-radius: 10px;
+  color: #fff;
+  background: #02A7F0;
+  font-size:24rpx;
+}

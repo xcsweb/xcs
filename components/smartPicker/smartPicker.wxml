@@ -1,0 +1,8 @@
+<picker range='{{range}}' range-key='{{key}}' end='{{endTim}}' value='{{value}}' bindchange='_bindchange' mode='{{mode}}' name='{{name}}'>
+  <view wx:if='{{mode=="selector"}}' style='color:{{(_index==0||!range[_index][key])?"#ccc":""}};border:{{border?"1px solid #ddd":""}}'>{{range[_index][key]||placeholder}}
+    <image src='/imgs/trangle.png' wx:if='{{arrow}}' style='width:20rpx;height:10rpx' mode='aspectFill'></image>
+  </view>
+  <view wx:if='{{mode!="selector"}}' style='border:{{border?"1px solid #ddd":""}};color:{{value?"":"#ccc"}};'>{{value||placeholder}}
+    <image src='/imgs/trangle.png' wx:if='{{arrow}}' style='width:20rpx;height:10rpx' mode='aspectFill'></image>
+  </view>
+</picker>

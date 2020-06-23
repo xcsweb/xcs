@@ -1,0 +1,13 @@
+<view class='listItem header'>
+  <view>姓名</view>
+  <view>手机号</view>
+  <view>学员人数</view>
+</view>
+<view class='listItem' wx:for='{{rec_relsale}}' wx:key='*this' bindtap='selectMember' style='background:{{index==selectMember?"#F8F8F8":""}}' data-index='{{index}}'>
+  <view>{{item.name}}</view>
+  <view>{{item.tel}}</view>
+  <view>{{item.stuCnt}}</view>
+</view>
+<view class='btnWrapper' hover-class="btn-hover"  bindtap='rec_relsale_sub'>
+<button>确认</button>
+</view>

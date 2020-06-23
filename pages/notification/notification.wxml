@@ -1,0 +1,99 @@
+<view class="page">
+  <view class="page__hd">
+    <com-searchbar bindinput='inputTyping' bindclear='clearInput' bindshow='showInput' bindhide='hideInput' placeholder='请输入标题/内容'></com-searchbar>
+  </view>
+  <view class="page__hd_"></view>
+  <view class="page__bd">
+    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+      <navigator wx:for='{{notice_list_search.data.inbox}}' wx:key='{{item.noticeRecordId}}' url='./notification_detail/notification_detail?noticerecordid={{item.noticeRecordId}}&noticeType={{item.noticeType}}' class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>{{item.title}}</view>
+        </view>
+      </navigator>
+      <navigator wx:for='{{notice_list_search.data.hairbox}}' wx:key='{{item.noticeId}}' url='./notification_detail/notification_detail?noticerecordid={{item.noticeId}}&readNum={{item.readNum}}&confirmNum={{item.confirmNum}}&num={{item.num}}&noticeType={{item.noticeType}}'
+        class="weui-cell" hover-class="weui-cell_active">
+        <view class="weui-cell__bd">
+          <view>{{item.title}}</view>
+        </view>
+      </navigator>
+    </view>
+    <view class='topBtnArea weui-flex' wx:if="{{!inputShowed}}">
+      <view>
+        <button class="weui-btn mini-btn weui-flex__item" type="default" size="mini" bindtap='developing' bindtap='toNotificationAddPage'>新建通知</button>
+      </view>
+      <view>
+        <button class="weui-btn mini-btn weui-flex__item" type="default" size="mini" bindtap='showFilter'>
+          筛选
+          <image src='/imgs/trangle.png' style='width:14px;height:10px'></image>
+        </button>
+      </view>
+    </view>
+    <view class='filterArea' wx:if="{{!inputShowed&&filter}}">
+      <view class='filterItems'>
+        <view class="filterItem" wx:for="{{fiterItems}}" wx:key="item.codeDisplay" data-d='{{index}}' bindtap='filterSelect' style='background:{{item.selected?"#EFEFF4":"white"}}'>
+          {{item.codeDisplay}}
+        </view>
+      </view>
+      <view class='filterBtns'>
+        <view>
+          <button class="weui-btn" type="default" bindtap="resetFilterItem">重置</button>
+        </view>
+        <view>
+          <button class="weui-btn" type="primary" style='background: #FE7446;color:white;' bindtap="subFilterItem">确定</button>
+        </view>
+      </view>
+    </view>
+    <view class="cusTabs" wx:if="{{!inputShowed&&!filter}}">
+      <view class='tab' bindtap='changeTab' data-index='0' style='color:{{tabIndex==0?"#333":"#999"}}'>收件箱\n
+        <view wx:if='{{tabIndex==0}}' class='indicator'></view>
+      </view>
+      <view class='tab' bindtap='changeTab' data-index='1' style='color:{{tabIndex==1?"#333":"#999"}}'>发送记录\n
+        <view wx:if='{{tabIndex==1}}' class='indicator'></view>
+      </view>
+    </view>
+    <view wx:if="{{!inputShowed&&!filter&&tabIndex==0}}">
+      <view class='list_item' bindtap='toInboxDetail' wx:for='{{inbox}}' wx:key='{{item.noticeRecordId}}' data-noticeRecordId='{{item.noticeRecordId}}'>
+        <view class='main'>
+          <text>标题：{{item.title}}\n</text>
+          <text>发送时间：{{item.sendDt}}\n</text>
+          <text>通知类型：{{item.noticeType}}\n</text>
+          <text>发送人：{{item.name}}</text>
+        </view>
+        <view class='status'>
+          <view class='new' wx:if='{{!item.isRead}}'>NEW</view>
+          <view class='unconfirm' wx:elif='{{item.isUseConfirm&&!item.isConfirm}}'>未确认</view>
+          <view class='readed' wx:else='{{item.isRead}}'>已读</view>
+        </view>
+      </view>
+    </view>
+
+
+    <view wx:if="{{!inputShowed&&!filter&&tabIndex==1}}">
+      <view class='list_item' bindtap='toHairboxDetail' wx:for='{{hairbox}}' wx:key='{{item.noticeId}}' data-noticeId='{{item.noticeId}}'>
+        <view class='main'>
+          <text>标题：{{item.title}}\n</text>
+          <text>发送时间：{{item.sendDt}}\n</text>
+          <text>通知类型：{{item.noticeType}}\n</text>
+          <text>发送人：{{item.name}}\n</text>
+          <!-- <view>已读：
+            <text style='color:#9966ff'>{{item.readNum}}</text>/{{item.num}} 已确认：
+            <text style='color:#9966ff'>{{item.confirmNum}}</text>/{{item.num}}</view> -->
+          <view>未查看({{item.num-item.readNum}}) 已查看({{item.readNum}})
+            <block wx:if='{{item.isUseConfirm}}'>未确认({{item.num-item.confirmNum}}) 已确认({{item.confirmNum}})</block>
+          </view>
+        </view>
+        <!-- <view class='status'>
+          <view class='new' wx:if='{{!item.isRead}}'>NEW</view>
+          <view class='readed' wx:elif='{{item.isRead}}'>已读</view>
+          <view class='unconfirm' wx:else='{{item.isConfirm}}'>已确认</view>
+        </view> -->
+      </view>
+    </view>
+    <view class='noData' wx:if='{{tabIndex==0&&(!inbox||inbox.length==0)}}'>
+      <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+    </view>
+    <view class='noData' wx:if='{{tabIndex==1&&(!hairbox||hairbox.length==0)}}'>
+      <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+    </view>
+  </view>
+</view>

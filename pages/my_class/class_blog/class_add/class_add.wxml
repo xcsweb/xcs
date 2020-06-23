@@ -1,0 +1,7 @@
+<!--pages/my_class/class_blog/class_add/class_add.wxml-->
+<view class='add'>
+  <textarea placeholder='请描述一下您要上传的{{choosetype == 1? "图片":"视频"}}' data-dataname='content' bindinput="bindKeyInput"></textarea>
+  <com-attachments bindchange='attachmentsChange' choosetype="{{choosetype}}" title="" />
+</view>
+
+<button bindtap='savetype' class='btn_down'>发布</button>

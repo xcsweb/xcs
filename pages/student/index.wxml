@@ -1,0 +1,45 @@
+<!--pages/student/student.wxml-->
+<view class='body' style='background-image:url("{{body_bg}}")'>
+  <swiper autoplay="true">
+    <swiper-item>
+      <navigator url="/pages/student/my_profile/my_profile" hover-class="none">
+        <view class='photo_v'>
+          <image class='photo' src='{{imgUrls.img}}'></image>
+        </view>
+        <view class='username'>
+          <text>{{imgUrls.msg}}</text>
+        </view>
+      </navigator>
+    </swiper-item>
+    <swiper-item>
+      <navigator url="/pages/student/my_profile/my_profile" hover-class="none">
+        <view class='photo_v'>
+          <image class='photo' src='{{avatar}}'></image>
+        </view>
+        <view class='username'>
+          <image class='erweima' catchtap='showerweima' src='/imgs/student/index/qrcode.png'></image>
+          <text>{{studentName}}-{{institutionName}}</text>
+        </view>
+      </navigator>
+    </swiper-item>
+  </swiper>
+
+  <view id='main'>
+    <view class="page">
+      <view class="page__bd">
+        <view class="weui-grids">
+          <navigator wx:for="{{grids}}" wx:key="*this" url="{{item.url}}" class="weui-grid {{item.url?'':'hid'}}" hover-class="none">
+            <view style='position:relative;'>
+              <image mode='aspectFit' class="weui-grid__icon" src="{{item.img}}" />
+              <view class="weui-grid__label">{{item.name}}</view>
+              <view class='redDot' wx:if='{{index>0&&item.name!="微官网"}}' hidden='true'>{{index}}</view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='showerweima' hidden='{{!showerweima}}' catchtouchstart='hideerweima'>
+  <canvas canvas-id='canvas2' style='width:{{qrCodeWidth}}px;height:{{qrCodeWidth}}px;' bindtap='showerweima'></canvas>
+</view>

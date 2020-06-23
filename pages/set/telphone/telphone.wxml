@@ -1,0 +1,21 @@
+<!--pages/set/telphone/telphone.wxml-->
+<view class='list'>
+  <view class='li'>
+    <text>手机号：{{oldPhone}}</text>
+  </view>
+  <view class='li'>
+    <text>输入密码：</text>
+    <input password='true' data-dataname='psd' bindinput="bindKeyInput"></input>
+  </view>
+  <view class='li'>
+    <text>输入新手机号：</text>
+    <input type="number" data-dataname='newPhone' bindinput="bindKeyInput"></input>
+  </view>
+  <view class='li'>
+    <text>输入验证码：</text>
+    <input type="number" data-dataname='yzm' bindinput="bindKeyInput"></input>
+    <button bindtap='getYzm' disabled="{{yzmget}}">{{yzmword}}</button>
+  </view>
+</view>
+
+<button bindtap='savepsd' class='btn_down'>保存</button>

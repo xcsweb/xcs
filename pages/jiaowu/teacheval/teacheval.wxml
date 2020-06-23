@@ -1,0 +1,63 @@
+<!--pages/jiaowu/teacheval/teacheval.wxml-->
+<com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话' />
+<view class='teacheval' wx:for="{{list}}" wx:for-item="item" wx:key="item.id">
+  <view class='body'>
+    <view>
+      <text>教练/老师：</text>
+      <text class='mess'>{{item.teacherName}}</text>
+    </view>
+    <view>
+      <text>点评人：</text>
+      <text class='mess'>{{item.studentName}}</text>
+    </view>
+    <view>
+      <text>点评时间：</text>
+      <text class='mess'>{{item.createDt}}</text>
+    </view>
+    <view>
+      <text>评星：</text>
+      <view>
+        <block wx:for="{{item.performance}}" wx:for-item="i" wx:key="i">
+          <image class='star' wx:if="{{i}}" src="/imgs/common/img_67.png"></image>
+          <image class='star' wx:else src="/imgs/common/img_67_.png"></image>
+        </block>
+      </view>
+    </view>
+    <view>
+      <text>校区/分馆：</text>
+      <text class='mess'>{{item.campusName}}</text>
+    </view>
+    <view>
+      <text>上课班级：</text>
+      <text class='mess'>{{item.classesName}}</text>
+    </view>
+    <view>
+      <text>上课时间：</text>
+      <text class='mess'>{{item.day}}</text>
+    </view>
+    <view>
+      <text>点评内容：</text>
+    </view>
+    <view>
+      <text class='mess'>{{item.evaluate}}</text>
+    </view>
+    <view wx:if="{{item.handleId != 0}}">
+      <text>处理时间：</text>
+      <text class='mess'>{{item.updateDt}}</text>
+    </view>
+    <view wx:if="{{item.handleId != 0}}">
+      <text>处理结果：</text>
+    </view>
+    <view wx:if="{{item.handleId != 0}}">
+      <text class='mess'>{{item.handleContent}}</text>
+    </view>
+  </view>
+  <button wx:if="{{item.handleId == 0}}" data-id='{{item.id}}' bindtap='edit' class='edit'>处理</button>
+  <text wx:if="{{item.handleId != 0}}" class='edited'>已处理</text>
+</view>
+<view class='noData' wx:if='{{!list||list.length==0}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<modal title="处理结果" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="onmodalConfirm" bindcancel="onmodalCancel">
+  <textarea placeholder='输入处理结果内容' bindinput="onmodalmess" value='{{modalMess}}'></textarea>
+</modal>

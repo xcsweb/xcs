@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "教学教案",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs"
+  }
+}

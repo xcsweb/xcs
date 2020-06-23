@@ -1,0 +1,28 @@
+page {
+  background-color: #f7f7f7;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.advicebutton {
+  float: right;
+  width: 200rpx;
+  height: 60rpx;
+  align-items: center;
+  background-color: #fe9e9f;
+  color: #fff;
+  font-size: 34rpx;
+  padding: 0rpx;
+  margin: 0px;
+}
+
+.main {
+  padding: 40rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #f2f2f2;
+  /* color: #333333; */
+}
+
+#hh {
+  margin-top: 30rpx;
+}

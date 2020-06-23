@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "员工绩效",
+  "usingComponents": {
+    "com-searchfilter": "/components/searchfilter/index",
+    "com-performance": "/components/performanceCard/performanceCard"
+  }
+}

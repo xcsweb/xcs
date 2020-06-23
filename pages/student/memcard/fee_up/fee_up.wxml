@@ -1,0 +1,43 @@
+<!--pages/student/memcard/fee_up/fee_up.wxml-->
+<view class='mess_list'>
+  <view class='li'>
+    <text>校区/分馆</text>
+    <text class='result'>{{}}</text>
+  </view>
+  <view class='li'>
+    <text>选择的卡</text>
+    <text class='result'>{{}}</text>
+  </view>
+  <view class='li'>
+    <text>项目</text>
+    <text class='result'>{{trainCategoryNames}}</text>
+  </view>
+  <view class='li'>
+    <text>金额</text>
+    <text class='result'>{{salesAmount}}</text>
+  </view>
+  <view class='li'>
+    <text>扣费类型</text>
+    <text class='result'>{{chargeType}}</text>
+  </view>
+  <view class='li'>
+    <text>课时</text>
+    <text class='result'>{{}}</text>
+  </view>
+  <view class='li'>
+    <text>已收金额</text>
+    <text class='result'>{{}}</text>
+  </view>
+  <view class='li'>
+    <text>欠费金额</text>
+    <text class='result'>{{}}</text>
+  </view>
+  <view class='li'>
+    <text>实际补缴</text>
+    <text class='result'>{{}}</text>
+  </view>
+</view>
+
+<view class='btn_li'>
+  <button>提交</button>
+</view>

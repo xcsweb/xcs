@@ -1,0 +1,40 @@
+/* pages/jiaowu/order/order_list/order_list.wxss */
+body {
+  background: #f3f3f7;
+}
+
+.order_list .order_title {
+  display: flex;
+  justify-content: space-between;
+  height: 88rpx;
+  margin: 20rpx 0;
+  background: #fff;
+  color: #333;
+  font-size: 34rpx;
+  line-height: 88rpx;
+  padding: 0 38rpx;
+}
+.order_list .order_title image{
+  width: 88rpx;
+  height: 88rpx;
+}
+.order_list .order_li .li {
+  display: flex;
+  justify-content: space-between;
+  height: 88rpx;
+  background: #fff;
+  font-size: 34rpx;
+  color: #333;
+  line-height: 88rpx;
+  padding: 0 38rpx;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.order_list .order_li .li .rank {
+  width: 88rpx;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 88rpx 88rpx;
+  color: #A375FF;
+  font-weight: bold;
+}

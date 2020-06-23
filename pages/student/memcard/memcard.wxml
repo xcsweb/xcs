@@ -1,0 +1,85 @@
+<!--pages/student/memcard/memcard.wxml-->
+<view style='padding:0rpx 15%;border-top:20rpx solid #F7F7F7;border-bottom:20rpx solid #F7F7F7;'>
+  <com-tabs tabs='{{["会员卡","上课记录","费用记录"]}}' tab-width='33.3%' normal-color='#333' selected-color='#78a6ff' bindchange='tabchange' />
+</view>
+<view class='card' wx:if="{{tabIndex==0}}">
+  <view class='card_li' wx:for="{{cardlist}}" wx:for-item="item" wx:key="item.id">
+    <block wx:if="{{item.arrears<0}}">
+      <image class='bg' src='/imgs/student/memcard/bufei_bg.png'></image>
+      <!-- <navigator url="/pages/student/memcard/fee_up/fee_up?id={{item.id}}" hover-class="none" class='logo_bg'>
+        <image class='logo' src='/imgs/student/memcard/bufei_logo.png'></image>
+        <text class='type'>补费</text>
+      </navigator> -->
+      <view bindtap='showmess' hover-class="none" class='logo_bg'>
+        <image class='logo' src='/imgs/student/memcard/bufei_logo.png'></image>
+        <text class='type'>补费</text>
+      </view>
+    </block>
+    <block wx:if="{{item.arrears>=0}}">
+      <image class='bg' src='/imgs/student/memcard/xufei_bg.png'></image>
+      <view class='logo_bg'>
+        <image class='logo' src='/imgs/student/memcard/xufei_logo.png'></image>
+        <text class='type'>续费</text>
+      </view>
+    </block>
+
+    <text class='name'>{{item.name}}</text>
+    <text class='num'>¥{{item.receipts}}</text>
+    <view class='mess'>
+      <text space="ensp">购买日期：{{item.createDt}}  <block wx:if="{{item.chargeType== 0}}">剩余课时:{{item.courseVal}}</block><block wx:if="{{item.chargeType== 1}}">剩余课次:{{item.courseVal}}</block><block wx:if="{{item.chargeType== 2}}">剩余储值:{{item.courseVal}}</block></text>
+      <text space="ensp">激活日期：{{item.startDt}}  失效日期：{{item.endDt}}</text>
+      <text class='type_m' wx:if="{{item.courseState ==0}}">未激活</text>
+      <text class='type_m' wx:if="{{item.courseState ==1}}">正常使用</text>
+      <text class='type_m' wx:if="{{item.courseState ==2}}">已退费</text>
+      <text class='type_m' wx:if="{{item.courseState ==3}}">已过期</text>
+    </view>
+  </view>
+</view>
+
+<view class='class_list' wx:if="{{tabIndex==1}}">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{cardidlist}}" range-key="name">
+    <view class='range_top'>
+      <button>{{cardname}}
+        <image class='trangle' src='/imgs/common/trangle.png'></image>
+      </button>
+    </view>
+  </picker>
+  <view class='class_li' wx:if='{{classlist&&classlist.length>0}}'>
+    <view class='tr first'>
+      <text class='td1'>课程/班级</text>
+      <text class='td2'>时间</text>
+      <text class='td3'>课时/次/金额</text>
+    </view>
+    <view class='tr' wx:for="{{classlist}}" wx:for-item="item" wx:key="item">
+      <text class='td1'>{{item.className}}</text>
+      <text class='td2'>{{item.day+' '+item.startTime+'-'+item.endTime}}</text>
+      <text class='td3'>{{item.chargeVal}}</text>
+    </view>
+  </view>
+</view>
+
+<view class='fee_list' wx:if="{{tabIndex==2}}">
+  <view class='fee_li'  wx:if='{{feelist&&feelist.length>0}}'>
+    <view class='tr first'>
+      <text class='td1'>项目</text>
+      <text class='td2'>操作类型</text>
+      <text class='td3'>金额</text>
+      <text class='td4'>操作人</text>
+      <text class='td5'>时间</text>
+    </view>
+    <view class='tr' wx:for="{{feelist}}" wx:for-item="item" wx:key="item.id">
+      <text class='td1'>{{item.courseName}}</text>
+      <text class='td2'>{{item.stucsmFromType}}</text>
+      <text class='td3'>{{item.price}}</text>
+      <text class='td4'>{{item.teacherName}}</text>
+      <text class='td5'>{{item.createDt}}</text>
+    </view>
+  </view>
+</view>
+
+<view class='noData' wx:if='{{tabIndex==1&&(!classlist||classlist.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{tabIndex==2&&(!feelist||feelist.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

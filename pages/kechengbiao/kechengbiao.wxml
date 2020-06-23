@@ -1,0 +1,44 @@
+<view class="page">
+  <view class="page__hd">
+    <com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入班级名称' />
+  </view>
+  <view class="page__bd">
+    <com-calendar bindchange='changeDate' courseFlag=''>
+    <view slot='slot1'>
+    </view>
+    <view slot='slot3' class='toolsArea'>
+          <view class='toolWraper' style='border-top-right-radius:0px;border-bottom-right-radius:0px;background:{{showCourseTable?"white":"#F7F7F7"}}' bindtap='showCourseTable' data-b='{{false}}'>
+        <image src='/imgs/kechengbiao/img_09.png'></image>
+      </view>
+
+      <view class='toolWraper' style='border-top-left-radius:0px;border-bottom-left-radius:0px;border-left:none;background:{{!showCourseTable?"white":"#F7F7F7"}}' bindtap='showCourseTable' data-b='{{true}}'>
+        <image src='/imgs/kechengbiao/img_11.png'></image>
+      </view>
+    </view>
+    </com-calendar>
+  </view>
+  <view class='nodata' wx:if='{{clshour_list.length==0}}'>
+  <image src='/imgs/common/nodata.png' mode='aspectFit'></image>
+  </view>
+  <view class='listItem' wx:for='{{clshour_list}}' wx:key='{{item.classesHourId}}' bindtap='toDetail' data-course='{{item}}' wx:if='{{!showCourseTable}}'>
+    <view class='img1'>
+      <image src='{{item.logPic}}' binderror='errorImg' data-index='{{index}}'></image>
+    </view>
+    <view class='body'>
+      <image src='/imgs/kechengbiao/img_06.png' mode='aspectFit' class='classTypeIcon' wx:if='{{item.classType==0}}'></image>
+      <image src='/imgs/kechengbiao/img_03.png' mode='aspectFit' class='classTypeIcon' wx:if='{{item.classType==1||item.classType==2}}'></image>
+      <view class='title'>{{item.name}}</view>
+      <view>时间：{{item.startTime+'-'+item.endTime}}</view>
+      <view>
+        <text wx:if='{{item.field}}'>地点：{{item.field}}</text>
+        <text style='float:right' wx:if='{{item.classHourStatus==0}}'>未开始</text>
+        <text style='float:right;color:#999999' wx:if='{{item.classHourStatus==1}}'>已完成</text>
+        <text style='float:right;color:#fe8158' wx:if='{{item.classHourStatus==2}}'>已停课</text>
+      </view>
+      <view wx:if='{{item.teacherName}}'>班主任：{{item.teacherName||""}}</view>
+      <view>学员：{{item.studentNum}}人</view>
+    </view>
+  </view>
+  <com-coursetable bindclick='toDetail' course='{{clshour_list}}' wx:if='{{showCourseTable&&clshour_list.length>0}}'>
+  </com-coursetable>
+</view>

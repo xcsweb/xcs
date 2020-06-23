@@ -1,0 +1,13 @@
+<!--pages/jiaowu/interactive/interactive.wxml-->
+<view class='range_top'>
+  <button>全部
+    <image class='trangle' src='/imgs/common/trangle.png'></image>
+  </button>
+</view>
+
+<view class='list'>
+<view class='list_top'>
+
+<image class='avator' src=''></image>
+</view>
+</view>

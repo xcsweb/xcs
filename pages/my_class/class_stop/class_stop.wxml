@@ -1,0 +1,16 @@
+<!--pages/my_class/class_stop/class_stop.wxml-->
+<view class='calendar_bar'>
+  <text>时间周期</text>
+  <picker mode="date" value="{{startdate}}" start="{{today}}" bindchange="startDateChange">
+    <input type='date' disabled="true" value="{{startdate}}"></input>
+  </picker>
+  <text>到</text>
+  <picker mode="date" value="{{enddate}}" start="{{startdate}}" bindchange="endDateChange">
+    <input type='date' disabled="true" value="{{enddate}}"></input>
+  </picker>
+  <image src='/imgs/common/calendar.png'></image>
+</view>
+<textarea bindinput="bindKeyInput" placeholder='请输入停课理由' value='{{result}}'></textarea>
+<view class='btn_bar'>
+  <button bindtap='subform'>确定</button>
+</view>

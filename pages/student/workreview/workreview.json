@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "作业/点评",
+  "navigationBarBackgroundColor": "#78A6FF",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs",
+    "com-rating": "/components/rating/rating"
+  }
+}

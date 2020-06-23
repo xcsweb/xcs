@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "互动",
+  "navigationBarBackgroundColor": "#608de5",
+  "usingComponents": {
+    "com-picker": "/components/smartPicker/smartPicker",
+    "com-input": "/components/smartInput/smartInput",
+    "com-attachments": "/components/attachments/attachments"
+  }
+}

@@ -1,0 +1,55 @@
+<image src='/imgs/study_report/xueqingbg.png' mode='widthFix' class='topbg'></image>
+<view class='userInfo'>
+  <view class='avatar'>
+    <image src='{{avatar}}' binderror='errorImg'></image>
+    <image class='gender' src='/imgs/kechengbiao/img_32.png' wx:if='{{basicContent.sex=="女"}}'></image>
+    <image class='gender' src='/imgs/kechengbiao/img_29.png' wx:if='{{basicContent.sex=="男"}}'></image>
+  </view>
+  <view>{{basicContent.name}}（{{basicContent.birthDt}}）</view>
+  <view class='campus_'>所在校区/分店：
+    <text class='campus'>{{basicContent.campusName}}</text>
+  </view>
+</view>
+<view class='classes'>
+  <view class='title'>
+    报告总览
+    <view class='desc'>报告时间段：{{startDt}}~{{endDt}}</view>
+  </view>
+  <view class='table'>
+    <view class='col header col1' catchtouchmove='true'>
+      <view>测试项目</view>
+      <view>周期内测试次数（次）</view>
+    </view>
+    <view class='col col1' wx:for='{{reportContent}}' wx:key='*this'>
+      <view>{{item.title}}</view>
+      <view>{{item.num}}</view>
+    </view>
+  </view>
+</view>
+
+
+<view class='classes' wx:for='{{reportContent}}' wx:key='*this'>
+  <view class='title'>
+    {{item.title}}
+  </view>
+  <canvas canvas-id='canvas{{index}}' wx:if='{{item.bigclass==4}}' class='lineCanvas' style='width:{{tableWidth}}px;height:{{canvasHeight}}px' disable-scroll="true" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"
+    data-chart='canvas{{index}}'></canvas>
+
+  <view class='table'>
+    <view class='col header col1'>
+      <view>日期</view>
+      <view>测试结果（单位:{{item.unit}}）</view>
+    </view>
+    <view class='col col1' wx:for='{{item.record}}' wx:key='*this'>
+      <view>{{item.day_}}</view>
+      <view>{{item.result}}</view>
+    </view>
+  </view>
+
+  <view class='info'>
+    分析建议
+  </view>
+  <view class='val' style='padding:0rpx 20rpx;'>
+    <rich-text nodes='{{item.proposal}}'></rich-text>
+  </view>
+</view>

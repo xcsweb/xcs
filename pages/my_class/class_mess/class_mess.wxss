@@ -1,0 +1,49 @@
+/* pages/my_class/class_mess/class_mess.wxss */
+.range_top{
+  display: flex;
+  margin: 20rpx 0;
+  padding: 20rpx 0;
+  background: #fff;
+}
+.range_top button {
+  margin: 0 auto;
+  font-size: 26rpx;
+  line-height: 2;
+  padding: 0 30rpx;
+}
+.choose_class{
+  display: flex;
+  justify-content: space-between;
+  margin: 20rpx 0;
+  padding: 25rpx;
+  background: #fff;
+}
+.choose_class button {
+  font-size: 26rpx;
+  line-height: 2;
+  margin: 0;
+  padding: 0 30rpx;
+}
+.choose_class .trangle{
+  width: 14rpx;
+  height: 10rpx;
+}
+textarea {
+  width: auto;
+  padding: 25rpx;
+  background: #fff;
+  color: #333;
+  font-size: 34rpx;
+}
+.mess_num{
+  
+}
+.btn_bar {
+  margin-top: 72rpx;
+  padding: 0 32rpx;
+}
+
+.btn_bar button {
+  background: #ff7e4c;
+  color: #fff;
+}

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "详情页",
+  "usingComponents": {
+    "com-attachments": "/components/attachments/attachments",
+    "com-input": "/components/smartInput/smartInput"
+  }
+}

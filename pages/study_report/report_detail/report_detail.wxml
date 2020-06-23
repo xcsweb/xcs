@@ -1,0 +1,155 @@
+<import src="../../../wxParse/wxParse.wxml"/>
+<image src='/imgs/study_report/xueqingbg.png' mode='widthFix' class='topbg'></image>
+<view class='userInfo'>
+  <view class='avatar'>
+    <image src='{{basicContent.avatar}}' binderror='errorImg'></image>
+    <image class='gender' src='/imgs/kechengbiao/img_32.png' wx:if='{{basicContent.sex==0}}'></image>
+    <image class='gender' src='/imgs/kechengbiao/img_29.png' wx:if='{{basicContent.sex==1}}'></image>
+  </view>
+  <view style='color:#666;'>{{basicContent.studentName}}({{basicContent.birthDt}})</view>
+  <view class='campus_'>所在校区/分店：
+    <text class='campus'>{{basicContent.campusName}}</text>
+  </view>
+</view>
+<view class='classes'>
+  <view class='title'>
+    分班信息
+  </view>
+  <scroll-view class='table' scroll-x='true'  scroll-left='{{left1_}}'>
+    <view class='col header col1' >
+      <view>班级名称</view>
+      <view>绑定卡名称</view>
+      <view>类别</view>
+      <view>分班时间</view>
+    </view>
+    <view class='col col1'  wx:for='{{classContent}}' wx:key='*this' style='{{classContent.length==1?"width:"+(tableWidth-col1titleWidth+2)+"px;max-width:initial;":""}}'>
+      <view>{{item.className}}</view>
+      <view>{{item.studentCourseName}}</view>
+      <view>{{item.trainName}}</view>
+      <view>{{item.createDt}}</view>
+    </view>
+  </scroll-view>
+  <view bindtouchmove='scrollbarmove1' bindtouchstart='scrollbarmove1' style='padding:10rpx 0rpx;' wx:if='{{scrollview1width>tableWidth}}'>
+    <view class='scrollbar'>
+      <view class='linebg' style='width:{{width1}}'></view>
+      <view class='dot' style='left:{{left1}}px'></view>
+    </view>
+  </view>
+</view>
+
+
+<view class='classes' style='text-align:center;' wx:if='{{!hide}}'>
+  <view class='title' style='text-align:left;'>
+    缴费记录
+  </view>
+  <scroll-view class='table' scroll-x='true' scroll-left='{{left2_}}' style='text-align:left;'>
+    <view class='col header col2'>
+      <view>卡名称</view>
+      <view>卡类型</view>
+      <view>购卡时间</view>
+      <view>购卡金额</view>
+      <view>
+        卡内剩余
+      </view>
+    </view>
+    <view class='col col2'  wx:for='{{courseContent}}' wx:key='*this' style='{{courseContent.length==1?"width:"+(tableWidth-col2titleWidth+2)+"px;max-width:initial;":""}}'>
+      <view>{{item.stuCourseName}}</view>
+      <view>{{item.chargeTypeName}}</view>
+      <view>{{item.createDt}}</view>
+      <view>￥{{item.receipts}}</view>
+      <view>{{item.balance+item.chargeTypeName}}</view>
+    </view>
+  </scroll-view>
+  <view bindtouchmove='scrollbarmove2' bindtouchstart='scrollbarmove2' style='padding:10rpx 0rpx;' wx:if='{{scrollview2width-tableWidth>5}}'>
+    <view class='scrollbar'>
+      <view class='linebg' style='width:{{width2}}'></view>
+      <view class='dot' style='left:{{left2}}px'></view>
+    </view>
+  </view>
+</view>
+
+
+<view class='classes'>
+  <view class='title'>
+    上课记录
+  </view>
+  <view class='course' style='border-bottom:1px solid #ddd;border-left:{{index%2==0?"6rpx solid #a375ff":"6rpx solid #FF6633"}}' wx:for='{{attendClassContent}}' wx:key='*this'>
+    <view class='info'>
+      <image mode='aspectFit' src='/imgs/study_report/a.png'></image>
+      上课日期：
+      <text class='val'>{{item.day}}</text>
+    </view>
+    <view class='info'>
+      <image src='/imgs/study_report/e.png' mode='aspectFit'></image>
+      上课班级：{{item.className}}
+    </view>
+    <view class='info'>
+      <image src='/imgs/study_report/b.png'></image>
+      <block wx:if='{{item.chargeType==0}}'>消耗课时：</block>
+      <block wx:if='{{item.chargeType==1}}'>消耗课次：</block>
+      <block wx:if='{{item.chargeType==2}}'>消耗金额：</block>
+      <block wx:if='{{item.chargeType==3}}'>有效期：</block>
+      <view class='val' style='white-space:nowrap;'>{{item.chargeVal}}
+        <block wx:if='{{item.chargeType==0}}'>小时</block>
+        <block wx:if='{{item.chargeType==1}}'>次</block>
+        <block wx:if='{{item.chargeType==2}}'>元</block>
+      </view>
+    </view>
+    <view class='info'>
+      <image src='/imgs/study_report/d.png' mode='aspectFit'></image>
+      训练数量：<block wx:if='{{item.terms.length==0}}'>/</block>
+    </view>
+    <view class='valArea' wx:if='{{item.terms.length>0}}'>
+      <block wx:for='{{item.terms}}' wx:key='*this'>{{item.name+item.val}};</block>
+    </view>
+    <view class='info'>
+      <image src='/imgs/study_report/c.png' mode='aspectFit'></image>
+      课堂表现：<block wx:if='{{!item.teachingPerformance}}'>/</block>
+      <com-rating rating='{{item.teachingPerformance}}'  wx:if='{{item.teachingPerformance>0}}' disabled='true'></com-rating>
+    </view>
+    <view class='valArea' wx:if='{{item.teachingEvaluate}}'>
+      {{item.teachingEvaluate}}
+    </view>
+    <view class='info'>
+      <image src='/imgs/study_report/f.png'></image>
+      备注：
+      <text class='val' wx:if='{{item.layoutType==1}}'>串课</text>
+      <text class='val' wx:if='{{item.layoutType!=1}}'>/</text>
+    </view>
+  </view>
+</view>
+
+
+<view class='classes' wx:if='{{evaluate}}'>
+  <view class='title'>
+    综合评价
+  </view>
+  <view class='course' style='border-left:none;'>
+    <view class='info'>
+      {{evaluate}}
+    </view>
+    <!-- <view class='val'>
+      <image src='/imgs/study_report/d.png'></image>
+      暂无内容
+    </view> -->
+  </view>
+</view>
+
+
+<view class='classes' wx:if='{{attachments.length>0}}'>
+  <view class='title'>
+    学员风采
+  </view>
+  <view style='padding:20rpx'>
+    <com-attachments title="" attachments='{{attachments}}' edit='{{false}}'></com-attachments>
+  </view>
+</view>
+
+<view class='classes'>
+  <view class='title'>
+    机构简介
+  </view>
+  <view class='val' style='padding:20rpx;'>
+    <template is="wxParse" data="{{wxParseData:wxParse.nodes}}" />
+  </view>
+</view>

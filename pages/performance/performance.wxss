@@ -1,0 +1,5 @@
+.list {
+  background: white;
+  padding: 50rpx;
+  box-sizing: border-box;
+  color: white; }

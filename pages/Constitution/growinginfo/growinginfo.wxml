@@ -1,0 +1,77 @@
+<view class='fontinfo' style='overflow:auto; '>
+  <view style='overflow-y:auto;'>
+    <rich-text nodes='{{content}}' style='  display: inline-block;   color:#333333; font-size:34rpx; padding:30rpx 40rpx 30rpx 30rpx;overflow:hidden;background-color:#ffffff; width:90%;'></rich-text>
+  </view>
+</view>
+<view class='studentinfo'>
+  <view class='studenttitle'>
+    <block wx:if='{{zbcs==0}}'>
+      <view class='studenttitles wx:if="{{zbcs==0}}"'>
+        <text class='studenttitletextname'>姓名</text>
+        <text class='studenttitletext' style='margin-left:-50rpx;'>选择项</text>
+        <text class='studenttitletext' style='margin-left:144rpx;width:120rpx;'>选择项</text>
+      </view>
+    </block>
+    <block wx:if='{{zbcs==1}}'>
+      <view class='studenttitles'>
+        <text class='studenttitletextname'>姓名</text>
+        <text class='studenttitletext' style='margin-left:-180rpx;'>选择项</text>
+        <text class='studenttitletext' style='margin-left:34rpx;width:120rpx;'>选择项</text>
+        <text class='studenttitletext' style='margin-left:24rpx;width:120rpx;'>选择项</text>
+        <text class='studenttitletext' style='margin-left:24rpx;width:120rpx;'>选择项</text>
+      </view>
+    </block>
+  </view>
+  <block wx:if='{{zbcs==1}}'>
+    <view class='kouhao' wx:for='{{studentinfo}}' wx:key="*this">
+      <text class='kouhaos'>(目前身高)</text>
+      <text class='kouhaos' style='margin-left:10rpx;'>(目前体重)</text>
+      <text class='kouhaos' style='margin-left:14rpx;'>(父亲身高)</text>
+      <text class='kouhaos' style='margin-left:15rpx;'>(母亲身高)</text>
+    </view>
+    <view class='info' wx:for='{{check}}' wx:key="*this">
+      <slider-left data-index='{{index}}' bind:delete="handleDelete" class='slider'>
+        <block>
+
+          <text class='studentname' style='max-width:100rpx; width:100rpx; overflow: hidden;'>{{item.name}}</text>
+          <input placeholder='请输入' style='margin-left:25rpx;' name='shengao' data-index='{{index}}' data-stuid='{{studentId[index].studentId}}' data-list='val1' name='nowheight' bindinput='getvalues'></input>
+          <input placeholder='请输入' name='nowweight' data-index='{{index}}' data-stuid='{{studentId[index].studentId}}' data-list='val2' bindinput='getvalues'></input>
+          <input placeholder='请输入' name='fatherheight' data-index='{{index}}' data-stuid='{{studentId[index].studentId}}' data-list='val3' bindinput='getvalues'></input>
+          <input placeholder='请输入' data-index='{{index}}' data-stuid='{{studentId[index].studentId}}' data-list='val4' bindinput='getvalues'></input>
+          <text wx:if='{{item.type==0}}' style='font-size:20rpx;   position: absolute;top:120rpx; left:200rpx;  color:#a375ff'>该学员不可进行该项目测试，请删除</text>
+
+        </block>
+      </slider-left>
+    </view>
+    <button class='button' bindtap='addrecord'>确定</button>
+  </block>
+  <block wx:if='{{zbcs == 0}}'>
+    <view class='kouhao' wx:for='{{studentinfo}}' wx:key="*this">
+    </view>
+    <view class='info' wx:for='{{check}}' wx:for-index="bindex" wx:key="*this">
+      <slider-left data-index='{{bindex}}' bind:delete="handleDelete" class='slider'>
+        <text class='studentname' style='max-width:180rpx; width:120rpx; overflow: hidden;'>{{item.name}}</text>
+        <block>
+          <view class='checkbox1'>
+            <view class='one'>
+              <radio-group class="item-right" bindchange="radioChange" data-index='{{bindex}}'>
+                <label class="radio" style='width:auto;' bindtap='getvalue'>
+                  <block>
+                    <radio value='{{tpsCategoriesOption[0].id}}'>{{tpsCategoriesOption[0].title}}</radio>
+                    <radio style='top:initial;left:40rpx;width:auto;' class='twotext' value='{{tpsCategoriesOption[1].id}}'>{{tpsCategoriesOption[1].title}}</radio>
+                  </block>
+                </label>
+              </radio-group>
+              <text wx:if='{{item.type==0}}' style='font-size:20rpx;   position: relative;left:12rpx; color:#a375ff'>该学员不可进行该项目测试，请删除</text>
+            </view>
+          </view>
+          <view>
+          </view>
+        </block>
+      </slider-left>
+    </view>
+    <view class='bottom'></view>
+    <button class='button' bindtap='addrecord'>确定</button>
+  </block>
+
+</view>

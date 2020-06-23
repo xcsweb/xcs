@@ -1,0 +1,34 @@
+<view class='videoContainer' wx:if='{{showVideo}}'>
+  <view class='close' bindtap='closeVideo'>关闭</view>
+  <video src="{{videoSrc}}" controls autoplay='true'></video>
+</view>
+<view class='divider'></view>
+<view style='padding:20rpx 30rpx;overflow:hidden;'>
+  <view class='label'>标题：</view>
+  <view class='content'>{{data.title}}</view>
+  <view class='label'>内容：</view>
+  <view class='content'>{{data.content}}</view>
+  <view class='label' wx:if='{{data.imgfiles.length>0}}'>图片：</view>
+  <view class='attachments' wx:for='{{data.imgfiles}}' wx:key='*this' bindtap='viewAttachment' data-attachment='{{item}}'>
+    <image class='attachments' src='{{img_url+item}}' mode='aspectFill'></image>
+  </view>
+
+  <view class='label' wx:if='{{data.vodfiles.length>0}}'>视频：</view>
+  <view class='attachments' wx:for='{{data.vodfiles}}' wx:key='*this' bindtap='viewAttachment' data-attachment='{{item}}' data-video='1'>
+    <image class='attachments' src='{{vod_url+item+"?vframe/jpg/offset/0/w/640/h/360"}}' mode='aspectFill'></image>
+    <image src='/imgs/common/video.png' class='vodflag' mode='aspectFill'></image>
+  </view>
+  <view class='label'>作业要求：</view>
+  <view class='content' style='border:none;padding:0rpx;'>
+    <view wx:for='{{data.teachTerms}}' wx:key='*this'>{{item.labelName}} {{item.val}}</view>
+  </view>
+</view>
+<view class='divider'></view>
+<view style='padding:20rpx 30rpx;overflow:hidden;' wx:if='{{data.supply}}'>
+  <view class='label'>自定义：</view>
+  <view class='content'>{{data.supply}}</view>
+</view>
+<view class='btnWrapper'>
+<navigator url='../clshouer_edit_sub/clshouer_edit_sub'>
+<button hover-class="btn-hover" wx:if='{{dataset.d.classesHour.isSendTask==0}}'>编辑</button></navigator>
+</view>

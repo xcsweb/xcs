@@ -1,0 +1,31 @@
+.listItem {
+  display: flex;
+  border-bottom: 1rpx solid #f1f1f1;
+  padding: 20rpx 30rpx;
+  background: white;
+}
+.listItem:first-child{
+  margin-top: 20rpx;
+}
+.listItem .body {
+  flex: 7;
+  font-size: 34rpx;
+}
+.listItem .body view{
+  height: 46rpx;
+  line-height: 46rpx;
+}
+.listItem .body > view:nth-child(1) {
+  color: #333;
+}
+.listItem .body > view:nth-child(n+2) {
+  color: #666;
+}
+.listItem .end {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 30rpx;
+  justify-content: flex-end;
+}

@@ -1,0 +1,37 @@
+<!--pages/jiaowu/order/order_mess/order_mess.wxml-->
+<view class='mess_top'>
+  <image class='avator' src='{{list[0].avatar}}' bindtap='toDetail' binderror='errorImg'></image>
+  <image src='/imgs/my_stu/gender_male.png' class='sex_ico'></image>
+  <view class='btn_list'>
+    <button bindtap='call' style='background-image:url("{{order_phone}}")'>拨打电话</button>
+    <text>{{list[0].studentName}}</text>
+      <view class='btn' bindtap='msgsenderShow'>
+    <image src='/imgs/my_stu/message.png' mode='aspectFit'></image>
+    发送消息
+  </view>
+    <!-- <button style='background-image:url("{{order_id}}")'>{{list[0].studentId}}</button> -->
+  </view>
+</view>
+
+<view class='order_list'>
+  <view class='order_li' wx:for="{{list}}" wx:for-item="item" wx:key="item.id" wx:if="{{tabid==0||item.showType == tabid}}">
+    <image class='avatar' src='{{item.avatar}}'></image>
+    <view class='mess' bindtap='goto' data-stuid='{{item.studentId}}'>
+      <text class='name'>{{item.studentName}}</text>
+      <text>时间：{{item.day}}</text>
+      <text>班级：{{item.classesName}}</text>
+      <text>电话：{{item.tel}}</text>
+    </view>
+    <view class='oper'>
+      <text class='new' wx:if="{{index < 0}}">NEW</text>
+      <picker bindchange="layoutChange" value="{{layoutvalue}}" range-key="codeDisplay" range="{{layoutType}}" data-index='{{index}}' wx:if="{{item.layoutDisplay != '取消'}}">
+        <button>{{item.layoutDisplay}}
+          <image src='/imgs/common/trangle.png'></image>
+        </button>
+      </picker>
+      <text class='cancel' wx:if="{{item.layoutDisplay == '取消'}}">已取消</text>
+    </view>
+  </view>
+  <text class='nomore'>暂无更多</text>
+</view>
+<com-msgsender show='{{msgsenderShow}}' students='{{[student]}}'></com-msgsender>

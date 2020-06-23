@@ -1,0 +1,52 @@
+<view class='postWrapper' wx:for='{{post_list}}' wx:key='{{item.postId}}' bindtap='toDetail' data-postid='{{item.postId}}'>
+  <view class='userInfo'>
+    <image src='{{item.avatar}}' class='avatar' binderror='errorImg' data-index='{{index}}'></image>
+    <view class='nameDate'>
+      <view class='username'>{{item.nickName}}</view>
+      <view class='date'>{{item.createDt_}}</view>
+    </view>
+    <image wx:if='{{item.isDel}}' class='del' src='{{serverImg}}delete.png' data-postid='{{item.postId}}' catchtap='delPost'></image>
+  </view>
+  <view class='content'>{{item.content}}</view>
+  <com-attachments attachments='{{item.attachments}}' edit='{{false}}' title=''></com-attachments>
+  <view class='prises' wx:if='{{item.postPraiseList.length>0}}'>
+    <image src='/imgs/interaction/v.png' class='fav'></image> 
+    <image src='{{item.avatar}}' wx:for-index='subindex' class='user' wx:for='{{item.postPraiseList}}' wx:key='*this' binderror='errorImg2' data-index='{{index}}' data-subindex='{{subindex}}'></image>
+    <view class='more' hidden='true'>展开更多</view>
+  </view>
+  <view class='operators'>
+    <view class='button' catchtap='add_praise' data-index='{{index}}'>
+      <image src='{{item.isPraise?"/imgs/interaction/e.png":"/imgs/interaction/rt.png"}}'></image>点赞
+    </view>
+    <view class='button' catchtap='add_comment_show' data-postid='{{item.postId}}'>
+      <image src='/imgs/interaction/gf.png'></image>评论
+    </view>
+    <view class='button' wx:if='{{item.val}}' style='color:#ddc5ff'>
+      <image src='/imgs/interaction/a.png'></image>{{item.val}}
+    </view>
+  </view>
+</view>
+<view class='footer_'></view>
+<navigator url='./interaction_add/interaction_add' hover-class='none'>
+  <view class='footer' style='background:#FE9E9F' hover-class='btn-hover'>
+    发帖子
+  </view>
+</navigator>
+<view class='writeEvalArea' wx:if='{{add_comment_show}}' bindtap='add_comment_show'>
+  <view class='writeEvalInner' catchtap='c'>
+
+    <view class='center'>
+      <view class='centerIner'>
+        <com-input fixed='true' value='{{content}}' textarea='1' name='content' placeholder='评论写点什么吧...' />
+      </view>
+    </view>
+    <view class='top'>
+      <button size='mini' bindtap='add_comment'>发送</button>
+    </view>
+  </view>
+</view>
+
+
+<view class='noData' wx:if='{{!post_list||post_list.length==0}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

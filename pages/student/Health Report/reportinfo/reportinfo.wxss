@@ -1,0 +1,85 @@
+/* .main{
+  display: flex;
+} */
+
+page {
+  background-color: #f7f7f7;
+}
+
+.info-title {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+.info-body {
+  height: auto;
+  display: flex;
+  background-color: #fff;
+  flex-direction: column;
+  padding-left: 80rpx;
+  font-size: 34rpx;
+  color: #484848;
+  margin-bottom: 15rpx;
+}
+
+.t-img {
+  width: 162rpx;
+  height: 138rpx;
+  margin-top: 40rpx;
+  border-radius: 55px;
+  position: relative;
+  left: 40%;
+  margin-bottom: 19rpx;
+  padding-bottom: 25rpx;
+  background-color: #f4f4f4;
+}
+
+.img-name {
+  position: relative;
+  left: 44%;
+  width: 148rpx;
+  height: 36rpx;
+  font-size: 34rpx;
+  color: #484848;
+  margin-bottom: 30rpx;
+}
+
+.img-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.t-info {
+  padding-left: 80rpx;
+  font-size: 34rpx;
+  color: #484848;
+}
+
+.infobutton {
+  position: fixed;
+  width: 100%;
+  background-color: #fe9f9e;
+  font-size: 34rpx;
+  color: #fff;
+  bottom: 0rpx;
+  border: 0px;
+  border-radius: 0rpx;
+}
+.infobutton::after{
+  border: none;
+}
+.analwords {
+  background-color: #f7f7f7;
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  margin: 0px;
+  position: relative;
+  left: -8%;
+  padding-left: 50rpx;
+}

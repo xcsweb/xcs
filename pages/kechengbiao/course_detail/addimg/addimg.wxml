@@ -1,0 +1,20 @@
+<view class='videoContainer' wx:if='{{showVideo}}'>
+  <view class='close' bindtap='closeVideo'>关闭</view>
+  <video src="{{videoSrc}}" controls autoplay='true'></video>
+</view>
+<view class='top'></view>
+<view class='imgs'>
+  <view class='addImg' bindtap='addImage'>
+    <image src='/imgs/kechengbiao/add.png' class='addIcon'></image>
+  </view>
+  <view class='imgWrapper' wx:for='{{attachments}}' wx:key='{{item.key}}'>
+    <image src='{{item.img}}' bindtap='viewAttachment' class='img' data-attachment='{{item}}'></image>
+    <view class='delete' catchtap='delete' data-index='{{index}}'>
+      <text class="iconfont icon-delete1"></text>
+    </view>
+  </view>
+</view>
+<view class='btnWrapper'>
+<navigator open-type='navigateBack' hover-class="none">
+  <button class="weui-btn" type="primary" hover-class="btn-hover"  bindtap='pre_clshour_detail_attn_sub2'>确定</button></navigator>
+</view>

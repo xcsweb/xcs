@@ -1,0 +1,51 @@
+<swiper autoplay="true" bindchange='swiperChange'>
+  <swiper-item wx:for="{{imgs}}" wx:key='*this'>
+    <image src="{{item.img}}" class="slide-image" />
+    <view class='swiperNum' wx:if='{{imgs.length>0}}'>{{current}}/{{imgs.length}}</view>
+  </swiper-item>
+</swiper>
+<view style='height:20rpx;'></view>
+<com-tabs tabs='{{["全部","我的收藏"]}}' bindchange='changeTab'></com-tabs>
+<view class='tags' wx:if='{{weikeCategoryList.length>0}}'>
+  <view class='tag {{category.cid==item.cid?"active":""}}' wx:for='{{weikeCategoryList}}' wx:key='{{item.cid}}' bindtap='changeCategory' data-cat='{{item}}'>{{item.title}}</view>
+</view>
+<view class='listItem' bindtap='toDetail' data-id='{{item.weikeId}}' wx:for='{{weikeList}}' wx:key='{{item.weikeId}}'>
+  <view class='body'>
+    <view class='logo'>
+      <image src='{{item.imgs}}'></image>
+      <view class='tag' wx:if='{{item.iscollect==1}}'>已收藏</view>
+    </view>
+    <view class='brife'>
+      <view class='title'>{{item.title}}</view>
+      <view class='cat'>分类：{{item.categoryTitle}}</view>
+      <view class='rating'>精华指数：
+        <com-rating rating='{{item.star}}' disabled></com-rating>
+      </view>
+      <view class='author'>专家/作者名称：{{item.author}}</view>
+    </view>
+  </view>
+  <view class='date'>
+    发布时间：{{item.createDt_}}
+    <text class='readNum'>阅读量：{{item.readShu}}</text>
+  </view>
+  <view class='operators'>
+    <view class='button' data-index='{{index}}'>
+      <image src='/imgs/student/weike/f.png'></image>留言
+    </view>
+    <view class='button' catchtap='weike_zan' data-index='{{index}}'>
+      <image src='/imgs/student/weike/c.png' wx:if='{{item.isZan==1}}'></image>
+      <image src='/imgs/student/weike/e.png' wx:if='{{item.isZan==0}}'></image>
+      点赞
+    </view>
+    <view class='button' catchtap='weike_collect' data-index='{{index}}'>
+      <image src='/imgs/student/weike/b.png' wx:if='{{item.iscollect==1}}'></image>
+      <image src='/imgs/student/weike/bb.png' wx:if='{{item.iscollect==0}}'></image>收藏
+    </view>
+    <!-- <view class='button' catchtap='share' data-index='{{index}}'>
+      <image src='/imgs/student/weike/d.png'></image>分享
+    </view> -->
+  </view>
+</view>
+<view class='noData' wx:if='{{!weikeList||weikeList.length==0}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

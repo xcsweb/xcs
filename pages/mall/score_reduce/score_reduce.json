@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "减积分",
+  "usingComponents": {
+    "com-picker": "/components/smartPicker/smartPicker",
+    "com-input": "/components/smartInput/smartInput"
+  }
+}

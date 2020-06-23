@@ -1,0 +1,35 @@
+<!--pages/set/feedbook/feedbook.wxml-->
+<view class='list'>
+  <radio-group bindchange="radioChange">
+    <view class='li'>
+      <radio value="1" color="#FE8158" checked='{{nClass==1}}'></radio>
+      <text>功能异常：功能故障或不可用</text>
+    </view>
+    <view class='li'>
+      <radio value="2" color="#FE8158" checked='{{nClass==2}}'></radio>
+      <text>产品建议：用的不爽，我有建议；</text>
+    </view>
+    <view class='li'>
+      <radio value="3" color="#FE8158" checked='{{nClass==3}}'></radio>
+      <text>其他问题</text>
+    </view>
+  </radio-group>
+
+</view>
+<view class='list'>
+  <view class='li'>
+    <text>请补充详细问题意见</text>
+  </view>
+  <view class='li'>
+    <textarea data-dataname='contents' bindinput="bindKeyInput" placeholder='请输入至少10个字的描述'></textarea>
+  </view>
+</view>
+<!-- <view class='list'>
+  <view class='li'>
+    <text>请提供相关的截图/照片</text>
+  </view>
+  <view class='li'>
+  
+  </view>
+</view> -->
+<button class='btn_down' bindtap='subform'>保存</button>

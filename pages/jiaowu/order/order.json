@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "学员预约",
+  "usingComponents": {
+    "com-searchfilter": "/components/searchfilter/index"
+  }
+}

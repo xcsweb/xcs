@@ -1,0 +1,34 @@
+<import src="../../../../wxParse/wxParse.wxml"/>  
+<view class='title'>{{weikeDetail.title}}</view>
+<view class='date'>{{weikeDetail.createDt_}} {{weikeDetail.author}}</view>
+<view class='imgs' wx:if='{{weikeDetail.imgs.length>0}}'>
+  <com-attachments attachments='{{weikeDetail.imgs}}' edit='0' mode='2'></com-attachments>
+</view>
+<view class='content'>
+<template is="wxParse" data="{{wxParseData:wxParse.nodes}}" />
+</view>
+<view class='shenming'>{{weikeDetail.statement}}</view>
+<view class='zans'>
+  <image src='/imgs/student/weike/c.png' wx:if='{{weikeDetail.isZan==1}}' bindtap='weike_zan'></image>
+  <image src='/imgs/student/weike/e.png' wx:if='{{weikeDetail.isZan==0}}' bindtap='weike_zan'></image>
+  <view class='num'>{{weikeDetail.zan}}赞</view>
+</view>
+
+<view class='comment' wx:for='{{commentList}}' wx:key='*this'>
+  <image src='{{item.avatar}}' class='avatar'></image>
+  <view class='nameDate'>
+    <view class='username'>{{item.nickName}}
+      <image src='/imgs/student/weike/c.png' class='zanimg' wx:if='{{item.isZan==1}}' bindtap='weike_comment_zan' data-index='{{index}}'></image>
+      <image src='/imgs/student/weike/e.png' class='zanimg' wx:if='{{item.isZan==0}}' bindtap='weike_comment_zan' data-index='{{index}}'></image>
+    </view>
+    <view class='username2'>{{item.createDt_||""}}
+      <text>{{item.zan}}赞</text>
+    </view>
+    <view class='content'>{{item.content}}</view>
+  </view>
+</view>
+<view class='footer_'></view>
+<view class='footer'>
+  <com-input placeholder='请输入点评内容' name='content' value='{{content}}'></com-input>
+  <button size='mini' hover-class='btn-hover-stu' bindtap='weike_comment'>发送</button>
+</view>

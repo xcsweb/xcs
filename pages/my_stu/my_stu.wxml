@@ -1,0 +1,86 @@
+<view class="page__hd">
+  <com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话/卡号' />
+</view>
+<view class="page__hd_"></view>
+<view class='topBtnArea weui-flex' wx:if="{{!inputShowed}}">
+  <view>
+    <checkbox class='circleCheckbox' wx:if='{{selectMode}}' bindtap='selectAll' checked='{{selectAll}}' />
+    <button type="default" size="mini" bindtap='selectMode'>{{selectBtnTxt}}</button>
+  </view>
+  <view class='txt'>
+    学员数：{{count}}
+  </view>
+</view>
+
+<checkbox-group bindchange='studentBindChange' wx:if="{{!inputShowed}}">
+  <view class='listItem' wx:for='{{students}}' wx:key='{{item.studentId}}'>
+    <checkbox class='circleCheckbox' value='{{index}}' wx:if='{{selectMode}}' data-status='{{item.stopClassStatus}}' checked='{{item.selected}}' />
+    <com-imager qnsrc='{{item.avatar}}' classs='avatar' binderror='imgError'></com-imager>
+    <view class='body' bindtap='toDetail' data-index='{{index}}'>
+      <text class='name'>{{item.studentName}}<text class='position' wx:if='{{item.saleName}}'>({{item.saleName}}销售)</text>
+      <text class='position_' wx:if='{{!item.saleName}}'>(未分配)</text></text>
+      <text>\n<block wx:for="{{item.stuCourseVos}}" wx:for-item="li" wx:key="{{li.studentCourseId}}">{{li.courseName}} </block></text>
+      <text>\n{{item.loginDt_}}</text>
+    </view>
+    <view class='status' style='color:{{item.stopClassStatus==1?"#FF7547":""}}'>
+      <block wx:if='{{item.stopClassStatus==0}}'>正常</block>
+      <block wx:if='{{item.stopClassStatus==1}}'>停课</block>
+    </view>
+  </view>
+</checkbox-group>
+<view class='noData' wx:if='{{!students||students.length==0}}'>
+  <com-imager src='common/nodata.png' mode='aspectFit'></com-imager>
+</view>
+<view class='writeEvalArea' wx:if='{{showEvalInput}}' bindtap='showEvalInput'>
+  <view class='writeEvalInner' catchtap='c'>
+    <view class='top'>
+      <picker bindchange="bindNoticeTypeChange" name='noticeType' value="{{noticeTypeIndex}}" range="{{noticeType}}" range-key="codeDisplay">
+        <view>{{noticeType[noticeTypeIndex].codeDisplay}}
+          <com-imager src='common/trangle.png' classs='top' mode='aspectFill'></com-imager>
+        </view>
+      </picker>
+      <view style='flex:1;'></view>
+      <button size='mini' bindtap='notice_add_sub'>发送</button>
+    </view>
+    <view class='center'>
+      <view class='centerIner'>
+        <view>标题：</view>
+        <input data-name='title' value='{{title}}' bindinput='bindinput' placeholder='输入标题' placeholder-style='color:#ccc'></input>
+        <view>内容：</view>
+        <textarea data-name='content' value='{{content}}' bindinput='bindinput' placeholder='输入内容' placeholder-style='color:#ccc'></textarea>
+      </view>
+    </view>
+    <view class='bottom'>
+      <checkbox-group bindchange='isUseConfirm'>短信提醒：
+        <checkbox style='height:10px;' value='1' /></checkbox-group>
+    </view>
+  </view>
+</view>
+<view class='writeStopArea' wx:if='{{showStopInput}}' bindtap='showStopInput'>
+  <view class='writeStopInner' catchtap='c'>
+    <view class='top'>
+      <view>停课时间：</view>
+      <picker mode="date" data-name='stopClassStartDt' bindchange="bindDateChange">
+        <view> {{stopClassStartData||"请选择"}} </view>
+      </picker>
+      <text style='margin: 0 10rpx;'>-</text>
+      <picker mode="date" data-name='stopClassEndDt' bindchange="bindDateChange">
+        <view> {{stopClassEndData||"请选择"}} </view>
+      </picker>
+      <view style='flex:1;'></view>
+      <button size='mini' bindtap='stu_change_clstatus' data-stopstatus='1'>发送</button>
+    </view>
+    <view class='center'>
+      <view class='centerIner'>
+        <view>停课备注：</view>
+        <textarea data-name='description' value='{{description}}' bindinput='bindinput' placeholder='输入内容' placeholder-style='color:#ccc'></textarea>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='footer_'></view>
+<view class='footer' wx:if="{{!inputShowed}}">
+  <view bindtap='showStopInput'>停课</view>
+  <view bindtap='stu_change_clstatus' data-stopstatus='0'>复课</view>
+  <view bindtap='showEvalInput'>群发通知</view>
+</view>

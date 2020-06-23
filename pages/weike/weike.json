@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "微课堂",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs",
+    "com-rating": "/components/rating/rating"
+  }
+}

@@ -1,0 +1,19 @@
+<!--pages/jiaowu/studentrial/studentrial.wxml-->
+<com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话' />
+<view class='noData' wx:if='{{!list||list.length==0}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='list' wx:for="{{list}}" wx:for-item="item" wx:key="item.classesHourStudentId">
+  <image class='avatar' src='{{item.avatar}}' data-index='{{index}}'></image>
+  <view class='mess' bindtap='toDetail' data-index='{{index}}'>
+    <text class='name'>{{item.studentName}}</text>
+    <text>上课时间：{{item.day}}</text>
+    <text>校区/场馆：{{item.field}}</text>
+    <text>班级：{{item.classesName}}</text>
+  </view>
+  <text class='type on' wx:if="{{item.status=='1' && item.attenStatus=='0'}}">已排课</text>
+  <text class='type' wx:elif="{{item.status=='1' && item.attenStatus!='0'}}">已试课</text>
+  <text class='type' wx:elif="{{item.status=='0'}}">已取消</text>
+  <button class='btn change' wx:if="{{0}}">调课</button>
+  <button class='btn' wx:if="{{0}}">取消</button>
+</view>

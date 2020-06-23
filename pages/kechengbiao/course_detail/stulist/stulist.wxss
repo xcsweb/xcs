@@ -1,0 +1,83 @@
+
+.listItem {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #666;
+  font-size: 30rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  background: white;
+  height: 90rpx;
+  border-bottom: 1px solid #f1f1f1;
+  line-height: 34rpx;
+}
+
+.listItem.header {
+  color: #333;
+  font-size: 34rpx;
+}
+.listItem .btn{
+  border: 1px solid #ccc;
+  color: #555;
+  padding: 0rpx 6rpx;
+  display: inline-block;
+  border-radius: 6rpx;
+}
+.listItem  .operations {
+  display: flex;
+  justify-content: center;
+}
+
+.listItem  .operation {
+  color: #ff8359;
+  padding: 0rpx 10rpx;
+}
+
+.listItem  .num {
+  color: #999;
+}
+
+.listItem>view{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.listItem>view:nth-child(1) {
+  flex: 18%;
+}
+
+.listItem>view:nth-child(2) {
+  flex: 28%;
+}
+
+.listItem>view:nth-child(3) {
+  flex: 14%;
+}
+
+.listItem>view:nth-child(4) {
+  flex: 18%;
+}
+
+.listItem>view:nth-child(5) {
+  flex: 22%;
+}
+
+
+
+.listItem2>view:nth-child(1) {
+  flex: 22%;
+}
+
+.listItem2>view:nth-child(2) {
+  flex: 34%;
+}
+
+.listItem2>view:nth-child(3) {
+  flex: 22%;
+}
+
+.listItem2>view:nth-child(4) {
+  flex: 22%;
+}

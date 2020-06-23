@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "班级公告",
+  "usingComponents": {
+    "com-sliding-listitem": "/components/slidingListItem/slidingListItem"
+  }
+}

@@ -1,0 +1,73 @@
+<view class='body'>
+  <view class='layout'>
+    <view class='tt1'>
+      {{detailData.classesHourInfo.name}}
+      <button wx:if="{{attenBtnType==1}}" bindtap='ask_for_leave'>请假</button>
+      <button wx:if="{{attenBtnType==2}}" bindtap='undo_clshour'>取消预约</button>
+    </view>
+    <view class='ctt'>上课时段：{{detailData.classesHourInfo.time}}</view>
+    <view class='ctt'>上课教练：{{detailData.classesHourInfo.teacherName}}</view>
+    <view class='ctt'>上课场地：{{detailData.classesHourInfo.field}}</view>
+  </view>
+  <view class='layout' wx:if="{{detailData.classesHourTeach}}">
+    <view class='tt2'><view class="circle"></view><view>课程详情</view></view>
+    <view class='ctda'>{{detailData.classesHourTeach.content}}</view>
+    <view class='ctdb'>
+      <text class='ttl'>训练项目</text>
+      <text class='ttr'>实际/目标</text>
+    </view>
+    <view class='ctdc' wx:for='{{detailData.classesHourTeach.teachTerms}}' wx:key='{{item.teachLabelId}}'>
+      <view class='ttl'>{{item.labelName}}</view>
+      <view class="progress">
+          <progress percent="{{item.completeVal/item.targetVal*100}}" activeColor="#02A7F0" stroke-width="11" />
+      </view>
+      <view class='ttr'>{{item.completeVal}}/{{item.targetVal}}</view>
+    </view>
+    <view class='ctdd'>
+      <view class="two_btn" wx:if="{{detailData.classesHourTeach.studentTaskId}}">
+        <button class='btn1' bindtap='toDetail' data-clshourteachid='{{detailData.classesHourTeach.classesHourTeachId}}'>
+        <image class="teach" src="/imgs/student/kechengbiao/teach.png"></image>
+        查看教案
+      </button>
+      <button class='btn2' bindtap='toDetail' data-studenttaskid='{{detailData.classesHourTeach.studentTaskId}}'>
+        <image class="teach" src="/imgs/student/kechengbiao/task.png"></image>
+      查看作业</button>
+      </view>
+      <view class="one_btn" wx:else> 
+         <button class='btn1' bindtap='toDetail' data-clshourteachid='{{detailData.classesHourTeach.classesHourTeachId}}'>
+          <image class="teach" src="/imgs/student/kechengbiao/teach.png"></image>
+          查看教案
+        </button>
+      </view>
+      
+    </view>
+  </view>
+  <view class='layout' wx:if="{{detailData.performance}}">
+    <view class='tt2'><view class="circle"></view><view>课堂表现</view></view>
+    <view class='rating'>
+      <view class='rating_icon'>
+        <image src='{{detailData.performance.icon}}'></image>
+        {{detailData.performance.comment}}
+      </view>
+      <com-rating size='60' rating='{{detailData.performance.starNum}}' disabled='1'></com-rating>
+    </view>
+  </view>
+  <view class='layout' wx:if="{{detailData.classesHourTeachers.length>0}}">
+    <view class='tt2'><view class="circle"></view><view>点评教练</view></view>
+    <view class='perfa'>
+      <view class='teacher' wx:for='{{detailData.classesHourTeachers}}' wx:key='{{item.classesHourTeacherId}}' bindtap='bindTeacher' data-index='{{index}}'>
+        <view><image src='{{item.avatar}}' class='{{item.selected?"selected":""}}'></image></view>
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+    <view class='perfb'>
+      <com-rating size='60' bindchange='rating' starType='1' rating="{{performance}}" />
+    </view>
+    <view class='perfc'>
+      <textarea bindinput='evaluate' placeholder='给教练一个鼓励吧 ^_^' value='{{evaluate}}'></textarea>
+    </view>
+    <view class='perfd'>
+      <button bindtap='addevaluate_teacher'>提交</button>
+    </view>
+  </view>
+</view>

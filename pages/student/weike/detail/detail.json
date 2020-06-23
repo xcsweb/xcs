@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "详情页",
+  "navigationBarBackgroundColor": "#78A6FF",
+  "usingComponents": {
+    "com-attachments": "/components/attachments/attachments",
+    "com-input": "/components/smartInput/smartInput"
+  }
+}

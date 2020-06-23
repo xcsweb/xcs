@@ -1,0 +1,22 @@
+<!--pages/jiaowu/attend/attend.wxml-->
+<view class="page__hd">
+<com-searchbar bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话/班级名称'>
+</com-searchbar>
+</view>
+<view class='page__bd'>
+  <view class='attence_list'>
+    <view class='attence_li' wx:for="{{list}}" wx:for-item="item" wx:key="item.id">
+      <view class='mess' bindtap='goto' data-id='{{item.classesHourId}}'>
+        <text class='name'>{{item.memberName}}</text>
+        <text>上课时间：{{item.day}}</text>
+        <text>上课班级：{{item.classesName}}</text>
+        <text>上课人数：{{item.studentNum}}人</text>
+      </view>
+      <text class='iconfont icon-arrow'></text>
+    </view>
+    <view class='nomore' hidden='{{isLoad}}'>暂无更多</view>
+  </view>
+    <view class='noData' wx:if='{{!list||list.length==0}}'>
+      <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+    </view>
+</view>

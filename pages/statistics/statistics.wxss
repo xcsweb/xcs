@@ -1,0 +1,315 @@
+.daterange {
+  margin-bottom: 20rpx;
+  background: white;
+  padding: 10rpx 20rpx;
+  font-size: 34rpx;
+  color: #333; }
+
+.content {
+  padding: 20rpx;
+  background: white;
+  color: #333;
+  font-size: 34rpx; }
+
+.chartsWrapper {
+  box-shadow: 0rpx 0rpx 10rpx #ccc;
+  margin-top: 20rpx; }
+  .chartsWrapper .title {
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+    font-size: 24rpx;
+    padding: 10rpx 20rpx 10rpx 20rpx; }
+    .chartsWrapper .title text {
+      color: #999; }
+    .chartsWrapper .title .cls1 {
+      display: inline-flex;
+      align-items: center;
+      font-size: 28rpx; }
+    .chartsWrapper .title .blk {
+      display: inline-block;
+      width: 8rpx;
+      height: 26rpx;
+      background: #ff9b7a;
+      margin-right: 10rpx; }
+
+.ringWrapper1 {
+  display: flex; }
+  .ringWrapper1 .ring {
+    flex: 1; }
+    .ringWrapper1 .ring .title {
+      text-align: center;
+      font-size: 28rpx;
+      color: #666; }
+
+.sexes {
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx 30rpx; }
+  .sexes .sex {
+    position: relative; }
+    .sexes .sex image:first-child {
+      width: 120rpx;
+      height: 120rpx; }
+    .sexes .sex image:last-child {
+      position: absolute;
+      width: 30rpx;
+      height: 30rpx;
+      bottom: 20rpx;
+      border: 2rpx solid #ccc;
+      border-radius: 100rpx;
+      box-sizing: border-box; }
+
+com-daterange text {
+  color: #999; }
+
+.tab2age {
+  display: flex;
+  align-items: center;
+  color: #999; }
+  .tab2age com-input {
+    width: 150rpx;
+    border: 1rpx solid #eee;
+    border-radius: 30rpx;
+    text-align: center;
+    margin: 0rpx 20rpx;
+    color: #999; }
+    .tab2age com-input input {
+      color: #999 !important; }
+
+.tab2ring {
+  background: #fbf9ff;
+  border-radius: 6rpx;
+  border: 1rpx solid #dfd0fe;
+  box-shadow: 0rpx 0rpx 4rpx #dfd0fe;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; }
+  .tab2ring .angle {
+    position: absolute;
+    top: -10rpx;
+    width: 20rpx;
+    height: 20rpx;
+    transform: rotate(45deg);
+    background: #FBF9FF;
+    border-top: 1rpx solid #dfd0fe;
+    border-left: 1rpx solid #dfd0fe; }
+  .tab2ring .angle1 {
+    left: 13%; }
+  .tab2ring .angle2 {
+    left: 49%; }
+  .tab2ring .angle3 {
+    left: 84%; }
+  .tab2ring .legends {
+    font-size: 30rpx;
+    color: #666;
+    width: 40%; }
+    .tab2ring .legends .legend {
+      display: flex;
+      align-items: center; }
+      .tab2ring .legends .legend .blk {
+        width: 20rpx;
+        height: 20rpx;
+        background: red;
+        margin-right: 20rpx; }
+
+.tab2items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing: border-box; }
+  .tab2items .tab2ring {
+    width: 100%; }
+  .tab2items .item {
+    box-sizing: border-box;
+    width: 30%;
+    background: #fefefe;
+    height: 150rpx;
+    border: 1rpx solid #d4d4d4;
+    border-radius: 14rpx;
+    text-align: center;
+    margin-top: 20rpx;
+    padding: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+
+.tab3brife {
+  box-sizing: border-box;
+  box-shadow: 0rpx 0rpx 10rpx #ccc;
+  padding: 20rpx;
+  color: #666;
+  display: flex;
+  margin-top: 20rpx; }
+  .tab3brife .left {
+    box-sizing: border-box;
+    border-right: 1rpx solid #eee;
+    padding-right: 5%;
+    width: 65%; }
+    .tab3brife .left .item {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      align-items: center;
+      white-space: nowrap; }
+      .tab3brife .left .item image {
+        width: 30rpx;
+        height: 30rpx;
+        margin-right: 10rpx;
+        min-width: 30rpx; }
+      .tab3brife .left .item .title {
+        max-width: 50%;
+        overflow: hidden;
+        color: #999; }
+      .tab3brife .left .item .val {
+        color: #ff6633;
+        flex: 1;
+        text-align: right; }
+  .tab3brife .right {
+    box-sizing: border-box;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; }
+    .tab3brife .right .title {
+      font-size: 28rpx;
+      color: #999; }
+    .tab3brife .right .price {
+      color: #a375ff;
+      font-size: 48rpx;
+      white-space: wrap;
+      word-break: break-all;
+      text-align: center; }
+
+.tab3detail {
+  box-sizing: border-box;
+  border: 1rpx solid #eee;
+  text-align: center;
+  color: #333;
+  margin-top: 20rpx; }
+  .tab3detail .header {
+    box-sizing: border-box;
+    background: #f6f5f7;
+    color: #333 !important; }
+  .tab3detail .row {
+    box-sizing: border-box;
+    color: #999;
+    display: flex;
+    border-bottom: 1rpx solid #eee;
+    overflow: hidden; }
+    .tab3detail .row view {
+      width: 33.33%;
+      padding: 10rpx 0rpx;
+      border-right: 1rpx solid #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .tab3detail .row view:last-child {
+      border-right: none; }
+
+.tab3card {
+  background: #918afb;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  overflow: hidden;
+  color: white;
+  font-size: 34rpx;
+  margin-bottom: 25rpx; }
+  .tab3card .divider {
+    width: 100%;
+    height: 1px;
+    background: white;
+    margin-top: 20rpx; }
+  .tab3card .data {
+    display: flex;
+    align-items: center;
+    font-size: 30rpx; }
+    .tab3card .data .left {
+      width: 40%; }
+      .tab3card .data .left .name {
+        padding-left: 25%; }
+    .tab3card .data .right {
+      width: 60%;
+      padding-top: 20rpx; }
+      .tab3card .data .right .line {
+        height: 8rpx;
+        border-radius: 40rpx;
+        background: white;
+        width: 100%;
+        margin-bottom: 5rpx; }
+
+.tab4card {
+  background: #918afb;
+  border-radius: 16rpx;
+  box-shadow: 0rpx 6rpx 11rpx #918afb;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: white;
+  font-size: 34rpx;
+  margin-bottom: 25rpx; }
+  .tab4card .body {
+    padding: 20rpx 20rpx 0rpx 20rpx; }
+  .tab4card .divider {
+    width: 100%;
+    height: 1px;
+    margin-top: 20rpx;
+    border-top: dashed;
+    border-top-width: 1px; }
+  .tab4card .data .cat {
+    color: #531bc6;
+    margin-top: 10rpx; }
+    .tab4card .data .cat text {
+      margin-right: 6rpx; }
+  .tab4card .data .detail {
+    color: #b0abfb;
+    font-size: 30rpx; }
+    .tab4card .data .detail text:first-child {
+      font-size: 38rpx; }
+    .tab4card .data .detail text:last-child {
+      margin: 0rpx 10rpx 0rpx 30rpx; }
+  .tab4card .bottom {
+    font-size: 30rpx;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.5s ease-in; }
+    .tab4card .bottom .trangle {
+      display: inline-block;
+      width: 30rpx;
+      height: 30rpx;
+      position: relative;
+      bottom: -30rpx;
+      background: white;
+      transform: rotate(45deg); }
+    .tab4card .bottom .arrow_down {
+      display: inline-block;
+      transition: all 0.2s ease-in; }
+  .tab4card canvas {
+    background: white; }
+  .tab4card .title {
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+    font-size: 34rpx;
+    background: white;
+    padding: 20rpx 20rpx 20rpx 20rpx;
+    align-items: center; }
+    .tab4card .title text {
+      color: #999; }
+    .tab4card .title .cls1 {
+      display: inline-flex;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
+      font-size: 30rpx; }
+    .tab4card .title .blk {
+      display: inline-block;
+      width: 8rpx;
+      height: 30rpx;
+      background: #ff9b7a;
+      margin-right: 10rpx; }

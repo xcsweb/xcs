@@ -1,0 +1,36 @@
+<!--pages/jiaowu/schedule/schedule.wxml-->
+<view class='search_bar'>
+  <input confirm-type="search" bindconfirm="search" placeholder-class="search_input" placeholder='输入客户姓名/电话' />
+  <button>校区</button>
+</view>
+
+<view class='btn_list'>
+  <button class='add' style='background-image:url("{{add_bg}}");'>添加预约</button>
+  <view class='btn_li'>
+    <image src='/imgs/schedule/btn_list.png'></image>
+    <image src='/imgs/schedule/btn_echarts.png'></image>
+  </view>
+</view>
+<view class='calendar'>
+  <view class='calendar_body' style='width: {{ sysW * 7 }}px'>
+    <view class='dateBox'>{{ year }}年{{ month}}月</view>
+    <block wx:for='{{ weekArr }}'>
+      <view style='width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;'>{{ item }}</view>
+    </block>
+    <block wx:for='{{ arr }}'>
+      <view style='{{ index == 0 ? "margin-left:" + sysW * marLet + "px;" : "" }}width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;' class='{{ item ==  getDate ? "dateOn" : ""}}'>
+        <text>{{ item }}</text>
+      </view>
+    </block>
+  </view>
+  <view class='schedule_list'>
+    <image src=''></image>
+    <view>
+    <text>芭蕾舞蹈班-幼儿班</text>
+    <text>时间：2018/08/29 9:00-11:00</text>
+    <text>地点：朝阳分馆2教室</text>
+    <text>教练/老师：李教练，王教练</text>
+    <text>学员：30人</text>
+    </view>
+  </view>
+</view>

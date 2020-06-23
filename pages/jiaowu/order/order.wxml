@@ -1,0 +1,113 @@
+<!--pages/jiaowu/order/order.wxml-->
+<com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话/卡号/班级名称' />
+<view class='nav_order'>
+  <view bindtap='changeTab' data-id='0' class="{{tabid==0 ? 'active':'' }}">全部
+    <view class='hr'></view>
+  </view>
+  <view bindtap='changeTab' data-id='1' class="{{tabid==1 ? 'active':'' }}">预约成功
+    <view class='hr'></view>
+  </view>
+  <view bindtap='changeTab' data-id='2' class="{{tabid==2 ? 'active':'' }}">排队中
+    <view class='hr'></view>
+  </view>
+  <view bindtap='changeTab' data-id='3' class="{{tabid==3 ? 'active':'' }}">已取消预约
+    <view class='hr'></view>
+  </view>
+</view>
+
+<view class='order_list' wx:if="{{tabid==0}}">
+  <view class='order_li' wx:for="{{list}}" wx:for-item="item" wx:key="item.id">
+    <image class='avatar' src='{{item.avatar}}' binderror='errorImg' data-list='list' data-index='{{index}}'></image>
+    <view class='mess' bindtap='goto' data-stuid='{{item.studentId}}'>
+      <text class='name'>{{item.studentName}}</text>
+      <text>时间：{{item.day}}</text>
+      <text>班级：{{item.classesName}}</text>
+      <text>电话：{{item.tel}}</text>
+    </view>
+    <view class='oper'>
+      <text class='new' wx:if="{{index < 0}}">NEW</text>
+      <picker bindchange="layoutChange" value="{{item.layoutValue}}" range-key="codeDisplay" range="{{layoutType}}" data-index='{{index}}' wx:if="{{item.layoutDisplay != '取消'}}">
+        <button>{{item.layoutDisplay}}
+          <image src='/imgs/common/trangle.png'></image>
+        </button>
+      </picker>
+      <text class='cancel' wx:if="{{item.layoutType == 12}}">已取消</text>
+    </view>
+  </view>
+  <!-- <text class='nomore'>暂无更多</text> -->
+</view>
+
+<view class='order_list' wx:if="{{tabid==1}}">
+  <view class='order_li' wx:for="{{list1}}" wx:for-item="item" wx:key="item.id">
+    <image class='avatar' src='{{item.avatar}}' binderror='errorImg' data-list='list1' data-index='{{index}}'></image>
+    <view class='mess' bindtap='goto' data-stuid='{{item.studentId}}'>
+      <text class='name'>{{item.studentName}}</text>
+      <text>时间：{{item.day}}</text>
+      <text>班级：{{item.classesName}}</text>
+      <text>电话：{{item.tel}}</text>
+    </view>
+    <view class='oper'>
+      <text class='new' wx:if="{{index < 0}}">NEW</text>
+      <picker bindchange="layoutChange" value="{{item.layoutValue}}" range-key="codeDisplay" range="{{layoutType}}" data-index='{{index}}'>
+        <button>{{item.layoutDisplay}}
+          <image src='/imgs/common/trangle.png'></image>
+        </button>
+      </picker>
+    </view>
+  </view>
+  <!-- <text class='nomore'>暂无更多</text> -->
+</view>
+
+<view class='order_list' wx:if="{{tabid==2}}">
+  <view class='order_li' wx:for="{{list2}}" wx:for-item="item" wx:key="item.id">
+    <image class='avatar' src='{{item.avatar}}' binderror='errorImg' data-list='list2' data-index='{{index}}'></image>
+    <view class='mess' bindtap='goto' data-stuid='{{item.studentId}}'>
+      <text class='name'>{{item.studentName}}</text>
+      <text>时间：{{item.day}}</text>
+      <text>班级：{{item.classesName}}</text>
+      <text>电话：{{item.tel}}</text>
+    </view>
+    <view class='oper'>
+      <text class='new' wx:if="{{index < 0}}">NEW</text>
+      <picker bindchange="layoutChange" value="{{item.layoutValue}}" range-key="codeDisplay" range="{{layoutType}}" data-index='{{index}}'>
+        <button>{{item.layoutDisplay}}
+          <image src='/imgs/common/trangle.png'></image>
+        </button>
+      </picker>
+    </view>
+  </view>
+  <!-- <text class='nomore'>暂无更多</text> -->
+</view>
+
+<view class='order_list' wx:if="{{tabid==3}}">
+  <view class='order_li' wx:for="{{list3}}" wx:for-item="item" wx:key="item.id">
+    <image class='avatar' src='{{item.avatar}}' binderror='errorImg' data-list='list3' data-index='{{index}}'></image>
+    <view class='mess' bindtap='goto' data-stuid='{{item.studentId}}'>
+      <text class='name'>{{item.studentName}}</text>
+      <text>时间：{{item.day}}</text>
+      <text>班级：{{item.classesName}}</text>
+      <text>电话：{{item.tel}}</text>
+    </view>
+    <view class='oper'>
+      <text class='cancel' wx:if="{{item.layoutType == 12}}">已取消</text>
+    </view>
+  </view>
+
+  <!-- <text class='nomore'>暂无更多</text> -->
+</view>
+
+  <view class='noData' wx:if='{{tabid==0&&(!list||list.length==0)}}'>
+    <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+  </view>
+
+  <view class='noData' wx:if='{{tabid==1&&(!list2||list1.length==0)}}'>
+    <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+  </view>
+
+  <view class='noData' wx:if='{{tabid==2&&(!list2||list2.length==0)}}'>
+    <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+  </view>
+
+  <view class='noData' wx:if='{{tabid==3&&(!list3||list3.length==0)}}'>
+    <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+  </view>

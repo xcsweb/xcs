@@ -1,0 +1,9 @@
+<!--pages/student/my_profile/aboutus/aboutus.wxml-->
+<view class='mess_top'>
+  <image src='/imgs/common/logo.png'></image>
+  <text>动宝-专为艺体培训设计！</text>
+</view>
+
+<view class='mess'>
+  <rich-text nodes="{{text}}"></rich-text>
+</view>

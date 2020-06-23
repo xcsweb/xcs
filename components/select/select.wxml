@@ -1,0 +1,10 @@
+<view class='com-selectBox'>
+  <view class='com-sContent' bindtap='selectToggle'>
+    <view class='com-vTxt' wx:if="{{!nowText}}">{{showText}}</view>
+    <view class='com-sTxt'>{{nowText}}</view>
+    <image src='/imgs/trangle.png' class='com-sImg' animation="{{animationData}}"></image>
+  </view>
+  <view class='com-sList' wx:if="{{selectShow}}" style='max-height:{{maxheight}}px'>
+    <view wx:for="{{propArray}}" data-index="{{index}}" data-id="{{nowId}}" wx:key='' class='com-sItem' bindtap='setText'>{{item.name}}</view>
+  </view>
+</view>

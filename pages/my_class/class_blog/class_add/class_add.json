@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加照片",
+  "usingComponents": {
+    "com-attachments": "/components/attachments/attachments"
+  }
+}

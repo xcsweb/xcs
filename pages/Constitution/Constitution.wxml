@@ -1,0 +1,33 @@
+<view style='height:20rpx;'></view>
+<com-tabs tabs="{{tabss}}" bottomIndex='3' tab-width='33.33%' normal-color='#999999' selected-color='#333' bindchange='tabchange' class="title" />
+<view class='info' wx:for='{{projectname}}' wx:key='{{item.id}}'>
+  <text>{{item.title}}</text>
+  <button size="mini" class='button' bindtap='addstudent' data-itemid='{{item.id}}'>开始检测</button>
+</view>
+<view class='noData' wx:if='{{!projectname||projectname.length==0}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<!--弹窗-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modal-dialog" wx:if="{{showModal}}">
+  <view class="modal-title">添加学员</view>
+  <view class="modal-content">
+    <view class="modal-input">
+      <select prop-array='{{selectArray}}' class="input" bindchange="onChangeShowState" showText="请选择校区" style="z-index:10"></select>
+      <select prop-array='{{selectArray2}}' class="input" showText="请选择学员" bindchange="onChangeShowStatetwo" style="z-index:10"></select>
+      <!-- <picker class='fakeSeclet' range='{{selectArray2}}' range-key='name'>
+      <view>请选择</view>
+      </picker> -->
+    </view>
+    <view class='tishibox'>
+      <view class='tishifont' wx:for='{{addstudentinfos}}' wx:key="*this">
+        <text>{{item}}</text>
+        <image src='/imgs/delete.png' class='deleteimg' bindtap='deletedata' data-info='{{index}}'></image>
+      </view>
+    </view>
+  </view>
+  <view class="modal-footer">
+    <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+    <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+  </view>
+</view>

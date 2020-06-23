@@ -1,0 +1,10 @@
+<view class='daterange'>
+  <image src='/imgs/common/calendar.png'></image>
+  <picker mode='date' value='{{startDt}}' end='{{end}}' bindchange='_picker1change'>
+    <view>{{startDt}}</view>
+  </picker>
+  <text>到</text>
+  <picker mode='date' value='{{endDt}}' end='{{end}}' bindchange='_picker2change'>
+    <view>{{endDt}}</view>
+  </picker>
+</view>

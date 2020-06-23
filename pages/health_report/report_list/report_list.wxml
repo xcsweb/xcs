@@ -1,0 +1,16 @@
+<view class='row title'>
+  <view>序号</view>
+  <view>报告标题</view>
+  <view>报告时间</view>
+  <view></view>
+</view>
+<view class='row' wx:for='{{report_list}}' wx:key='{{item.reportId}}'>
+  <view>{{index+1}}</view>
+  <view>{{item.title}}</view>
+  <view>{{item.createDt}}</view>
+  <view>
+    <navigator url='../report_detail/report_detail?reportId={{item.reportId}}'>
+      <view class='btn'>查看</view>
+    </navigator>
+  </view>
+</view>

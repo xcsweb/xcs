@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "潜在学员",
+  "usingComponents": {
+    "com-searchfilter": "/components/searchfilter/index"
+  }
+}

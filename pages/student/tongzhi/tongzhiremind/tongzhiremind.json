@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "通知提醒",
+  "usingComponents": {
+    "select": "/components/select/select"
+  },
+  "navigationBarBackgroundColor": "#78A6FF"
+}

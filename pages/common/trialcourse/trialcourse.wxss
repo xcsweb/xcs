@@ -1,0 +1,41 @@
+
+.listItem{
+  display: flex;
+  padding: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+.circleCheckbox{
+  padding: 10rpx;
+}
+.listItem .avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  margin-right: 20rpx;
+}
+.listItem .body{
+  flex: 1;
+  font-size: 34rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 44rpx;
+}
+.listItem .body .name{
+  color: #333;
+}
+.listItem .body .position{
+  font-size: 30rpx;
+  color: #666666;
+}
+.listItem .status{
+  width: 80rpx;
+  font-size: 30rpx;
+}

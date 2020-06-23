@@ -1,0 +1,45 @@
+.title{
+  background: white;
+  padding: 20rpx;
+  font-size: 34rpx;
+  color: #333;
+  margin-top: 20rpx;
+}
+.title .value{
+  color: #666;
+}
+.teachersWrapper{
+  background: #F7F7F7;
+  padding: 20rpx;
+  font-size: 34rpx;
+  color: #333;
+}
+.teachersWrapper .title{
+  background: #F7F7F7;
+  font-size: 34rpx;
+  color: #333;
+  padding: 0rpx;
+}
+.teachersWrapper .teachers{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.teachersWrapper .teacher{
+  flex: 20%;
+  border: 1px solid #f1f1f1;
+  background: white;
+  border-radius: 6rpx;
+  margin-right:3%;
+  text-align: center;
+  margin-top: 15rpx;
+  color: #666;
+  max-width: 20%;
+}
+textarea{
+  background: #F7F7F7;
+  padding: 20rpx;
+  font-size: 34rpx;
+  color:#666;
+  font-weight: normal;
+}

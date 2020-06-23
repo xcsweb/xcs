@@ -1,0 +1,45 @@
+<view class='videoContainer' wx:if='{{showVideo}}' catchtap='_closeVideo'>
+  <view class='close' catchtap='_closeVideo'>关闭</view>
+  <video src="{{videoSrc}}" controls autoplay='true' binderror='_binderror' catchtap='c'></video>
+</view>
+<view>
+  <view class="attachments" wx:if='{{mode==1}}'>
+    <view class='title' wx:if='{{title}}'>{{title}}</view>
+    <view class='attachmentRow'>
+      <view class='addAttachment' catchtap='_showActionSheet' wx:if='{{edit}}'>
+        <image src='{{addImg}}' class='add' mode='aspectFill'></image>
+      </view>
+      <view class='attachment' wx:for='{{attachments}}' wx:key="{{item.key}}">
+        <view>
+          <image src='{{item.img}}' catchtap='_viewAttachment' data-attachment='{{item}}'></image>
+          <image src='{{videoImg}}' catchtap='_viewAttachment' data-attachment='{{item}}' class='video' wx:if='{{item.video}}'></image>
+          <view class='delete' catchtap='_delete' data-index='{{index}}' wx:if='{{edit}}'>
+            <text class="iconfont icon-delete1"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='attachments2' wx:if='{{mode==2}}'>
+    <view class='attachment2' wx:for='{{attachments}}' wx:key="{{item.key}}">
+      <view>
+        <image src='{{item.img}}' bindtap='_viewAttachment' data-attachment='{{item}}'></image>
+        <image src='{{videoImg}}' bindtap='_viewAttachment' data-attachment='{{item}}' class='video' wx:if='{{item.video}}'></image>
+        <!-- <view class='delete' catchtap='_delete' data-index='{{index}}' wx:if='{{edit}}'>
+          <text class="iconfont icon-delete1"></text>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <scroll-view style='white-space:nowrap;' class='attachments' wx:if='{{mode==3}}' scroll-x='true'>
+    <view class='attachment' style='width:31%' wx:for='{{attachments}}' wx:key="{{item.key}}">
+      <view>
+        <image src='{{item.img}}' bindtap='_viewAttachment' data-attachment='{{item}}'></image>
+        <image src='{{videoImg}}' bindtap='_viewAttachment' data-attachment='{{item}}' class='video' wx:if='{{item.video}}'></image>
+        <!-- <view class='delete' catchtap='_delete' data-index='{{index}}' wx:if='{{edit}}'>
+          <text class="iconfont icon-delete1"></text>
+        </view> -->
+      </view>
+    </view>
+  </scroll-view>
+</view>

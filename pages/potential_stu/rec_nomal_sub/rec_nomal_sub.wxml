@@ -1,0 +1,140 @@
+<!--优惠活动详情弹框-->
+<modal hidden="{{hiddenModal}}" confirm-text="确定" no-cancel="true" bindconfirm='modalConfirm'>
+  <view class='modal-content' wx:for='{{courseDiscounts}}' wx:if='{{item.checked}}'>
+    <view>{{item.name}}</view>
+    <view>{{item.des}}</view>
+  </view>
+</modal>
+
+<!--优惠多选框-->
+<com-multichoice items="{{courseDiscounts}}" name="name" value="id" title="选择优惠" bindok='courseDiscountsSelected' bindcancel='courseDiscountsCancel' wx:if='{{courseDiscountsSelectShow}}'></com-multichoice>
+
+<form bindsubmit="formSubmit">
+  <view>
+    <view class='listItem'>
+      <view class='title'>用户名</view>
+      <input placeholder='请输入' name='userName'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+
+    <view class='listItem'>
+      <view class='title'>密码</view>
+      <input type='password' placeholder='请输入' name='password'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>校区/场馆</view>
+      <input value='{{campusName}}' disabled='true'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>课程/卡</view>
+      <picker range='{{courses}}' name='courseId' range-key='name' value='{{index}}' bindchange='coursesPickChange'>
+        <view style='color:{{coursesIndex>=0?"#333":"#999"}}'>{{courses[coursesIndex].name||"请选择课程/卡"}}</view>
+      </picker>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+
+    <view class='course' wx:if="{{courses[coursesIndex]}}">
+      <view>项目：{{courses[coursesIndex||0].trainCategorys}}</view>
+      <view>卡类型：{{courses[coursesIndex||0].chargingMode}}
+        <text wx:if="{{courses[coursesIndex||0].chargeType==0}}">标准课时：{{courses[coursesIndex||0].chargeVal}}</text>
+        <text wx:if="{{courses[coursesIndex||0].chargeType==1}}">标准课次：{{courses[coursesIndex||0].chargeVal}}</text>
+        <text wx:if="{{courses[coursesIndex||0].chargeType==2}}">储值金额：{{courses[coursesIndex||0].chargeVal}}</text>
+        <text wx:if="{{courses[coursesIndex||0].chargeType==3}}">有效期：{{courses[coursesIndex||0].useTerm}}个月</text>
+      </view>
+    </view>
+    <view class='listItem'>
+      <view class='title'>价格</view>
+      <input placeholder='自动显示' disabled value='{{courses[coursesIndex].salesAmount}}' bindinput='bindinput' name='receivable'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>扣费方式</view>
+      <input name='aa' placeholder='自动显示' type='number' disabled='true' value='{{courses[coursesIndex].chargingMode}}'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>优惠活动</view>
+      <!-- <picker range='{{courseDiscounts}}' range-key='name' name='courseDiscountId' bindchange='courseDiscountsChange'>
+        <view style='color:{{courseDiscountsIndex>=0?"#333":"#999"}}'>{{courseDiscounts[courseDiscountsIndex].name||"请选择优惠活动"}}</view>
+      </picker> -->
+      <input disabled='true' value='{{courseDiscountsSelectedStr||"请选择"}}' bindtap='courseDiscountsSelectShow'></input>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+    <view class='discounts' wx:if="{{courseDiscounts&&courseDiscounts.length>=0&&courseDiscountsSelectCount>0}}">
+      <view wx:for='{{courseDiscounts}}' class='discount' wx:if='{{item.checked}}'>
+        <view class='dot'></view>{{item.name}}
+      </view>
+      <view class='viewdetail' bindtap='showModal'>查看优惠详情</view>
+    </view>
+
+    <view class='listItem' wx:if='{{editPower==1}}'>
+      <view class='title'>其他优惠</view>
+      <input type='number' min='0' max='{{courses[coursesIndex].salesAmount||0}}' bindinput='bindinput' data-name='sdyh' placeholder='请填写其他优惠金额(选填)'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+
+    <view class='listItem'>
+      <view class='title'>应付金额</view>
+      <input placeholder='自动显示' disabled='true' value='{{yingfu}}'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+
+    <view class='listItem'>
+      <view class='title'>已收金额</view>
+      <input placeholder='请填已实收金额 元' bindinput='bindinput' data-name='receipts' name='receipts'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+
+    <view class='listItem'>
+      <view class='title'>欠费金额</view>
+      <input placeholder='自动显示' disabled='true' value='{{chae}}'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+
+    <view class='listItem'>
+      <view class='title'>支付方式</view>
+      <picker range='{{paymentMethod}}' range-key='codeDisplay' name='paymentMethod' bindchange='paymentMethodPickerChange'>
+        <view style='color:{{paymentMethodIndex>=0?"#333":"#999"}}'>{{paymentMethod[paymentMethodIndex].codeDisplay||"请选择收款方式"}}</view>
+      </picker>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+
+    <view class='listItem'>
+      <view class='title'>收款账户</view>
+      <picker range='{{paymentMethod[paymentMethodIndex].payment}}' name='payConfigId' range-key='name' value='{{index}}' bindchange='paymentPickerChange'>
+        <view style='color:{{paymentIndex>=0?"#333":"#999"}}'>{{paymentMethod[paymentMethodIndex].payment[paymentIndex].name||"请选择收款账户"}}</view>
+      </picker>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+
+    <view class='listItem'>
+      <view class='title'>分班</view>
+      <picker range='{{classes}}' range-key='classesName' name='classesId' bindchange='classesChange'>
+        <view style='color:{{classesIndex>=0?"#333":"#999"}}'>{{classes[classesIndex].classesName||"请选择班级"}}</view>
+      </picker>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+
+    <view class='listItem'>
+      <view class='title'>上课时段</view>
+      <input bindtap='multichoice' placeholder='请选择' disabled='true' value='{{clsTimeVosStr}}'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>是否立即激活</view>
+      <input disabled='true'></input>
+      <switch checked name='isOpen' bindchange="switch1Change" />
+    </view>
+    <view class='listItem'>
+      <view class='title'>备注</view>
+      <input placeholder='可填' name='des'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+  </view>
+  <view class='btnWrapper'>
+    <button formType="submit" class='sub' hover-class='btn-hover'>完成</button>
+  </view>
+</form>
+<com-multichoice wx:if='{{multichoice}}' items='{{classes[classesIndex].clsTimeVos}}' title='请选择时段' bindcancel='multichoice_cancel' bindok='multichoice_ok' name='timestr' value='classesTimeId'></com-multichoice>

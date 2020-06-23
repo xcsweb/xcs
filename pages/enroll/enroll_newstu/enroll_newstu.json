@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "新生报名",
+  "usingComponents": {
+    "com-searchbar": "/components/searchbar/searchbar",
+    "com-parent": "/components/parent/parent",
+    "com-picker": "/components/smartPicker/smartPicker",
+    "com-input": "/components/smartInput/smartInput",
+    "com-multichoice": "/components/multichoice/multichoice"
+  }
+}

@@ -1,0 +1,86 @@
+<com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话' />
+<view class='enrollBtnWrapper'>
+  <navigator url='/pages/enroll/enroll_newstu/enroll_newstu' hover-class="none">
+    <button size='mini' type='default'>新生报名</button>
+  </navigator>
+</view>
+<com-tabs tabs='{{["续费","补费","退费","操作记录"]}}' bindchange='tabchange' index='{{selectedTabIndex}}'></com-tabs>
+<view class='tab1content' wx:if='{{selectedTabIndex==0}}'>
+  <view class='listItem' wx:for='{{tab1Data}}' wx:key='{{item.studentId}}' bindtap='toEnrollNew1' data-stu='{{item}}'>
+    <image src='{{item.avatar}}' class='avatar' binderror='imageloaderror1' data-index='{{index}}'></image>
+    <view class='body'>
+      <view class='name'>
+        {{item.studentName}}
+        <block wx:if='{{item.stuCourseVos.length>1}}'>(
+          <text class='nameDesc'>{{item.stuCourseVos.length}}张</text>)</block>
+      </view>
+      <view class='desc' wx:for='{{item.stuCourseVos}}' wx:key='{{item.studentCourseId}}'>
+        {{item.courseName}}
+        <text wx:if='{{item.chargeType==0}}'>剩{{item.remainVal}}课时</text>
+        <text wx:if='{{item.chargeType==1}}'>剩{{item.remainVal}}课次</text>
+        <text wx:if='{{item.chargeType==2}}'>剩{{item.remainVal}}元</text>
+      </view>
+    </view>
+    <button size='mini' type='default'>续费</button>
+  </view>
+</view>
+
+<view class='tab2content' wx:if='{{selectedTabIndex==1}}'>
+  <view class='listItem' wx:for='{{tab2Data}}' wx:key='{{item.studentId}}' bindtap='toEnrollNew2' data-stu='{{item}}'>
+    <image src='{{item.avatar}}' class='avatar' binderror='imageloaderror2' data-index='{{index}}'></image>
+    <view class='body'>
+      <view class='name'>{{item.studentName}}<block wx:if='{{item.stuCourseVos.length>1}}'>(<text class='nameDesc'>{{item.stuCourseVos.length}}张</text></block></view>
+      <view class='desc' wx:for='{{item.stuCourseVos}}' wx:key='{{item.studentCourseId}}'>{{item.courseName}} 欠费{{item.arrearage}}</view>
+    </view>
+    <button size='mini' type='default'>补费</button>
+  </view>
+</view>
+
+
+
+<view class='tab3content' wx:if='{{selectedTabIndex==2}}'>
+  <view class='listItem' wx:for='{{tab3Data}}' wx:key='{{item.studentId}}' bindtap='toEnrollNew3' data-stu='{{item}}'>
+    <image src='{{item.avatar}}' class='avatar' binderror='imageloaderror3' data-index='{{index}}'></image>
+    <view class='body'>
+      <view class='name'>
+        {{item.studentName}}
+        <block wx:if='{{item.stuCourseVos.length>1}}'>(
+          <text class='nameDesc'>{{item.stuCourseVos.length}}张</text>)</block>
+      </view>
+      <view class='desc' wx:for='{{item.stuCourseVos}}' wx:key='{{item.studentCourseId}}'>
+        {{item.courseName}}
+        <text wx:if='{{item.chargeType==0}}'>剩{{item.remainVal}}课时</text>
+        <text wx:if='{{item.chargeType==1}}'>剩{{item.remainVal}}课次</text>
+        <text wx:if='{{item.chargeType==2}}'>剩{{item.remainVal}}元</text>
+      </view>
+    </view>
+    <button size='mini' type='default'>退费</button>
+  </view>
+</view>
+
+
+<view class='tab4content' wx:if='{{selectedTabIndex==3}}'>
+  <view class='listItem' wx:for='{{tab5Data}}' wx:key='{{item.studentId}}'>
+    <image src='{{item.avatar}}' class='avatar' binderror='imageloaderror4' data-index='{{index}}'></image>
+    <view class='body'>
+      <view class='name'>
+        {{item.studentName}}(
+        <text class='nameDesc'>{{item.saleName}}销售</text>)
+      </view>
+      <view class='desc'>{{item.courseName+' '+item.consumeStatus+' '+item.price}}元</view>
+      <view class='desc'>{{item.createDt_||'2018/09/11 11:22'}}</view>
+    </view>
+  </view>
+</view>
+<view class='noData' wx:if='{{selectedTabIndex==0&&(!tab1Data||tab1Data.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{selectedTabIndex==1&&(!tab2Data||tab2Data.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{selectedTabIndex==2&&(!tab3Data||tab3Data.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{selectedTabIndex==3&&(!tab5Data||tab5Data.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

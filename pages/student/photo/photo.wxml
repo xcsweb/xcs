@@ -1,0 +1,20 @@
+<!--pages/student/photo/photo.wxml-->
+<view class='main'>
+  <view>
+    <view class='noData' wx:if="{{photo_data.length<1}}">
+      <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+    </view>
+    <view class='photoTitle' wx:for='{{photo_data}}' wx:if="{{photo_data.length>0}}" wx:key='*this'>
+      <view class='titlePhoto' bindtap="photoClick" data-list="{{item.imgfiles}}" data-src="{{item.imgfiles[0]}}">
+        <view class='photoClass'>{{item.classesName}}</view>
+        <view class='photoEmbassy'>
+          <text space="emsp">{{item.campusName}} {{item.day}}</text>
+        </view>
+        <image class='photoRight' src='/imgs/student/index/photoRight.png'></image>
+      </view>
+      <view class='photoMessage'>
+        <image class='messagePhoto' bindtap="imgYu" data-list="{{item.imgfiles}}" data-src="{{items}}" wx:for='{{item.imgfiles}}' wx:for-item="items" wx:key='*this' src='{{items}}'></image>
+      </view>
+    </view>
+  </view>
+</view>

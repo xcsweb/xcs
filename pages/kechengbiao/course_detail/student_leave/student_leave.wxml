@@ -1,0 +1,14 @@
+<view class='top' bindtap='classes_hour_student_list_show'>
+  添加学员
+  <view class='content'>{{studentNames}}</view>
+  <image src='/imgs/kechengbiao/img_59.png'></image>
+</view>
+
+<com-multichoice items='{{classes_hour_student_list}}' name='name' value='classesHourStudentId' wx:if='{{classes_hour_student_list_show}}' bindok='bindok' bindcancel='bindcancel'></com-multichoice>
+
+<view class='textarea'>
+  <textarea placeholder='请假事由' bindinput='bindinput' data-name='content'></textarea>
+</view>
+<view class='btnWrapper'>
+  <button bindtap='teacher_ask_for_leave_student' hover-class="btn-hover" >提交</button>
+</view>

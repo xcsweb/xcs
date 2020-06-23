@@ -1,0 +1,93 @@
+<view class='videoContainer' wx:if='{{showVideo}}'>
+  <view class='close' bindtap='closeVideo'>关闭</view>
+  <video src="{{videoSrc}}" controls autoplay='true'></video>
+</view>
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+    <form bindsubmit="stufollow_sub">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" maxlength='1000' placeholder="请输入跟进内容（1000字以内）" bindinput='oninput' style="height: 3.3em" name='des'>{{content}}</textarea>
+            <view class="weui-textarea-counter">{{contentLength}}/1000</view>
+          </view>
+        </view>
+        <view class="attachments">
+          <view class='attachmentRow'>
+            <view class='addAttachment' bindtap='showActionSheet'>
+              <image src='/imgs/addAttachment.png' class='add'></image>
+            </view>
+            <view class='attachment' wx:for='{{attachments}}' wx:key="{{item.key}}">
+              <view>
+                <image src='{{item.img}}' bindtap='viewAttachment' data-attachment='{{item}}'></image>
+                <view class='delete' catchtap='delete' data-index='{{index}}'>
+                  <text class="iconfont icon-delete1"></text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+
+      
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view style='padding:20rpx 0rpx;'>下次跟进提醒设置</view>
+          </view>
+          <view class="weui-cell__bd">
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">提醒标题</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入标题" placeholder-style='color:b2b2b2' value='{{title}}' name='title' />
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">提醒日期</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="date" value="{{sendDt}}" name='followDt' bindchange="bindDateChange">
+              <view class="weui-input" style='text-align:right;color:{{sendDt?"#666":"#999"}}'>{{sendDt||"请选择"}}</view>
+            </picker>
+          </view>
+          <view class="weui-cell__ft">
+            <image class="weui-vcode-img" src="/imgs/arrow_right.png" mode='aspectFit' style='width:8px;margin-right:10px;'></image>
+          </view>
+        </view>
+      </view>
+
+
+      
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">提醒时间</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="time" name='sendTime' bindchange="bindTimeChange">
+              <view class="weui-input" style='text-align:right;color:{{sendTime?"#666":"#999"}}'>{{sendTime||"可选"}}</view>
+            </picker>
+          </view>
+          <view class="weui-cell__ft">
+            <image class="weui-vcode-img" src="/imgs/arrow_right.png" mode='aspectFit' style='width:8px;margin-right:10px;'></image>
+          </view>
+        </view>
+      </view>
+      <view class='btnWrapper'>
+        <button class="weui-btn" type="primary" hover-class="btn-hover"  formType="submit">完成</button>
+      </view>
+    </form>
+  </view>
+</view>

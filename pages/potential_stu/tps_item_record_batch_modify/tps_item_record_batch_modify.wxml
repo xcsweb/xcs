@@ -1,0 +1,79 @@
+<view class='teacherAndDate'>
+  测试人：{{studentTpsInfo[0].teacherName}}教练 测试日期：{{date}}
+</view>
+<view class='place'>
+  测试场地
+  <picker range='{{campus}}' range-key='name' bindchange='campusIndex' value='{{campusIndex}}'>
+    <view>{{campus[campusIndex].name}}
+      <image src='/imgs/trangle.png' style='width:20rpx;height:10rpx' mode='aspectFill'></image>
+    </view>
+  </picker>
+</view>
+
+
+<!--普通的输入类型  根据接口返回的来-->
+<view wx:if='{{!doubleInput}}'>
+  <view wx:for='{{tps_item_category}}' wx:key='{{item.id}}' wx:if='{{item.zbcs==1}}'>
+    <view class='titleBtn'>
+      <button size='mini'>{{item.title}}</button>
+    </view>
+    <view class='titles' wx:if="{{item.tpsCategories.length>0}}">
+      <view class='child1'>测试项目</view>
+      <view class='child2'>测试数值</view>
+      <view class='child3'>测试单位</view>
+    </view>
+    <view class='itemInput' wx:for='{{item.tpsCategories}}' wx:for-item='subItem' wx:key='{{subItem.id}}'>
+      <view class='child1'>{{item.title}}</view>
+      <input class='child2' placeholder='输入测试结果' value='{{subItem.value}}' bindinput='bindinput' data-id='{{item.id}}' data-index='{{index}}'></input>
+      <view class='child3'>{{subItem.title}}</view>
+    </view>
+  </view>
+
+
+
+
+
+  <view wx:for='{{tps_item_category}}' wx:key='{{item.id}}' wx:if='{{item.zbcs==0}}'>
+    <view class='titleBtn'>
+      <button size='mini'>{{item.title}}</button>
+    </view>
+    <view class='titles'>
+      <view class='child1'>测试项目</view>
+      <view class='child2'></view>
+      <view class='child3'>测试结果</view>
+    </view>
+    <view class='itemSelect' wx:key='{{item.itemId}}'>
+      <view class='child1'>{{item.title}}</view>
+      <picker range='{{item.tpsCategoriesOption}}' bindchange='tpsCategoriesOptionChange' data-id='{{item.id}}' range-key='title' class='child2' value='{{item.index}}'>
+        <view style='color:{{item.tpsCategoriesOption[item.index].title?"#333":"#ccc"}}'>{{item.tpsCategoriesOption[item.index].title||"请选择"}}
+          <image src='/imgs/trangle.png' style='width:20rpx;height:10rpx' mode='aspectFill'></image>
+        </view>
+      </picker>
+    </view>
+  </view>
+</view>
+
+
+
+<!--特殊类型 -->
+<view wx:if='{{doubleInput}}'>
+  <view style='border-bottom:none' wx:for='{{cus}}' wx:key='{{item.id}}' style='margin-top:20rpx;'>
+    <view class='titles'>
+      <view class='child1'></view>
+      <view class='child2'>{{item.title1}}</view>
+      <view class='child3'>{{item.title2}}</view>
+    </view>
+    <view class='itemInput'>
+      <view class='child1'>{{item.title3}}</view>
+      <input class='child2' placeholder='输入测试结果' value='{{item.val1}}' bindinput='bindinput2' data-name='val1' data-index='{{index}}'></input>
+      <input class='child3' placeholder='输入测试结果' value='{{item.val2}}' bindinput='bindinput2' data-name='val2' data-index='{{index}}'></input>
+    </view>
+  </view>
+</view>
+
+<view class='btnWrapper' wx:if='{{!doubleInput}}'>
+  <button hover-class="btn-hover" bindtap='update_tps_item_record'>编辑</button>
+</view>
+<view class='btnWrapper' wx:if='{{doubleInput}}'>
+  <button hover-class="btn-hover" bindtap='update_tps_item_record_cus'>编辑</button>
+</view>

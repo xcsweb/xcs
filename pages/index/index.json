@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "首页",
+  "navigationBarBackgroundColor": "#790BEC",
+    "usingComponents": {
+      "com-imager": "/components/imager/imager"
+    }
+
+}

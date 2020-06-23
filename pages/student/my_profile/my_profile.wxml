@@ -1,0 +1,72 @@
+<!--pages/student/my_profile/my_profile.wxml-->
+<image class='page_bg' src='/imgs/student/my_profile/page_bg.png'></image>
+<view class='card'>
+  <image class='card_bg' src='/imgs/student/my_profile/card_bg.png'></image>
+  <image bindtap='changeavatar' binderror='errorImg' class='avatar' src='{{avatar_1||avatar_}}'></image>
+  <navigator class='set' hover-class="none" url="/pages/student/my_profile/my_set/my_set">设置</navigator>
+  <text class='name'>{{name}}</text>
+  <navigator class='change' hover-class="none" url="/pages/student/my_profile/changeid/changeid">
+    <image src='/imgs/student/my_profile/change.png'></image>
+    <text>切换身份</text>
+  </navigator>
+</view>
+<view class='mess_list'>
+  <view class='li'>
+    <text class='tl'>性别</text>
+    <picker bindchange="sexchange" value="{{sex}}" range="{{sexarray}}">
+      <input disabled='true' value="{{sexarray[sex]}}"></input>
+    </picker>
+  </view>
+  <view class='li'>
+    <text class='tl'>电话</text>
+    <text class='result'>{{tel}}</text>
+  </view>
+  <view class='li'>
+    <text class='tl'>住址</text>
+    <input value='{{address}}' data-dataname='address' bindinput="bindKeyInput"></input>
+  </view>
+  <view class='li'>
+    <text class='tl'>生日</text>
+    <picker mode="date" value="{{birthDt}}" bindchange="bindDateChange">
+      <input disabled='true' value='{{birthDt}}'></input>
+    </picker>
+  </view>
+  <view class='li'>
+    <text class='tl'>就读学校</text>
+    <input value='{{school}}' data-dataname='school' bindinput="bindKeyInput"></input>
+  </view>
+  <view class='li'>
+    <text class='tl'>校区</text>
+    <text class='result'>{{campusList}}</text>
+  </view>
+  <view class='li'>
+    <text class='tl'>机构名称</text>
+    <text class='result'>{{InstitutionName}}</text>
+  </view>
+</view>
+<view class='btn_down'>
+  <button bindtap='savemess'>保存</button>
+</view>
+<view class='cer'>
+  <view class='cer_title'>
+    <text class='td1'>项目</text>
+    <text class='td2'>级别</text>
+    <text class='td3'>时间</text>
+    <text class='td4'>证书编号</text>
+    <text class='td5'>考官姓名</text>
+  </view>
+  <view class='cer_li' wx:for="{{studentLevelInfo}}" wx:for-item="item" wx:key="item.certNum">
+    <text class='td1'>{{item.name}}</text>
+    <text class='td2'>{{item.level}}</text>
+    <text class='td3'>{{item.promotionDt}}</text>
+    <text class='td4'>{{item.certNum}}</text>
+    <text class='td5'>{{item.examinerName}}</text>
+  </view>
+  
+</view>
+<!-- <view class='call'>
+  <view>
+    <image src='/imgs/student/my_profile/call.png'></image>
+    <text bindtap='call' data-phone='{{customerServiceTel}}'>客服小宝:{{customerServiceTel}}</text>
+  </view>
+</view> -->

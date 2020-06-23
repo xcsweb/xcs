@@ -1,0 +1,54 @@
+<view class='brife'>
+  <view class='left'>
+    <view class='title'>{{course_detail.clsName}}</view>
+    <view>上课时间：
+      <text class='value'>{{course_detail.day_}} {{course_detail.startTime}}-{{course_detail.endTime}}</text>
+    </view>
+    <view>场地： 
+      <text class='value'>{{course_detail.field}}</text>
+    </view>
+    <view>教练/老师：
+      <text class='value'>{{course_detail.clsHourTeacher}}</text>
+    </view>
+    <view>约课人数：
+      <text class='value'><text class='color1'>{{course_detail.studentNum}}</text>/{{course_detail.bespeakNum}}</text>
+    </view>
+    <view>排队人数：
+      <text class='value'><text class='color1'>{{course_detail.studentLineupNum}}</text>/{{course_detail.lineupNum}}</text>
+    </view>
+    <view>上课简介：
+    </view>
+  </view>
+  <!-- <view class='right'>
+    <image src='/imgs/kechengbiao/img_06.png' mode='aspectFit' wx:if='{{course_detail.classType==0}}'></image>
+    <image src='/imgs/kechengbiao/img_03.png' mode='aspectFit' wx:if='{{course_detail.classType==1||course_detail.classType==2}}'></image>
+    <view class='status'>{{course_detail.classHourStatusStr}}</view>
+  </view> -->
+</view>
+<view class='content'>
+  {{course_detail.teachContent}}
+</view>
+<view class='zhushi'>注释:</view>
+<view wx:if='{{course_detail.classType==2}}'>
+  <picker mode="time" value="{{date}}" bindchange="bindDateChange" start="{{course_detail.startTime}}" end="{{course_detail.endTime}}">
+    <view class="picker">
+      上课时间: <view>{{date||"请选择时间"}}<image src='/imgs/trangle.png' style='width:26rpx;height:16rpx;margin-top:8rpx;' mode='aspectFill'></image></view>
+    </view>
+  </picker>
+</view>
+<picker value="{{studentCoursesIndex}}"  wx:if='{{course_detail.bespokeStatus==1}}' range='{{course_detail.studentCourses}}' range-key='name' bindchange="studentCoursesChange">
+  <view class="picker">
+    预约扣课卡: <view>{{course_detail.studentCourses[studentCoursesIndex].name||"请选择卡"}}<image src='/imgs/trangle.png' style='width:26rpx;height:16rpx;margin-top:8rpx;' mode='aspectFill'></image></view>
+  </view>
+</picker>
+<view wx:if='{{studentCoursesIndex}}' class='studentCoursesInfo'>
+    <text wx:if='{{course_detail.studentCourses[studentCoursesIndex].content}}'>{{course_detail.studentCourses[studentCoursesIndex].content}}</text>        
+    <text wx:if='{{course_detail.studentCourses[studentCoursesIndex].endDt_}}'>有效期：{{course_detail.studentCourses[studentCoursesIndex].endDt_}}</text>
+</view>
+<!-- <view class='title'>课程简介</view>
+<view class='desc'>
+  {{course_detail.teachContent}}
+</view> -->
+<view class='btnWrapper2' wx:if='{{course_detail.bespokeStatus==1}}'>
+  <button bindtap='order_clshour'>确认预约</button>
+</view>

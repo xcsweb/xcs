@@ -1,0 +1,2 @@
+<!--components/imager/imager.wxml-->
+<image class='{{classs}}' src='{{src}}' mode='{{mode}}' binderror='{{binderror}}'></image>

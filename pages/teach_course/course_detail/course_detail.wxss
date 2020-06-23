@@ -1,0 +1,35 @@
+.page{
+  background: white;
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+.page .title{
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1px solid #f1f1f1;
+  text-align: center;
+  padding-bottom: 20rpx;
+}
+.page .name{
+  font-size: 28rpx;
+  color: #666;
+}
+.page .title2{
+  color: #000;
+  font-size: 34rpx;
+  margin-top: 20rpx;
+}
+
+.page .content{
+  font-size: 34rpx;
+  color: #333;
+}
+.attachments{
+  border-bottom: 1px solid #f1f1f1;
+  margin-bottom: 20rpx;
+}
+.teachTerm{
+  font-size: 34rpx;
+  color: #000;
+  line-height: 50rpx;
+}

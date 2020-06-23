@@ -1,0 +1,9 @@
+{
+
+
+  "navigationBarTitleText": "体测",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs",
+    "select": "/components/select/select"
+  }
+}

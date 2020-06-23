@@ -1,0 +1,59 @@
+<view class='calendar' style='height:{{calanderShowAll?height2:height1}}'>
+  <view class='dateBox' style='width: {{ sysW * 7 }}px'>
+    <view style='transform: rotate(180deg);' bindtap='_reduceMonth'>
+      <text class='iconfont icon-arrow'></text>
+    </view>
+    <view class='_title'>
+      <slot name='slot2'></slot>
+      <slot name='slot1'></slot>
+      <view>{{ year }}年{{ month}}月</view>
+      <slot name='slot3'></slot>
+      <slot name='slot4'></slot>
+    </view>
+    <view bindtap='_addMonth'>
+      <text class='iconfont icon-arrow'></text>
+    </view>
+  </view>
+  <view class='calendar_body  {{animation1?"animation1":""}} {{animation2?"animation2":""}}' style='width: {{ sysW * 7 }}px'>
+    <block wx:for='{{ weekArr }}' wx:key='{{item}}' class='week'>
+      <view style='width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;'>
+        {{ item }}
+      </view>
+    </block>
+    <block wx:for='{{ arr_prev }}' wx:key='{{item}}'>
+      <view style='width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;' class='otherMonth' bindtap='_changeDate' data-month='{{-1}}' data-date='{{item}}'>
+        <view style='background-color:{{ (item ==  getDate)&&monthChange==-1 ? color : ""}};color:{{ (item ==  getDate)&&monthChange==-1 ? "white" : "#999"}}'>{{ item }}</view>
+      </view>
+    </block>
+
+    <block wx:for='{{ arr }}' wx:key='{{item}}'>
+      <view style='width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;' class='_item'
+        bindtap='_changeDate' data-date='{{item}}' data-month='{{0}}'>
+        <view style='background-color:{{ (item ==  getDate)&&monthChange==0 ? color : ""}};color:{{ (item ==  getDate)&&monthChange==0 ? "white" : ""}}'>{{ item }}</view>
+      </view>
+    </block>
+
+    <block wx:for='{{ arr_next }}' wx:key='{{item}}'>
+      <view style='width: {{ sysW }}px; height: {{ sysW }}px; line-height: {{ sysW }}px;' class='otherMonth' bindtap='_changeDate'
+        data-month='{{1}}' data-date='{{item}}'>
+        <view style='background-color:{{ (item ==  getDate)&&monthChange==1 ? color : ""}};color:{{ (item ==  getDate)&&monthChange==1 ? "white" : "#999"}}'>{{ item }}</view>
+      </view>
+    </block>
+  </view>
+  <!-- <view class='calendar_footer' wx:if='{{courseFlag}}'> -->
+  <view class='calendar_footer' wx:if='{{false}}'>
+    <view>
+      <view class='dot' style='background:#239623'></view>上课</view>
+    <view>
+      <view class='dot' style='background:#FE8158'></view>停课</view>
+    <view>
+      <view class='dot' style='background:#239623'></view>未开始</view>
+    <view>
+      <view class='dot' style='background:#999999'></view>取消</view>
+    <view>
+      <view class='dot' style='background:#DDDDDD'></view>完成</view>
+  </view>
+</view>
+<view class='calendar_footer2' bindtap='calanderShowAll'>
+  <image src='/imgs/common/calendar_arrow.png' mode='aspectFill' style='transform:{{calanderShowAll?"rotate(180deg)":"rotate(0deg)"}}'></image>
+</view>

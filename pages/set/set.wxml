@@ -1,0 +1,27 @@
+<!--pages/set/set.wxml-->
+<view class='list'>
+  <navigator hover-class="none" class='li' url="/pages/set/telphone/telphone">
+    <text>更换手机号</text>
+    <image src='/imgs/common/arrow_right.png'></image>
+  </navigator>
+  <navigator hover-class="none" class='li' url="/pages/set/changepwd/changepwd">
+    <text>修改密码</text>
+    <image src='/imgs/common/arrow_right.png'></image>
+  </navigator>
+  <navigator hover-class="none" class='li' url="/pages/set/perinfo/perinfo">
+    <text>个人信息</text>
+    <image src='/imgs/common/arrow_right.png'></image>
+  </navigator>
+  <navigator hover-class="none" class='li' url="/pages/set/about/about">
+    <text>关于我们</text>
+    <image src='/imgs/common/arrow_right.png'></image>
+  </navigator>
+  <navigator hover-class="none" class='li' url="/pages/set/feedbook/feedbook">
+    <text>意见反馈</text>
+    <image src='/imgs/common/arrow_right.png'></image>
+  </navigator>
+  <view class='li' catchtap='logout'>
+    <text>退出</text>
+    <image src='/imgs/common/arrow_right.png'></image>
+  </view>
+</view>

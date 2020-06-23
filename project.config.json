@@ -1,0 +1,102 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.4",
+	"appid": "wx1c38a2164afdb9e3",
+	"projectname": "wxx3",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 6,
+			"list": [
+				{
+					"id": 0,
+					"name": "课程详情",
+					"pathName": "pages/student/kechengbiao/teach_detail/teach_detail",
+					"query": "classesHourTeachId=66",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "作业详情",
+					"pathName": "pages/student/workreview/detail/detail",
+					"query": "studentTaskId=11",
+					"scene": null
+				},
+				{
+					"id": 2,
+					"name": "课程详情1",
+					"pathName": "pages/student/kechengbiao/detail/detail",
+					"query": "classesHourStudentId=153",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "课程详情",
+					"pathName": "pages/student/kechengbiao/detail/detail",
+					"query": "classesHourStudentId=9346",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "课后总结",
+					"pathName": "pages/student/kechengbiao/detail/detail",
+					"query": "classesHourStudentId=9348",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "作业提交完成",
+					"pathName": "pages/student/workreview/work_read/work_read",
+					"query": "id=19",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "作业提交完成1",
+					"pathName": "pages/student/workreview/work_read/work_read",
+					"query": "id=20",
+					"scene": null
+				}
+			]
+		}
+	}
+}

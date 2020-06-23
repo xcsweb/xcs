@@ -1,0 +1,16 @@
+/* pages/my_class/class_blog/class_add/class_add.wxss */
+.add{
+  margin: 20rpx 0;
+  background: #fff;
+  border: 1px solid #E0E0E0;
+  padding: 25rpx;
+}
+textarea{
+  font-size: 34rpx;
+  width: 100%;
+}
+.btn_down{
+  margin: 115rpx 30rpx 0 30rpx;
+  background: #FE8359;
+  color: #fff;
+}

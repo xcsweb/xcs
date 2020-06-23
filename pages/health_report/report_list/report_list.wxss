@@ -1,0 +1,40 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 32rpx;
+  background: white;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.title {
+  font-size: 34rpx;
+  margin-top: 20rpx; }
+
+.row > view:nth-child(1) {
+  width: 15%; }
+
+.row > view:nth-child(2) {
+  width: 35%; }
+
+.row > view:nth-child(3) {
+  width: 35%; }
+
+.row > view:nth-child(4) {
+  width: 15%; }
+
+.row .btn {
+  padding: 10rpx;
+  background: #FF8359;
+  color: white;
+  border-radius: 6rpx; }
+
+.row > view {
+  text-align: center;
+  padding: 20rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }

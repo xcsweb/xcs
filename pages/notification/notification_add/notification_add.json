@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "新建通知",
+  "usingComponents": {
+    "com-attachments": "/components/attachments/attachments"
+  }
+}

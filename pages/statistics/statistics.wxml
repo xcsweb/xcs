@@ -1,0 +1,297 @@
+<!-- <view style='height:20rpx;'></view>
+<com-tabs tabs='{{tabs}}' tabWidth='33.333%' index='{{tabIndex}}' bindchange='tabIndex' bottomIndex='3'></com-tabs> -->
+<view style='height:20rpx;'></view>
+<view hidden='{{tabIndex!=0}}'>
+  <view class='daterange'>
+    校区/分馆
+    <com-tags wx:if='{{tabIndex==0}}' bindchange='tags1change' tags='{{campus}}'></com-tags>
+  </view>
+  <view class='content'>
+    <com-daterange bindchange='daterange1change' startDt='{{startDtStr}}' endDt='{{endDtStr}}' end='{{endDtStr}}'></com-daterange>
+    <view class='chartsWrapper' hidden='{{business_efficiency_analysis.linePic.length==0}}'>
+      <view class='title'>
+        <view class='cls1'>
+          <text class='blk'></text>试课人数</view>
+        <text>总计({{business_efficiency_analysis.total}}/人)</text>
+      </view>
+      <canvas canvas-id='lineCanvas1' class='lineCanvas' style='width:{{lineWidth}}px;height:{{canvasHeight}}px' disable-scroll="true" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler" data-chart='lineCanvas1'></canvas>
+    </view>
+    <view class='ringWrapper1'>
+      <view class='ring'>
+        <canvas canvas-id='ringCanvas1' style='width:{{ringWidth}}px;height:{{ringWidth}}px'></canvas>
+        <view class='title'>转正率</view>
+      </view>
+      <view class='ring'>
+        <canvas canvas-id='ringCanvas2' style='width:{{ringWidth}}px;height:{{ringWidth}}px'></canvas>
+        <view class='title'>转介绍比例</view>
+      </view>
+      <view class='ring'>
+        <canvas canvas-id='ringCanvas3' style='width:{{ringWidth}}px;height:{{ringWidth}}px'></canvas>
+        <view class='title'>到课率</view>
+      </view>
+    </view>
+
+    <view class='ringWrapper1'>
+      <view class='ring'>
+        <canvas canvas-id='ringCanvas4' style='width:{{ringWidth}}px;height:{{ringWidth}}px'></canvas>
+        <view class='title'>续费率</view>
+      </view>
+      <view class='ring'>
+        <canvas canvas-id='ringCanvas5' style='width:{{ringWidth}}px;height:{{ringWidth}}px'></canvas>
+        <view class='title'>续费收入比率</view>
+      </view>
+      <view class='ring'>
+        <canvas canvas-id='ringCanvas6' style='width:{{ringWidth}}px;height:{{ringWidth}}px'></canvas>
+        <view class='title'>退费率</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--体测统计-->
+<view hidden='{{tabIndex!=1}}'>
+  <view class='daterange'>
+    统计项目
+    <com-tags bindchange='tags2change' tags='{{tps_big_class}}' wx:if='{{tabIndex==1}}'></com-tags>
+    <view style='font-size:30rpx;'>性别</view>
+    <view class='sexes'>
+      <view class='sex' bindtap='sexchange' data-sex='1'>
+        <image src='/imgs/statistics/male.png'></image>
+        <image src='{{tab2sex==1?"/imgs/statistics/select.png":""}}' style='border:{{tab2sex==1?"none":""}}'></image>
+      </view>
+      <view class='sex' bindtap='sexchange' data-sex='0'>
+        <image src='/imgs/statistics/female.png'></image>
+        <image src='{{tab2sex==0?"/imgs/statistics/select.png":""}}' style='border:{{tab2sex==0?"none":""}}'></image>
+      </view>
+    </view>
+
+    <view class='tab2age' style='font-size:30rpx;'>
+      年龄阶段
+      <com-input type='number' value='{{startAge}}' name='startAge' bindInput='tab2age'></com-input>到
+      <com-input type='number' value='{{endAge}}' name='endAge' bindInput='tab2age'></com-input>(岁)
+    </view>
+  </view>
+  <view class='content'>
+    <com-daterange bindchange='daterange2change' startDt='{{startDtStr}}' endDt='{{endDtStr}}' end='{{endDtStr}}'></com-daterange>
+
+    <!-- <view class='tab2ring' hidden='{{tab2itemsIndex<0||bodytest_statistics_hide}}'>
+      <canvas canvas-id='ringCanvas7' style='width:{{lineWidth/2}}px;height:{{canvasHeight}}px'></canvas>
+      <view class='legends'>
+        <view class='legend' wx:for='{{bodytest_statistics[tab2itemsIndex].picInfo}}' wx:key='*this'>
+          <view class='blk' style='background:{{item.color}}'></view>{{item.title+item.percent}}%</view>
+      </view>
+    </view> -->
+    <view class='noData' wx:if='{{!bodytest_statistics||bodytest_statistics.length==0}}'>
+      <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+    </view>
+    <view class='tab2items'>
+      <block wx:for='{{bodytest_statistics}}' wx:key='*this'>
+        <view class='item' bindtap='tab2items' data-index='{{index}}' style='color:{{index==tab2itemsIndex?"#A375FF":""}};background:{{index==tab2itemsIndex?"#FBF9FF":""}};border-color:{{index==tab2itemsIndex?"#dfd0fe":"#d4d4d4"}}'>{{item.titleName}}</view>
+        <view class='tab2ring' wx:if='{{(index+1)%3==0}}' hidden='{{tab2itemsIndex<0||bodytest_statistics_hide||tab2itemsIndex<item.bottom||tab2itemsIndex>=item.top}}'>
+          <view class='angle angle1' wx:if='{{(tab2itemsIndex+1)%3==1}}'></view>
+          <view class='angle angle2' wx:if='{{(tab2itemsIndex+1)%3==2}}'></view>
+          <view class='angle angle3' wx:if='{{(tab2itemsIndex+1)%3==0}}'></view>
+          <canvas canvas-id='ringCanvas7{{item.top}}' style='width:{{lineWidth/2}}px;height:{{canvasHeight}}px;display: {{ringCanvas7Display}};'></canvas>
+          <view class='legends'>
+            <view class='legend' wx:for='{{bodytest_statistics[tab2itemsIndex].picInfo}}' wx:key='*this'>
+              <view class='blk' style='background:{{item.color}}'></view>{{item.title+item.percent}}%</view>
+          </view>
+        </view>
+      </block>
+      <view class='tab2ring' wx:if='{{(bodytest_statistics.length%3==1)||(bodytest_statistics.length%3==2)}}' hidden='{{tab2itemsIndex<0||bodytest_statistics_hide||!showRingCanvas7}}'>
+        <view class='angle angle1' wx:if='{{(tab2itemsIndex+1)%3==1}}'></view>
+        <view class='angle angle3' wx:if='{{(tab2itemsIndex+1)%3==2}}'></view>
+        <canvas canvas-id='ringCanvas7' style='width:{{lineWidth/2}}px;height:{{canvasHeight}}px;display: {{ringCanvas7Display}};'></canvas>
+        <view class='legends'>
+          <view class='legend' wx:for='{{bodytest_statistics[tab2itemsIndex].picInfo}}' wx:key='*this'>
+            <view class='blk' style='background:{{item.color}}'></view>{{item.title+item.percent}}%</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!--财务统计-->
+<view wx:if='{{tabIndex==2}}'>
+  <view class='daterange'>
+    校区/分馆
+    <com-tags bindchange='tags3change' tags='{{campus}}'></com-tags>
+    <view>统计项目</view>
+    <com-tags bindchange='tags4change' tags='{{[{name:"项目"},{name:"卡型"},{name:"班级"},{name:"教练/老师"}]}}'></com-tags>
+  </view>
+  <view class='content'>
+    <com-daterange bindchange='daterange3change' startDt='{{startDtStr}}' endDt='{{endDtStr}}' end='{{endDtStr}}'></com-daterange>
+    <view class='tab3brife'>
+      <view class='left'>
+        <view class='item'>
+          <image src='/imgs/statistics/circle.png' class='circle'></image>
+          <text class='title'>课程收入金额入金额</text>
+          <text class='val'>￥{{financial_statistics.courseincome}}</text>
+        </view>
+        <view class='item'>
+          <image src='/imgs/statistics/circle.png' class='circle'></image>
+          <text class='title'>物品收入金额</text>
+          <text class='val'>￥{{financial_statistics.goodsincome}}</text>
+        </view>
+        <view class='item'>
+          <image src='/imgs/statistics/circle.png' class='circle'></image>
+          <text class='title'>课消金额</text>
+          <text class='val'>￥{{financial_statistics.eliminateclass}}</text>
+        </view>
+        <view class='item'>
+          <image src='/imgs/statistics/circle.png' class='circle'></image>
+          <text class='title'>支出金额</text>
+          <text class='val'>￥{{financial_statistics.pay}}</text>
+        </view>
+      </view>
+      <view class='right'>
+        <view class='title'>收支结余</view>
+        <view class='price'>￥{{financial_statistics.incomeandexpenditure}}</view>
+      </view>
+    </view>
+    <view class='tab3detail'>
+      <view class='header row'>
+        <view>名称</view>
+        <view>课程收入金额</view>
+        <view>消课金额</view>
+      </view>
+      <view class='row' wx:for='{{financial_statistics.analysis}}' wx:key='*this'>
+        <view>{{item.name}}</view>
+        <view>{{item.courseincome}}</view>
+        <view>{{item.eliminateclass}}</view>
+      </view>
+      <!-- <view wx:if='{{financial_statistics.analysis.length==0}}' class='nodata'>暂无数据</view> -->
+    </view>
+  </view>
+</view>
+
+
+<!--教务统计-->
+<view hidden='{{tabIndex!=3}}'>
+  <com-tabs tabs='{{["消课统计","出勤统计"]}}' tabWidth='50%' index='{{tab3Index}}' bindchange='tab3Index' bottomIndex='2'></com-tabs>
+  <view class='daterange'>
+    校区/分馆
+    <com-tags bindchange='tags5change' tags='{{campus}}' wx:if='{{tabIndex==3}}'></com-tags>
+    <view>统计项目</view>
+    <com-tags bindchange='tags6change' wx:if='{{tabIndex==3}}' tags='{{[{name:"项目"},{name:"卡型"},{name:"班级"},{name:"教练/老师"}]}}'></com-tags>
+  </view>
+  <view class='content'>
+    <com-daterange bindchange='daterange4change' startDt='{{startDtStr}}' endDt='{{endDtStr}}' end='{{endDtStr}}'></com-daterange>
+    <view hidden='{{tab3Index!=0}}'>
+      <view class='tab3card' wx:for='{{tab4data1}}' wx:key='*this' style='background:{{item.color.bg}};box-shadow: 0rpx 10rpx 6rpx {{item.color.bg}}'>
+        {{item.name}}
+        <view class='divider'></view>
+        <view class='data'>
+          <view class='left'>
+            <canvas canvas-id='tab4ring1{{index}}' style='width:{{ringWidth}}px;height:{{ringWidth}}px'></canvas>
+          </view>
+          <view class='right'>
+            总量：{{item.allnum}}元
+            <view class='line' style='background:{{item.color.color1}};width:{{item.percent1}};margin-bottom:30rpx;'></view>
+            消课量：{{item.eliminateclassnum}}元
+            <view class='line' style='background:{{item.color.color2}};width:{{item.percent2}}'></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view hidden='{{tab3Index!=1}}'>
+      <view class='tab3card' wx:for='{{tab4data2}}' wx:key='*this' style='background:{{item.color.bg}};box-shadow: 0rpx 10rpx 6rpx {{item.color.bg}}'>
+        {{item.name}}
+        <view class='divider'></view>
+        <view class='data'>
+          <view class='left'>
+            <canvas canvas-id='tab4ring2{{index}}' style='width:{{ringWidth}}px;height:{{ringWidth}}px'></canvas>
+            <view class='name'>出勤率</view>
+          </view>
+          <view class='right'>
+            出勤：{{item.attendance}}
+            <view class='line' style='background:{{item.color.color1}};width:{{item.percent1}}'></view>
+            迟到：{{item.late}}
+            <view class='line' style='background:{{item.color.color2}};width:{{item.percent2}}'></view>
+            请假：{{item.leave}}
+            <view class='line' style='background:{{item.color.color3}};width:{{item.percent3}}'></view>
+            缺勤：{{item.absence}}
+            <view class='line' style='background:{{item.color.color4}};width:{{item.percent4}}'></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<!--销售统计-->
+<view hidden='{{tabIndex!=4}}'>
+  <view class='daterange'>校区/分馆
+    <com-tags tags='{{campus}}' bindchange='tags7change' wx:if='{{tabIndex==4}}'></com-tags>
+    <view>统计项目</view>
+    <com-tags bindchange='tags8change' wx:if='{{tabIndex==4}}' tags='{{[{name:"项目"},{name:"卡型"},{name:"销售人员"}]}}' hidearrow='1'></com-tags>
+
+  </view>
+  <view class='content'>
+    <com-daterange bindchange='daterange5change' startDt='{{startDtStr}}' endDt='{{endDtStr}}' end='{{endDtStr}}'></com-daterange>
+    <view class='tab4card' wx:for='{{sales_statistics}}' wx:key='{{item.trainId}}' style='background:{{item.color.bg}};box-shadow: 0rpx 10rpx 6rpx {{item.color.bg}}'>
+      <view class='body'>
+        {{item.name}}
+        <view class='divider' style='border-top-color:{{item.color.dividerbg1}}'></view>
+        <view class='data'>
+          <view class='cat' style='color:{{item.color.textColor1}}'>
+            <text class='iconfont icon-basicRing'></text>新生咨询</view>
+          <view class='detail' style='color:{{item.color.textColor2}}'>
+            <text class='iconfont icon-UserManagement'></text>{{item.newstudent||0}}人
+            <text class='iconfont icon-money-'></text>预期收入：{{item.newstudentincome||0}}
+          </view>
+          <view class='divider' style='border-top-color:{{item.color.dividerbg2}}'></view>
+
+          <view class='cat' style='color:{{item.color.textColor1}}'>
+            <text class='iconfont icon-basicRing'></text>试课人数</view>
+          <view class='detail' style='color:{{item.color.textColor2}}'>
+            <text class='iconfont icon-UserManagement'></text>{{item.teststudent||0}}人
+            <text></text>
+          </view>
+          <view class='divider' style='border-top-color:{{item.color.dividerbg2}}'></view>
+
+          <view class='cat' style='color:{{item.color.textColor1}}'>
+            <text class='iconfont icon-basicRing'></text>转正人数</view>
+          <view class='detail' style='color:{{item.color.textColor2}}'>
+            <text class='iconfont icon-UserManagement'></text>{{item.nomalstudent||0}}人
+            <text class='iconfont icon-money-'></text>预期收入：{{item.nomalstudentincome||0}}
+          </view>
+          <view class='divider' style='border-top-color:{{item.color.dividerbg2}}'></view>
+
+          <view class='cat' style='color:{{item.color.textColor1}}'>
+            <text class='iconfont icon-basicRing'></text>续卡人次</view>
+          <view class='detail' style='color:{{item.color.textColor2}}'>
+            <text class='iconfont icon-UserManagement'></text>{{item.renewstudent||0}}人
+            <text class='iconfont icon-money-'></text>预期收入：{{item.renewstudentincome||0}}
+          </view>
+          <view class='divider' style='border-top-color:{{item.color.dividerbg2}}'></view>
+        </view>
+        <view class='bottom' style='margin-top: 20rpx;' bindtap='showChart' data-index='{{index}}'>查看走势
+          <view class='arrow_down' style='transform:rotate({{item.showChart?-180:0}}deg)'>
+            <text class='iconfont icon-arrow_down'></text>
+          </view>
+        </view>
+        <view class='bottom' wx:if='{{item.showChart}}'>
+          <view class='trangle'></view>
+        </view>
+      </view>
+      <view class='title' wx:if='{{item.showChart}}'>
+        <view style='transform:rotate(180deg)' bindtap='SalesStatisticsPrev' data-index='{{index}}'>
+          <text class='iconfont icon-arrow'></text>
+        </view>
+        <view class='cls1' bindtouchstart="touchStart" bindtouchend="touchEnd" data-index='{{index}}'>
+          {{item.showName}}
+          <text>(总计{{item.showNum||0}}人)
+          </text>
+        </view>
+        <view bindtap='SalesStatisticsNext' data-index='{{index}}'>
+          <text class='iconfont icon-arrow'></text>
+        </view>
+      </view>
+      <canvas hidden='{{!item.showChart||!item.hasData}}' canvas-id='tab5canvas{{index}}' class='lineCanvas' style='width:{{lineWidth}}px;height:{{canvasHeight}}px' disable-scroll="true" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"
+        data-chart='tab5canvas{{index}}'></canvas>
+    </view>
+  </view>
+</view>

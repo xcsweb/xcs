@@ -1,0 +1,51 @@
+/* pages/student/my_profile/changeid/changeid.wxss */
+
+.card {
+  margin: 20rpx 0;
+  background: #fff;
+}
+
+.card_li {
+  display: flex;
+  align-items: center;
+  padding: 15rpx 30rpx;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.card_li .avatar {
+  margin-right: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+  background: #f2f2f2;
+  border-radius: 50%;
+}
+
+.card_li .name {
+  min-width: 4em;
+  text-align: center;
+  margin-right: 40rpx;
+}
+
+.card_li .tel {
+  flex: 1;
+}
+
+.card_li .chosed {
+  width: 35rpx;
+  height: 26rpx;
+}
+.add {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25rpx 35rpx;
+  font-size: 34rpx;
+  color: #333;
+  background: #fff;
+}
+.add image{
+  width: 18rpx;
+  height: 29rpx;
+}

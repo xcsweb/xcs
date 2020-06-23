@@ -1,0 +1,61 @@
+<view class='wrap'>
+  <view class='body'>
+    <!-- <button type="default" size="mini">
+      筛选
+      <image src='/imgs/trangle.png' style='width:26rpx;height:16rpx;margin-top:8rpx;' mode='aspectFill'></image>
+    </button> -->
+    <!-- <view class='target-select'> -->
+    <select prop-array='{{selectArray}}' class="t-select" bindchange="onChangeShowState" showText="筛选" class="select"></select>
+    <!-- </view> -->
+  </view>
+  <view wx:if="{{index==100}}">
+    <view class='tar' data-noticeId="{{item.noticeId}}" data-day_="{{item.day_}}" data-name="{{item.name}}" wx:for="{{listdata}}" wx:for-item="item" wx:key='{{item.noticeId}}' bindtap="gettzinfo">
+      <view class='title'>标题: \t{{item.title}}</view>
+      <view class='time'>时间: \t{{item.day_}}</view>
+      <view> 发送人:\t{{item.name}}</view>
+      <view>通知类型: \t{{item.typeName}}</view>
+      <view>
+        <image class='tzimg' src='/imgs/tongzhi/tztitle.png' wx:if='{{!item.isRead}}'></image>
+        <view class='isConfirm' wx:if='{{item.isConfirmsStr}}' style='color:{{item.isConfirmsStrColor}}'> {{item.isConfirmsStr}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 其他通知 -->
+  <view wx:if="{{index==0}}">
+    <view class='tar' data-noticeId="{{item.noticeId}}" data-day_="{{item.day_}}" data-name="{{item.name}}" wx:for="{{qttinfo}}" wx:for-item="item" wx:key='{{item.noticeId}}' bindtap="gettzinfo">
+      <view class='title'>标题: \t{{item.title}}</view>
+      <view class='time'>时间: \t{{item.day_}}</view>
+      <view> 发送人:\t{{item.name}}</view>
+      <view>通知类型: \t{{item.typeName}}</view>
+      <view>
+        <image class='tzimg' src='/imgs/tongzhi/tztitle.png' wx:if='{{!item.isRead}}'></image>
+        <view class='isConfirm' wx:if='{{item.isConfirmsStr}}' style='color:{{item.isConfirmsStrColor}}'> {{item.isConfirmsStr}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 系统通知 -->
+  <view wx:if="{{index==1}}">
+    <view class='tar' data-noticeId="{{item.noticeId}}" data-day_="{{item.day_}}" data-name="{{item.name}}" wx:for="{{xtinfo}}" wx:for-item="item" wx:key='{{item.noticeId}}' bindtap="gettzinfo">
+      <view class='title'>标题: \t{{item.title}}</view>
+      <view class='time'>时间: \t{{item.day_}}</view>
+      <view> 发送人:\t{{item.name}}</view>
+      <view>通知类型: \t{{item.typeName}}</view>
+      <view>
+        <image class='tzimg' src='/imgs/tongzhi/tztitle.png' wx:if='{{!item.isRead}}'></image>
+        <view class='isConfirm' wx:if='{{item.isConfirmsStr}}' style='color:{{item.isConfirmsStrColor}}'> {{item.isConfirmsStr}}</view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view class='noData' wx:if='{{index==100&&(!listdata||listdata.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{index==0&&(!qttinfo||qttinfo.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{index==1&&(!xtinfo||xtinfo.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

@@ -1,0 +1,100 @@
+<view class='fakepage'>
+  <view class='tabswrapper'>
+    <com-tabs tabs='{{["消课榜","转介绍榜","流失榜"]}}' bindchange='tabChange'></com-tabs>
+  </view>
+  <view class='body'>
+    <view class='leftmenus'>
+      <view class='menu {{menuIndex==1?"activated":""}}' bindtap='changeLeftMenu' data-index='1'>日排行</view>
+      <view class='menu {{menuIndex==2?"activated":""}}' bindtap='changeLeftMenu' data-index='2'>周排行</view>
+      <view class='menu {{menuIndex==3?"activated":""}}' bindtap='changeLeftMenu' data-index='3'>月排行</view>
+      <view class='menu {{menuIndex==4?"activated":""}}' bindtap='changeLeftMenu' data-index='4'>季排行</view>
+      <view class='menu {{menuIndex==5?"activated":""}}' bindtap='changeLeftMenu' data-index='5'>年排行</view>
+    </view>
+    <view class='rightbody'>
+      <view class='rightbodytop'>
+        <view class='city'>
+          <image src='/imgs/loc.png'></image>
+          <picker range='{{areas}}' range-key='name' bindchange='areaIndexChange'>
+            {{areas[areaIndex||0].name}}
+          </picker>
+        </view>
+        <view class='campus' style='display:{{rankingType==2?"none":""}}'>
+          <picker range='{{campusVos}}' bindchange='campusIndexChange' range-key='campusName'>
+            {{campusVos[campusIndex||0].campusName}}
+          </picker>
+          <image src='/imgs/trangle.png'></image>
+        </view>
+      </view>
+      <view class='sitcherwrapper'>
+        <view class='sitcher'>
+          <view class='{{rankingType==1?"activated":""}}' bindtap='rankingType' data-type='1'>个人榜单</view>
+          <view class='{{rankingType==2?"activated":""}}' bindtap='rankingType' data-type='2'>门店榜单</view>
+        </view>
+      </view>
+
+      <view class='noData' wx:if='{{!rankList||rankList.length==0}}'>
+        <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+      </view>
+      <view class='top3wrapper' wx:if='{{rankList&&rankList.length>0}}'>
+        <view class='top3Inner'>
+          <image class='top3bg' src='/imgs/ranking/top3bg.png'></image>
+          <view class='topItem ranking3'>
+            <view hidden='{{!rankList[1]}}'>
+              <view class='avatarWrapper'>
+                <image class='avatar' src='{{rankList[1].avatar}}'></image>
+                <view class='banner'>
+                  <text>No.2</text>
+                  <image src='/imgs/ranking/ranking2.png'></image>
+                </view>
+              </view>
+              <view class='username'>{{rankList[1].name}}</view>
+              <view class='rankingNum'>{{rankList[1].price}}</view>
+            </view>
+          </view>
+
+          <view class='topItem ranking1'>
+            <view class='avatarWrapper'>
+              <image class='avatar' src='{{rankList[0].avatar}}'></image>
+              <view class='banner'>
+                <text>No.1</text>
+                <image src='/imgs/ranking/ranking1.png'></image>
+              </view>
+            </view>
+            <view class='username'>{{rankList[0].name}}</view>
+            <view class='rankingNum'>{{rankList[0].price}}</view>
+          </view>
+
+          <view class='topItem ranking3'>
+            <view hidden='{{!rankList[2]}}'>
+              <view class='avatarWrapper'>
+                <image class='avatar' src='{{rankList[2].avatar}}'></image>
+                <view class='banner'>
+                  <text>No.3</text>
+                  <image src='/imgs/ranking/ranking3.png'></image>
+                </view>
+              </view>
+              <view class='username'>{{rankList[2].name}}</view>
+              <view class='rankingNum'>{{rankList[2].price}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='listItem' wx:for='{{rankList}}' wx:key='*this' wx:if='{{index>=3}}'>
+        <view class='ranking'>{{index+1}}</view>
+        <image class='avatar' src='{{item.avatar}}'></image>
+        <view class='username'>{{item.name}}</view>
+        <view class='rankingNum'>{{item.price}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='footer' wx:if='{{myrank}}'>
+  <view class='left'>
+    <view class='point'>{{myrank.rank}}</view>
+    <view class='myranking'>我的排名</view>
+    <view class='change'>{{myrank.rankChange}}</view>
+  </view>
+  <image src='{{myrank.avatar}}' binderror='avatarError' class='avatar'></image>
+  <view class='username'>{{myrank.name}}</view>
+  {{myrank.price}}
+</view>

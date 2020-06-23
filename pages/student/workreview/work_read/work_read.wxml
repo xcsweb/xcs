@@ -1,0 +1,39 @@
+<view class='body'>
+  <view class='media' wx:if='{{detailData.attachments.length>0||detailData.vodfiles.length>0}}'>
+    <view class='vod_vfra' wx:if="{{vodUrl}}">
+      <video class='vod' src="{{vodUrl}}" id='myVod'></video>
+    </view>
+    <view class='all'>
+      <view class='vods' wx:if='{{detailData.vodfiles.length>0}}'>
+        <view wx:for='{{detailData.vodfiles}}' wx:key='{{item}}' class='{{vodIndex==index?"selected":""}}' bindtap='changeVod' data-index='{{index}}'>{{index+1}}</view>
+      </view>
+      <view class='imgs' wx:if='{{detailData.attachments.length>0}}'>
+        <com-attachments mode='3' attachments='{{detailData.attachments}}' title='' edit='{{false}}'></com-attachments>
+      </view>
+    </view>
+  </view>
+  <view class='layout'>
+    <view class='tt'><view class="circle"></view><view>作业内容</view></view>
+    <view class='ctt'>{{detailData.content}}</view>
+    <view class='cttx' wx:if='{{detailData.studentTaskCompleteTermList.length>0}}'>
+      <view class='ctdb'>
+        <text class='ttl'>训练项目</text>
+        <text class='ttr'>实际/目标</text>
+      </view>
+      <view class='ctdc' wx:for='{{detailData.studentTaskCompleteTermList}}' wx:key='{{item.teachLabelId}}'>
+        <view class='ttl'>{{item.labelName}}</view>
+        <view class="progress">
+            <progress percent="{{item.completeVal/item.targetVal*100}}" activeColor="#02A7F0" stroke-width="11" />
+        </view>
+        <view class='ttr'>{{item.completeVal}}/{{item.targetVal}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='layout' wx:if='{{detailData.isApprove!=0}}'>
+    <view class='tt'><view class="circle"></view><view>批阅结果</view></view>
+    <view class='rating'>
+      <com-rating size='60' rating='{{detailData.performance}}' disabled='1' starType='1'></com-rating>
+    </view>
+    <view class='ctt'>{{detailData.feedback}}</view>
+  </view>
+</view>

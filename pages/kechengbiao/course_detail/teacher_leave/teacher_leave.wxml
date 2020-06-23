@@ -1,0 +1,7 @@
+
+  <view class='textarea'>
+  <textarea placeholder='请假事由' data-name='content' bindinput='bindinput'></textarea>
+  </view>
+  <view class='btnWrapper'>
+  <button bindtap='teacher_ask_for_leave_teacher' hover-class="btn-hover" >提交</button>
+  </view>

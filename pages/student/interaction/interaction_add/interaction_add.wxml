@@ -1,0 +1,17 @@
+<view class='top'>
+  选择班级
+  <com-picker range='{{classes}}' key='name' name='classIndex' index='{{classIndex}}' border='1' arrow='1'></com-picker>
+</view>
+<view class='textareaWrapper'>
+  <com-input textarea='1' name='content' placeholder='请输入帖子内容'></com-input>
+</view>
+<view class='attachmentsWrapper'>
+  <com-attachments name='imgfiles' title='添加图片' choosetype='1'></com-attachments>
+</view>
+
+<view class='attachmentsWrapper'>
+  <com-attachments name='vodfiles' title='添加视频' choosetype='2'></com-attachments>
+</view>
+<view class='btnWrapper'>
+  <button hover-class='btn-hover' disabled="{{fbdisabled}}"  bindtap='add_post'>提交</button>
+</view>

@@ -1,0 +1,49 @@
+page {
+  background-color: #f7f7f7;
+}
+
+.body {
+  position: relative;
+  top: 25rpx;
+  background-color: #fff;
+  height: 92rpx;
+}
+
+.select{
+  position: relative;
+  top: 15rpx;
+  left: 270rpx;
+  background-color: #fff;
+}
+
+.tar {
+  position: relative;
+  top: 55rpx;
+  background-color: #fff;
+  padding-left: 29rpx;
+  padding-top: 21rpx;
+  padding-bottom: 17px;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin-bottom: 20rpx;
+  border-color: #fff;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.isConfirm {
+  position: absolute;
+  background-color: #fff;
+  top: 146rpx;
+  right: 55rpx;
+  font-size: 34rpx;
+}
+
+.tzimg {
+  width: 67rpx;
+  height: 24rpx;
+  position: absolute;
+  top: 32rpx;
+  right: 55rpx;
+  display: block;
+}

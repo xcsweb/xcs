@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "微官网",
+  "navigationBarBackgroundColor": "#78A6FF",
+  "usingComponents": {
+    "com-picker": "/components/smartPicker/smartPicker",
+    "com-input": "/components/smartInput/smartInput",
+    "com-attachments": "/components/attachments/attachments",
+    "com-rating": "/components/rating/rating",
+    "com-tabs": "/components/tabs/tabs"
+  }
+}

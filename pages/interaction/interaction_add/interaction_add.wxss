@@ -1,0 +1,17 @@
+.top {
+  margin: 20rpx 0rpx;
+  background: white;
+  font-size: 34rpx;
+  color: #333;
+  padding: 20rpx; }
+  .top com-picker {
+    float: right; }
+
+.textareaWrapper {
+  background: white;
+  padding: 20rpx; }
+
+.attachmentsWrapper {
+  background: white;
+  padding: 16rpx 20rpx 0rpx 20rpx;
+  margin-top: 20rpx; }

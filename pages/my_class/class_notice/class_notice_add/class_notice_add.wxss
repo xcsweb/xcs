@@ -1,0 +1,8 @@
+.textarea{
+  background: white;
+  padding: 20rpx;
+  margin-top: 20rpx;
+}
+.btnWrapper{
+  margin-top: 20rpx;
+}

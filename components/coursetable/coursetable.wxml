@@ -1,0 +1,9 @@
+<view class='wrapper'>
+  <view class='hours'>
+    <view class='hour' wx:for='{{hours}}' wx:key='*this'>{{item}}</view>
+  </view>
+  <view class='coursewrapper'>
+    <view class='lines' wx:for='{{hours}}' wx:key='*this'></view>
+    <view class='course' wx:for='{{course}}' wx:key='*this' style='top:{{item.top+"%"}};height:{{item.height+"%"}};left:{{item.left+"rpx"}}' bindtap='_coursetaped' data-index='{{index}}'>{{item.name}}</view>
+  </view>
+</view>

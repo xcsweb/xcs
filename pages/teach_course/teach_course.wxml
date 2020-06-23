@@ -1,0 +1,44 @@
+<view style='background:white;padding:0rpx 10%;margin:20rpx 0rpx;'>
+  <com-tabs tabs='{{["教学大纲","教学作业"]}}' bindchange='tabchange'></com-tabs>
+</view>
+<picker range='{{teache_model_list}}' range-key='name' bindchange='pickerChange' value='{{index}}' wx:if='{{teache_model_list.length>0}}'>
+  <view>
+    {{teache_model_list[arrIndex||0].name}}
+    <image src='/imgs/common/trangle.png'></image>
+  </view>
+</picker>
+<view class='listItem' wx:for='{{teache_course_list}}' wx:key='{{item.title}}' style='margin-top:{{index1==0?"20rpx":""}};background:{{item.showAll?"white":"#F5F5F5"}}' wx:if='{{!tabIndex||tabIndex==0}}' wx:for-index='index1'>
+  <view class='father' bindtap='showAll' data-index='{{index1}}' style='border-bottom: {{(item.showAll&&item.content&&item.content.length>0)?"1px solid #f1f1f1;":""}}'>
+    {{item.title}}
+    <text class='iconfont icon-arrowdown' style='transform:{{item.showAll?"rotate(-180deg)":"none"}}'></text>
+  </view>
+  <view class='children' wx:if='{{item.showAll}}'>
+    <view wx:for='{{item.content}}' wx:key='{{item.title}}' style='padding-bottom:{{item.grandson?"0rpx":"20rpx"}}'>
+      <view bindtap='toDetail' data-id='{{item.teachCourseId}}'>
+        {{item.title}}
+        <text class='iconfont icon-arrow' style='position:absolute;right:20rpx;'></text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='listItem' wx:for='{{teache_task_list}}' wx:key='{{item.title}}' style='margin-top:{{index1==0?"20rpx":""}};background:{{item.showAll?"white":"#F5F5F5"}}' wx:if='{{tabIndex==1}}' wx:for-index='index1'>
+  <view class='father' bindtap='showAll' data-index='{{index1}}' style='border-bottom: {{(item.showAll&&item.content&&item.content.length>0)?"1px solid #f1f1f1;":""}}'>
+    {{item.title}}
+    <text class='iconfont icon-arrowdown' style='transform:{{item.showAll?"rotate(-180deg)":"none"}}'></text>
+  </view>
+  <view class='children' wx:if='{{item.showAll}}'>
+    <view wx:for='{{item.content}}' wx:key='{{item.title}}' style='padding-bottom:{{item.grandson?"0rpx":"20rpx"}}'>
+      <view bindtap='toDetail' data-id='{{item.teachTaskId}}'>
+        {{item.title}}
+        <text class='iconfont icon-arrow' style='position:absolute;right:20rpx;'></text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='noData' wx:if='{{tabIndex==0&&(!teache_course_list||teache_course_list.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{tabIndex==1&&(!teache_task_list||teache_task_list.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

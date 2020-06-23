@@ -1,0 +1,55 @@
+/* pages/student/photo/photo.wxss */
+.main{
+  padding: 20rpx 0;
+  /* min-height: 100vh; */
+}
+.photoTitle{
+  background: #ffffff;
+  padding: 31rpx;
+  margin-bottom: 20rpx;
+}
+.imagesize{
+  display: flex;
+  justify-content: center;
+}
+.titlePhoto{
+  position: relative;
+}
+.photoRight{
+  width: 14rpx;
+	height: 22rpx;
+  position: absolute;
+  right: 0 ;
+  top: 50%;
+  transform: translate(-50%,-50%)
+}
+.photoClass{
+	font-family: PingFangSC-Regular;
+	font-size: 34rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	/* line-height: 6rpx; */
+	letter-spacing: 0rpx;
+	color: #333333;
+}
+.photoEmbassy{
+  font-family: PingFangSC-Regular;
+	font-size: 28rpx;
+	font-weight: normal;
+	letter-spacing: 0rpx;
+	color: #999999;
+}
+.photoMessage{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  flex-wrap:wrap ;
+}
+.messagePhoto{
+  display: inline-block;
+  	width: 217rpx;
+	height: 164rpx;
+  margin-top: 18rpx;
+	background-color: #f4f4f4;
+	border: solid 1px #e0e0e0;
+}

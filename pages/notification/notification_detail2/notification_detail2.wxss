@@ -1,0 +1,48 @@
+.wrapper{
+  margin-top: 10px;
+  background: white;
+}
+.wrapper .title{
+  margin-left: 20rpx;
+  padding: 10rpx;
+  padding-left: 0px;
+  border-bottom: 1px solid #eee;
+  font-size: 34rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+.wrapper .title text{
+  color: #A375FF;
+}
+.wrapper .title .text{
+  margin-left: 8px;
+}
+.wrapper .title .block{
+  display: inline-block;
+  background: #333;
+  width: 3px;
+  height: 16px;
+}
+.wrapper .body{
+  padding: 10px;
+}
+.wrapper .body .avatar{
+  display: inline-block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+  margin-right: 10px;
+}
+.wrapper .body .avatar view{
+  width: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wrapper .body image{
+  width: 35px;
+  height: 35px;
+  background: #ccc;
+  border-radius: 100rpx;
+}

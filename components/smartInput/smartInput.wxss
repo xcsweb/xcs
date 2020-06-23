@@ -1,0 +1,6 @@
+/* components/smartInput/smartInput.wxss */
+textarea,input{
+  font-size: 34rpx;
+  color: #666;
+  width: 100%;
+}

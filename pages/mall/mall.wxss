@@ -1,0 +1,175 @@
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+.weui-search-bar__cancel-btn{
+  font-size: 17px;
+  color:#ac82ed;
+}
+.weui-search-bar{
+  border-bottom: none;
+}
+/**顶部tabs样式**/
+
+.tabs {
+  font-size: 34rpx;
+  text-align: center;
+  color: #999;
+  margin-bottom: 10rpx;
+  margin-top: 20rpx;
+}
+
+.tab {
+  width: 33.33%;
+  display: inline-flex;
+  background: white;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rpx 0rpx;
+  margin-bottom: 10rpx;
+}
+
+.tab .bottomBorder {
+  height: 1px;
+  width: 30rpx;
+  background: #555;
+}
+.tab1content .listItem{
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 5rpx;
+}
+.tab1content .listItem .img1{
+  width: 200rpx;
+  height: 160rpx;
+  background: #ccc;
+  margin-right: 4px;
+}
+.tab1content .listItem .body{
+  flex: 1;
+  font-size: 34rpx;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.tab1content .listItem .body .title{
+  color: #333;
+}
+.tab1content .listItem .body .price{
+  color: #ff8359;
+  font-size: 42rpx;
+}
+.tab1content .listItem .body .info{
+  color: #999;
+  font-size: 30rpx;
+}
+
+.tab2content .listItem{
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #f1f1f1;
+  align-items: center;
+  color: #333;
+  font-size: 34rpx;
+  white-space: nowrap;
+}
+.tab2content .listItem .ratingimg{
+  margin-top: -60rpx;
+  height: 100rpx;
+  width: 80rpx;
+  margin-right: 20rpx;
+}
+.tab2content .listItem .index{
+  font-size: 40rpx;
+  color:#a375ff;
+  margin-right: 20rpx;
+  width: 80rpx;
+  text-align: center;
+}
+.tab2content .listItem .avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  margin-right: 20rpx;
+}
+.tab2content .listItem .info{
+  flex: 1;
+  overflow: hidden;
+}
+.tab2content .listItem .add{
+  font-size: 30rpx;
+  color: white;
+  background: #FF7547;
+  padding: 0rpx 20rpx;
+  border-radius: 10rpx;
+}
+.tab2content .listItem .reduce{
+  font-size: 30rpx;
+  color: white;
+  background: #FFCC66;
+  padding: 0rpx 20rpx;
+  border-radius: 10rpx;
+  margin-top: 10rpx;
+}
+
+
+.tab3content .listItem{
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #f1f1f1;
+  align-items: center;
+  color: #333;
+  font-size: 34rpx;
+  white-space: nowrap;
+}
+.tab3content .listItem .info{
+  flex: 1;
+  overflow: hidden;
+  line-height: 44rpx;
+}
+.tab3content .listItem .btnSend{
+  background-color: #66CCFF;
+  color: white;
+}
+.tab3content .listItem .btnDark{
+  background-color: #ddd;
+  color: white;
+}
+.tab3content .listItem .status{
+  color: #999;
+  font-size: 30rpx;
+  text-align: center;
+}
+.tab3content .listItem .price{
+  color: #ff8359;
+  font-size: 42rpx;
+}
+.tab3content .listItem button::after{
+  display: none;
+}
+.tab3content .listItem button{
+  height: 60rpx;
+  padding: 0rpx 10rpx;
+  font-size: 30rpx;
+  display: flex;
+  background: white;
+  align-items: center;
+  margin: 15rpx 0rpx;
+  border-radius: 10rpx;
+  border: 1px solid #eee;
+}

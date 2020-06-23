@@ -1,0 +1,15 @@
+<com-calendar bindchange='calendarChange' course-flag='{{false}}' />
+
+<checkbox-group bindchange='studentBindChange'>
+  <view class='listItem' wx:for='{{tricls_list}}' wx:key='{{item.classesHourId}}'>
+    <checkbox class='circleCheckbox' value='{{index}}' catchtap='e' checked='{{item.selected}}' />
+    <view class='body' bindtap='toDetail' data-index='{{index}}'>
+      <text class='name'>{{item.classesName}}</text>
+      <text>\n班主任:{{(item.teacherName||'')}}</text>
+      <text>\n上课时段:{{item.startTime+'-'+item.endTime+'  '}}上课场所:{{(item.field||'')}}</text>
+    </view>
+  </view>
+</checkbox-group>
+<view class='btnWrapper' bindtap='tricls_addstu_sub' wx:if='{{tricls_list.length>0}}'>
+  <button hover-class="btn-hover">确定</button>
+</view>

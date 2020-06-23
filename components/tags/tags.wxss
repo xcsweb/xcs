@@ -1,0 +1,37 @@
+.scroll-view-wrapper{
+  position: relative;
+}
+.comTags{
+  background: white;
+  font-size: 30rpx;
+  color: #999;
+  white-space: nowrap;
+  padding: 20rpx 0rpx;
+}
+.comTags .tag{
+  padding: 0rpx 20rpx 0rpx 20rpx;
+  border: 1rpx solid #eee;
+  margin-right: 20rpx;
+  display: inline-block;
+  border-radius: 100rpx;
+  min-width: 160rpx;
+  text-align: center;
+}
+.comTags .tag:last-child{
+  margin-right: 50rpx;
+}
+.comTagsImg{
+  height: 100%;
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  display: flex;
+  align-items: center;
+  background: white;
+  padding-right: 0rpx;
+}
+
+.comTagsImg image{
+  width: 25rpx;
+  height: 40rpx;
+}

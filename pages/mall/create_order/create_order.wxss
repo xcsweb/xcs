@@ -1,0 +1,61 @@
+.line1{
+  padding: 20rpx;
+  background: white;
+  color: #333;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+.line1 view:first-child{
+  overflow: hidden;
+  flex: 1;
+}
+.line1 .price{
+  color: #ff8359;
+  white-space: nowrap;
+}
+.line2{
+  padding: 20rpx;
+  background: white;
+  color: #333;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+.line2 image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.number{
+  display: flex;
+  align-items: center;
+  border: 1px solid #f1f1f1;
+  border-radius: 6rpx;
+  width: 210rpx;
+}
+.number>view{
+  flex: 1;
+  text-align: center;
+}
+.number .reduce{
+  border-right: 1px solid #f1f1f1;
+}
+
+.number .add{
+  border-left: 1px solid #f1f1f1;
+}
+.hint{
+  color: #333;
+  font-size: 24rpx;
+  text-align: right;
+  padding-right: 24rpx;
+}
+
+.btnWrapper {
+  padding: 15px;
+  margin-top: 20%;
+}

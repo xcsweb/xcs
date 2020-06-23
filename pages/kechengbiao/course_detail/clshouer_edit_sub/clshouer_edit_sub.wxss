@@ -1,0 +1,203 @@
+page{
+  background: white;
+}
+.divider{
+  background: #F7F7F7;
+  height: 20rpx;
+}
+.label{
+  color: #333;
+  font-size: 34rpx;
+  margin-top: 10rpx;
+}
+input,textarea{
+  height: 70rpx;
+  color: #666;
+  font-size: 34rpx;
+  border: 1px solid #E0E0E0;
+  border-radius: 8rpx;
+  display: block;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+rich-text{
+  color: #666;
+  font-size: 34rpx;
+  border: 1px solid #E0E0E0;
+  border-radius: 8rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  width:100%;
+}
+textarea{
+  height: 190rpx;
+  padding: 10rpx;
+}
+
+.top{
+  background: #F7F7F7;
+  height: 20rpx;
+}
+.imgs{
+  padding: 15rpx 0rpx;
+}
+.imgs .addImg{
+  width: 160rpx;
+  height: 160rpx;
+  border: 1px dashed #f1f1f1;
+  text-align: center;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+}
+.imgs .addImg .addIcon{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  left: 65rpx;
+  top: 65rpx;
+}
+.imgs .imgWrapper{
+  width: 160rpx;
+  height: 160rpx;
+  display: inline-block;
+  position: relative;
+  margin-left: 15rpx;
+}
+.imgs .img{
+  width: 160rpx;
+  height: 160rpx;
+}
+.imgs .delete{
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: -8px;
+  right: -5px;
+  background: white;
+  border-radius: 100px;
+  font-size: 6px;
+  color: #999;
+}
+
+.btnWrapper {
+  padding: 15px;
+  margin-top: 30%;
+}
+
+picker{
+  background: #F7F7F7;
+  border: 1px solid #DFDFDF;
+  border-radius: 8rpx;
+  padding: 0rpx 10rpx;
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 50rpx;
+  height: 66rpx;
+  display: flex;
+  align-items: center;
+}
+.picker{
+  display: flex;
+  align-items: center;
+  min-width: 100rpx;
+  justify-content: flex-end;
+}
+.smallInput{
+  width:200rpx;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+  text-align: center;
+}
+.footer{
+  display: flex;
+  background: #FF7547;
+  width: 100%;
+  /*
+  bottom: 0px;
+  position: fixed;
+  z-index: 5;
+  */
+}
+.footer view{
+  padding: 14rpx;
+  color: white;
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid white;
+}
+.footer view:last-child{
+  border: none;
+}
+.teach_course_select_area{
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 222;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 34rpx;
+}
+.teach_course_select_area .content{
+  background: white;
+  z-index: 223;
+  width: 70%;
+  overflow: hidden;
+  margin-left: 15%;
+  margin-top: 25%;
+  border-radius: 10rpx;
+  border:1px solid #ccc;
+}
+.teach_course_select_area .content .top_{
+  display: block;
+  height: auto;
+  padding: 20rpx;
+  background: white;
+}
+.teach_course_select_area .content .title{
+  padding-top: 8rpx;
+  padding-bottom: 28rpx;
+}
+.teach_course_select_area .selectline{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  white-space: nowrap;
+  margin-top: 16rpx;
+}
+.teach_course_select_area .selectline picker{
+  height: 50rpx;
+  white-space: nowrap;
+  margin-right: 0px;
+}
+.teach_course_select_area .selectline picker view{
+  width: 160rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  padding-right: 20rpx;
+  text-align: left;
+}
+.teach_course_select_area .selectline picker image{
+  position: absolute;
+  right: 5rpx;
+  top: 16rpx;
+}
+.teach_course_select_area .btns{
+  display: flex;
+  width: 100%;
+  border-top: 1px solid #ccc;
+}
+.teach_course_select_area .btns view{
+  flex: 1;
+  text-align: center;
+  padding: 14rpx 0rpx;
+}
+.teach_course_select_area .btns view:nth-child(2){
+  border-left: 1px solid #ccc;
+  color: #00C200;
+}
+.teach_content{
+  z-index: 1;
+  position: relative;
+}

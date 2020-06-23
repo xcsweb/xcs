@@ -1,0 +1,59 @@
+.wrapper{
+  background: white;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.title{
+  font-size: 34rpx;
+  color: #333;
+}
+input,textarea{
+  box-sizing: border-box;
+  height: 70rpx;
+  width: 100%;
+  color: #666;
+  font-size: 34rpx;
+  border: 1px solid #E0E0E0;
+  border-radius: 8rpx;
+  display: block;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+textarea{
+  height: 190rpx;
+  padding: 10rpx;
+}
+.subtitle{
+  font-size: 34rpx;
+  color: #666;
+}
+.cusTable {
+  font-size: 34rpx;
+  border: 1px solid #f1f1f1;
+}
+.cusTable .header {
+  display: flex;
+  color: #333;
+}
+.cusTable .header > view {
+  flex: 1;
+  padding: 10rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+.cusTable .header > view:nth-child(n+2) {
+  text-align: center;
+}
+.cusTable .row {
+  display: flex;
+  color: #666;
+}
+.cusTable .row > view {
+  flex: 1;
+  padding: 10rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+.cusTable .row > view:nth-child(n+2) {
+  text-align: center;
+}

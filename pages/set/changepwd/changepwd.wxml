@@ -1,0 +1,21 @@
+<!--pages/set/changepwd/changepwd.wxml-->
+<view class='list'>
+  <view class='li'>
+    <text>手机号：</text>
+    <text>{{oldPhone}}</text>
+  </view>
+  <view class='li'>
+    <text>输入旧密码：</text>
+    <input password='true' data-dataname='oldpsd' bindinput="bindKeyInput"></input>
+  </view>
+  <view class='li'>
+    <text>请输入新密码：</text>
+    <input password='true' data-dataname='newpsd' bindinput="bindKeyInput"></input>
+  </view>
+  <view class='li'>
+    <text>请再次输入新密码：</text>
+    <input password='true' data-dataname='againpsd' bindinput="bindKeyInput"></input>
+  </view>
+</view>
+
+<button bindtap='savepsd' class='btn_down'>保存</button>

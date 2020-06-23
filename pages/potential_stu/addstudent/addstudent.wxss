@@ -1,0 +1,617 @@
+.avatarWrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20rpx;
+  background: white;
+  padding-bottom: 0rpx;
+}
+
+.avatarWrapperInner {
+  position: relative;
+}
+
+.avatarWrapperInner .avatar {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 150rpx;
+}
+
+.avatarWrapperInner .gender {
+  position: absolute;
+  bottom: 15rpx;
+  right: -56rpx;
+  width: 100rpx;
+  color: #a375ff;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.avatarWrapperInner .gender image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-right: 5rpx;
+}
+
+.tools {
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx;
+  padding-top: 0rpx;
+  font-size: 30rpx;
+  color: #333;
+  align-items: center;
+  background: white;
+}
+
+.tools .name {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+
+.tools>view {
+  text-align: center;
+}
+
+.tools .btn {
+  height: 65rpx;
+  display: flex;
+  align-items: center;
+  border: 1px solid #eee;
+  padding: 0rpx 10rpx;
+  border-radius: 6rpx;
+}
+
+.tools .btn image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 5rpx;
+}
+
+/**顶部tabs样式**/
+
+.tabs {
+  font-size: 34rpx;
+  text-align: center;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+
+.tab {
+  width: 25%;
+  display: inline-flex;
+  background: white;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rpx 0rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.tab>view {
+  position: relative;
+}
+
+.tab image {
+  width: 25rpx;
+  height: 30rpx;
+  position: relative;
+  top: 5rpx;
+}
+
+.tab .bottomBorder {
+  height: 1px;
+  width: 30rpx;
+  background: #555;
+}
+
+.btnWrapper {
+  background: white;
+  padding: 0px;
+  display: flex;
+}
+
+.tab1content .listItem {
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  align-items: center;
+  overflow: hidden;
+  font-size: 34rpx;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.tab1content .listItem .title {
+  color: #000;
+}
+
+.tab1content .listItem .arrow {
+  color: #c7c7cc;
+}
+
+.tab1content .listItem .arrow_white {
+  color: #fff;
+}
+
+.tab1content .listItem input {
+  flex: 1;
+  text-align: right;
+  padding-left: 50rpx;
+}
+
+.tab1content .listItem .fakeInput {
+  flex: 1;
+  text-align: right;
+  padding-left: 50rpx;
+  min-height: 50rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tab1content .listItem picker {
+  flex: 1;
+  text-align: right;
+}
+
+.tab1content .divider {
+  background: #f3f3f7;
+  color: #000;
+  font-size: 34rpx;
+  padding: 20rpx;
+}
+
+.tab2content .listItem {
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  align-items: center;
+  overflow: hidden;
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1px solid #f1f1f1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tab2content .listItem .val {
+  color: #666;
+}
+
+.tab2content .listItem .body {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tab2content .listItem .end {
+  width: 80rpx;
+  padding-right: 20rpx;
+}
+
+.tab3content .listItem {
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  align-items: center;
+  overflow: hidden;
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1px solid #f1f1f1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tab3content .listItem .val {
+  color: #666;
+}
+
+.tab3content .listItem .body {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tab3content .listItem .body .detail {
+  width: 50%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  line-height: 38rpx;
+}
+
+.tab3content .listItem .body .val {
+  color: #666;
+}
+
+.tab3content .listItem .end {
+  width: 80rpx;
+  padding-right: 20rpx;
+  font-size: 28rpx;
+}
+
+.tab4content .row {
+  background: white;
+  padding: 20rpx;
+  display: flex;
+  color: #666;
+  font-size: 30rpx;
+  white-space: nowrap;
+  text-align: center;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+.tab4content .header {
+  font-size: 34rpx;
+  color: #333;
+}
+
+.tab4content .row>view {
+  flex: 20%;
+  overflow: auto;
+}
+
+.tab5content .btnWrapper {
+  background: white;
+  padding: 0rpx;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 20rpx;
+}
+
+.tab5content .btnWrapper button {
+  margin-bottom: 0rpx;
+  color: #666;
+  font-size: 34rpx;
+  height: 58rpx;
+  padding: 0rpx 26rpx;
+  line-height: 58rpx;
+  margin-top: 15rpx;
+}
+
+.tab5content .btnWrapper button:first-child {
+  margin-right: 20rpx;
+}
+
+.tab5content .btnWrapper button:last-child {
+  margin-left: 20rpx;
+}
+
+.tab5content .pointsArea {
+  background: white;
+  padding: 20rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+
+.tab5content .pointsArea .points {
+  color: #a375ff;
+  font-size: 40rpx;
+  line-height: 44rpx;
+}
+
+.tab5content .pointsArea .desc {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.tab5content .listItem {
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  align-items: center;
+  overflow: hidden;
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1px solid #f1f1f1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tab5content .listItem .val {
+  color: #666;
+}
+
+.tab5content .listItem .body {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tab5content .listItem .body .detail {
+  width: 48%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  line-height: 38rpx;
+}
+
+.tab5content .listItem .body .detail:first-child {
+  margin-right: 4%;
+}
+
+.tab5content .listItem .body .val {
+  color: #666;
+}
+
+.tab5content .listItem .end {
+  width: 80rpx;
+  padding-right: 20rpx;
+  font-size: 28rpx;
+}
+
+.tab6content .listItem {
+  padding: 20rpx;
+  background: white;
+  font-size: 34rpx;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.tab6content .listItem .val {
+  color: #666;
+}
+
+.attachments {
+  background: white;
+}
+
+.attachments .title {
+  white-space: nowrap;
+  color: #000;
+  font-size: 17px;
+}
+
+.attachmentRow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.attachments .attachment {
+  width: 80px;
+  height: 60px;
+  border: 1px solid #e0e0e0;
+  background: #f4f4f4;
+  display: inline-block;
+  margin-right: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.attachments .attachment .videoflag {
+  width: 14px;
+  height: 20px;
+  top: 20px;
+  position: absolute;
+  left: 34px;
+}
+
+.attachments .attachment .prev {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.topBtnArea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  padding-top: 15px;
+  background: #fff;
+  margin-bottom: 15rpx;
+  height: 30px;
+}
+
+.topBtnArea button {
+  color: #666;
+  background-color: white;
+}
+
+.tab7content .listItem {
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  align-items: center;
+  overflow: hidden;
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1px solid #f1f1f1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tab7content .listItem .val {
+  color: #666;
+}
+
+.tab7content .listItem .body {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.tab7content .listItem .body .detail {
+  width: 48%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  line-height: 38rpx;
+}
+
+.tab7content .listItem .body .detail:first-child {
+  margin-right: 4%;
+}
+
+.tab7content .listItem .body .val {
+  color: #666;
+}
+
+.tab7content .listItem .end {
+  width: 80rpx;
+  font-size: 28rpx;
+  text-align: center;
+  color: #666;
+}
+
+.tab7content .listItem .end image {
+  width: 25rpx;
+  height: 20rpx;
+  padding: 10rpx;
+  transition: transform 0.3s ease-in;
+}
+
+.tab7content .stuFitRecordVos {
+  font-size: 34rpx;
+  color: #666;
+  line-height: 40rpx;
+}
+
+.tab7content .stuFitRecordVos .desc {
+  padding: 20rpx;
+}
+
+.tab7content .levelBarWrapper {
+  position: relative;
+  height: 40rpx;
+  width: 94%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 100rpx;
+}
+
+.tab7content .levelBarBg {
+  position: absolute;
+  height: 40rpx;
+  width: 100%;
+  background: #a375ff;
+  overflow: hidden;
+}
+
+.tab7content .levelBarBg2 {
+  position: absolute;
+  height: 40rpx;
+  overflow: hidden;
+  width: 100%;
+  background: #fc6;
+}
+
+.tab7content .levelBar {
+  position: absolute;
+  height: 40rpx;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.tab7content .levelBar .line1 {
+  height: 10rpx;
+  width: 2rpx;
+  background: white;
+  z-index: 111;
+}
+
+.tab7content .levelBar .line2 {
+  height: 40rpx;
+  z-index: 111;
+  width: 2rpx;
+  background: white;
+}
+
+.tab7content .levelBarDesc {
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-around;
+  font-size: 24rpx;
+  color: #333;
+  line-height: 30rpx;
+}
+
+.tab7content .btnWrapper {
+  background: white;
+  padding: 0rpx;
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 20rpx;
+}
+
+.tab7content .btnWrapper button {
+  margin-bottom: 0rpx;
+  color: #666;
+  font-size: 34rpx;
+  height: 58rpx;
+  padding: 0rpx 26rpx;
+  line-height: 58rpx;
+  margin-top: 15rpx;
+}
+
+.tab7content .btnWrapper button:first-child {
+  margin-right: 20rpx;
+}
+
+.tab7content .btnWrapper button:last-child {
+  margin-left: 20rpx;
+}
+
+.button {
+  width: 50%;
+  display: inline-block;
+  border: 0px;
+  border-radius: 0rpx;
+}
+
+.touxiang {
+  width: 70rpx;
+  height: 70rpx;
+  background-color: #dcdcdc;
+  border-radius: 22px;
+  position: absolute;
+  right: 55rpx;
+}
+
+#touxiangjiantou {
+  position: absolute;
+  right: 20rpx;
+}
+
+.parentAdd {
+  display: flex;
+  background: white;
+  padding: 20rpx;
+  justify-content: center;
+}
+
+.parentAdd image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+
+.footer{
+  width: 100%;
+  background: #FF7547;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.footer view{
+  flex: 1;
+  text-align: center;
+  height: 90rpx;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer view:nth-child(1){
+  background: #F6F6F6;
+  color: #333;
+}

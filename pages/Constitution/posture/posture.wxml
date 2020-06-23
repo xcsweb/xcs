@@ -1,0 +1,21 @@
+<view class='fontinfo' style='overflow:auto; '>
+  <!-- <text style='height:392rpx;'></text> -->
+  <view style='overflow-y:auto;'>
+    <rich-text nodes='{{content}}' style='  display: inline-block;  color:#333333; font-size:34rpx; padding:30rpx 40rpx 30rpx 30rpx;background-color:#ffffff;'></rich-text>
+    <!-- <image src='' style='background-color:#e0e0e0;' class='img'></image> -->
+  </view>
+</view>
+<view class='main'>
+  <view class='maintitle'>
+    <text>姓名</text>
+    <text>测试结果</text>
+ </view>
+ <view class='maininfo' wx:for='{{check}}' wx:key='*this'  style="z-index:{{9999-index}}">
+ <slider-left  data-index='{{index}}' bind:delete="handleDelete" class='slider'>
+   <text class='studentname'>{{item.name}}</text>
+  <select prop-array='{{textdata}}' class="t-select" bindchange="onChangeShowState" showText="请选择" data-index='{{index}}'></select>  
+         <text  wx:if='{{item.type==0}}' style='font-size :20rpx;  color:#a375ff; position: absolute;top:110rpx; left:202rpx;'>该学员不可进行该项目测试，请删除</text>
+  </slider-left>
+ </view>
+</view>
+<button class='button' bindtap='addrecord'>确定</button>

@@ -1,0 +1,457 @@
+<view class='videoContainer' wx:if='{{showVideo}}'>
+  <view class='close' bindtap='closeVideo'>关闭</view>
+  <video src="{{videoSrc}}" controls autoplay='true'></video>
+</view>
+<view class='avatarWrapper'>
+  <view class='left'>
+    <!-- <image src='/imgs/common/ewm.png'></image> -->
+  </view>
+  <view class='avatarWrapperInner'>
+    <image class='avatar' mode='aspectFill' src='{{student.avatar}}' binderror='errorImg'></image>
+    <view class='gender'>
+      <image src='/imgs/my_stu/gender_male.png' mode='aspectFill' wx:if='{{tab1Data.student.sex==1}}'></image>
+      <image src='/imgs/my_stu/gender_female.png' mode='aspectFill' wx:if='{{tab1Data.student.sex==0}}'></image>
+      {{tab1Data.student.stuAge}}
+    </view>
+  </view>
+  <view class='right'>
+    <!-- <view class='btnright' bindtap='stu_change_nomal_member' wx:if='{{tab1Data.student.studentStatus!="转正"}}'>转正式学员</view> -->
+     <navigator url='../rec_nomal_sub/rec_nomal_sub?studentId={{student.studentId}}'><view class='btnright' wx:if='{{tab1Data.student.studentStatus!="1"}}'>转正式学员</view></navigator>
+  </view>
+</view>
+<view class='studentName'>
+  {{student.name}}
+  <text class='name' wx:if='{{tab1Data.student.saleName}}'>({{tab1Data.student.saleName}}销售)</text>
+  <text class='name' wx:if='{{!tab1Data.student.saleName}}' style='color: #FF7547;'>(未分配)</text>
+</view>
+<view class='tools'>
+  <view class='btn' bindtap='calling'>
+    <image src='/imgs/my_stu/telephone.png' mode='aspectFit'></image>
+    拨打电话
+  </view>
+  <view class='btn' bindtap='msgsenderShow'>
+    <image src='/imgs/my_stu/message.png' mode='aspectFit'></image>
+    发送消息
+  </view>
+  <view class='pickerwrapper'>
+    <picker range='{{tab1Data.stageCrmtag}}' range-key='name' bindchange='stageCrmtagChange' value='{{index}}'>
+      <view>{{tab1Data.student.stageLable||"请选择"}}
+        <image src='/imgs/trangle.png' style='width:20rpx;height:10rpx' mode='aspectFill'></image>
+      </view>
+    </picker>
+  </view>
+  <view class='pickerwrapper'>
+    <picker range='{{tab1Data.intentions}}' range-key='codeDisplay' bindchange='intentionsChange' value='{{index}}'>
+      <view>{{tab1Data.student.intentionName||"请选择"}}
+        <image src='/imgs/trangle.png' style='width:20rpx;height:10rpx' mode='aspectFill'></image>
+      </view>
+    </picker>
+  </view>
+</view>
+<!--顶部8个tab-->
+<view class='tabs'>
+  <view class='tab' wx:for='{{tabs}}' style='color:{{index==selectedTabIndex?"#000":"#999"}}' bindtap='changeTab' data-tabIndex='{{index}}' wx:key="{{item}}">
+    <view>
+      {{item}}
+    </view>
+    <view class='bottomBorder' style='opacity:{{index!=selectedTabIndex?0:1}}'></view>
+  </view>
+</view>
+<view class='tab1content' wx:if='{{selectedTabIndex==0&&tab1Data.loaded}}'>
+  <view class='listItem'>
+    <view class='title'>姓名</view>
+    <input placeholder='必填' value='{{tab1Data.student.name}}' bindinput='bindStudentInfoInput' data-name='name'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>性别</view>
+    <picker range='{{tab1DataSex}}' bindchange='tab1DataSex'>
+      <view>{{tab1DataSex[tab1Data.student.sex]}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>手机号</view>
+    <input placeholder='必填' type='number' value='{{tab1Data.student.tel}}' bindinput='bindStudentInfoInput' data-name='tel'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>城市</view>
+    <com-picker range='{{tab1Data.areaCampuses}}' key='areaName' name='areaCampusesIndex' index='{{areaCampusesIndex}}' bindchange='areaCampusesIndexChange'></com-picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>校区</view>
+    <com-picker range='{{tab1Data.areaCampuses[areaCampusesIndex||0].campusVos}}' key='campusName' name='campusVosIndex' index='{{campusVosIndex}}' bindchange='resetTab1Course_'></com-picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+
+  <view class='divider'>销售信息</view>
+  <view class='listItem'>
+    <view class='title'>关联销售</view>
+    <picker range='{{member_list}}' range-key='name' value='{{index}}' bindchange='tab1PickerChangeSale'>
+      <view>{{tab1Data.student.saleName||"请选择"}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem'>
+    <view class='title'>客户来源</view>
+    <picker range='{{tab1Data.sourceCrmtag}}' range-key='name' value='{{index}}' bindchange='tab1PickerChangeSourceCrmtag'>
+      <view style='color:{{!tab1Data.student.sourceCrmtagName?"#ccc":""}}'>{{tab1Data.student.sourceCrmtagName||"请选择"}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>意向产品</view>
+    <com-picker range='{{tab1Data.courses_}}' key='name' name='saleCourseIndex' index='{{saleCourseIndex}}' bindchange='saleCourseIndexChange'></com-picker>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>意向程度</view>
+    <com-picker range='{{tab1Data.intentions}}' key='codeDisplay' name='intentionsIndex' index='{{intentionsIndex}}'></com-picker>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem'>
+    <view class='title'>潜在收入</view>
+    <com-input placeholder='必填' value='{{tab1Data.student.saleCoursePrice}}' name='tab1Data.student.saleCoursePrice'></com-input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='divider'>个人信息</view>
+  <view class='listItem'>
+    <view class='title'>生日</view>
+    <com-picker mode='date' endTim="{{endTim}}"  value='{{tab1Data.student.birthDt_}}' name='tab1Data.student.birthDt'></com-picker> 
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>微信</view>
+    <com-input placeholder='可填' value='{{tab1Data.student.wechatNum}}' name='tab1Data.student.wechatNum'></com-input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>地址</view>
+    <com-input placeholder='可填' value='{{tab1Data.student.address}}' name='tab1Data.student.address'></com-input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+
+  <view class='listItem'>
+    <view class='title'>身份证号</view>
+    <com-input placeholder='可填' value='{{tab1Data.student.idNum}}' name='tab1Data.student.idNum'></com-input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <!-- <view class='listItem'>
+    <view class='title'>家长姓名</view>
+    <input placeholder='必填' value='{{tab1Data.student.name}}'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view> -->
+  <view class='parent' wx:for='{{tab1Data.student.studentParentList}}' wx:key='{{item.studentParentId}}'>
+    家长姓名
+    <input class='name' placeholder='必填' bindinput='bindinputjz' data-name='name' data-index='{{index}}' value='{{item.name}}'></input>关系
+    <input class='relation' placeholder='必填' bindinput='bindinputjz' data-name='relation' data-index='{{index}}' value='{{item.relation}}'></input>电话
+    <input class='tel' type='number' placeholder='可填' bindinput='bindinputjz' data-name='tel' data-index='{{index}}' value='{{item.tel}}'></input>
+  </view>
+  <com-parent class='com-parent' wx:for='{{parentAdd}}' wx:key='*this' />
+  <view class='parentAdd' bindtap='parentAdd'>
+    <image src='/imgs/common/add.png'></image>
+  </view>
+  <view class='btnWrapper'>
+    <button bindtap='stu_edit_sub' hover-class="btn-hover" >保存</button>
+  </view>
+</view>
+
+<view class='tab2content' wx:if='{{selectedTabIndex==1&&false}}'>
+  <view class='listItem' wx:for='{{tab2Data}}' wx:key='*this'>
+    <view class='body'>
+      <view>2018/06/22</view>
+      <view>项目:
+        <text class='val'>{{item.des}}</text> 卡种:
+        <text class='val'>{{item.consumeName||""}}</text>
+      </view>
+      <view>金额:
+        <text class='val'>¥{{item.price}}</text> 操作人:
+        <text class='val'>{{item.memberName}}</text>
+      </view>
+    </view>
+    <view class='end' style='color:{{item.consumeStatus=="欠费"?"#ff7547":""}}'>{{item.consumeStatus}}</view>
+  </view>
+</view>
+
+
+<view class='tab3content' wx:if='{{selectedTabIndex==2}}'>
+  <view class='listItem' wx:for='{{tab3Data}}' wx:key='*this'>
+    <view class='body'>
+      <view>签到时间：
+        <text class='val' wx:if='{{item.attenStatus!="未上课"}}'>{{item.checkInDt_}}</text>
+      </view>
+      <view>
+        <view class='detail'>校区:
+          <text class='val'>{{item.campusName}}</text>
+        </view>
+        <view class='detail'>班级:
+          <text class='val'>{{item.classesName}}</text>
+        </view>
+      </view>
+      <view>
+        <view class='detail'>消课:
+          <text class='val'>{{item.chargeVal+item.charge_type}}</text>
+        </view>
+        <view class='detail'>教练/教师:{{item.teacherInfo_||""}}
+          <text class='val'></text>
+        </view>
+      </view>
+    </view>
+    <view class='end' style='color:{{item.consumeStatus=="欠费"?"#ff7547":""}}'>{{item.attenStatus}}</view>
+  </view>
+</view>
+
+<view class='tab4content' wx:if='{{selectedTabIndex==3&&false}}'>
+  <view class='row header'>
+    <view>项目</view>
+    <view>考试等级</view>
+    <view>考官姓名</view>
+    <view>晋级时间</view>
+    <view>证书编号</view>
+  </view>
+  <view class='row' wx>
+    <view>跆拳道</view>
+    <view>白黄带</view>
+    <view>李建华</view>
+    <view>2002/2/23</view>
+    <view>s0861005666</view>
+  </view>
+  <view class='row' wx>
+    <view>跆拳道</view>
+    <view>白黄带</view>
+    <view>李建华</view>
+    <view>2002/2/23</view>
+    <view>s0861005666</view>
+  </view>
+</view>
+
+
+<view class='tab5content' wx:if='{{selectedTabIndex==4}}'>
+  <view class='btnWrapper'>
+    <button size='mini' hover-class="btn-hover"  style='background-color:{{tab5BtnIndex==0?"#FFCC66":"white"}}' bindtap='tab5BtnIndex' data-index='0'>积分记录</button>
+    <button size='mini' hover-class="btn-hover"  style='background-color:{{tab5BtnIndex==1?"#FFCC66":"white"}}' bindtap='tab5BtnIndex' data-index='1'>兑换记录</button>
+  </view>
+  <view class='pointsArea' wx:if='{{tab5BtnIndex==0}}'>
+    <view class='points'>{{tab5Data.score}}</view>
+    <view class='desc'>当前的积分</view>
+  </view>
+  <view class='listItem' wx:for='{{tab5Data.scoreRecord}}' wx:key='*this' wx:if='{{tab5BtnIndex==0}}'>
+    <view class='body'>
+      <view>时间：
+        <text class='val'>{{item.createDt}}</text>
+      </view>
+      <view>
+        <view class='detail'>积分余额：
+          <text class='val'>{{item.balance}}</text>
+        </view>
+        <view class='detail'>积分变动：
+          <text class='val'>{{item.val}}</text>
+        </view>
+      </view>
+      <view>
+        <view class='detail'>变动说明：
+          <text class='val'>{{item.remark}}小时</text>
+        </view>
+        <view class='detail'>操作：
+          <text class='val'>{{item.memberName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='listItem' wx:if='{{tab5BtnIndex==1}}'>
+    <view class='body'>
+      <view>
+        <view class='detail'>兑换项目:
+          <text class='val'></text>
+        </view>
+        <view class='detail'>兑换时间:
+          <text class='val'>2018/06/22</text>
+        </view>
+      </view>
+      <view>
+        <view class='detail'>数量:
+          <text class='val'>1</text>
+        </view>
+        <view class='detail'>积分:
+          <text class='val'>300</text>
+        </view>
+      </view>
+      <view>
+        <view class='detail'>操作人:
+          <text class='val'>王老师</text>
+        </view>
+        <view class='detail'>操作时间:
+          <text class='val'>2018/06/22</text>
+        </view>
+      </view>
+    </view>
+    <view class='end'>处理中</view>
+  </view>
+</view>
+
+<view class='tab6content' wx:if='{{selectedTabIndex==1}}'>
+  <view class='topBtnArea weui-flex' wx:if="{{!inputShowed}}">
+    <view>
+      <navigator url='/pages/my_stu/stufollow_sub/stufollow_sub'>
+        <button class="weui-btn mini-btn weui-flex__item" type="default" size="mini">
+          <image src='/imgs/my_stu/add.png' style='width:30rpx;height:30rpx' mode='aspectFill'></image>
+          添加跟进记录
+        </button>
+      </navigator>
+    </view>
+    <view>
+      <button class="weui-btn mini-btn weui-flex__item" type="default" size="mini">
+        筛选
+        <image src='/imgs/trangle.png' style='width:26rpx;height:16rpx' mode='aspectFill'></image>
+      </button>
+    </view>
+  </view>
+  <view class='listItem' wx:for='{{tab6Data}}' wx:key='*this'>
+    <view>跟进人:
+      <text class='val'>{{item.memberName}}</text>
+    </view>
+    <view>跟进时间:
+      <text class='val'>{{item.createDt_}}</text>
+    </view>
+    <view>跟进内容:</view>
+    <view class='val'>{{item.des}}</view>
+    <view wx:if='{{item.imgfiles.length+item.vodfiles.length>0}}'>照片/视频:</view>
+
+    <view class="attachments">
+      <view class='attachmentRow'>
+        <view class='attachment' wx:for='{{item.imgfiles}}' wx:key='*this' bindtap='viewAttachment' data-attachment='{{item}}'>
+          <image src='{{img_url+item}}' class='prev' mode='aspectFill'></image>
+        </view>
+
+        <view class='attachment' wx:for='{{item.vodfiles}}' wx:key='*this' bindtap='viewAttachment' data-attachment='{{item}}' data-video='1'>
+          <image src='/imgs/video.png' class='videoflag'></image>
+          <image src='{{vod_url+item+"?vframe/jpg/offset/0/w/640/h/360"}}' class='prev' mode='aspectFill'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<view class='tab7content' wx:if='{{selectedTabIndex==3}}'>
+  <view class='topBtnArea weui-flex'>
+    <view>
+      <picker range='{{tps_big_class}}' bindchange='tps_big_class_change' range-key='title' value='{{index}}' class='picker'>
+        <view class='add'>添加评测项目
+          <image src='/imgs/trangle.png' style='width:20rpx;height:10rpx' mode='aspectFill'></image>
+        </view>
+      </picker>
+    </view>
+    <view>
+      <!-- <button class="weui-btn mini-btn weui-flex__item" type="default" size="mini">
+        分享
+      </button> -->
+    </view>
+  </view>
+
+  <view class='btnWrapper'>
+    <button size='mini' hover-class="btn-hover"  style='background-color:{{tab7BtnIndex==0?"#FFCC66":"white"}}' bindtap='tab7BtnIndex' data-index='0'>最新记录</button>
+    <button size='mini' hover-class="btn-hover"  style='background-color:{{tab7BtnIndex==1?"#FFCC66":"white"}}' bindtap='tab7BtnIndex' data-index='1'>指标曲线</button>
+  </view>
+  <com-sliding-listitem del-btn-width='150' bindopen='open' binddelete='del_tps_item_record' wx:for='{{tab7Data}}' wx:if='{{tab7BtnIndex==0}}' data-index='{{index}}' wx:key='*this'>
+    <view slot='body'>
+
+      <view class='listItemWrapper'>
+        <view class='listItem' bindtap='tab7ShowListItemDetail' data-index='{{index}}'>
+          <view class='body'>
+            <view>
+              <view class='detail'>时间:
+                <text class='val'>{{item.day}}</text>
+              </view>
+              <view class='detail'>操作人:
+                <text class='val'>{{item.memberName}}</text>
+              </view>
+            </view>
+            <view>
+              <view class='detail' style='width:100%;'>校区/分馆:
+                <text class='val'>{{item.campusName}}</text>
+              </view>
+            </view>
+          </view>
+          <view class='end'>
+            <image src='/imgs/arrow_right.png' style='transform:{{item.show?"rotate(-90deg)":"rotate(90deg)"}}' mode='aspectFill'></image>
+          </view>
+        </view>
+        <view class='delBtnWrapper' wx:if='{{item.show}}'>
+          <navigator url='../tps_item_record_batch_modify/tps_item_record_batch_modify?id={{item.id}}&studentId={{student.studentId}}'>
+            <button size='mini' style='background:#FF7547'>编辑</button>
+          </navigator>
+        </view>
+        <view class='stuFitRecordVos' wx:for='{{item.studentTpsRecords}}' wx:if='{{item.show}}' wx:key='*this' wx:for-item='subItem'>
+          <view class='desc'>测试项目：{{subItem.itemTitle}}</view>
+          <view class='desc'>测试数据：{{subItem.val1}} </view>
+          <view class='desc' wx:if='{{(subItem.score||subItem.score==0)&&subItem.bigclass==4}}'>测试得分：{{subItem.score}} </view>
+          <view class='desc'>测试评语：{{subItem.content||subItem.content2}} </view>
+          <view class='desc'>结果分析：
+            <text  style='white-space:normal;'>\n{{subItem.analwords||subItem.analwords2}}</text>
+          </view>
+          <!-- <view class='divider'></view> -->
+          <view class='desc' wx:if='{{subItem.targetTpsCases.length+subItem.cateTpsCases.length>0}}'>专家建议：</view> 
+          <view wx:for='{{subItem.targetTpsCases}}' wx:key='{{subItem2.id}}' wx:for-item='subItem2'>
+            <view class='desc'><image src='/imgs/common/img_67.png' class='star'></image>{{subItem2.title}}：</view>
+            
+            <view class='desc' style='white-space:normal;'>
+             <rich-text nodes="{{subItem2.content}}"></rich-text>
+            </view>
+          </view>
+
+          <view wx:for='{{subItem.cateTpsCases}}' wx:key='{{subItem2.id}}' wx:for-item='subItem2'>
+            <view class='desc'> <image src='/imgs/common/img_67.png' class='star'></image>{{subItem2.title}}：</view>
+            <view class='desc' style='white-space:normal;'>
+             <rich-text nodes="{{subItem2.content}}"></rich-text>
+            </view>
+        
+          </view>
+            <view class='divider'></view>
+        </view>
+      </view>
+    </view>
+    <view slot='del' style='background:#A374FE;height:100%;display:flex;justify-content: center;align-items: center;'>
+      <image src='/imgs/delete1.png' style='width:50rpx;height:56rpx;'></image>
+    </view>
+  </com-sliding-listitem>
+  <view wx:if='{{tab7BtnIndex==1}}'>
+    <view class='btnWrapper'>
+      <button hover-class="btn-hover"  size='mini' style='background-color:{{stu_tps_curve_listIndex==index?"#FFCC66":"white"}}' bindtap='stu_tps_curve_listIndex' data-index='{{index}}' wx:for='{{stu_tps_curve_list}}' wx:key='{{item.tpsItemId}}'>{{item.title}}</button>
+    </view> 
+    <canvas canvas-id="areaCanvas" wx:if='{{wxChartsDatas.length>0}}' disable-scroll="true" class="wxCharts"></canvas>
+
+    <view class='stuFitRecordVos' wx:if='{{stu_tps_curve_content&&stu_tps_curve_content.recordlist.length>0}}'>
+      <view class='desc'>测试项目：{{stu_tps_curve_list[stu_tps_curve_listIndex||0].title}}</view>
+      <view class='desc'>测试数据：{{stu_tps_curve_content.recordInfo.val1}} </view>
+      <view class='desc' wx:if='{{stu_tps_curve_content.recordInfo.score||stu_tps_curve_content.recordInfo.score==0}}'>测试得分：{{stu_tps_curve_content.recordInfo.score}} </view>
+      <view class='desc'>测试评语：{{stu_tps_curve_content.recordInfo.content||stu_tps_curve_content.recordInfo.content2}} </view>
+      <view class='desc'>结果分析：
+        <text>\n{{stu_tps_curve_content.recordInfo.analwords||stu_tps_curve_content.recordInfo.analwords2}}</text>
+      </view>
+      <!-- <view class='divider'></view> -->
+      <view class='desc' wx:if='{{stu_tps_curve_content.advice.length>0}}'>专家建议：</view> 
+      <view wx:for='{{stu_tps_curve_content.advice}}' wx:key='*this' wx:for-item='subItem2'>
+        <view class='desc'><image src='/imgs/common/img_67.png' class='star'></image>{{subItem2.title}}：</view>
+        
+            <view class='desc' style='white-space:normal;'>
+             <rich-text nodes="{{subItem2.content}}"></rich-text>
+            </view>
+      </view>
+      <view class='divider'></view>
+    </view>
+  </view>
+</view>
+<view class='tab8content' wx:if='{{selectedTabIndex==7}}'>
+  <view style='text-align:center;'>暂无设计图</view>
+</view>
+<com-multichoice title='选择地区' wx:if='{{multichoice1}}' items='{{multichoiceItems1}}' name='{{multichoiceName1}}' value='{{multichoiceValue1}}' bindok='multichoice1Selected' bindcancel='multichoice1Cancel'></com-multichoice>
+<com-multichoice title='选择地区' wx:if='{{multichoice2}}' items='{{multichoiceItems2}}' name='{{multichoiceName2}}' value='{{multichoiceValue2}}' bindok='multichoice2Selected' bindcancel='multichoice2Cancel'></com-multichoice>
+<com-msgsender show='{{msgsenderShow}}' students='{{[student]}}' simple='1'></com-msgsender>

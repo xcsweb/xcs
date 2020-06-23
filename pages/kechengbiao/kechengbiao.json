@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "课程表",
+  "usingComponents": {
+    "com-searchbar": "/components/searchbar/searchbar",
+    "com-searchfilter": "/components/searchfilter/index",
+    "com-calendar": "/components/calendar/calendar",
+    "com-coursetable": "/components/coursetable/coursetable"
+  }
+}

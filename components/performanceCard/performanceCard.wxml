@@ -1,0 +1,24 @@
+<view class='item' style='background:{{data.bg}}'>
+  <view class='top'>
+    <text>{{data.name}}</text>
+    <text>{{data.trainName}}</text>
+  </view>
+  <view class='divider'>
+    <view class='left'>
+      <view class='round'></view>
+    </view>
+    <view class='center'></view>
+    <view class='right'>
+      <view class='round'></view>
+    </view>
+  </view>
+  <view class='bottom' style='box-shadow: 0rpx 0rpx 15rpx {{data.bg?data.bg:"#756bff"}};'>
+    <view class='line1'>
+      <text>城市：{{data.cityName}}</text>
+      <text>校区/分馆：{{data.campusName}}</text>
+    </view>
+    <view class='line1'>
+      <text>电话：{{data.tel}}</text>
+    </view>
+  </view>
+</view>

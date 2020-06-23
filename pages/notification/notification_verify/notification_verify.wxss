@@ -1,0 +1,113 @@
+.brife {
+  margin-top: 10px;
+  background: white;
+  font-size: 17px;
+  padding: 15px;
+  line-height: 24px;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.brife .title {
+  white-space: nowrap;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-right: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brife .descs {
+  white-space: nowrap;
+  color: #333;
+}
+
+.content {
+  margin-top: 10px;
+  background: white;
+  padding: 15px;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.content .title {
+  white-space: nowrap;
+  color: #000;
+  font-size: 20px;
+}
+
+.content .descs {
+  color: #666666;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.attachments {
+  margin-top: 10px;
+  background: white;
+  padding: 15px;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.attachments .title {
+  white-space: nowrap;
+  color: #000;
+  font-size: 17px;
+}
+.attachmentRow{
+  display: flex;
+  flex-wrap: wrap;
+}
+.attachments .attachment{
+  width: 60px;
+  height: 60px;
+  border: 1px solid #E0E0E0;
+  background: #f4f4f4;
+  display: inline-block;
+  margin-right: 15px;
+  text-align: center;
+  margin-top: 15px;
+}
+.attachments .attachment image{
+  width: 14px;
+  height: 20px;
+  margin-top: 18px;
+}
+.btnWrapper{
+  padding: 15px;
+}
+
+/*tab*/
+.cusTabs{
+  display: flex;
+  background: white;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #E0E0E0;
+}
+.cusTabs .tab{
+  text-align: center;
+  font-size: 17px;
+  padding: 0px 0px;
+}
+.cusTabs .indicator{
+  width: 20px;
+  height: 1px;
+  background: #222;
+  margin: 0 auto;
+}
+.tabContent{
+  text-align: center;
+  background: white;
+}
+.tabContent image{
+  width: 60px;
+  height: 60px;
+  margin-top: 20px;
+}
+.noItemsText{
+  font-size: 11px;
+  color: #cccccc;
+}

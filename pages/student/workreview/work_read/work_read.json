@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "com-progress": "/components/progress/index",
+    "com-attachments": "/components/attachments/attachments",
+    "com-rating": "/components/rating/rating"
+  }
+}

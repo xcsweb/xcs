@@ -1,0 +1,61 @@
+/* pages/my_stu/stutest_sub/stutest_sub.wxss */
+
+.top {
+  background: #fff;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+  font-size: 34rpx;
+}
+
+.top .mess {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.top button {
+  margin: 20rpx 0;
+  display: inline-flex;
+  align-items: center;
+  line-height: 60rpx;
+}
+
+.top button image {
+  width: 14rpx;
+  height: 10rpx;
+}
+
+.list{
+  background: #fff;
+  margin-top: 20rpx;
+  font-size: 34rpx;
+  color: #333;
+}
+.list .li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1px solid #F5F5F5;
+}
+.list .li .t1{
+  flex: 1;
+}
+.list .li .t2{
+  width: 140rpx;
+  text-align: center;
+}
+.list .li input.t2{
+  border-bottom: 1px solid #999;
+}
+.list .li .t3{
+  width: 240rpx;
+  text-align: right;
+}
+
+.btn_down{
+  margin: 30rpx 30rpx 0 30rpx;
+  background: #FE8359;
+  color: #fff;
+}

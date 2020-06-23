@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "动宝",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs",
+    "select": "/components/select/select",
+    "slider-left": "/components/slider-left/index"
+  }
+  }

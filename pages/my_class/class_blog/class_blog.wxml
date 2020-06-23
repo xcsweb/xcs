@@ -1,0 +1,99 @@
+<!--pages/my_class/class_blog/class_blog.wxml-->
+<view class='mess' bindtap='placardGo'>
+  <view class='title'>
+    <image src='/imgs/common/mess.png'></image>班级公告</view>
+  <text class='body'>{{classesNotice.content}}</text>
+</view>
+<view class='nav_attence'>
+  <view bindtap='changeTab' data-id='0' class="{{tabid==0 ? 'active':'' }}">班级相册
+    <view class='hr'></view>
+  </view>
+  <view bindtap='changeTab' data-id='1' class="{{tabid==1 ? 'active':'' }}">精华视频
+    <view class='hr'></view>
+  </view>
+  <!-- <view bindtap='changeTab' data-id='2' class="{{tabid==2 ? 'active':'' }}">班级互动
+    <view class='hr'></view>
+  </view> -->
+</view>
+
+<view class='content' wx:if="{{tabid==0}}">
+  <view class='photo_list' wx:if="{{classesAlbums.length>0}}">
+    <block wx:for="{{classesAlbums}}" wx:key="item.classesAlbumId">
+      <image bindlongtap="deleteimg" bindtap='showimg' data-id='{{index}}' src='{{item.imgfiles[0]}}'></image>
+    </block>
+  </view>
+  <navigator wx:if="{{classesAlbums.length ==0}}" url="/pages/my_class/class_blog/class_add/class_add?type=1&id={{classesId}}" hover-class="none" class='empty'>
+    <view class='emptyInner'><image src='/imgs/common/empty.png'></image></view>
+    <text>暂无内容 \n 请先<text class='add'>添加</text>照片</text>
+  </navigator>
+  <navigator class='down_bar' url="/pages/my_class/class_blog/class_add/class_add?type=1&id={{classesId}}" hover-class="none">
+    <text>添加照片</text>
+  </navigator>
+</view>
+<view class='content' wx:if="{{tabid==1}}">
+  <view class='video_list' wx:if="{{classesVods.length>0}}">
+    <view class='video_li' wx:for="{{classesVods}}" wx:key="item.classesVodId">
+      <slider-left data-index='{{item.classesVodId}}' bind:delete="deletevideo">
+        <video bindtap='showvideo' src='{{item.vodfiles[0]}}'></video>
+        <view class='textli'>
+          <text>{{item.content}}</text>
+          <text>上传时间：{{item.createDt}}</text>
+        </view>
+      </slider-left>
+    </view>
+  </view>
+  <navigator wx:if="{{classesVods.length ==0}}" url="/pages/my_class/class_blog/class_add/class_add?type=2&id={{classesId}}" hover-class="none" class='empty'>
+    <view class='emptyInner'><image src='/imgs/common/empty.png'></image></view>
+    <text>暂无内容 \n 请先<text class='add'>添加</text>视频</text>
+  </navigator>
+  <navigator class='down_bar' url="/pages/my_class/class_blog/class_add/class_add?type=2&id={{classesId}}" hover-class="none">
+    <text>添加视频</text>
+  </navigator>
+</view>
+<view class='content' wx:if="{{tabid==2}}">
+  <view class='active_list'>
+    <view class='top'>
+      <image class='avator' src=''></image>
+      <view class='li_mess'>
+        <text class='name'>王小三</text>
+        <text class='time'>2018/06/22 09:45</text>
+      </view>
+      <text class='class'>芭蕾舞蹈班-幼儿班</text>
+    </view>
+    <view class='body'>
+      <text>根据老师的视频自学的，还挺有天赋的；</text>
+      <image src=''></image>
+      <image src=''></image>
+      <image src=''></image>
+      <image src=''></image>
+      <image src=''></image>
+      <image src=''></image>
+      <image src=''></image>
+      <image src=''></image>
+      <image src=''></image>
+    </view>
+    <view class='act_zan'>
+      <image class='heart' src='/imgs/common/heart.png'></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <image class='avator_act' src=''></image>
+      <text class='more'>查看更多</text>
+    </view>
+    <view class='act_btn'>
+
+    </view>
+  </view>
+  <view class='down_bar'>
+    <text bindtap=''>发帖子</text>
+  </view>
+</view>

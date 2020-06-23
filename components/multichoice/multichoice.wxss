@@ -1,0 +1,95 @@
+@import "../../weui.wxss";
+
+@keyframes keyframes1
+{
+from {height:0%;}
+to {height:40%;}
+}
+@keyframes keyframes2
+{
+from {bottom: -80rpx}
+to {bottom: 0rpx}
+}
+@keyframes keyframes3
+{
+from {background: rgba(0, 0, 0, 0)}
+to {background: rgba(0, 0, 0, 0.3)}
+}
+.wx-checkbox-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx; /* 背景的宽 */
+   height: 40rpx; /* 背景的高 */
+}
+
+.bg{
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  animation: keyframes3 0.4s ease;
+}
+.selected{
+  font-size: 30rpx;
+  color: #666;
+}
+.listwrapper{
+  position: absolute;
+  height: 40%;
+  bottom: 0rpx;
+  width: 100%;
+  left: 0rpx;
+  background: white;
+  overflow: auto;
+  transition: height 0.3s ease-in-out;
+  animation: keyframes1 0.4s ease;
+  z-index: 20;
+  overflow-x: hidden;
+}
+.title{
+  height: auto;
+  width: 100%;
+  background: white;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  font-size: 34rpx;
+  color: #333;
+}
+.top{
+  height: 60%;
+  width: 100%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+.checkbox{
+  display: block;
+  background: white;
+  padding: 10rpx 20rpx;
+  border-bottom: 1px solid #f1f1f1;
+  color: #333;
+}
+.btns{
+  display: flex;
+  height: 80rpx;
+  align-items: center;
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  animation: keyframes2 0.4s ease;
+}
+.btns>view{
+  flex: 1;
+  background: #FF7547;
+  height: 80rpx;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btns>view:first-child{
+  border-right: 1px solid white;
+}

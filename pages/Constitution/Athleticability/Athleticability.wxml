@@ -1,0 +1,30 @@
+<view class='fontinfo' style='overflow:auto; ' >
+  <!-- <text style='height:392rpx;'></text> -->
+  <view style='overflow-y:auto;'>
+    <rich-text nodes='{{content}}' style='  display: inline-block;   color:#333333; font-size:34rpx; padding:30rpx 40rpx 30rpx 30rpx;overflow:hidden;background-color:#ffffff; width:90%;'></rich-text>
+    <!-- <image src='' style='background-color:#e0e0e0;' class='img'></image> -->
+  </view>
+</view>
+<view class='main'>
+  <view class='maintitle' wx:if="{{infos[0].project == 0}}">
+    <text>姓名</text>
+    <text>击打数</text>
+    <text style='padding-left:0rpx;'> 错误击打数</text>
+  </view>
+
+  <view class='maintitle' wx:if="{{infos[0].project == 1}}">
+    <text>姓名</text> 
+    <text>躲过数</text>
+    <text style='padding-left:24rpx;'>未躲过数</text>
+  </view>
+
+  <view class='maininfo' wx:for='{{check}}' wx:key='*this' >
+   <slider-left  data-index='{{index}}' bind:delete="handleDelete" class='slider' >
+    <text class='studentname'>{{item.name}}</text>
+   <input placeholder='请输入测试'  class='maininpurt'  data-index='{{index}}' data-stuid='{{studentId[index].studentId}}' data-list='val1' name='nowheight' bindinput='getvalues'>></input>
+    <input placeholder='请输入测试' id='maininpurt' data-index='{{index}}' data-stuid='{{studentId[index].studentId}}' data-list='val2' name='nowheight' bindinput='getvalues'>></input>
+    <text wx:if='{{item.type==0}}'   style='font-size :20rpx;  color:#a375ff; position: absolute;top:120rpx; left:240rpx;'>该学员不可进行该项目测试，请删除</text>
+      </slider-left>
+  </view>
+</view>
+<button class='button' bindtap='addrecord'>确定</button>

@@ -1,0 +1,62 @@
+<view class="brife">
+
+  <button class="weui-btn mini-btn weui-flex__item" type="default" size="mini" bindtap='showFilter' style='float:right'>
+    待审核
+    <image src='/imgs/trangle.png' style='width:14px;height:10px'></image>
+  </button>
+  <view class='title'>标题：十一黄金周放假七天公告天公告天公告天公告</view>\n
+  <view class='descs'>发送时间：2018/09/27 09：00</view>\n
+  <view class='descs'>通知类型：教务通知</view>\n
+  <view class='descs'>发送人：李教练</view>\n
+  <view class='descs' bindtap='todetail2'>已读：
+    <text style='color:#9966ff'>0</text>/100 已确认：
+    <text style='color:#9966ff'>0</text>/100</view>
+</view>
+<view class="content">
+  <view class='title'>内容</view>\n
+  <view class='descs'>
+    作为一名名声在外的台湾人，梁文道先生的基本素养一定是有的。 而且作为70年代出生的香港人，后转入台湾，他在青少年时期完整的经历和见识了中国历史上最深刻的变革之一，这对他们的人生认知非常有帮助。
+  </view>
+</view>
+<view class="attachments">
+  <view class='title'>图片及视频</view>
+  <view class='attachmentRow'>
+    <view class='attachment'>
+
+    </view>
+
+    <view class='attachment'>
+      <view>
+        <image src='/imgs/video.png'></image>
+      </view>
+    </view>
+    <view class='attachment'>
+
+    </view>
+    <view class='attachment'>
+      <view>
+        <image src='/imgs/video.png'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cusTabs">
+  <view class='tab' bindtap='changeTab' data-index='0' style='color:{{tabIndex==0?"#333":"#999"}}'>已读(0)\n
+    <view wx:if='{{tabIndex==0}}' class='indicator'></view>
+  </view>
+  <view class='tab' bindtap='changeTab' data-index='1' style='color:{{tabIndex==1?"#333":"#999"}}'>未读(100)\n
+    <view wx:if='{{tabIndex==1}}' class='indicator'></view>
+  </view>
+  <view class='tab' bindtap='changeTab' data-index='2' style='color:{{tabIndex==2?"#333":"#999"}}'>已确认(0)\n
+    <view wx:if='{{tabIndex==2}}' class='indicator'></view>
+  </view>
+  <view class='tab' bindtap='changeTab' data-index='3' style='color:{{tabIndex==3?"#333":"#999"}}'>未确认(100)\n
+    <view wx:if='{{tabIndex==3}}' class='indicator'></view>
+  </view>
+</view>
+<view class='tabContent'>
+<image src='/imgs/common/nodata.png' mode='aspectFit'></image>
+<text class='noItemsText'>\n暂无数据</text>
+</view>

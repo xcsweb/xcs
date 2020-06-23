@@ -1,0 +1,9 @@
+<view class='textarea'>
+<com-smartInput name='title' placeholder='请输入标题'></com-smartInput>
+</view>
+<view class='textarea'>
+<com-smartInput textarea='1' name='content' placeholder='请输入班级公告'></com-smartInput>
+</view>
+<view class='btnWrapper'>
+  <button hover-class='btn-hover' bindtap='cls_noticeadd_sub'>提交</button>
+</view>

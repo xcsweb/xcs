@@ -1,0 +1,71 @@
+/* pages/jiaowu/attence/attence.wxss */
+.search_bar {
+  padding: 16rpx 20rpx;
+  background: #efeff4;
+  display: flex;
+}
+
+.search_bar input {
+  flex: 1;
+  background: #fff;
+  border: 1px solid #ededf1;
+  font-size: 26rpx;
+  height: 40rpx;
+  padding: 0 26rpx;
+  text-align: center;
+}
+
+.search_bar  button {
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  line-height: 2;
+  padding: 0 30rpx;
+}
+
+.nav_attence {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  padding: 26rpx 86rpx;
+  background: #fff;
+  color: #a0a0a0;
+  font-size: 30rpx;
+}
+
+.nav_attence .active {
+  color: #333;
+}
+
+.nav_attence .active .hr {
+  margin: 0 auto;
+  padding-top: 10rpx;
+  width: 45rpx;
+  border-bottom: 1px solid #333;
+}
+
+.attence_list .attence_li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 86rpx;
+  background: #fff;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.attence_list .attence_li .mess {
+  flex: 1;
+  font-size: 26rpx;
+}
+
+.attence_list .attence_li .mess text {
+  display: block;
+  font-size: 30rpx;
+  line-height: 56rpx;
+  color: #666;
+}
+
+.attence_list .attence_li .mess .name {
+  font-size: 34rpx;
+  color: #333;
+}
+

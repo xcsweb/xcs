@@ -1,0 +1,27 @@
+<!--pages/my_stu/stutest_sub/stutest_sub.wxml-->
+<view class='top'>
+  <view class='mess'>
+    <text>操作人：刘小平教练</text>
+    <text>测试日期：2018/09/09</text>
+  </view>
+  <picker bindchange="bindPickerChange" value="{{index}}" range-key='campusName' range="{{campuses}}">
+    <button>{{campuses[index||0].campusName}}
+      <image src='/imgs/common/trangle.png'></image>
+    </button>
+  </picker>
+</view>
+
+<view class='list'>
+  <view class='li'>
+    <text class='t1'>测试项</text>
+    <text class='t2'>测试数值</text>
+    <text class='t3'>单位</text>
+  </view>
+  <view class='li' wx:for="{{fitnessType}}" wx:key="fitnessTypeId">
+    <text class='t1'>{{item.name}}</text>
+    <input class='t2' value='{{item.value}}' data-index='{{index}}' bindinput="bindKeyInput"></input>
+    <text class='t3'>{{item.unit}}</text>
+  </view>
+</view>
+
+<button bindtap='savepsd' class='btn_down'>保存</button>

@@ -1,0 +1,21 @@
+<!--pages/student/my_profile/my_set/my_set.wxml-->
+<view class='list'>
+  <navigator class='li' hover-class="none" url="/pages/student/my_profile/changetel/changetel">
+    <text>更换手机号</text>
+    <image src='/imgs/common/arrow_right.png'></image>
+  </navigator>
+  <navigator class='li' hover-class="none" url="/pages/student/my_profile/changepsd/changepsd">
+    <text>密码设置</text>
+    <image src='/imgs/common/arrow_right.png'></image>
+  </navigator>
+</view>
+<view class='list'>
+  <navigator class='li' hover-class="none" url="/pages/student/my_profile/aboutus/aboutus">
+    <text>关于我们</text>
+    <image src='/imgs/common/arrow_right.png'></image>
+  </navigator>
+</view>
+
+<view class='btn_li'>
+  <button bindtap='logout'>退出登录</button>
+</view>

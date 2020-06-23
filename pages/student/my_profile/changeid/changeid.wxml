@@ -1,0 +1,13 @@
+<!--pages/student/my_profile/changeid/changeid.wxml-->
+<view class='card'>
+  <view class='card_li' data-id='{{item.id}}' bindtap='chooselogin' wx:for="{{list}}" wx:for-item="item" wx:key="item.id">
+    <image class='avatar' src='{{item.avatar}}'></image>
+    <text class='name'>{{item.name}}</text>
+    <text class='tel'>{{item.tel}}</text>
+    <image wx:if="{{item.currentLogin==1}}" class='chosed' src='/imgs/student/my_profile/chosed.png'></image>
+  </view>
+</view>
+<!-- <view class='add' bindtap='addlogin'>
+  <text>新增登录账号</text>
+  <image src='/imgs/common/arrow_right.png'></image>
+</view> -->

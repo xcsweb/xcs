@@ -1,0 +1,79 @@
+<view class='top'>
+  <com-picker border='1' arrow='1' range='{{campus}}' key='name' name='campusIndex' placeholder='校区'></com-picker>
+  <com-picker border='1' arrow='1' range='{{goods_category}}' key='name' name='goods_category_index' placeholder='类别' bindchange='get_goods_list'></com-picker>
+</view>
+<com-tabs tabs='{{tabs}}' bindchange='changeTab' normalColor='#333' selectedColor='#78A6FF' tabBottomWidth='90rpx'></com-tabs>
+<!--积分商城-->
+<view class='tab1content' wx:if='{{selectedTabIndex==0}}'>
+  <view class='listItem' wx:for='{{goods_list}}' wx:key='{{item.id}}' bindtap='toDetail' data-course='{{item}}'>
+    <view>
+      <image src='{{item.logPic}}' class='img1' binderror='errorImg' data-index='{{index}}'></image>
+    </view>
+    <view class='body'>
+      <view class='title'>{{item.name}}</view>
+      <view class='price'>{{item.val}}
+        <button size='mini' class='stuBtn miniBtn' wx:if='{{item.buyType==0}}'>购买</button>
+        <button size='mini' class='stuBtn miniBtn' wx:if='{{item.buyType==1}}'>兑换</button>
+      </view>
+      <view class='info'>{{item.content}}</view>
+    </view>
+  </view>
+</view>
+
+<!--积分列表-->
+<view class='tab2content' wx:if='{{selectedTabIndex==1&&stu_score_list&&stu_score_list.length>0}}'>
+  <view class='allScoreWrapper'>
+    <view class='allScore1'>
+      <view class='allScore2'>
+        {{allScore}}
+      </view>
+    </view>
+  </view>
+  <view class='current'>当前积分</view>
+  <view class='listItem' wx:for='{{stu_score_list}}' wx:key='{{item.scoreId}}'>
+    <text class='score'><text wx:if='{{item.val>0}}'>+</text>{{item.val}}</text>
+    <text>{{item.remark}}</text>
+    <text>{{item.createDt_}}</text>
+  </view>
+</view>
+
+<view class='tab3content' wx:if='{{selectedTabIndex==2&&stu_order_list&&stu_order_list.length>0}}'>
+  <view class='listItem' wx:for='{{stu_order_list}}' wx:key='{{item.id}}'>
+    <view class='info'>
+      <text>{{item.name}}<text class='price'>\n{{item.val}}</text>
+      <text style='color:#999;'>\n数量：{{item.buyNum}}\n购买时间：{{item.createDt_}}\n<text wx:if='{{item.orderStatus==1}}'>取货时间：{{item.handleDt_}}</text></text>
+      </text>
+    </view>
+    <view>
+      <view class='status' wx:if='{{item.orderStatus==0}}' style='color:#FF9D9E'>未取货</view>
+      <view class='status' wx:if='{{item.orderStatus==1}}' style='color:#FF9D9E'>已发货</view>
+      <view class='status' wx:if='{{item.orderStatus==2}}' style='color:#999'>已取消</view>
+    </view>
+  </view>
+</view>
+
+<view class='tab3content' wx:if='{{selectedTabIndex==3}}'>
+  <view class='listItem' wx:for='{{stu_order_list1}}' wx:key='{{item.id}}'>
+    <view class='info'>
+      <text>{{item.name}}<text class='price'>\n{{item.val}}</text>
+      <text style='color:#999;'>\n数量：{{item.buyNum}}\n购买时间：{{item.createDt_}}\n<text wx:if='{{item.orderStatus==1}}'>取货时间：{{item.handleDt_}}</text></text>
+      </text>
+    </view>
+    <view>
+      <view class='status' wx:if='{{item.orderStatus==0}}' style='color:#FF9D9E'>未取货</view>
+      <view class='status' wx:if='{{item.orderStatus==1}}' style='color:#FF9D9E'>已发货</view>
+      <view class='status' wx:if='{{item.orderStatus==2}}' style='color:#999'>已取消</view>
+    </view>
+  </view>
+</view>
+
+
+<view class='noData' wx:if='{{selectedTabIndex==0&&(!goods_list||goods_list.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{selectedTabIndex==1&&(!stu_score_list||stu_score_list.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{selectedTabIndex==2&&(!stu_order_list1||stu_order_list1.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

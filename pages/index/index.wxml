@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class='body' style='background-image:url("{{body_bg}}")'>
+  <view class='rankingWrapper' wx:if='{{myRank.name}}'>
+    <navigator url='/pages/ranking/ranking'>
+      <view class='rankingInner'>
+        <view class='leftRound'>
+          <view class='{{myRank.rank.length>2?"rankingNoNum":"rankingNum"}}'>{{myRank.rank}}</view>
+          <view class='rankingNumDesc'>我的排名</view>
+        </view>
+        <view class='rankingChange'>{{myRank.rankChange}}</view>
+        <view class='rankingData'>今日消课量{{myRank.price}} ></view>
+      </view>
+    </navigator>
+  </view>
+  <swiper indicator-dots="{{imgUrls.length>1?true:false}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="msg">
+      <swiper-item>
+        <navigator class='logo' url="/pages/set/set" hover-class="none">
+          <com-imager qnsrc='{{item.img}}' binderror='imgError' type="1"></com-imager>
+        </navigator>
+        <view class='title'>
+          <text>{{item.msg}}</text>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <navigator class='notice' url="../notification/notification" hover-class="none" wx:if='{{noticeCount>0}}'>
+    <text style='background-image:url("{{index_voice}}");'>您有{{noticeCount}}条新的通知提醒，请及时处理!</text>
+  </navigator>
+  <view class='mod_list' wx:for="{{authList}}" wx:key="{{i.url}}" wx:for-item="i">
+    <text class='mod_title'>{{i.name}}</text>
+    <view class='clear'></view>
+    <navigator class='mod_li' hover-class="none" wx:for="{{i.authList2}}" wx:key="*this" wx:for-item="j" url="{{j.url}}">
+      <com-imager src='{{j.img}}'></com-imager>
+      <text>{{j.name}}</text>
+    </navigator>
+  </view>
+</view>

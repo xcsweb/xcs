@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "阶段总结详情",
+  "navigationBarBackgroundColor": "#78A6FF",
+  "usingComponents": {
+    "com-rating": "/components/rating/rating"
+  }
+}

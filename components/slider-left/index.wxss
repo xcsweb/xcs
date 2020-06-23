@@ -1,0 +1,61 @@
+
+.slider-left-item {
+  /* overflow: hidden; */
+  background-color: #fff;
+  /* movable-area重置默认高度 */
+  height: 158rpx;
+  border: 0rpx;
+  position: relative;
+  /*top: -28rpx;*/ /*影响整体位置*/
+}
+.slider-left-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 750rpx;
+  background: inherit;
+  color: inherit;
+  /* movable-view重置默认绝对定位 */
+  position: relative;
+  z-index: 1;
+   border: 0rpx;
+}
+.slider-handle {
+  height: 200rpx;
+}
+
+
+.slider-left-handle {
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 0;
+   border: 0rpx;
+}
+
+.handle-delete {
+  background-color: #a375ff;
+  width: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+   border: 0rpx;
+}
+.delete{
+  position: relative;
+  top: -50rtpx;
+  /* left: -40rpx; */
+  width: 50rpx;
+  height: 58rpx;
+}
+
+
+
+
+
+

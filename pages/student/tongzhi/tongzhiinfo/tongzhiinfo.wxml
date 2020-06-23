@@ -1,0 +1,16 @@
+<view class='main'>
+  <view class='body'>标题:\t{{info.title}}</view>
+
+  <view class='body'>时间:\t{{day_}}</view>
+
+  <view class='body'>发送人:\t{{name}}</view>
+
+  <view class='body' wx:if='{{info.content}}' style='height:auto;'>内容:
+  <rich-text nodes='{{info.content}}'></rich-text>
+  </view>
+
+  <view style='padding:20rpx;background:white;margin-top:20rpx;' wx:if='{{info.attachments.length>0}}'>
+  <com-attachments title='图片/视频' attachments='{{info.attachments}}' edit='{{false}}'></com-attachments>
+  </view>
+  <button class='infobutton' wx:if="{{info.isUseConfirm==1&&info.isConfirm==0}}" bindtap="confirm">我要确认</button>
+</view>

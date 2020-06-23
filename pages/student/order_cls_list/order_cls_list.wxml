@@ -1,0 +1,38 @@
+<com-calendar bindchange='datechange' color='#78A6FF'>
+  <!-- <view slot='slot2'></view> -->
+  <picker slot='slot1' range='{{campus_list}}' range-key='name' value='{{index}}' bindchange='campus_listChange' class='calendarPicker'>
+    <view style='white-space:nowrap;overflow:hidden;'>{{campus_list[campus_listIndex||0].name}}
+      <image src='/imgs/trangle.png' style='width:26rpx;height:16rpx;margin-top:8rpx;' mode='aspectFill'></image>
+    </view>
+  </picker>
+</com-calendar>
+<view class='topBtnArea'>
+  <button size='mini' style='background-color:{{btnIndex==0?"#FEA8A8":"#fff"}};color:{{btnIndex==0?"#fff":"#333"}};border: {{btnIndex==1?"1rpx solid #cfcfcf":"none"}};' data-index='0' bindtap='btnIndex'>团班</button>
+  <button size='mini' style='background-color:{{btnIndex==1?"#FEA8A8":"#fff"}};color:{{btnIndex==1?"#fff":"#333"}};border: {{btnIndex==0?"1rpx solid #cfcfcf":"none"}};' data-index='1' bindtap='btnIndex'>私教</button>
+</view>
+<view class='listItem' wx:if='{{btnIndex==0}}' wx:for='{{clshour_list0}}' wx:key='{{item.classesHourId}}' bindtap='toDetail' data-id='{{item.classesHourId}}'>
+  <view class='title'>{{item.clsName}}
+    <text style='float:right'>{{item.startTime+"-"+item.endTime}}</text>
+  </view>
+  <view class='imgArea'>
+    <text class='status' style='background:{{item.statusColor}}'>{{item.statusStr}}</text>
+    <image src='{{item.logPic}}'></image>
+  </view>
+</view>
+
+
+<view class='listItem' wx:if='{{btnIndex==1}}' wx:for='{{clshour_list1}}' wx:key='{{item.classesHourId}}' bindtap='toDetail' data-id='{{item.classesHourId}}'>
+  <view class='title'>{{item.clsName}}
+    <text style='float:right'>{{item.startTime+"-"+item.endTime}}</text>
+  </view>
+  <view class='imgArea'>
+    <text class='status' style='background:{{item.statusColor}}'>{{item.statusStr}}</text>
+    <image src='{{item.logPic}}'></image>
+  </view>
+</view>
+<view class='noData' wx:if='{{btnIndex==0&&(!clshour_list0||clshour_list0.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{btnIndex==1&&(!clshour_list1||clshour_list1.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

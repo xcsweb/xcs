@@ -1,0 +1,21 @@
+/* components/imager/imager.wxss */
+.avatar {
+  height: 104rpx;
+  width: 104rpx;
+  border-radius: 50%;
+  background: #e7d6ba;
+  margin-right: 10rpx;
+}
+
+.top{
+  width: 20rpx;
+  height: 10rpx;
+  margin-top: 20rpx;
+  margin-left: 5rpx;
+  display: block;
+}
+
+.btn1{
+  width: 60rpx;
+  height: 60rpx;
+}

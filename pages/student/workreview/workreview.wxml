@@ -1,0 +1,68 @@
+<!--pages/student/workreview/workreview.wxml-->
+<view style='background:white;margin:20rpx 0rpx;padding:0rpx 15%;'>
+  <com-tabs tabs='{{["作业记录","阶段总结","上课点评"]}}' tab-width='33.3%' normal-color='#333' selected-color='#78a6ff' bindchange='tabchange' />
+</view>
+<view class='body' wx:if="{{tabIndex==0}}">
+  <block wx:for="{{worklist}}" wx:for-item="item" wx:key="item.studentTaskId">
+    <view class='li'>
+      <!-- <text>校区：朝阳校区  班级：音乐1班</text> -->
+      <text>标题：{{item.title}}</text>
+      <text>下发时间：{{item.createDt}}</text>
+      <view class='end_m'>点评/作业： {{item.approveCount}}/
+        <text class='num_on'>{{item.handCount}}</text>
+        <image class='ico_up' data-index='{{index}}' bindtap='ontabShow' src="{{item.hidden ? '/imgs/common/down.png':'/imgs/common/up.png' }}"></image>
+      </view>
+      <navigator url="/pages/student/workreview/detail/detail?studentTaskId={{item.studentTaskId}}" hover-class="none">
+        <button class='btn_read'>查看</button>
+      </navigator>
+    </view>
+    <navigator hidden="{{item.hidden}}" url="/pages/student/workreview/work_read/work_read?id={{i.studentTaskCompleteId}}" hover-class="none" class='work_li' wx:for="{{item.studentTaskCompletes}}" wx:for-item="i" wx:key="index">
+      <text>{{i.title}}</text>
+      <text>{{i.createDt}}</text>
+      <text>{{i.isApproveState}}</text>
+      <image class='ico_right' src='/imgs/common/arrow_right.png'></image>
+    </navigator>
+  </block>
+</view>
+
+<view class='body' wx:if="{{tabIndex==1}}">
+  <view class='sum_up' wx:if='{{jieduanlist&&jieduanlist.length>0}}'>
+    <text>总结人</text>
+    <text style='width:200rpx;text-align:center;'>时间</text>
+  </view>
+  <navigator url="/pages/student/workreview/sumupmore/sumupmore?id={{item.followId}}" hover-class="none" class='sum_li' wx:for="{{jieduanlist}}" wx:for-item="item" wx:key="item.followId ">
+    <text>{{item.teacherName}}</text>
+    <view>{{item.followDt}}
+      <image src='/imgs/common/arrow_right.png'></image>
+    </view>
+  </navigator>
+</view>
+<view class='body' wx:if="{{tabIndex==2}}">
+  <view class='calendar_bar'>
+    <text>时间：</text>
+    <picker mode="date" value="{{startdate}}" bindchange="startDateChange">
+      <input type='date' disabled="true" value="{{startdate}}"></input>
+    </picker>
+    <text>到</text>
+    <picker mode="date" value="{{enddate}}" end="{{today}} " bindchange="endDateChange">
+      <input type='date' disabled="true" value="{{enddate}}"></input>
+    </picker>
+  </view>
+  <navigator url="/pages/student/workreview/reviewmore/reviewmore?id={{item.classHourStudentId}}" hover-class="none" class='class_li' wx:for="{{classlist}}" wx:for-item="item" wx:key="item.classHourStudentId">
+    <text>班级：{{item.className}}</text>
+    <text>上课时间：{{item.day}}</text>
+    <text>点评人：{{item.teacherName}}</text>
+    <text>点评时间：{{item.teachingEvaluateDt}}</text>
+    <image src='/imgs/common/arrow_right.png'></image>
+  </navigator>
+</view>
+
+<view class='noData' wx:if='{{tabIndex==0&&(!worklist||worklist.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{tabIndex==1&&(!jieduanlist||jieduanlist.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{tabIndex==2&&(!classlist||classlist.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

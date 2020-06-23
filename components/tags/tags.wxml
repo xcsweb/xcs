@@ -1,0 +1,8 @@
+<view class='scroll-view-wrapper'>
+  <scroll-view class='comTags' bindscroll="_scroll" scroll-x='true' scroll-left='{{scrollLeft}}'>
+    <view class='tag' bindtap='_tagTaped' data-index='{{i}}' wx:for='{{tags}}' wx:key='*this' style='color:{{index==i?"#A375FF":""}};border-color:{{index==i?"#DFD0FE":""}};background:{{index==i?"#FBF9FF":""}}' wx:for-index='i'>{{item.name||item.title}}</view>
+  </scroll-view>
+  <view class='comTagsImg' bindtap='_scrollLeft' wx:if='{{!hidearrow}}'>
+    <image src='/imgs/arrow_right.png'></image>
+  </view>
+</view>

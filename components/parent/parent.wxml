@@ -1,0 +1,6 @@
+<view class='parent'>
+  家长姓名
+  <input class='name' placeholder='可填' bindinput='bindinput' data-name='name'></input>关系
+  <input class='relation' placeholder='可填' bindinput='bindinput' data-name='relation'></input>电话
+  <input class='tel' type='number' placeholder='可填' bindinput='bindinput' data-name='tel'></input>
+</view>

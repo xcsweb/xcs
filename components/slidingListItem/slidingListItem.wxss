@@ -1,0 +1,30 @@
+/* pages/leftSwiperDel/index.wxss */
+
+._item-box{
+    width: 100%;
+}
+._item{
+    position: relative;
+}
+.inner{
+    position: absolute;
+    top:0;
+}
+.txt{
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    z-index: 5;
+    transition: left 0.2s ease-in-out;
+    white-space:nowrap;
+    overflow:hidden;
+}
+.inner.del{
+    background-color: #e64340;
+    width: 180rpx;
+    text-align: center;
+    z-index: 4;
+    right: 0;
+    color: #fff;
+    height: 100%;
+}

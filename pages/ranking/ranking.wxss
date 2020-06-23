@@ -1,0 +1,241 @@
+page{
+  height: 100%;
+  background: white;
+  position: relative;
+}
+.fakepage{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.tabswrapper{
+  padding: 20rpx 0rpx;
+  background: #f3f3f7;
+}
+.body{
+  flex: 1;
+  width: 100%;
+  display: flex;
+}
+.body .leftmenus{
+  width: 180rpx;
+  font-size: 34rpx;
+  color: #333;
+  background: #FBF8FF;
+}
+.leftmenus .menu{
+  text-align: center;
+  height: 120rpx;
+  line-height: 120rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+}
+.menu.activated{
+  color: white;
+  background: #C4ADF5;
+}
+.footer{
+  position: fixed;
+  color: #666;
+  font-size: 30rpx;
+  background: #F9D46C;
+  width: 94%;
+  left: 3%;
+  bottom: 20rpx;
+  box-shadow: 2px 2px 2px #ccc;
+  border-radius: 50px;
+  box-sizing: border-box;
+  padding: 8rpx 50rpx;
+  display: flex;
+  align-items: center;
+}
+.footer .point{
+  color: red;
+  font-size: 36rpx;
+  text-align: center;
+}
+.footer .myranking{
+  font-size: 24rpx;
+}
+.footer .change{
+  color: #790bec;
+  font-size: 28rpx;
+  text-align: center;
+}
+.footer .avatar{
+  width: 80rpx;
+  height: 80rpx;
+  background: white;
+  border-radius: 100rpx;
+  margin-right: 30rpx;
+}
+.footer .username{
+  flex: 1;
+  font-size: 30rpx;
+}
+.footer .left{
+  margin-right: 30rpx;
+}
+.footer .left view{
+  line-height: 30rpx;
+}
+.rightbody{
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 150rpx;
+  flex: 1;
+}
+.rightbodytop{
+  display: flex;
+  padding: 20rpx;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 34rpx;
+  color: #333;
+  box-sizing: border-box;
+}
+.rightbodytop>view{
+  display: flex;
+  align-items: center;
+}
+.rightbodytop .city{
+  color: #a375ff;
+}
+.rightbodytop .city picker{
+  display: flex;
+  align-items: center;
+}
+.rightbodytop .city image{
+  width: 45rpx;
+  height: 45rpx;
+}
+.rightbodytop .campus{
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  padding: 0px 3px;
+}
+.rightbodytop .campus image{
+  width: 24rpx;
+  height: 16rpx;
+  margin-left: 6rpx;
+}
+.sitcher{
+  margin: 0 auto;
+  border-radius: 100px;
+  border: 1px solid #f3f3f3;
+  color: #999;
+  display: inline-flex;
+  font-size: 34rpx;
+}
+.sitcherwrapper{
+  text-align: center;
+  margin-top: 30rpx;
+}
+.sitcher .activated{
+  background: #FE8359;
+  color: white;
+  border-radius: 100px;
+}
+.sitcher view{
+  padding: 6rpx 30rpx;
+}
+
+.top3wrapper{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0px 30rpx;
+  padding-right: 20rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+.top3Inner{
+  position: relative;
+  display: flex;
+}
+.top3Inner .top3bg{
+  width: 100%;
+  height: 260rpx;
+  position: absolute;
+}
+.top3Inner .avatarWrapper{
+  position: relative;
+}
+.top3Inner .avatarWrapper .avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border: none;
+  border-radius: 100px;
+}
+.top3Inner .avatarWrapper .banner{
+  position: relative;
+  top:-15rpx;
+}
+.top3Inner .avatarWrapper .banner text{
+  width: 100%;
+  height: 30rpx;
+  position: absolute;
+  left: 0px;
+  text-align: center;
+}
+.top3Inner .avatarWrapper .banner image{
+  width: 100rpx;
+  height: 30rpx;
+}
+.top3Inner .topItem{
+  flex: 1;
+  text-align: center;
+  padding-top: 40rpx;
+  transform: scale(1.0);
+}
+.top3Inner .ranking1{
+  padding-top: 40rpx;
+}
+.top3Inner .ranking1 .avatarWrapper{
+  transform: scale(1.2) translateY(-3px);
+}
+.top3Inner{
+  font-size: 24rpx;
+  color: #666;
+}
+.top3Inner .username{
+  color: #666;
+  padding: 0px 20rpx;
+  white-space: nowrap;
+  max-width: 100rpx;
+  overflow: hidden;
+  display:inline-block;
+  text-overflow: ellipsis;
+}
+.top3Inner .rankingNum{
+  color: #a375ff;
+  font-size: 22rpx;
+}
+.listItem:first-child{
+  margin-top: 20rpx;
+}
+.listItem{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding: 20rpx;
+}
+.listItem .ranking{
+  font-size: 36rpx;
+  color: #a375ff;
+  margin-right: 20rpx;
+  text-shadow: 0px 1px 1px #333;
+}
+.listItem .avatar{
+  margin-right: 20rpx;
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 100px;
+}
+.listItem .rankingNum{
+  flex: 1;
+  text-align: right;
+}

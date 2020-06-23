@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加公告",
+  "usingComponents": {
+    "com-smartInput": "/components/smartInput/smartInput"
+  }
+}

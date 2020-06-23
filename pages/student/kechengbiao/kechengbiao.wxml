@@ -1,0 +1,77 @@
+<view style='background:white;margin:20rpx 0rpx;padding:0rpx 15%;'>
+  <com-tabs tabs='{{["我的课程","已完成课程"]}}' tab-width='50%' normal-color='#666' selected-color='#78a6ff' bindchange='tabchange' />
+</view>
+<view class='topBtnArea'>
+  <view>
+    <navigator url='/pages/student/order_cls_list/order_cls_list'>
+      <button type="default" size="mini">
+        <image src='/imgs/student/kechengbiao/add.png' style='width:26rpx;height:26rpx;' mode='aspectFill'></image>
+        新增预约
+      </button>
+    </navigator>
+  </view>
+  <view class="page__hd">
+  <com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' searchBool='false' bindclear='inputTyping' bindhide='inputTyping' />
+</view>
+  <!-- <view>
+    <button type="default" size="mini">
+      筛选
+      <image src='/imgs/trangle.png' style='width:26rpx;height:16rpx;margin-top:8rpx;' mode='aspectFill'></image>
+    </button>
+  </view> -->
+</view>
+
+<view class='listItem' wx:for='{{mycourse}}' wx:key='{{item.classesHourId}}' bindtap='toDetail' data-clshourstuid='{{item.clsHourStudentVo.classesHourStudentId}}' wx:if='{{tabIndex==0}}'>
+  <view class='img1'>
+    <text class='status'>{{item.classHourStatusStr}}</text>
+    <image src='{{item.logPic}}' data-index='{{index}}' binderror='errorImg'></image>
+  </view>
+  <view class='body'>
+    <image src='/imgs/student/kechengbiao/img_06.png' mode='aspectFit' class='classTypeIcon' wx:if='{{item.classType==0}}'></image>
+    <image src='/imgs/student/kechengbiao/img_03.png' mode='aspectFit' class='classTypeIcon' wx:if='{{item.classType==1||item.classType==2}}'></image>
+    <view class='title'>{{item.clsName}}</view>
+    <view>时间：
+      <text class='value'>{{item.day_+' '+item.startTime+'-'+item.endTime}}</text>
+    </view>
+    <view>地点：
+      <text class='value'>{{item.field}}</text>
+    </view>
+    <view wx:if='{{item.classType==1||item.classType==2}}'>约课人数：
+      <text class='value'>{{item.studentNum}}/{{item.bespeakNum}}</text>
+      <text class='btn1' wx:if='{{item.classHourStatus==0&&(item.clsHourStudentVo.layoutType==10 || item.clsHourStudentVo.layoutType==11)}}' catchtap='undo_clshour' data-id='{{item.clsHourStudentVo.classesHourStudentId}}'>取消预约</text>
+    </view>
+    <view wx:if='{{item.classType==1||item.classType==2}}'>排课人数：
+      <text class='value'>{{item.studentLineupNum}}/{{item.lineupNum}}</text>
+    </view>
+    <view>教练/老师：
+      <text class='value'>{{item.clsHourTeacher}}</text>
+    </view>
+    <view wx:if='{{item.classType==0}}'>学员人数：
+      <text class='value'>{{item.studentNum}}</text>
+    </view>
+  </view>
+</view>
+
+
+
+<view class='listItem2' wx:for='{{finished_course}}' wx:key='{{item.classesHourId}}' bindtap='toDetail' data-clshourstuid='{{item.clsHourStudentId}}' wx:if='{{tabIndex==1}}'>
+  <view class='top'>
+    <view class='left'>
+      <view>{{item.clsName}}</view>
+      <view>{{item.day_+' '+item.startTime+'-'+item.endTime}}</view>
+    </view>
+    <view class='right'>
+      <view style='color:{{item.attenStatusColor}}'>{{item.attenStatusStr}}</view>
+    </view>
+  </view>
+  <view class='bottom' wx:if='{{item.teachingStatus>0}}'>
+    <view>老师点评学员：已点评</view>
+    <com-rating size='25' rating='{{item.teachingPerformance}}' disabled='1'></com-rating>
+  </view>
+</view>
+<view class='noData' wx:if='{{tabIndex==0&&(!mycourse||mycourse.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{tabIndex==1&&(!finished_course||finished_course.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

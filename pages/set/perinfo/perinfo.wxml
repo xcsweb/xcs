@@ -1,0 +1,23 @@
+<!--pages/set/perinfo/perinfo.wxml-->
+<view class='list'>
+  <view class='li'>
+    <text>头像</text>
+    <image bindtap='changeavatar' class='avatar' src='{{avatar_}}' binderror='errorImg'></image>
+  </view>
+  <view class='li'>
+    <text>昵称：</text>
+    <input data-dataname='name' bindinput="bindKeyInput" value='{{name}}'></input>
+  </view>
+  <view class='li'>
+    <text>性别：</text>
+    <picker bindchange="bindPickerChange" value="{{sex}}" range="{{array}}">
+      <input disabled="true" value='{{array[sex]}}'></input>
+    </picker>
+  </view>
+  <view class='li'>
+    <text>校区/场馆：</text>
+    <text>{{campus}}</text>
+  </view>
+</view>
+
+<button bindtap='saveMess' class='btn_down'>保存</button>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "教学评价",
+  "usingComponents": {
+    "com-searchfilter": "/components/searchfilter/index"
+  }
+}

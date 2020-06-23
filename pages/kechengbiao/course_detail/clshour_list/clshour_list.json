@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "作业点评列表",
+  "usingComponents": {
+    "com-rating": "/components/rating/rating"
+  }
+}

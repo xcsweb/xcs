@@ -1,0 +1,133 @@
+page {
+  background: white; }
+
+.topbg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: -1;
+  height: auto; }
+
+.userInfo {
+  margin: 150rpx 20rpx 0rpx 20rpx;
+  background: white;
+  border-radius: 15rpx;
+  font-size: 34rpx;
+  color: #333;
+  box-shadow: 0px 0px 10px #ccc;
+  padding: 20rpx;
+  text-align: center; }
+  .userInfo .avatar {
+    position: relative;
+    display: inline-block; }
+    .userInfo .avatar image {
+      width: 150rpx;
+      height: 150rpx;
+      background: #eee;
+      border-radius: 150rpx; }
+    .userInfo .avatar .gender {
+      width: 35rpx;
+      height: 35rpx;
+      position: absolute;
+      bottom: 14rpx;
+      right: 14rpx;
+      background: white;
+      border-radius: 100px; }
+  .userInfo .campus_ {
+    font-size: 30rpx; }
+  .userInfo .campus {
+    color: #a375ff;
+    font-size: 30rpx; }
+
+.classes {
+  margin: 30rpx 20rpx;
+  box-shadow: 0px 0px 10px #ccc;
+  background: white;
+  border-radius: 15rpx;
+  font-size: 34rpx;
+  overflow: hidden;
+  color: #333;
+  padding-bottom: 15rpx; }
+  .classes .info {
+    padding: 20rpx;
+    color: #333; }
+  .classes .val {
+    color: #666; }
+  .classes .title {
+    background: #FFCC66;
+    padding: 20rpx; }
+    .classes .title .desc {
+      font-size: 26rpx;
+      text-align: right;
+      float: right;
+      margin-top: 8rpx; }
+  .classes .table .col {
+    color: #666;
+    display: flex;
+    box-sizing: border-box;
+    text-align: center; }
+    .classes .table .col > view {
+      border-right: 1px solid #ccc;
+      box-sizing: border-box;
+      overflow: hidden;
+      height: 80rpx;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      border-bottom: 1px solid #ccc;
+      padding: 14rpx; }
+    .classes .table .col > view:nth-child(1) {
+      flex: 4; }
+    .classes .table .col > view:nth-child(2) {
+      flex: 6; }
+  .classes .table .header {
+    color: #111; }
+  .classes .scrollbar {
+    width: 100%;
+    height: 10rpx;
+    box-sizing: border-box;
+    background: #ccc;
+    position: relative;
+    margin: 15rpx 0rpx 15rpx 0rpx; }
+    .classes .scrollbar .linebg {
+      background: #FF9B7A;
+      width: 0%;
+      height: 10rpx;
+      position: absolute; }
+    .classes .scrollbar .dot {
+      width: 30rpx;
+      height: 30rpx;
+      box-sizing: border-box;
+      background: white;
+      border-radius: 100%;
+      border: 3rpx solid #FFCC66;
+      position: relative;
+      top: -6rpx;
+      padding: 10rpx; }
+
+.course {
+  color: #333;
+  font-size: 34rpx;
+  padding: 20rpx;
+  border-left: 6rpx solid #a375ff; }
+  .course .info {
+    display: flex;
+    align-items: center; }
+  .course image {
+    width: 45rpx;
+    height: 45rpx;
+    margin-right: 10rpx; }
+  .course .val {
+    color: #666; }
+  .course .valArea {
+    background: #efefef;
+    border: 1px solid #ddd;
+    color: #666;
+    padding: 20rpx 14rpx;
+    margin: 10rpx 0rpx;
+    margin-left: 50rpx; }
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent; }

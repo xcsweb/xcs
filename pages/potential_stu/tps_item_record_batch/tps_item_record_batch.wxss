@@ -1,0 +1,114 @@
+.teacherAndDate {
+  display: flex;
+  font-size: 34rpx;
+  color: #333;
+  background: white;
+  border-bottom: 1rpx solid #f1f1f1;
+  margin-top: 20rpx;
+  padding: 20rpx;
+}
+.place {
+  display: flex;
+  font-size: 34rpx;
+  color: #333;
+  background: white;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  margin-bottom: 20rpx;
+  justify-content: center;
+}
+.place picker{
+  border: 1rpx solid #f1f1f1;
+  display: flex;
+  align-items: center;
+  padding: 0rpx 10rpx;
+  border-radius: 10rpx;
+  margin-left: 10rpx;
+  font-size: 34rpx;
+  color: #333;
+}
+.titles{
+  display: flex;
+  background: white;
+  font-size: 34rpx;
+  color: #333;
+  text-align: center;
+  border-bottom: 1rpx solid #f1f1f1;
+  padding: 20rpx 0rpx;
+}
+.child1{
+    flex: 33.33%;
+    padding-left: 20rpx;
+    text-align: left;
+}
+.child2{
+    flex: 33.33%;
+    max-width: 33.33%;
+}
+.child3{
+    flex: 33.33%;
+}
+.itemInput{
+  display: flex;
+  background: white;
+  font-size: 34rpx;
+  color: #333;
+  text-align: center;
+  border-bottom: 1rpx solid #f1f1f1;
+  padding: 20rpx 0rpx;
+}
+.itemInput input{
+  border: 1rpx solid #f1f1f1;
+  padding: 0rpx 10rpx;
+  border-radius: 10rpx;
+  font-size: 34rpx;
+  color: #333;
+  margin-right: 10rpx;
+}
+.itemSelect{
+  display: flex;
+  background: white;
+  font-size: 34rpx;
+  color: #333;
+  text-align: center;
+  border-bottom: 1rpx solid #f1f1f1;
+  padding: 20rpx 0rpx;
+}
+.itemSelect picker view{
+  background: white;
+  font-size: 34rpx;
+  color: #333;
+  text-align: center;
+  border: 1rpx solid #f1f1f1;
+  padding: 0rpx 20rpx;
+  align-items: center;
+  width: 60%;
+  position: relative;
+  padding-right: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60%;
+}
+.itemSelect picker view image{
+  position: absolute;
+  right: 10rpx;
+  top: 22rpx;
+}
+.itemSelect .child1{
+  flex: 50%;
+}
+
+.itemSelect .child2{
+  flex: 50%;
+}
+.titleBtn{
+  background: white;
+  text-align: center;
+  padding-top: 10rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+}
+.titleBtn button{
+  background: #E0B35A;
+  color: #333;
+}

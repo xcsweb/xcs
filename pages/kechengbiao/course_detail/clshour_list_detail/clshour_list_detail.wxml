@@ -1,0 +1,40 @@
+<view class='wrapper'>
+  <view class='title'>标题：</view>
+  <com-input value='{{clshour_studenttask_detail.title}}' disabled='1' name='title'></com-input>
+  <view class='title'>完成说明：</view>
+  <com-input value='{{clshour_studenttask_detail.content}}' disabled='1' textarea='1' name='content'></com-input>
+  <view class='title' wx:if='{{clshour_studenttask_detail.imgfiles.length>0}}'>训练图片：</view>
+  <com-attachments title='' edit='{{false}}' attachments='{{clshour_studenttask_detail.imgfiles}}' mode='2' />
+  <view class='title' wx:if='{{clshour_studenttask_detail.vodfiles.length>0}}'>训练视频：</view>
+  <com-attachments title='' edit='{{false}}' attachments='{{clshour_studenttask_detail.vodfiles}}' mode='2' />
+  <view class='title'>作业已完成量：</view>
+  <view class='cusTable'>
+    <view class='header'>
+      <view>作业要求</view>
+      <view>已完成</view>
+    </view>
+    <view class='row' wx:for='{{clshour_studenttask_detail.studentTaskCompleteTermList}}' wx:key='*this'>
+      <view>{{item.labelName}}</view>
+      <view>{{item.val}}</view>
+    </view>
+  </view>
+</view>
+<view class='wrapper' wx:if='{{!clshour_studenttask_detail.performance}}'>
+  <view class='title' style='text-align:center;'>老师点评</view>
+  <view class='subtitle'>评星</view>
+  <com-rating rating='0' name='rating'></com-rating>
+  <view class='subtitle'>点评内容</view>
+  <com-input textarea='1' name='evalute' placeholder='请输入点评内容'></com-input>
+</view>
+
+<view class='wrapper' wx:if='{{clshour_studenttask_detail.performance}}'>
+  <view class='title' style='text-align:center;'>老师点评</view>
+  <view class='subtitle'>评星</view>
+  <com-rating rating='{{clshour_studenttask_detail.performance}}' disabled='1' name='rating'></com-rating>
+  <view class='subtitle'>点评内容</view>
+  <com-input textarea='1' name='evalute' placeholder='请输入点评内容' value='{{clshour_studenttask_detail.feedback}}' disabled='1'></com-input>
+</view>
+
+<view class='btnWrapper' wx:if='{{!clshour_studenttask_detail.performance}}'>
+  <button bindtap='clshour_studenttask_add_feedback' disabled="{{fbdisabled}}" hover-class="btn-hover">提交</button>
+</view>

@@ -1,0 +1,26 @@
+<view class='writeEvalArea' wx:if='{{show}}' bindtap='_show'>
+  <view class='writeEvalInner' catchtap='c'>
+    <view class='top'>
+      <picker bindchange="_bindNoticeTypeChange" name='noticeType' value="{{noticeTypeIndex}}" range="{{noticeType}}" range-key="codeDisplay" wx:if='{{!simple}}'>
+        <view>{{noticeType[noticeTypeIndex].codeDisplay}}
+          <image src='/imgs/common/trangle.png' mode='aspectFill'></image>
+        </view>
+      </picker>
+      <view class='simple' wx:if='{{simple}}'>编辑短信（不超过60字）</view>
+      <view style='flex:1;'></view>
+      <button size='mini' bindtap='_notice_add_sub'>发送</button>
+    </view>
+    <view class='center'>
+      <view class='centerIner'>
+        <view wx:if='{{!simple}}'>标题：</view>
+        <input data-name='title' value='{{title}}' bindinput='bindinput' placeholder='输入标题' placeholder-style='color:#ccc' wx:if='{{!simple}}'></input>
+        <view>内容：</view>
+        <textarea fixed='true' data-name='content' value='{{content}}' bindinput='bindinput' placeholder='输入内容' placeholder-style='color:#ccc' maxlength='{{simple?60:1000}}'></textarea>
+      </view>
+    </view>
+    <view class='bottom' wx:if='{{!simple}}'>
+      <checkbox-group bindchange='isUseConfirm'>短信提醒：
+        <checkbox style='height:10px;' value='1' /></checkbox-group>
+    </view>
+  </view>
+</view>

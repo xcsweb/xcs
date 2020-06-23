@@ -1,0 +1,157 @@
+<view style='height:20rpx;'></view>
+<com-tabs tabs='{{["基本资料","绩效统计"]}}' index='{{tabIndex}}' bindchange='tabIndex'></com-tabs>
+<view style='height:20rpx;'></view>
+<view hidden='{{tabIndex==1}}'>
+  <form bindsubmit="formSubmit">
+    <view class='listItem'>
+      <view class='title'>姓名</view>
+      <input placeholder='必填' name='name' value='{{memberinfo.name}}'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>性别</view>
+      <picker bindchange='sexchange' range='{{["女","男"]}}' value='{{memberinfo.sex}}' name='sex'>
+        <text>{{memberinfo.sex==0?"女":"男"}}</text>
+      </picker>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>年龄</view>
+      <input placeholder='必填' name='age' disabled='true' value='{{memberinfo.age}}'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>生日</view>
+      <picker mode='date' end='{{today}}' value='{{memberinfo.birthDt_}}' name='birthDt' bindchange='birthDtChange'>
+        <text>{{memberinfo.birthDt_}}</text>
+      </picker>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>民族</view>
+      <input placeholder='必填' name='nation' value='{{memberinfo.nation}}'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>籍贯</view>
+      <input placeholder='必填' name='nativePlace' value='{{memberinfo.nativePlace}}'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>联系电话</view>
+      <input placeholder='必填' name='tel' value='{{memberinfo.tel}}'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>城市</view>
+      <input placeholder='必填' name='cityName' disabled='true' value='{{memberinfo.cityName}}'></input>
+      <text class='iconfont icon-arrow arrow_white'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>校区/分馆</view>
+      <input placeholder='请选择' value='{{memberinfo.campusName}}' disabled='true' bindtap='multichoice1'></input>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+    <view class='listItem'>
+      <view class='title'>授课内容</view>
+      <input placeholder='请选择' value='{{memberinfo.trainName}}' disabled='true' bindtap='multichoice2'></input>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+    <view style='height:60px;'></view>
+    <view class='btnWrapper' style='z-index:2;'>
+      <button formType='submit'>保存</button>
+    </view>
+  </form>
+  <com-multichoice wx:if='{{multichoice1}}' items='{{campus}}' name='name' value='id' bindok='multichoice1ok' bindcancel='multichoice1cancel'></com-multichoice>
+  <com-multichoice wx:if='{{multichoice2}}' items='{{train_category}}' name='name' value='train' bindok='multichoice2ok' bindcancel='multichoice2cancel'></com-multichoice>
+</view>
+<view hidden='{{tabIndex==0&&statistics}}'>
+  <view class='date'>
+    <view style='transform:rotate(180deg)' bindtap='dateOp' data-op='-1'>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+    <view class='dateStr'>{{dateStr}}</view>
+    <view bindtap='dateOp' data-op='1'>
+      <text class='iconfont icon-arrow arrow'></text>
+    </view>
+  </view>
+  <view class='charts'>
+    <view class='chartsLine'> 
+      <view class='columnCanvas'>
+        <canvas canvas-id='columnCanvas1' class='columeChart' style='width:{{columnWidthHalf}}px;height:{{canvasHeight}}px'></canvas>
+      </view>
+      <view class='ringCanvas'>
+        <canvas canvas-id='ringCanvas1' style='width:{{ringWidth}}px;height:{{canvasHeight}}px'></canvas>
+        <view class='legend'>转正率</view>
+      </view>
+    </view>
+
+    <view class='chartsLine'>
+      <view class='columnCanvas'>
+        <canvas canvas-id='columnCanvas2' class='columeChart' style='width:{{columnWidthHalf}}px;height:{{canvasHeight}}px'></canvas>
+      </view>
+      <view class='ringCanvas'>
+        <canvas canvas-id='ringCanvas2' style='width:{{ringWidth}}px;height:{{canvasHeight}}px'></canvas>
+        <view class='legend'>转正率</view>
+      </view>
+    </view>
+
+    <view class='chartsLine'>
+      <view class='columnCanvas'>
+        <canvas canvas-id='columnCanvas3' class='columeChart' style='width:{{columnWidthFull}}px;height:{{canvasHeight}}px'></canvas>
+      </view>
+    </view>
+
+
+    <view class='chartsLine'>
+      <view class='columnCanvas'>
+        <canvas canvas-id='columnCanvas4' class='columeChart' style='width:{{columnWidthHalf}}px;height:{{canvasHeight}}px'></canvas>
+      </view>
+      <view class='ringCanvas'>
+        <canvas canvas-id='ringCanvas4' style='width:{{ringWidth}}px;height:{{canvasHeight}}px'></canvas>
+        <view class='legend'>出勤率</view>
+      </view>
+    </view>
+
+
+    <view class='chartsLine'>
+      <view class='columnCanvas'>
+        <canvas canvas-id='columnCanvas5' class='columeChart' style='width:{{columnWidthHalf}}px;height:{{canvasHeight}}px'></canvas>
+      </view>
+      <view class='ringCanvas'>
+        <canvas canvas-id='ringCanvas5' style='width:{{ringWidth}}px;height:{{canvasHeight}}px'></canvas>
+        <view class='legend'>请假率</view>
+      </view>
+    </view>
+
+
+    <view class='chartsLine'>
+      <view class='columnCanvas'>
+        <canvas canvas-id='columnCanvas6' class='columeChart' style='width:{{columnWidthHalf}}px;height:{{canvasHeight}}px'></canvas>
+      </view>
+      <view class='ringCanvas'>
+        <canvas canvas-id='ringCanvas6' style='width:{{ringWidth}}px;height:{{canvasHeight}}px'></canvas>
+        <view class='legend'>签到率</view>
+      </view>
+    </view>
+
+
+    <view class='chartsLine'>
+      <view class='columnCanvas'>
+        <canvas canvas-id='columnCanvas7' class='columeChart' style='width:{{columnWidthFull}}px;height:{{canvasHeight}}px'></canvas>
+      </view>
+    </view>
+
+    <view class='chartsLine'>
+      <view class='columnCanvas'>
+        <canvas canvas-id='columnCanvas8' class='columeChart' style='width:{{columnWidthFull}}px;height:{{canvasHeight}}px'></canvas>
+      </view>
+    </view>
+
+    <view class='chartsLine'>
+      <view class='columnCanvas'>
+        <canvas canvas-id='columnCanvas9' class='columeChart' style='width:{{columnWidthFull}}px;height:{{canvasHeight}}px'></canvas>
+      </view>
+    </view>
+  </view>
+</view>

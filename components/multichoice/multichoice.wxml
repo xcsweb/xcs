@@ -1,0 +1,16 @@
+<view class='bg' wx:if='{{show}}'>
+  <view class='top' catchtouchstart='_dismiss'></view>
+  <view class='listwrapper' style='height:{{height}}'>
+    <view class='title'>{{title}}<text class='selected'>{{'  已选:'+values.length}}</text></view>
+    <checkbox-group bindchange="_checkboxChange">
+      <label class="checkbox" wx:for="{{items}}" wx:key='*this'>
+        <checkbox value="{{item.value}}" class='circleCheckbox' checked="{{item.checked}}" />{{item.name}}
+      </label>
+    </checkbox-group>
+    <view style='height:80rpx;'></view>
+    <view class='btns'>
+      <view bindtap='_dismiss'>取消</view>
+      <view bindtap='_ok'>确认</view>
+    </view>
+  </view>
+</view>

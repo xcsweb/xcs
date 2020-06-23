@@ -1,0 +1,23 @@
+<!--pages/login/login.wxml-->
+<view>
+  <view class='logo'>
+    <image src='{{logo}}'></image>
+  </view>
+  <view class='title'>
+    <text>{{slogan}}</text>
+  </view>
+    <view class='input_list'>
+      <text style='background-image:url("{{phone_bg}}");display:block;'>手机</text>
+
+      <input placeholder-class="text_place" type='text' name="userName" value='{{userName}}' placeholder="请输入手机号" bindinput='inputData' adjust-position="false"	 data-name='userName' />
+    </view>
+    <view class='input_list'>
+      <text style='background-image:url("{{pwd_bg}}")'>密码</text>
+      <input type='password' name="password" value='{{password}}' placeholder="请输入密码" bindinput='inputData' data-name='password' />
+    </view>
+    <text catchtap="forgetpwd" class='froget_pwd' wx-if='{{insId>0}}'>忘记密码</text>
+    <view class='clear'></view>
+    <view class='btnWarpper'>
+      <button class='sub' hover-class='btn-hover' bindtap='formSubmit'>登录</button>
+    </view>
+</view>

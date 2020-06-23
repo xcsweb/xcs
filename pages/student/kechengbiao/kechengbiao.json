@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "课程表",
+  "navigationBarBackgroundColor": "#78A6FF",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs",
+    "com-rating": "/components/rating/rating",
+    "com-searchfilter": "/components/searchfilter/index"
+  }
+}

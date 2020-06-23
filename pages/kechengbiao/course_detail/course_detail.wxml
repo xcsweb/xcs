@@ -1,0 +1,471 @@
+<!--顶部8个tab-->
+<view class='tabs'>
+  <view class='tab' wx:for='{{tabs}}' style='color:{{index==selectedTabIndex?"#333":"#999"}}' bindtap='changeTab' linegap='0' data-tabIndex='{{index}}' wx:key="{{item}}">{{item}}
+    <view class='bottomBorder' style='opacity:{{index!=selectedTabIndex?0:1}}'></view>
+  </view>
+</view>
+<!--tab对应的内容1 课程信息-->
+<view class='tab1content' wx:if='{{selectedTabIndex==0&&tab1Data.loaded}}'>
+  <!--常规班-->
+  <view class='brife' wx:if='{{tab1Data.classesHour.classType==0}}'>
+    <view>时间：
+      <text>{{tab1Data.classesHour.startTime+'-'+tab1Data.classesHour.endTime}}</text>
+    </view>
+    <view>地点：
+      <text>{{tab1Data.classesHour.field}}</text>
+    </view>
+    <view>教练/老师：
+      <text wx:for='{{tab1Data.teachers}}' wx:key='{{item.memberId}}'>{{item.name}} </text>
+    </view>
+    <view>学员：
+      <text>总{{tab1Data.classesHour.studentNum}}人/签到{{tab1Data.classesHour.signNum}}人/请假{{tab1Data.classesHour.leaveNum}}人/试课{{tab1Data.classesHour.tryNum}}人</text>
+    </view>
+    <view wx:if='{{tab1Data.classesHour.theWay==0}}'>教学模式：
+      <text>按班</text>
+    </view>
+    <view wx:if='{{tab1Data.classesHour.theWay==1}}'>教学模式：
+      <text>按学员</text>
+    </view>
+    <view>介绍：
+      <text>\n{{tab1Data.classesHour.des}}</text>
+    </view>
+  </view>
+
+  <!--预约班-->
+
+  <view class='brife' wx:if='{{tab1Data.classesHour.classType!=0}}'>
+    <view>预约学员：
+      <text>{{tab1Data.classesHour.studentNum+'/'+tab1Data.classesHour.bespeakNum}}人<text style='font-size:26rpx;' wx:if='{{tab1Data.classesHour.classType==1}}'>(开班最低不少于{{tab1Data.classesHour.beginNum}}人)</text></text>
+      <view class='btn'>
+        <navigator url='./stulist/stulist?title=预约学员&classesHourId={{tab1Data.classesHour.classesHourId}}'>查看名单</navigator>
+      </view>
+    </view>
+
+    <view style='margin-top:12rpx;'>排队人数：
+      <text>{{tab1Data.classesHour.studentLineupNum+'/'+tab1Data.classesHour.lineupNum}}人</text>
+      <view class='btn'>
+        <navigator url='./stulist/stulist?title=排队学员&classesHourId={{tab1Data.classesHour.classesHourId}}'>查看名单</navigator>
+      </view>
+    </view>
+
+    <view>上课日期：
+      <text>{{tab1Data.classesHour.day_}}</text>
+    </view>
+    <view>上课时间段：
+      <text>{{tab1Data.classesHour.startTime+'-'+tab1Data.classesHour.endTime}}</text>
+    </view>
+    <view>场地：
+      <text>{{tab1Data.classesHour.field}}</text>
+    </view>
+    <view>教练/老师：
+      <text wx:for='{{tab1Data.teachers}}' wx:key='{{item.memberId}}'>{{item.name}} </text>
+    </view>
+    <view>课程简介：
+      <text>\n{{tab1Data.classesHour.teachContent}}</text>
+    </view>
+  </view>
+
+  <view wx:if='{{tab1Data.teacherPerformances.length>0}}'>
+    <view class='aa'>点评教练/老师：
+      <picker bindchange="dianpingTeacherChange" value="{{dianpingTeacherIndex}}" range="{{tab1Data.teachers}}" range-key="name">
+        <view class='pickerview'>
+          {{tab1Data.teachers[dianpingTeacherIndex].name}}
+          <image src='/imgs/trangle.png' style='width:20rpx;height:16rpx'></image>
+        </view>
+      </picker>
+    </view>
+    <view class='commentItem' wx:for='{{tab1Data.teacherPerformances}}' wx:key='{{item.memberId}}' wx:if='{{item.memberId==tab1Data.teachers[dianpingTeacherIndex].memberId}}'>
+      <view class='left'>
+        <image src='{{item.avatar}}' binderror='errorImg' data-index='{{index}}'></image>
+      </view>
+      <view class='right'>
+        <view class='nameArea'>
+          {{item.studentName}}
+          <view class='stars'>
+            <com-rating max="5" rating='{{item.performance}}' disabled='true' bindchange='handleChange' />
+          </view>
+        </view>
+        <view class='date'>{{item.createDt}}</view>
+        <view class='content'>
+          {{item.evaluate}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!--tab对应的内容2 点到签名-->
+<view class='tab2content' wx:if='{{selectedTabIndex==1&&tab2Data.loaded}}'>
+  <view class='teacherItem' wx:for='{{tab2Data.teachers}}' wx:key='{{item.classesHourTeacherId}}'>
+    <image src='/imgs/kechengbiao/img_32.png' class='gender' wx:if='{{item.sex==0}}'></image>
+    <image src='/imgs/kechengbiao/img_29.png' class='gender' wx:if='{{item.sex==1}}'></image>
+    <text class='name'>{{item.name}}</text>
+    <text class='position'>({{item.callName}})</text>
+    <view class='status' bindtap='pre_clshour_detail_attn_sub1' data-d='{{item}}' style='background:{{item.attenStatus!=0?"#aaa":""}}'>{{item.attenStatusDisplay}}</view>
+  </view>
+  <view class='personCounts'>
+    <view>应到{{tab2Data.students.length}}人</view>
+    <view>已签到{{tab2Data.students.length-tab2Data.attenStatus0}}人</view>
+    <view>串课{{tab2Data.layoutType1}}人</view>
+    <view>试课{{tab2Data.layoutType2}}人</view>
+  </view>
+  <view class='studentsStatusTable'>
+    <view class='row header' style='position:{{pageScrollTop-studentsStatusTableTop>-2/studentsStatusTableTop?"fixed":""}}'>
+      <view>
+        <text>学员\n姓名</text>
+      </view>
+      <view>
+        <text>待定</text>
+        <text class='num'>\n({{tab2Data.attenStatus0}})</text>
+      </view>
+      <view>
+        <text>到课</text>
+        <text class='num'>\n({{tab2Data.attenStatus1}})</text>
+      </view>
+      <view>
+        <text>迟到</text>
+        <text class='num'>\n({{tab2Data.attenStatus2}})</text>
+      </view>
+      <view>
+        <text>请假</text>
+        <text class='num'>\n({{tab2Data.attenStatus3}})</text>
+      </view>
+      <view>
+        <text>缺课</text>
+        <text class='num'>\n({{tab2Data.attenStatus4}})</text>
+      </view>
+    </view>
+    <view class='row' wx:for='{{tab2Data.students}}' wx:key='{{item.classesHourTeacherId}}'>
+      <view class='col1'>
+        <!--0排课 11排队 12取消-->
+        <text class='studentRole' wx:if='{{item.layoutType==0}}'>排</text>
+        <text class='studentRole' wx:if='{{item.layoutType==1}}'>串</text>
+        <text class='studentRole' wx:if='{{item.layoutType==2}}'>试</text>
+        <text class='studentRole' wx:if='{{item.layoutType==10}}'>预</text>
+        <text class='studentRole' wx:if='{{item.layoutType==11}}'>排</text>
+        <text class='studentRole' wx:if='{{item.layoutType==12}}'>取</text>
+        <image src='{{item.avatar}}' class='avatar' binderror='errorImg2' data-index='{{index}}'></image>
+        <view class='stuname'>{{item.name}}</view>
+      </view>
+      <view>
+        <view class='circle circle0' style='border-color:{{(item.attenStatus_||item.attenStatus)==0?"#A8A8A8":""}}' bindtap='changeAttenStatus' data-index='{{index}}' data-attenStatus_='{{item.attenStatus_||item.attenStatus}}' data-isattn='{{item.isAttn}}' data-courseusestatus='{{item.courseUseStatus}}'  data-attenstatus='0'>
+          <view class='{{(item.attenStatus_||item.attenStatus)==0?"dot":"undot"}}'></view>
+        </view>
+      </view>
+      <view>
+        <view class='circle circle1' style='border-color:{{(item.attenStatus_||item.attenStatus)==1?"#FFD47D":""}}' bindtap='changeAttenStatus' data-index='{{index}}' data-attenStatus_='{{item.attenStatus_||item.attenStatus}}' data-isattn='{{item.isAttn}}' data-courseusestatus='{{item.courseUseStatus}}'  data-attenstatus='1'>
+          <view class='{{(item.attenStatus_||item.attenStatus)==1?"dot":"undot"}}'></view>
+        </view>
+      </view>
+      <view>
+        <view class='circle circle2' style='border-color:{{(item.attenStatus_||item.attenStatus)==2?"#66CCFF":""}}' bindtap='changeAttenStatus' data-index='{{index}}' data-attenStatus_='{{item.attenStatus_||item.attenStatus}}' data-isattn='{{item.isAttn}}' data-courseusestatus='{{item.courseUseStatus}}'  data-attenstatus='2'>
+          <view class='{{(item.attenStatus_||item.attenStatus)==2?"dot":"undot"}}'></view>
+        </view>
+      </view>
+      <view>
+        <view class='circle circle3' style='border-color:{{(item.attenStatus_||item.attenStatus)==3?"#30D130":""}}' bindtap='changeAttenStatus' data-index='{{index}}' data-attenStatus_='{{item.attenStatus_||item.attenStatus}}' data-isattn='{{item.isAttn}}' data-courseusestatus='{{item.courseUseStatus}}'  data-attenstatus='3'>
+          <view class='{{(item.attenStatus_||item.attenStatus)==3?"dot":"undot"}}'></view>
+        </view>
+      </view>
+      <view>
+        <view class='circle circle4' style='border-color:{{(item.attenStatus_||item.attenStatus)==4?"#A375FF":""}}' bindtap='changeAttenStatus' data-index='{{index}}' data-attenStatus_='{{item.attenStatus_||item.attenStatus}}' data-isattn='{{item.isAttn}}' data-courseusestatus='{{item.courseUseStatus}}'  data-attenstatus='4'>
+          <view class='{{(item.attenStatus_||item.attenStatus)==4?"dot":"undot"}}'></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='btnWrapper'>
+    <button class="weui-btn" type="primary" hover-class="btn-hover" bindtap='pre_clshour_detail_attn_sub2'>确定</button>
+  </view>
+</view>
+
+
+<!--tab对应的内容3 学员点评-->
+<view class='tab3content' wx:if='{{selectedTabIndex==2&&tab3Data.loaded}}'>
+  <view class='selectBtnWraper' wx:if='{{tab3Data.students.length>0}}'>
+      <checkbox class='circleCheckbox' wx:if='{{tab3selectMode}}' bindtap='tab3selectAll' checked='{{tab3selectAll}}' />
+    <view class='btn' bindtap='tab3selectMode' style='background:{{tab3selectMode?"#E5E5E5":""}}'> {{tab3selectBtnTxt}}
+    </view>
+  </view>
+  <checkbox-group bindchange="tab3CheckboxChange" data-indexa='11' wx:if='{{tab3Data.students.length>0}}'>
+    <view class='listItem' wx:for='{{tab3Data.students}}' wx:key='{{item.classesHourStudentId}}'>
+      <checkbox class='circleCheckbox' checked="{{item.checked}}" value="{{index}}" wx:if='{{tab3selectMode}}' data-index='{{index}}' />
+      <view class='userInfo'>
+        <text class='name'>{{item.name}}\n</text>
+        <text class='courseTime' wx:if='{{item.chargeType==0}}'>剩{{item.val}}课时</text>
+        <text class='courseTime' wx:if='{{item.chargeType==1}}'>剩{{item.val}}课次</text>
+        <text class='courseTime' wx:if='{{item.chargeType==2}}'>剩{{item.val}}元</text>
+        <text class='courseTime' wx:if='{{item.chargeType==3}}'>有效期至{{item.endDt_}}</text>
+      </view>
+      <com-rating max="5" rating='{{item.teachingPerformance}}' disabled='true' wx:if='{{item.teachingPerformance}}' />
+      <view class='content'>{{item.teachingEvaluate}}</view>
+      <button type='primary' size='mini' bindtap='eval' data-index='{{index}}'>点评</button>
+    </view>
+  </checkbox-group>
+  <view class='btnWrapper' wx:for='{{tab3Data.students}}'>
+    <button class="weui-btn" hover-class="btn-hover" type="primary" bindtap='batch_eval'>批量点评</button>
+  </view>
+  <view class='noData' wx:if='{{selectedTabIndex==2&&(!tab3Data.students||tab3Data.students.length==0)}}'>
+    <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+  </view>
+  <view class='writeEvalArea' wx:if='{{tab3ShowEvalInput}}' bindtap='tab3ShowEvalInput'>
+    <view class='top_' catchtouchstart='c1'></view>
+    <view class='writeEvalInner' catchtap='c'>
+      <view class='top'>
+        星级
+        <com-rating max="5" rating='{{tab3RatingValue}}' bindchange='evalRatingChange' />
+        <navigator url="/pages/kechengbiao/course_detail/addimg/addimg" class='addimg' hover-class="none">添加照片</navigator>
+      </view>
+      <view class='bottom'>
+        <text class='label'>内容：</text>
+        <textarea bindinput="bindinput" data-name='teachingEvaluate' value='{{teachingEvaluate}}'></textarea>
+        <button type='primary' size='mini' catchtap='clshour_detail_eval_sub'>确认</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<!--tab对应的内容4 作业/点评-->
+<view class='tab4content' wx:if='{{selectedTabIndex==3&&tab4Data.loaded}}'>
+  <view class='top' wx:if='{{((tab4Data.classesHour.isSendTask!=1)||(tab4Data.classesHour.theWay!=1))&&tab4Data.students.length>0}}'>
+    <view style='display:{{tab4Data.classesHour.theWay==1?"none":""}}'>
+      <image wx:if='{{!tab4Data.classesHour.classesHourTeachId}}' src='/imgs/kechengbiao/img_59.png' bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/clshouer_edit_sub/clshouer_edit_sub' data-d='{{tab4Data}}' data-teachFromType='1'></image>
+      <image wx:if='{{tab4Data.classesHour.classesHourTeachId}}' src='/imgs/kechengbiao/img2_23.png' bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/teach_task_detail/teach_task_detail' data-d='{{tab4Data}}' data-index='{{index}}' data-teachFromType='1'></image>
+      <text wx:if='{{tab4Data.classesHour.classesHourTeachId}}' bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/teach_task_detail/teach_task_detail' data-d='{{tab4Data}}' data-index='{{index}}' data-teachFromType='1'>查看作业</text>
+      <text wx:if='{{!tab4Data.classesHour.classesHourTeachId}}' bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/clshouer_edit_sub/clshouer_edit_sub' data-d='{{tab4Data}}' data-teachFromType='1'>添加作业</text>
+    </view>
+    <view style='flex:1;border:none;'></view>
+    <view wx:if='{{tab4Data.classesHour.isSendTask!=1}}' bindtap='clshour_task_send'>
+      <image src='/imgs/kechengbiao/img2_14.png'></image>
+      下发作业
+    </view>
+  </view>
+  <view class='listItem header' wx:if='{{tab4Data.students.length>0}}'>
+    <view>姓名</view>
+    <view>作业</view>
+    <view>点评/作业</view>
+  </view>
+  <view class='noData' wx:if='{{selectedTabIndex==3&&(!tab4Data.students||tab4Data.students.length==0)}}'>
+    <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+  </view>
+
+  <view class='listItem' wx:for='{{tab4Data.students}}' wx:key='*this'>
+    <view>{{item.studentName}}</view>
+    <view>
+      <view wx:if='{{tab4Data.classesHour.theWay==0}}'>{{tab4Data.classesHour.title||"未绑定作业"}}</view>
+      <view wx:if='{{tab4Data.classesHour.theWay==1}}'>{{item.title||"未绑定作业"}}</view>
+      <view class='operations' wx:if='{{tab4Data.classesHour.theWay==1}}'>
+        <view class='operation' wx:if='{{item.classesHourTeachId}}' bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/teach_task_detail/teach_task_detail' data-d='{{tab4Data}}' data-index='{{index}}' data-teachFromType='1'>查看</view>
+        <view class='operation' wx:if='{{item.classesHourTeachId&&!tab4Data.classesHour.isSendTask}}' bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/clshouer_edit_sub/clshouer_edit_sub' data-d='{{tab4Data}}' data-index='{{index}}' data-teachFromType='1'>修改</view>
+        <view class='operation' wx:if='{{!item.classesHourTeachId}}' bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/clshouer_edit_sub/clshouer_edit_sub' data-d='{{tab4Data}}' data-index='{{index}}' data-teachFromType='1'>增加</view>
+      </view>
+    </view>
+    <view>
+      <navigator url='/pages/kechengbiao/course_detail/clshour_list/clshour_list?id={{item.studentTaskId}}'>
+        已提交(
+        <text class='num'>{{item.approveCount||0}}</text>/{{item.handCount||0}})
+      </navigator>
+    </view>
+  </view>
+</view>
+
+
+<!--tab对应的内容5 调课串课-->
+<view class='tab5content' wx:if='{{selectedTabIndex==4&&tab5Data.loaded}}'>
+  <view class='top' bindtap='navigateTo' data-url='/pages/common/addstu/addstu?ptype=1&classesHourId={{classesHourId}}'>
+    添加学员
+    <image src='/imgs/kechengbiao/img_59.png'></image>
+  </view>
+  <view class='noData' wx:if='{{selectedTabIndex==4&&(!tab5Data.students||tab5Data.students.length==0)}}'>
+    <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+  </view>
+  <view class='listItem' wx:for='{{tab5Data.students}}' wx:key='*this'>
+    <view>
+      <view>
+        <text class='name'>{{item.studentName}}</text>
+        <text class='school'> ({{item.campusName||"测试学校"}})</text>
+      </view>
+      <view>
+        <text class='cls'>{{item.tel}}</text>
+      </view>
+    </view>
+    <view class='delete' bindtap='delSeriesStuSub' data-chsid='{{item.classesHourStudentId}}'>
+      <image src='/imgs/kechengbiao/img2_18.png'></image>
+    </view>
+  </view>
+</view>
+
+
+<!--tab对应的内容6 调/停/复课-->
+<view class='tab6content' wx:if='{{selectedTabIndex==5&&tab6Data.loaded}}'>
+  <view class='top'>
+    <button size='mini' bindtap='tab6topBtnIndex' data-index='0' style='background-color: {{tab6topBtnIndex==0?"#FFBB00;":"white;"}}color: {{tab6topBtnIndex==0?"#333":"#666"}}'>调课</button>
+    <button size='mini' bindtap='tab6topBtnIndex' data-index='1' style='background-color: {{tab6topBtnIndex==1?"#FFBB00;":"white;"}}color: {{tab6topBtnIndex==1?"#333":"#666"}}'>停课</button>
+    <button size='mini' bindtap='tab6topBtnIndex' data-index='2' style='background-color: {{tab6topBtnIndex==2?"#FFBB00;":"white;"}}color: {{tab6topBtnIndex==2?"#333":"#666"}}'>复课</button>
+  </view>
+  <view wx:if='{{tab6topBtnIndex==0}}'>
+    <view class='listItem1'>
+      课程
+      <view class='gray'>
+        {{tab6Data.classInfo.className}}
+      </view>
+    </view>
+    <view class='listItem1'>
+      教练/老师
+      <view class='desc' bindtap='tab6ShowTeacherList'>
+        {{tab6teachers}}
+        <text class="iconfont icon-arrow"></text>
+      </view>
+    </view>
+
+    <view class='listItem1'>
+      日期
+      <view class='desc'>
+        <picker mode='date' value='{{tab6Data.classInfo.day_}}' bindchange='tab6DataDayChange'>
+          <view class='time'>{{tab6Data.classInfo.day_}}</view>
+        </picker>
+        <text class="iconfont icon-arrow"></text>
+      </view>
+    </view>
+
+    <view class='listItem1'>
+      时间
+      <view class='desc'>
+        <picker mode='time' value='{{tab6Data.classInfo.startTime}}' bindchange='tab6DatastartTimeChange'>
+          <view class='time'>{{tab6Data.classInfo.startTime}}</view>
+        </picker>-
+        <picker mode='time' value='{{tab6Data.classInfo.endTime}}' bindchange='tab6DataendTimeChange'>
+          <view class='time'>{{tab6Data.classInfo.endTime}}</view>
+        </picker>
+        <text class="iconfont icon-arrow"></text>
+      </view>
+    </view>
+    <view class='listItem1'>
+      地点
+      <view class='desc'>
+        <input placeholder='请输入地点' placeholder-style='color:#999;' bindinput='bindinput' data-name='tab6field' value='{{tab6field}}'></input>
+      </view>
+    </view>
+  </view>
+
+
+  <view wx:if='{{tab6topBtnIndex==1}}' style='padding:20rpx;background:white;display:flex;'>
+    <textarea placeholder='请输入停课理由' placeholder-style='color:#999;' bindinput='bindinput' data-name='tab6content1' value='{{tab6content1}}'></textarea>
+  </view>
+  <view wx:if='{{tab6topBtnIndex==2}}' style='padding:20rpx;background:white;display:flex;'>
+    <textarea placeholder='请输入复课理由' placeholder-style='color:#999;' bindinput='bindinput' data-name='tab6content2' value='{{tab6content2}}'></textarea>
+  </view>
+  <view class='btnWrapper' wx:if='{{tab6topBtnIndex==0&&tab6Data.classInfo.classHourStatus==0}}'>
+    <button class="weui-btn" hover-class="btn-hover" type="primary" bindtap='clshour_change_teacher'>确定</button>
+  </view>
+  <view class='btnWrapper' wx:if='{{tab6topBtnIndex==1&&tab6Data.classInfo.classHourStatus==0}}'>
+    <button class="weui-btn" hover-class="btn-hover" type="primary" bindtap='teacher_change_clstatus_close'>确定</button>
+  </view>
+  <view class='btnWrapper' wx:if='{{tab6topBtnIndex==2&&tab6Data.classInfo.classHourStatus==2}}'>
+    <button class="weui-btn" hover-class="btn-hover" type="primary" bindtap='teacher_change_clstatus_open'>确定</button>
+  </view>
+  <com-multichoice items='{{member_list}}' name='name' value='memberId' wx:if='{{tab6ShowTeacherList}}' bindok='bindok' bindcancel='bindcancel'></com-multichoice>
+</view>
+
+
+<!--tab对应的内容7 请假-->
+<view class='tab7content' wx:if='{{selectedTabIndex==6}}'>
+  <view class='top' wx:if='{{tab1Data.classesHour.classHourStatus==0}}'>
+    <button size='mini' bindtap='tab7topBtnIndex' data-index='0' style='background-color: {{tab7topBtnIndex==0?"#FFBB00":"white"}}'>代学员请假</button>
+    <button size='mini' bindtap='tab7topBtnIndex' data-index='1' style='background-color: {{tab7topBtnIndex==1?"#FFBB00":"white"}}'>教练/老师请假</button>
+  </view>
+  <view wx:if='{{tab7topBtnIndex==0}}'>
+    <view class='listItem1 center' wx:if='{{tab1Data.classesHour.classHourStatus==0}}'>
+      <navigator url='/pages/kechengbiao/course_detail/student_leave/student_leave'>
+        <button size='mini'>
+          <image src='/imgs/kechengbiao/img2_06.png'></image>添加学员</button>
+      </navigator>
+    </view>
+    <!-- <view class='listItem1' wx:for='{{tab7Data}}' wx:key='*this'>
+      {{item.studentName}}
+      <view class='reason'>
+        {{item.content}}
+      </view>
+    </view> -->
+
+
+    <view class='listItem header' wx:if='{{tab7Data&&tab7Data.length>0}}'>
+      <view>请假学员</view>
+      <view>操作人</view>
+      <view>操作时间</view>
+    </view>
+
+    <view class='listItem' wx:for='{{tab7Data}}' wx:key='*this'>
+      <view>{{item.studentName}}</view>
+      <view>{{item.attenMember}}</view>
+      <view>{{item.attenTime}}</view>
+    </view>
+    <image class='noItems' wx:if='{{!tab7Data||tab7Data.length==0}}' src='/imgs/common/nodata.png' mode='aspectFit'></image>
+  </view>
+
+  <view wx:if='{{tab7topBtnIndex==1}}'>
+    <view class='listItem1 center'>
+      <navigator url='/pages/kechengbiao/course_detail/teacher_leave/teacher_leave'>
+        <button size='mini'>
+          <image src='/imgs/kechengbiao/img2_03.png'></image>我要请假</button>
+      </navigator>
+    </view>
+    <image class='noItems' src='/imgs/common/nodata.png' mode='aspectFit'></image>
+    <!-- <view class='listItem1'>
+      请假人：张教练
+      <view class='reason'>
+        身体原因，要休息一天；
+      </view>
+    </view>
+    <view class='listItem1'>
+      请假人：李教练
+      <view class='reason'>
+        房屋漏水，需要在家等修理工人上门维修；
+      </view>
+    </view> -->
+  </view>
+  <!-- 
+  <view class='btnWrapper'>
+    <button class="weui-btn" hover-class="btn-hover"  type="primary">确定</button>
+  </view> -->
+</view>
+
+
+
+<!--tab对应的内容8 上课/教案-->
+<view class='tab8content' wx:if='{{selectedTabIndex==7&&tab8Data.loaded}}'>
+  <view class='top' style='display:{{tab8Data.classesHour.theWay==1?"none":""}}'>
+    <view bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/clshouer_edit_sub/clshouer_edit_sub' data-d='{{tab8Data}}' data-teachFromType='0'>
+      <image src='/imgs/kechengbiao/img2_14.png'></image>
+      <text>班级教案</text>
+    </view>
+  </view>
+  <view class='noData' wx:if='{{selectedTabIndex==7&&(!tab8Data.students||tab8Data.students.length==0)}}'>
+    <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+  </view>
+  <view class='listItem header' wx:if='{{tab8Data.students && tab8Data.students.length>0}}'>
+    <view>姓名</view>
+    <view>教案</view>
+    <view wx:if='{{tab8Data.classesHour.theWay==1}}'>操作</view>
+  </view>
+
+  <view class='listItem' wx:for='{{tab8Data.students}}' wx:key='*this'>
+    <view>{{item.studentName}}</view>
+    <view>
+      <view wx:if='{{tab8Data.classesHour.theWay==0}}'>{{tab8Data.classesHour.title||"未绑定教案"}}</view>
+      <view wx:if='{{tab8Data.classesHour.theWay==1}}'>{{item.title||"未绑定教案"}}</view>
+    </view>
+    <view class='operations' wx:if='{{tab8Data.classesHour.theWay==1}}'>
+      <view class='operation' wx:if='{{item.classesHourTeachId}}' bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/teach_detail/teach_detail' data-d='{{tab8Data}}' data-index='{{index}}' data-teachFromType='0'>查看</view>
+      <view class='operation' wx:if='{{item.classesHourTeachId}}' bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/clshouer_edit_sub/clshouer_edit_sub' data-d='{{tab8Data}}' data-index='{{index}}' data-teachFromType='0'>修改</view>
+      <view class='operation' wx:if='{{!item.classesHourTeachId}}' bindtap='navigateTo' data-url='/pages/kechengbiao/course_detail/clshouer_edit_sub/clshouer_edit_sub' data-d='{{tab8Data}}' data-index='{{index}}' data-teachFromType='0'>添加教案</view>
+      <picker range='{{["未结课","已结"]}}' wx:if='{{false&&item.classesHourTeachId}}'>
+        <view>未结课
+          <image src='/imgs/trangle.png' style='width:20rpx;height:16rpx'></image>
+        </view>
+      </picker>
+    </view>
+  </view>
+</view>

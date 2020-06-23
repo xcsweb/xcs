@@ -1,0 +1,266 @@
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+.weui-search-bar__cancel-btn{
+  font-size: 17px;
+  color:#ac82ed;
+}
+.page__hd{
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+.page__hd_{
+  height: 50px;
+}
+.topBtnArea{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx;
+  background: #fafafa;
+  margin-top: -5px;
+  height: 30px;
+}
+.topBtnArea view{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 30px;
+}
+.topBtnArea .txt{
+  font-size:30rpx;
+}
+.topBtnArea button{
+  color: #666;
+  background: #fff;
+}
+.weui-search-bar{
+  border-bottom: none;
+}
+.footer{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background: #FF7547;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.footer view{
+  flex: 1;
+  text-align: center;
+  height: 90rpx;
+  font-size: 34rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer_{
+  height: 90rpx;
+}
+.listItem{
+  display: flex;
+  padding: 20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: white;
+  justify-content: center;
+  align-items: center;
+}
+.circleCheckbox{
+  padding: 10rpx;
+}
+.listItem .avatar{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 100rpx;
+  margin-right: 20rpx;
+}
+.listItem .body{
+  flex: 1;
+  font-size: 34rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 44rpx;
+}
+.listItem .body .name{
+  color: #333;
+}
+.listItem .body .position_{
+  font-size: 30rpx;
+  color: #FF7547;
+}
+.listItem .body .position{
+  font-size: 30rpx;
+  color: #666666;
+}
+.listItem .status{
+  width: 80rpx;
+  font-size: 30rpx;
+}
+
+.writeEvalArea {
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.writeEvalArea .writeEvalInner {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background: white;
+}
+
+.writeEvalArea .writeEvalInner .top {
+  display: flex;
+  padding: 20rpx;
+  font-size: 30rpx;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
+.writeEvalArea .writeEvalInner .top picker {
+  margin-left: 10rpx;
+  border: 1px solid #f1f1f1;
+  border-radius: 6rpx;
+  padding: 0rpx 10rpx;
+}
+.writeEvalArea .writeEvalInner .top picker view{
+  display: flex;
+  align-items:flex-start;
+}
+.writeEvalArea .writeEvalInner .top image {
+  width: 20rpx;
+  height: 10rpx;
+  margin-top: 20rpx;
+  margin-left: 5rpx;
+}
+.writeEvalArea .writeEvalInner .top button {
+  background-color: #fe8158;
+  color: white;
+}
+.writeEvalArea .writeEvalInner .center {
+  padding: 20rpx;
+  color: #333;
+  font-size: 34rpx;
+  padding-top: 0rpx;
+  padding-bottom: 0rpx;
+}
+
+.writeEvalArea .writeEvalInner .centerIner{
+  padding: 20rpx;
+  border: 1rpx solid #f1f1f1;
+}
+.writeEvalArea .writeEvalInner .centerIner textarea{
+  height: 100rpx;
+  padding: 0rpx;
+  width: 100%;
+}
+
+.writeEvalArea .writeEvalInner .bottom {
+  padding: 10rpx 30rpx;
+  color: #333;
+  font-size: 34rpx;
+  padding-top: 0rpx;
+}
+.writeEvalArea .checkbox-group .bottom{
+  display: inline-block;
+}
+.writeEvalArea checkbox .wx-checkbox-input{
+   width: 12px; /* 背景的宽 */
+   height: 12px; /* 背景的高 */
+   background: #E1E1E1;
+   margin-left: 5px;
+   overflow: hidden;
+}
+.writeEvalArea checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   color:#fff; /* 对勾颜色 白色 */
+   background: #09BB07;
+}
+.footer view:nth-child(1){
+  border-right: 1rpx solid #fff;
+}
+.footer view:nth-child(2){
+  border-right: 1rpx solid #fff;
+}
+.writeStopArea {
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.writeStopArea .writeStopInner {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  background: white;
+}
+
+.writeStopArea .writeStopInner .top {
+  display: flex;
+  padding: 20rpx;
+  font-size: 30rpx;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
+.writeStopArea .writeStopInner .top picker {
+  border: 1px solid #f1f1f1;
+  border-radius: 6rpx;
+  padding: 0rpx 10rpx;
+  width: 160rpx;
+}
+.writeStopArea .writeStopInner .top picker view{
+  display: flex;
+  align-items:flex-start;
+  font-size: 26rpx;
+}
+.writeStopArea .writeStopInner .top button {
+  background-color: #fe8158;
+  color: white;
+}
+.writeStopArea .writeStopInner .center {
+  padding: 20rpx;
+  color: #333;
+  font-size: 34rpx;
+  padding-top: 0rpx;
+  padding-bottom: 0rpx;
+}
+
+.writeStopArea .writeStopInner .centerIner{
+  padding: 10rpx;
+  border: 1rpx solid #f1f1f1;
+  margin-bottom: 20rpx;
+}
+.writeStopArea .writeStopInner .centerIner textarea{
+  height: 200rpx;
+  padding: 0rpx;
+  width: 100%;
+}
+
+.writeStopArea .writeStopInner .bottom {
+  padding: 10rpx 30rpx;
+  color: #333;
+  font-size: 34rpx;
+  padding-top: 0rpx;
+}

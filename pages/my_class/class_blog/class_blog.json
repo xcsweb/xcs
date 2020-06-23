@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "班级空间",
+  "usingComponents": {
+    "slider-left": "/components/slider-left/index"
+  }
+}

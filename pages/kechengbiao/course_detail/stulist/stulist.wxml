@@ -1,0 +1,37 @@
+<view wx:if='{{title=="预约学员"&&clshourStudent&&clshourStudent.length>0}}'>
+  <view class='listItem header'>
+    <view class='view'>姓名</view>
+    <view class='view'>电话</view>
+    <view class='view'>顺序</view>
+    <view class='view'>状态</view>
+    <view class='view'>操作</view>
+  </view>
+  <view class='listItem' wx:for='{{clshourStudent}}' wx:key='{{item.classesHourStudentId}}'>
+    <view class='view'>{{item.studentName}}</view>
+    <view class='view'>{{item.tel}}</view>
+    <view class='view'>{{index+1}}</view>
+    <view class='view'>预约成功</view>
+    <view class='view'>
+      <view class='btn' bindtap='undo_clshour' data-id='{{item.classesHourStudentId}}'>取消预约</view>
+    </view>
+  </view>
+</view>
+<view class='noData' wx:if="{{clshourStudent&&clshourStudent.length<1}}">
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view wx:if='{{title=="排队学员"&&clshourStudent&&clshourStudent.length>0}}'>
+  <view class='listItem listItem2 header'>
+    <view class='view'>姓名</view>
+    <view class='view'>电话</view>
+    <view class='view'>顺序</view>
+    <view class='view'>操作</view>
+  </view>
+  <view class='listItem listItem2' wx:for='{{clshourStudent}}' wx:key='{{item.classesHourStudentId}}'>
+    <view class='view'>{{item.studentName}}</view>
+    <view class='view'>{{item.tel}}</view>
+    <view>{{index+1}}</view>
+    <view class='view'>
+      <view class='btn' bindtap='change_regular_clshour' data-id='{{item.classesHourStudentId}}'>转为预约</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,28 @@
+/* pages/my_class/class_mess/class_messlist/class_measslist.wxss */
+.list{
+  margin-top: 20rpx;
+}
+.li{
+  position: relative;
+  padding: 20rpx;
+  background: #fff;
+  border-top: 1px solid #E6E6E6;
+}
+.li>text{
+  display: block;
+  font-size: 34rpx;
+  color: #333;
+}
+.li .num{
+  color: #a274fe;
+}
+.li .type{
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  font-size: 30rpx;
+  color: #999;
+}
+.li .type.false{
+  color: #fe8158;
+}

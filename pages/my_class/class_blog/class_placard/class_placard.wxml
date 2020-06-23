@@ -1,0 +1,8 @@
+<!--pages/my_class/class_blog/class_placard/class_placard.wxml-->
+<view class='placard_li' wx:for="{{data}}" wx:for-item="item" wx:key="item.classesNoticeId">
+  <view class='title'>
+    <text>标题：{{item.title}}</text>
+    <text>{{item.createDt}}</text>
+  </view>
+  <text class='content'>{{item.content}}</text>
+</view>

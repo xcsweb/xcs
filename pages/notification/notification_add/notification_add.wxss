@@ -1,0 +1,70 @@
+.weui-cells_after-title {
+  margin-top: 10px;
+}
+
+.weui-label {
+  font-size: 34rpx;
+  color: #333;
+}
+
+
+input, .weui-select_in-select-after,textarea,.weui-cell__bd {
+  font-size: 34rpx !important;
+  color: #333;
+}
+
+.weui-cell__ft image {
+  width: 25px;
+  height: 25px;
+  margin-top: 3px;
+}
+
+.cusTitle1 {
+  font-size: 17px;
+  color: #000;
+  padding-left: 15px;
+}
+
+
+checkbox .wx-checkbox-input {
+  width: 12px; /* 背景的宽 */
+  height: 12px; /* 背景的高 */
+  background: #e1e1e1;
+  margin-left: 5px;
+  overflow: hidden;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  color: #fff; /* 对勾颜色 白色 */
+  background: #09bb07;
+}
+
+.weui-cell__bd .tip {
+  display: inline-block;
+  font-size: 26rpx;
+  color: #cecece;
+}
+
+.paddingleft {
+  padding-left: 20px;
+}
+
+radio .wx-radio-input {
+  width: 12px; /* 背景的宽 */
+  height: 12px; /* 背景的高 */
+  background: #e1e1e1;
+  margin-left: 5px;
+  border-radius: 2px;
+}
+
+.btnWrapper {
+  padding: 15px;
+}
+
+.btnWrapper button {
+  background: #fe7446;
+}
+
+input {
+  font-size: 17px;
+}

@@ -1,0 +1,23 @@
+<!--pages/my_class/my_class.wxml-->
+<view class="_pageSearch">
+  <com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入班级名称' />
+</view>
+<view class='_pageList'>
+  <view class='list_body' data-classesId='{{li.classesId}}' bindtap='onGoto' wx:for="{{listData.rows}}" wx:for-item="li" wx:key="li.classesId">
+    <image src='{{li.logPic}}' class='cover'></image>
+    <view class='mess'>
+      <text class='classname'>{{li.classesName}}（{{li.stopClassStatus}}）</text>
+      <text>校区：{{li.campusName}}</text>
+      <!--
+      <text wx:if='{{li.periodType==0}}'>时间：长期</text>
+      <text wx:if='{{li.periodType==1}}'>时间：{{li.startDt}}-{{li.endDt}}</text>
+      -->
+      <text>地点：{{li.address}}</text>
+      <text>班主任：{{li.memberName}}</text>
+      <text wx:if="{{li.expectNum}}">学员：{{li.expectNum}}人</text>
+    </view>
+  </view>
+</view>
+<view class='noData' wx:if='{{!listData||listData.count==0}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

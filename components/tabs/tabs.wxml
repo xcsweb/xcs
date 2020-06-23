@@ -1,0 +1,5 @@
+<view class='tabs'>
+  <view class='tab' wx:for='{{tabs}}' style='color:{{i==index?selectedColor:normalColor}};width:{{tabWidth}};border-bottom:{{i<bottomIndex?"1px solid #eee":""}};margin-bottom:{{linegap}}rpx;' bindtap='_changeTab' data-tabIndex='{{i}}' wx:key="{{item}}" wx:for-index='i'>{{item}}
+    <view class='bottomBorder' style='background:{{i==index?selectedColor:normalColor}};opacity:{{i!=index?0:1}};width:{{tabBottomWidth}}'></view>
+  </view>
+</view>

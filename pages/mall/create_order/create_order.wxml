@@ -1,0 +1,37 @@
+<view class='line1'>
+  <view>{{name}}</view>
+  <view class='price'>{{val}}</view>
+</view>
+<view class='line2'>
+  学员姓名
+  <!-- <navigator url='../addperson/addperson'>
+    <view>请选择</view>
+  </navigator> -->
+  <view style='flex:1;'></view>
+  <com-picker style='color:#999;margin-left:20rpx;' range='{{member_stu}}' name='member_stu_index' bindchange='member_stu_index_change'></com-picker>
+  <image src='/imgs/student/img2_06.png'></image>
+</view>
+
+<view class='line2'>
+  物品所在校区
+  <!-- <com-picker range='{{member_stu}}' name='member_stu_index' style='flex:1;color:#999;margin-left:20rpx;' bindchange='member_stu_index_change'></com-picker> -->
+  <view style='flex:1;'></view>
+  <view style='color:{{campusName?"#333":"#ccc"}}'>{{campusName||"请选择"}}</view>
+  <!-- <text class="iconfont icon-arrow" style='color:#999;'></text> -->
+</view>
+
+<view class='line2'>
+  物品数量
+  <view style='flex:1;color:#999;margin-left:20rpx;'></view>
+  <view class='number'>
+    <view class='reduce' bindtap='reduce' style='color:{{number_==0?"#aaa":""}}'>-</view>
+    <view>{{number_}}</view>
+    <view class='add' bindtap='add' style='color:{{number_ == restrictNum?"#aaa":""}}'>+</view>
+  </view>
+</view>
+<view class='hint' wx:if='{{restrictNum>0}}'>备注：每人限购{{restrictNum}}件</view>
+
+
+<view class='btnWrapper'>
+  <button hover-class="btn-hover" bindtap='add_goods_order'>确定</button>
+</view>

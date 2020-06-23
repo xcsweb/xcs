@@ -1,0 +1,8 @@
+<view id='hh'>
+  <view wx:for="{{adviceinfo}}" wx:for-item="item" wx:key='{{item.recordId}}' class='main'>
+    测试项目：\t
+    <text>{{item.itemName}}</text>
+    <button size="mini" class='advicebutton' data-recordId="{{item.recordId}}" bindtap='lookAdvice'  data-index='{{index}}'>{{item.buttontext}}</button>
+      <!-- <button size="mini" class='advicebutton' data-recordId="{{item.recordId}}" bindtap='lookAdvice' wx:if="{{cord==1}}">查看方案</button> -->
+  </view>
+</view>

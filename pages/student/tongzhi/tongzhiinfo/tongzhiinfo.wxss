@@ -1,0 +1,98 @@
+page {
+  background-color: #f7f7f7;
+}
+
+.body {
+  height: 56rpx;
+  width: 100%;
+  font-size: 34rpx;
+  color: #323232;
+  background-color: #fff;
+  padding-left: 30rpx;
+  padding-bottom: 29rpx;
+  margin-top: 21rpx;
+  padding-right:30rpx;
+  box-sizing: border-box;
+}
+
+.infobutton {
+  background-color: #fda8a8;
+  color: #fff;
+  width: 88%;
+  position: absolute;
+  bottom: 15rpx;
+  left: 48rpx;
+  font-size: 34rpx;
+}
+
+.content {
+  border: 1rpx solid #e6e6e6;
+  border-radius: 4rpx;
+  background-color: #fff;
+  color: #999;
+  font-size: 34rpx;
+  padding-top: 15rpx;
+}
+
+.img1 {
+  /* position: absolute;
+  top: 786rpx; */
+  font-size: 34rpx;
+  margin-top: 20rpx;
+  color: #323232;
+  background-color: #fff;
+  padding-top: 33rpx;
+  padding-left: 30rpx;
+  padding-bottom: 29rpx;
+  width: 100%;
+}
+
+.infoImg {
+  bottom: -18rpx;
+  left: 24rpx;
+  position: relative;
+  width: 215rpx;
+  height: 163rpx;
+  border: 1px solid #e1e1e1;
+  margin-right: 19rpx;
+  background-color: #f4f4f4;
+}
+.attachments {
+  margin-top: 10px;
+  background: white;
+  padding: 15px;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.attachments .title {
+  white-space: nowrap;
+  color: #333;
+  font-size: 34rpx;
+}
+.attachmentRow{
+  display: flex;
+  flex-wrap: wrap;
+}
+.attachments .attachment{
+  width: 30%;
+  height: 160rpx;
+  border: 1px solid #E0E0E0;
+  background: #f4f4f4;
+  display: inline-block;
+  margin-right: 15px;
+  text-align: center;
+  margin-top: 15px;
+  position: relative;
+}
+.attachments .attachment .videoflag{
+  width: 14px;
+  height: 20px;
+  top: 70rpx;
+  position: absolute;
+  left: 40%;
+}
+.attachments .attachment .prev{
+  width: 100%;
+  height: 160rpx;
+  object-fit:  cover;
+}

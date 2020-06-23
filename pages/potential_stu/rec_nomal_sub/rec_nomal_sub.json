@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "转正式学员",
+  "usingComponents": {
+    "com-input": "/components/smartInput/smartInput",
+    "com-multichoice": "/components/multichoice/multichoice"
+  }
+}

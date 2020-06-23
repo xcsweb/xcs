@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "通知详情",
+  "navigationBarBackgroundColor": "#78A6FF",
+  "usingComponents": {
+    "com-attachments": "/components/attachments/attachments"
+  }
+}

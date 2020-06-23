@@ -1,0 +1,30 @@
+<!--pages/login/login.wxml-->
+<view>
+<image class='backIcon' src='/imgs/back.png' bindtap='back'></image>
+<view class="formContainer">
+<view class='title'>
+<image class='titleIcon' src='/imgs/login/login_phone.png'></image>
+注册手机
+</view>
+<view class='inputContainer'>
+<input placeholder='请输入手机号' placeholder-style='color:#e5e5e5;' bindinput ="bindinput" data-name='tel'></input>
+</view>
+<view class='title'>
+<image class='titleIcon' src='/imgs/pwd.png' style='width:25px;'></image>
+验证码
+</view>
+<view class='inputContainer'>
+<input placeholder='请输入验证码' placeholder-style='color:#e5e5e5;' bindinput ="bindinput" data-name='verifyCode'></input>
+<view class='vercodeBtn' bindtap='send_tel_code'>{{txt}}</view>
+</view>
+
+<view class='title'>
+<image class='titleIcon' src='/imgs/login/login_pwd.png'></image>
+密码
+</view>
+<view class='inputContainer'>
+<input placeholder='请输入密码' type='password' placeholder-style='color:#e5e5e5;' bindinput ="bindinput" data-name='password'></input>
+</view>
+</view>
+<view class="buttonSubmit" bindtap='forget_pwd_sub'>提交</view>
+</view>

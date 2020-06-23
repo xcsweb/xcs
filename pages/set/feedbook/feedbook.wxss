@@ -1,0 +1,19 @@
+/* pages/set/feedbook/feedbook.wxss */
+.list{
+  margin: 20rpx 0;
+  background: #fff;
+}
+.li{
+  display: flex;
+  align-items: center;
+  padding: 30rpx 40rpx;
+  font-size: 34rpx;
+  line-height: 1;
+  color: #333;
+  border-bottom: 1px solid #F8F8F8;
+}
+.btn_down{
+  margin: 60rpx 30rpx 0 30rpx;
+  background: #FE8359;
+  color: #fff;
+}

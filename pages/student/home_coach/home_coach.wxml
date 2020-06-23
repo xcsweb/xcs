@@ -1,0 +1,2 @@
+<!--pages/home_coach.wxml-->
+<web-view src='{{src}}'></web-view>

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "学员详情",
+    "usingComponents": {
+      "com-multichoice": "/components/multichoice/multichoice",
+      "com-sliding-listitem": "/components/slidingListItem/slidingListItem",
+      "com-picker": "/components/smartPicker/smartPicker",
+      "com-input": "/components/smartInput/smartInput",
+      "com-parent": "/components/parent/parent",
+      "com-msgsender": "/components/msgsender/msgsender"
+    }
+}

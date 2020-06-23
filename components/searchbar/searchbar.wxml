@@ -1,0 +1,20 @@
+<view class="weui-search-bar">
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="{{placeholder}}" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="_inputTyping" placeholder-style='color:#ccc;'/>
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="_clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
+    </view>
+    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="_showInput">
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <view class="weui-search-bar__text">{{placeholder}}</view>
+    </label>
+  </view>
+  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="_hideInput">取消</view>
+  <view class="btn1" bindtap='_showFilter' wx:if='{{filter&&!inputShowed}}'>
+    {{filterText}}
+    <image src='/imgs/trangle.png' style='width:25rpx;height:15rpx' mode='aspectFill' hidden="{{filterimg}}"></image>
+  </view>
+</view>

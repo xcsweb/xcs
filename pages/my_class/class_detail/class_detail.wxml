@@ -1,0 +1,112 @@
+<!--pages/my_class/class_detail/class_detail.wxml-->
+<!-- <view class='header'>
+  <view class='mess' wx:for="{{clsTimeVos}}" wx:for-item="item" wx:key="item.classesTimeId" hidden='{{index !=0&&clsTimeHidden}}'>
+    <view class='time'>
+      <view>
+        <text>上课时间：{{item.time}}</text>
+        <text>上课地点：{{item.field}}</text>
+      </view>
+      <text class='more' bindtap='moreTime' wx:if="{{index == 0&&clsTimeHidden}}">更多</text>
+      <text class='more' bindtap='moreTime' wx:if="{{index == clsTimeLen-1&&!clsTimeHidden}}">收起</text>
+    </view>
+    <text class='type'>正常</text>
+  </view>
+</view> -->
+<view class='brife'>
+  <image src='{{classesInfo.logPic}}' bindtap='changeAvatar' class='logo'></image>
+  <view class='content'>
+    <view class='titleArea'>
+      <view class='title'>{{classesInfo.name}}</view>
+      <view class='operator' bindtap='stopClass' hidden='{{classesInfo.classState==1}}'>停课</view>
+    </view>
+    <view class='address' wx:if='{{classesInfo.address}}'>班级地点：{{classesInfo.address}}</view>
+    <view class='status'>状态：{{classesInfo.classStateStr}}</view>
+    <!--
+    <view class='toClassPlace' bindtap='blogClass'>进入班级空间></view>
+    -->
+  </view>
+</view>
+<picker range='{{classesTimeInfo}}' range-key='weekStr' bindchange='classesTimeChange'>
+  <view class='recent'>
+    <view>最近排课： {{classesTimeInfo[classesTimeIndex||0].weekStr}}</view>
+    <view class='viewall'>查看></view>
+  </view>
+</picker>
+<com-tabs tabs='{{["教练/老师","学员"]}}' bindchange='tabchange' bottomIndex='0' tabWidth='50%'>
+</com-tabs>
+<view class='divider'></view>
+<view class='btn_list' hidden='{{tabIndex==0||!studentInfo||studentInfo.length==0}}'>
+  <view>
+    <checkbox wx:if='{{!stuCheckboxHidden2}}' class='circleCheckbox' bindtap='checkall2' checked='{{stuCheckAll2}}'></checkbox>
+    <button bindtap='checkboxclick2'>勾选</button>
+  </view>
+</view>
+<!--老师列表-->
+<view class='list' hidden='{{tabIndex==1}}'>
+  <checkbox-group bindchange="checkchange1">
+    <view class='body' wx:for="{{teacherInfo}}" wx:for-item="item" wx:key="item.memberId">
+      <slider-left openWidth='0' bg='#f7f7f7' data-index='{{item.studentId}}' bind:delete="handleDelete">
+        <checkbox value='{{item.memberId}}' hidden='{{stuCheckboxHidden1}}' class='circleCheckbox' checked='{{stuCheckAll1}}'></checkbox>
+        <image src="{{item.headpic}}" class='avatar'></image>
+        <text>{{item.name}}</text>
+        <text>{{item.tel}}</text>
+        <text>{{item.startTime+'-'+item.endTime}}</text>
+      </slider-left>
+    </view>
+  </checkbox-group>
+</view>
+
+
+<view class='noData' wx:if='{{tabIndex==1&&(!studentInfo||studentInfo.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<!--学生列表-->
+<view class='list' hidden='{{tabIndex==0}}'>
+  <checkbox-group bindchange="checkchange2">
+    <view class='body' wx:for="{{studentInfo}}" wx:for-item="item" wx:key="item.classesStudentId">
+      <slider-left bg='#f7f7f7' data-index='{{item.studentId}}' bind:delete="handleDelete">
+        <checkbox value='{{item.classesStudentId}}' hidden='{{stuCheckboxHidden2}}' class='circleCheckbox' checked='{{stuCheckAll2}}'></checkbox>
+        <view class='avatarWrapper'>
+          <image src="{{item.headpic}}" class='avatar' bindtap='stuDetail' data-id='{{item.studentId}}' data-name='{{item.name}}'></image>
+          <view class='name'>{{item.name}}</view>
+        </view>
+        <view class='stuInfo'>
+          <view>
+            <picker bindchange='change_classes_student_course' data-index='{{index}}'  range='{{item.stuCourseVos}}' range-key='courseName' value='{{item.studentCourseIndex}}' disabled='{{item.stuCourseVos.length>1?false:true}}'>学员卡：
+            <text style='color:{{item.stuCourseVos.length>1?"#FF7547":""}}'>{{item.studentCourseName}}</text></picker>
+          </view>
+          <view wx:if="{{item.chargeType!=3}}">余额：{{item.balance+item.codeDisplay}}</view>
+          <view wx:if="{{item.chargeType==3}}"></view>
+          <view>到期时间：{{item.endDt}}</view>
+        </view>
+      </slider-left>
+    </view>
+  </checkbox-group>
+</view>
+
+
+<view style='padding-bottom:100rpx;' wx:if='{{tabIndex==1}}'></view>
+<view class='down_bar' wx:if='{{tabIndex==1}}'>
+  <text bindtap='messClass'>发送短信</text>
+  <text bindtap='editClass'>批量扣课</text>
+  <text bindtap='addStu'>添加学员</text>
+</view>
+
+<modal title="扣课详情" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="onmodalConfirm" bindcancel="onmodalCancel">
+  <view class='modal_input'>
+    <text>课时</text>
+    <input placeholder='必填' data-dataname='edittime' bindinput="bindKeyInput"></input>
+  </view>
+  <view class='modal_input'>
+    <text>课次</text>
+    <input placeholder='必填' data-dataname='editnums' bindinput="bindKeyInput"></input>
+  </view>
+  <view class='modal_input'>
+    <text>储值卡</text>
+    <input placeholder='必填' data-dataname='editcard' bindinput="bindKeyInput"></input>
+  </view>
+  <view class='modal_input textarea'>
+    <text>备注</text>
+    <textarea data-dataname='editremark' bindinput="bindKeyInput"></textarea>
+  </view>
+</modal>

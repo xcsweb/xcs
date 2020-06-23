@@ -1,0 +1,201 @@
+/*本页面样式直接复制notification_addperson和notification页面样式  未做多修改*/
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+    background: white;
+}
+.weui-search-bar__cancel-btn{
+  font-size: 17px;
+  color:#ac82ed;
+}
+.page__hd{
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+.page__hd_{
+  height: 50px;
+}
+.topBtnArea{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  padding-top: 15px;
+  background: #F9F9F9;
+  margin-top: -5px;
+  height: 30px;
+}
+.topBtnArea button{
+  color: #666;
+}
+.weui-search-bar{
+  border-bottom: none;
+}
+/*tab*/
+.cusTabs{
+  display: flex;
+  background: white;
+  justify-content: space-around;
+  align-items: center;
+}
+.cusTabs .tab{
+  text-align: center;
+  font-size: 17px;
+  padding: 0px 40px;
+}
+.cusTabs .indicator{
+  width: 20px;
+  height: 1px;
+  background: #222;
+  margin: 0 auto;
+}
+/*筛选*/
+.filterArea{
+  border-top: 1px solid #F1F1F1;
+  color: #000000;
+  font-size: 17px;
+  white-space: nowrap;
+  background: white;
+  text-overflow: ellipsis;
+  padding-bottom: 20px;
+}
+.filterArea .filterItems{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.filterArea  .filterItem{
+  flex: 33%;
+  padding: 8px 0px;
+  max-width: 33.3%;
+}
+.filterArea .filterBtns{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+.filterArea .filterBtns .weui-btn{
+  font-size: 17px;
+  color:#333;
+}
+.filterArea .filterBtns view{
+  width: 40%;
+}
+.filterArea .filterItem{
+  font-size: 17px;
+  color: #666;
+}
+.filterArea .filterItem:nth-child(3n){
+  border-bottom: 1px solid #F1F1F1;
+}
+.filterArea .filterItem:nth-child(3n-1){
+  border-right: 1px solid #F1F1F1;
+  border-bottom: 1px solid #F1F1F1;
+}
+.filterArea .filterItem:nth-child(3n-2){
+  border-right: 1px solid #F1F1F1;
+  border-bottom: 1px solid #F1F1F1;
+}
+/*列表*/
+.list_item{
+  display: flex;
+  align-items: center;
+  padding: 8px 0px;
+  background: white;
+  border-bottom: 1px solid #F1F1F1;
+}
+.list_item .main{
+  flex:70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  margin-left: 15px;
+  color: #333333;
+}
+.list_item .main text{
+  white-space: nowrap;
+}
+.list_item .status{
+  flex:30%;
+  text-align: center;
+  font-size: 14px;
+}
+.list_item .status view{
+  text-align: right;
+  padding-right: 20px;
+}
+.list_item .status .new{
+  color: #fe8158;
+}
+.list_item .status .readed{
+  color: #999999;
+}
+.list_item .status .unconfirm{
+  color: #66ccff;
+}
+checkbox .wx-checkbox-input{
+   border-radius: 100px;
+   overflow: hidden;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+   border: 1px solid #FF7547;
+
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+   color:#FF7547; /* 对勾颜色 白色 */
+   text-align: center;
+}
+.weui-cells{
+  margin-top: 10px;
+}
+.weui-cell__ft_in-access{
+  width: 50px;
+  display: inline-block;
+  min-width: 50px;
+  height: 30px;
+  min-height: 30px;
+}
+.footer{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background: white;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  justify-content: space-around;
+}
+.footer button{
+  width: 70%;
+  margin-top: -2px;
+}
+.position{
+  color: #666;
+  font-size: 17px;
+  padding-left: 40px;
+  background: #F3F3F7;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.weui-cells:last-child{
+  margin-bottom: 100px;
+}
+.studentName{
+  font-size: 34rpx;
+  color: #333;
+}
+.studentName text{
+  color: #FE8158;
+}
+.desc{
+  font-size: 34rpx;
+  color: #666;
+}

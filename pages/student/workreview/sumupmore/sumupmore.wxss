@@ -1,0 +1,92 @@
+/* pages/student/workreview/sumupmore/sumupmore.wxss */
+.mess{
+  margin: 20rpx 0;
+  padding: 20rpx;
+  background: #fff;
+  font-size: 34rpx;
+  color: #333;
+}
+.mess text{
+  display: block;
+}
+.mess .body{
+  margin: 20rpx 0;
+  border: 1px solid #f7f7f7;
+  padding: 20rpx;
+}
+.img_list{
+  display: flex;
+
+}
+.img_list image{
+  margin-right: 20rpx;
+  width: 216rpx;
+  height: 164rpx;
+  background: #f7f7f7;
+  border: 1px solid #efefef;
+}
+.star_list{
+  padding: 25rpx 30rpx;
+  background: #fff;
+  font-size: 34rpx;
+}
+.star_li{
+  display: flex;
+  align-items: center;
+}
+.star_li image{
+  width: 25rpx;
+  height: 24rpx;
+}
+.dianping{
+  padding: 20rpx;
+  background: #fff;
+}
+.dianping .h1{
+  display: block;
+  text-align: center;
+}
+.dianping textarea{
+  border: 1px solid #efefef;
+}
+.btn_down{
+  margin: 30rpx;
+  background: #FCAFB0;
+  color: #fff;
+}
+.body .body_more {
+  display: flex;
+  flex-wrap: wrap;
+}
+.attachment{
+  width: 30%;
+  height: 160rpx;
+  border: 1px solid #E0E0E0;
+  background: #f4f4f4;
+  display: inline-block;
+  margin-right: 8px;
+  text-align: center;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+}
+.attachment .prev{
+  width: 216rpx;
+  height: 164rpx;
+  object-fit:  cover;
+  margin-right: 20rpx;
+  background: #fff;
+  border: 1px solid #efefef;
+}
+.attachment .videoflag{
+  width: 14px;
+  height: 20px;
+  top: 70rpx;
+  position: absolute;
+  left: 45%;
+}
+textarea{
+  color: #666;
+  font-weight: normal;
+  width: 100%;
+}

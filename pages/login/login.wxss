@@ -1,0 +1,62 @@
+/* pages/login/login.wxss */
+
+.logo {
+  margin: 54rpx 0 26rpx 0;
+  text-align: center;
+}
+
+.logo image {
+  width: 202rpx;
+  height: 162rpx;
+}
+
+.title {
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 45rpx;
+}
+
+.input_list {
+  padding: 45rpx 90rpx;
+}
+
+.input_list text {
+  display: block;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-size: 60rpx 60rpx;
+  background-repeat: no-repeat;
+  padding-left: 70rpx;
+  margin-bottom: 30rpx;
+  color: #333;
+  font-size: 34rpx;
+}
+
+.input_list input {
+  border-bottom: 1px solid #d6d6d6;
+  color: #666;
+  font-size: 30rpx;
+}
+.input_list .text_place{
+  color: #e5e5e5;
+}
+.froget_pwd {
+  display: block;
+  float: right;
+  margin-right: 90rpx;
+  font-size: 30rpx;
+  color: #999;
+  border-bottom: 1px solid #999;
+  margin-bottom: 82rpx;
+}
+.sub{
+  font-size: 36rpx;
+  font-weight: 500;
+  margin: 0 28px;
+  background: #FF8359;
+  color: #fff;
+  margin-top:27px;
+
+}

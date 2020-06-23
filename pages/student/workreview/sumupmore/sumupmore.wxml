@@ -1,0 +1,34 @@
+<!--pages/student/workreview/sumupmore/sumupmore.wxml-->
+<view class='mess'>
+  <text wx:if='{{title!=""}}'>标题：{{title}}</text>
+  <text>教练/老师：{{teacherName}}</text>
+  <text>时间：{{followDt}}</text>
+  <text>内容：</text>
+  <view class='body'>
+    <text class='stitle'>{{des}}</text>
+    <view class='body_more'>
+      <view class='attachment' wx:for='{{imgfiles}}' wx:key='*this' bindtap='viewAttachment' data-attachment='{{item}}'>
+        <image src='{{img_url+item}}' class='prev' mode='aspectFill' wx:if='{{item!=""}}'></image>
+      </view>
+      <view class='attachment' wx:for='{{vodfiles}}' wx:key='*this' bindtap='viewAttachment' data-attachment='{{item}}' data-video='1'>
+        <image src='/imgs/video.png' class='videoflag'></image>
+        <image src='{{vod_url+item+"?vframe/jpg/offset/1/w/640/h/360"}}' class='prev' mode='aspectFill'></image>
+      </view>
+    </view>
+  </view>
+  <text>总结人：{{teacherName}}</text>
+  <text>总结时间：{{followDt}}</text>
+</view>
+
+<view class='dianping'>
+  <text class='h1'>我要点评</text>
+  <view class='star_list'>
+    <text>评星：</text>
+    <view class='star_li'>
+      <com-rating bindchange='rating' rating='{{performance}}' disabled='{{startype}}' />
+    </view>
+  </view>
+  <textarea bindinput='evaluate' disabled="{{startype}}" value='{{evaluate}}' placeholder='编辑点评内容'></textarea>
+</view>
+
+<button class='btn_down' bindtap='sub_pinglun' hidden="{{startype}}">保存</button>

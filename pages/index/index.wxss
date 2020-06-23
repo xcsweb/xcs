@@ -1,0 +1,137 @@
+/**index.wxss**/
+.body {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 140%;
+}
+
+.logo {
+  padding-top: 10rpx;
+  text-align: center;
+}
+
+.logo image {
+  width: 154rpx;
+  height: 154rpx;
+  border-radius: 50%;
+}
+
+.title {
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.notice {
+  text-align: center;
+  margin-bottom: 15rpx;
+}
+
+.notice text {
+  color: #666;
+  font-size: 24rpx;
+  margin: 0 100rpx;
+  background: #fff;
+  padding: 10rpx 20rpx 10rpx 50rpx;
+  border: 1px solid #fff;
+  border-radius: 50rpx;
+  background-repeat: no-repeat;
+  background-size: 31rpx 27rpx;
+  background-position: 15rpx 50%;
+}
+
+.hid{
+  display: none;
+}
+
+.mod_list {
+  margin: 20rpx;
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 30rpx;
+  border: 1px solid #ECECEF;
+}
+
+.mod_list .mod_title {
+  font-size: 34rpx;
+  border-left: 5rpx solid #000;
+  padding-left: 15rpx;
+  margin-left: 25rpx;
+}
+.mod_list .mod_li{
+  width: 33%;
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10rpx 0;
+}
+.mod_list .mod_li image {
+  margin: 0 auto;
+  width: 80rpx;
+  height: 80rpx;
+}
+.mod_list .mod_li text{
+  font-size: 30rpx;
+  color: #666;
+}
+.mod_list .hid{
+  display: none;
+}
+.rankingWrapper{
+  padding: 60rpx 80rpx 60rpx 80rpx;
+}
+.rankingInner{
+  display: flex;
+  align-items: center;
+  height: 70rpx;
+  background: #F8CB51;
+  box-shadow: 0px 1px 2px #3E0093;
+  border-radius: 100px;
+}
+.leftRound{
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+  background: white;
+  border-radius: 100%;
+  box-shadow: 0px 3px 1px #3E0093;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.leftRound .rankingNum{
+  font-size: 48rpx;
+  color: red;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 50rpx;
+  overflow: hidden;
+}
+.leftRound .rankingNoNum{
+  font-size: 34rpx;
+  color: red;
+  text-align: center;
+  white-space: nowrap;
+  line-height: 50rpx;
+  overflow: hidden;
+}
+.leftRound .rankingNumDesc{
+  color: #333;
+  text-align: center;
+  line-height: 26rpx;
+  font-size: 24rpx;
+}
+.rankingChange{
+  font-size: 30rpx;
+  color: #790bec;
+}
+.rankingData{
+  color: #333;
+  flex: 1;
+  text-align: right;
+  font-size: 30rpx;
+  padding-right: 20rpx;
+}

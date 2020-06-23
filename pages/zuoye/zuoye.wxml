@@ -1,0 +1,15 @@
+<!--pages/zuoye/zuoye.wxml-->
+<com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话' />
+<view class='noData' wx:if='{{!list||list.length==0}}'>
+  <com-imager src='common/nodata.png' mode='aspectFit' binderror='imgError'></com-imager>
+</view>
+<view class='list' bindtap='toDetail' wx:for="{{list}}" data-id='{{item.studentTaskCompleteId}}' wx:for-item="item" wx:key="*this" >
+  <com-imager src='{{item.avatar}}' classs='avatar' binderror='imgError'></com-imager>
+  <view class='mess' >
+    <text class='name'>{{item.studentName}}</text>
+    <text>{{item.title}}</text>
+    <text class='text'>{{item.createDt}}</text>
+  </view>
+    <text class='type' wx:if="{{item.isApprove=='1'}}">已点评</text>
+  <text class='type on' wx:elif="{{item.isApprove=='0' }}">未点评</text>
+</view>

@@ -1,0 +1,17 @@
+<view class='info'>
+  <view>学员：{{studentName}}</view>
+  <view style='flex:1;'></view>
+  <navigator url='/pages/mall/score_records/score_records?studentId={{studentId}}&studentName={{studentName}}'><button>积分记录</button></navigator>
+</view>
+
+<view class='inputs'>
+  <view>减少积分</view>
+  <com-picker style='max-width:333rpx' range='{{post_score}}' key='name' name='post_score_index' arrow='1' placeholder='自定义' bindchange='post_score_index_change'></com-picker>
+  <com-input type='number' value='{{score}}' placeholder='输入积分' name='score'></com-input>
+</view>
+<view class='textarea'>
+  <com-input textarea='1' placeholder='减少积分说明' name='remark'></com-input>
+</view>
+<view class='btnWrapper'>
+<button hover-class="btn-hover" bindtap='score_sub'>确定</button>
+</view>

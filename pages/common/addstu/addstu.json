@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "添加",
+  "usingComponents": {
+    "com-searchfilter": "/components/searchfilter/index",
+    "com-imager": "/components/imager/imager"
+  }
+}

@@ -1,0 +1,111 @@
+<view class='videoContainer' wx:if='{{showVideo}}'>
+  <view class='close' catchtap='closeVideo'>关闭</view>
+  <video src="{{videoSrc}}" controls autoplay='true'></video>
+</view>
+<view class='teach_course_select_area' wx:if='{{teach_task_select_show}}'>
+  <view class='content'>
+    <view class='top_'>
+      <view class='title' wx:if='{{dataset.teachfromtype==1}}'>更改作业</view>
+      <view class='title' wx:if='{{dataset.teachfromtype==0}}'>更改教案</view>
+      <view class='selectline'>
+        更改版本
+        <picker range='{{teachModels}}' value='{{teachModelsIndex}}' range-key='name' bindchange="bindPickerChange" data-name='teachModelId' data-name_='teachModelsIndex'>
+          <view>{{teachModels[teachModelsIndex].name}}
+            <image src='/imgs/trangle.png' style='width:20rpx;height:16rpx'></image>
+          </view>
+        </picker>
+      </view>
+      <view class='selectline'>
+        <text wx:if='{{dataset.teachfromtype==1}}'>更改作业等级</text>
+        <text wx:if='{{dataset.teachfromtype==0}}'>更改教案等级</text>
+        <picker range='{{teachLabels}}' value='{{teachLabelsIndex}}' range-key='name' bindchange="bindPickerChange" data-name='teachLabelId' data-name_='teachLabelsIndex'>
+          <view>{{teachLabels[teachLabelsIndex].name}}
+            <image src='/imgs/trangle.png' style='width:20rpx;height:16rpx'></image>
+          </view>
+        </picker>
+      </view>
+      <view class='selectline' wx:if='{{dataset.teachfromtype==1}}'>
+        更改具体作业
+        <picker range='{{teachTasks}}' value='{{teachTasksIndex}}' range-key='title' bindchange="bindPickerChange" data-name='teachTaskId' data-name_='teachTasksIndex'>
+          <view>{{teachTasks[teachTasksIndex].title}}
+            <image src='/imgs/trangle.png' style='width:20rpx;height:16rpx;'></image>
+          </view>
+        </picker>
+      </view>
+      
+      <view class='selectline' wx:if='{{dataset.teachfromtype==0}}'>
+        更改具体教案
+        <picker range='{{teachCourses}}' value='{{teachCoursesIndex}}' range-key='title' bindchange="bindPickerChange" data-name='teachCourseId' data-name_='teachCoursesIndex'>
+          <view>{{teachCourses[teachCoursesIndex].title}}
+            <image src='/imgs/trangle.png' style='width:20rpx;height:16rpx;'></image>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='btns'>
+      <view catchtap='teach_term_select_taped' data-index='0'>取消</view>
+      <view catchtap='teach_term_select_taped' data-index='1'>确定</view>
+    </view>
+  </view>
+</view>
+<view class='teach_content'>
+  <view class='divider'></view>
+  <view style='padding:20rpx 30rpx;overflow:hidden;z-index:11'>
+    <view class='label'>标题：</view>
+    <input bindinput='bindinput' data-name='title' value='{{title}}' disabled='{{isModify==0}}'></input>
+    <view class='label'>内容：</view>
+    <view style='display:flex;'>
+      <textarea style='flex:1;' wx-if='{{!teach_task_select_show}}' bindinput='bindinput' value='{{content}}' data-name='content' wx:if='{{isModify==1}}'></textarea>
+      <rich-text nodes='{{content}}' wx:if='{{isModify==0}}'></rich-text>
+    </view>
+    <view class='label' wx:if='{{isModify==1}}'>上传图片：</view>
+    <view class='imgs'>
+      <view class='addImg' wx:if='{{isModify==1}}' bindtap='addImage'>
+        <image src='/imgs/kechengbiao/add.png' class='addIcon'></image>
+      </view>
+      <view class='imgWrapper' wx:for='{{attachments}}' wx:key='{{item.key}}' wx:if='{{!item.video}}'>
+        <image src='{{item.img}}' bindtap='viewAttachment' class='img' data-attachment='{{item}}'></image>
+        <view class='delete' catchtap='delete' wx:if='{{isModify==1}}' data-index='{{index}}'>
+          <text class="iconfont icon-delete1"></text>
+        </view>
+      </view>
+    </view>
+    <view class='label' wx:if='{{isModify==1}}'>上传视频：</view>
+    <view class='imgs'>
+      <view class='addImg' bindtap='addVideo'  wx:if='{{isModify==1}}'>
+        <image src='/imgs/kechengbiao/add.png' class='addIcon'></image>
+      </view>
+      <view class='imgWrapper' wx:for='{{attachments}}' wx:key='{{item.key}}' wx:if='{{item.video}}'>
+        <image src='{{item.img}}' bindtap='viewAttachment' class='img' data-attachment='{{item}}'></image>
+        <view class='delete' catchtap='delete' wx:if='{{isModify==1}}' data-index='{{index}}'>
+          <text class="iconfont icon-delete1"></text>
+        </view>
+      </view>
+    </view>
+    <view class='label'>选择运动项目：<image src='/imgs/kechengbiao/img2_06.png' style='width:40rpx;height:40rpx' wx:if='{{isModify==1}}' bindtap='addTeach_term_select'></image></view>
+    <view style='display:flex;align-items:center;margin-top:6rpx;' wx:for='{{teach_term_select_data}}' wx:key='*this' wx:for-index='index2'>
+      <picker disabled='{{isModify==0}}' bindchange="bindPickerChange2" value="{{index}}" data-index='{{index2}}' range="{{teach_term_select}}" range-key='name'>
+        <view class="picker"> 
+          {{teach_term_select[teach_term_select_data[index2].index].name||"aa"}}
+          <image src='/imgs/trangle.png' style='width:20rpx;height:16rpx'></image>
+        </view>
+      </picker>
+      <view class='label' style='margin:0px;'>数量：</view>
+      <input class='smallInput' placeholder='教学要求次数' type='number' bindinput='bindinput' data-teach_term_select_data='{{index2}}' value='{{teach_term_select_data[index2].val}}' disabled='{{isModify==0}}'></input>
+      <image src='/imgs/common/remove.png' style='width:40rpx;height:40rpx' bindtap='removeTeach_term_select'  wx:if='{{isModify==1}}' data-teach_term_select_data='{{index2}}'></image>
+    </view>
+  </view>
+  <view class='divider'></view>
+  <view style='padding:20rpx 30rpx 120rpx 30rpx;overflow:hidden;'>
+    <view class='label' wx:if='{{dataset.teachfromtype!=0}}'>作业补充：</view>
+    <view class='label' wx:if='{{dataset.teachfromtype==0}}'>教案补充：</view>
+    <view style='display:flex;'>
+      <textarea style='flex:1;' wx-if='{{!teach_task_select_show}}' bindinput='bindinput' value='{{supply}}' data-name='supply'></textarea>
+    </view>
+  </view>
+  <view class='footer'>
+    <view catchtap='teach_task_select_show'>更改{{dataset.teachfromtype==1?"作业":"教案"}}</view>
+    <view catchtap='clshour_teach_edit_sub'>提交</view>
+    <view catchtap='reset'>重置{{dataset.teachfromtype==1?"作业":"教案"}}</view>
+  </view>
+</view>

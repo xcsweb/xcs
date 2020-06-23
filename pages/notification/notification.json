@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "通知提醒",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "com-searchbar":"/components/searchbar/searchbar"
+  }
+}

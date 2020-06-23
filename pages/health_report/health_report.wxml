@@ -1,0 +1,16 @@
+<com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话' />
+<view class='listItem' wx:for='{{list}}' wx:key='*.this'>
+  <image src='{{item.avatar}}' class='avatar' data-index='{{index}}' binderror='errorImg'></image>
+  <view class='body' bindtap='toDetail' data-id='{{item.studentId}}'>
+    <text class='name'>{{item.studentName}}<text class='position' wx:if='{{item.saleName}}'>({{item.saleName}}销售)</text>
+    <text class='position_' wx:if='{{!item.saleName}}'>(未分配)</text></text>
+    <text>\n{{(item.campusName||'')}}<text style='margin-left:20rpx' wx:for='{{item.stuCourseVos}}'>{{item.courseName}}{{item.courseName}}{{item.courseName}}</text></text>
+  </view>
+  <view class='num'>
+    ({{item.reportHealthyNum}})
+  </view>
+</view>
+
+<view class='noData' wx:if='{{!list||list.length==0}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

@@ -1,0 +1,145 @@
+@charset "UTF-8";
+.logo {
+  background: white;
+  text-align: center;
+  padding: 30rpx;
+  padding-top: 40rpx; }
+  .logo image {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 100%;
+    background: #f1f1f1; }
+
+.innsDesc {
+  font-size: 34rpx;
+  color: #333;
+  background: white;
+  padding: 20rpx; }
+
+.campus {
+  padding: 20rpx;
+  background: white;
+  font-size: 34rpx;
+  color: #333;
+  margin-bottom: 20rpx; }
+  .campus image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx; }
+  .campus view {
+    display: flex;
+    align-items: center; }
+
+.swiper-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: unset; }
+
+.slide-image {
+  border-radius: 9rpx;
+  box-shadow: 0px 0px 20rpx rgba(0, 0, 0, 0.2);
+  margin: 0rpx 30rpx;
+  z-index: 1; }
+
+.active {
+  transform: scale(1.24);
+  transition: all .2s ease-in 0s;
+  z-index: 20; }
+
+swiper {
+  background: white;
+  height: 450rpx; }
+
+.teacherdetail {
+  margin: 0px 20rpx;
+  position: relative;
+  background: white;
+  box-shadow: 0px 0px 10rpx #ccc;
+  border-radius: 10rpx; }
+  .teacherdetail .arrow {
+    position: absolute;
+    width: 20rpx;
+    height: 20rpx;
+    border-top: 1px solid #eee;
+    border-left: 1px solid #eee;
+    background: white;
+    top: -10rpx;
+    left: 48%;
+    transform: rotate(45deg); }
+
+.teacher {
+  font-size: 28rpx;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-radius: 20rpx;
+  border: 3rpx solid white;
+  background: white;
+  width: 300rpx;
+  height: 300rpx;
+  text-align: center; }
+  .teacher image {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 100%; }
+  .teacher view {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 24rpx; }
+
+.attchs {
+  background: white !important;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #f1f1f1;
+  padding-bottom: 0rpx; }
+
+.teacherInfoItem {
+  font-size: 34rpx;
+  color: #666;
+  background: white;
+  padding: 5rpx 20rpx; }
+  .teacherInfoItem text {
+    font-size: 30rpx;
+    color: #999; }
+
+.introduce {
+  font-size: 30rpx;
+  background: white;
+  color: #999;
+  padding: 5rpx 20rpx; }
+
+.inputItem {
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1rpx solid #f1f1f1;
+  background: white;
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+radio .wx-radio-input {
+  width: 12px;
+  /* 背景的宽 */
+  height: 12px;
+  /* 背景的高 */
+  background: #e1e1e1;
+  margin-left: 5px;
+  border-radius: 2px; }
+
+com-input {
+  text-align: right; }
+
+.noData {
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 40%; }

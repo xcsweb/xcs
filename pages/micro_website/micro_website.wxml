@@ -1,0 +1,116 @@
+<view style='height:20rpx;'></view>
+<com-tabs tabs='{{["关于机构","明星师资","联系我们"]}}' bindchange='changeTab' index='{{selectedTabIndex}}'></com-tabs>
+<view style='height:20rpx;'></view>
+
+<view wx:if='{{selectedTabIndex==0&&id}}'>
+  <view class='logo'>
+    <image src='{{pic}}' binderror='errorImg'></image>
+  </view>
+  <view class='innsDesc'>
+    <rich-text nodes="{{des}}"></rich-text>
+  </view>
+</view>
+<view class='noData' wx:if='{{selectedTabIndex==0&&!id}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view wx:if='{{selectedTabIndex==1&&(!star_tacher_list||star_tacher_list.length==0)}}'>
+  <view class='noData'>
+    <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+  </view>
+</view>
+
+<view class='noData' wx:if='{{selectedTabIndex==2&&(!micro_website_campus||micro_website_campus.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view wx:if='{{selectedTabIndex==1&&star_tacher_list&&star_tacher_list.length>0}}'>
+  <swiper class="swiper-block" previous-margin="200rpx" next-margin="-210rpx" current="{{swiperIndex}}" bindchange="swiperChange" display-multiple-items='2'>
+    <swiper-item class="swiper-item" wx:for='{{star_tacher_list}}'>
+      <view class="teacher slide-image {{swiperIndex == index ? 'active' : ''}}">
+        <image src='{{item.avatar}}' binderror='errorImg2' data-index='{{index}}'></image>
+        <view>姓名：{{item.name}}</view>
+        <view>级别：{{item.level}}</view>
+        <view>明星指数：
+          <com-rating size='21' disabled='1' rating='{{item.levelNum||0}}'></com-rating>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+    </swiper-item>
+  </swiper>
+  <view style='background:white;padding-bottom: 20rpx;'>
+    <view class='teacherdetail'>
+      <view class='arrow'></view>
+      <view class='attchs'>
+        <com-attachments mode='3' attachments='{{star_tacher_detail.imgfiles}}' title='' edit='{{false}}'></com-attachments>
+      </view>
+      <view class='teacherInfoItem'>
+        姓名：
+        <text>{{star_tacher_list[swiperIndex].name}}</text>
+      </view>
+      <view class='teacherInfoItem'>
+        级别：
+        <text>{{star_tacher_detail.level}}</text>
+      </view>
+      <view class='teacherInfoItem'>
+        明星指数：
+        <com-rating disabled='1' rating='{{star_tacher_detail.levelNum}}'></com-rating>
+      </view>
+      <view class='teacherInfoItem'>
+        特点：
+        <text>{{star_tacher_detail.trait}}</text>
+      </view>
+      <view class='teacherInfoItem'>
+        经验履历：
+      </view>
+      <view class='introduce'>
+        <rich-text nodes="{{star_tacher_detail.resume}}"></rich-text>
+     </view>
+    </view>
+  </view>
+</view>
+<view wx:if='{{selectedTabIndex==3}}'>
+  <view class='inputItem'>
+    项目
+    <com-picker border='1' arrow='1' range='{{[{name:"篮球"}]}}' index='0'></com-picker>
+  </view>
+
+  <view class='inputItem'>
+    校区/分管
+    <com-picker border='1' arrow='1' range='{{[{name:"实验小学"}]}}' index='0'></com-picker>
+  </view>
+
+  <view class='inputItem'>
+    姓名
+    <com-input placeholder='请输入姓名' name='name'></com-input>
+  </view>
+  <view class='inputItem'>
+    姓名
+    <com-input placeholder='请输入电话' name='tel'></com-input>
+  </view>
+  <view class='inputItem'>
+    是否正式学员
+    <radio-group bindchange="radioChange" name='isSms'>
+      <label>是
+        <radio value="1" checked='{{isSms==1}}' />
+      </label>
+      <label>否
+        <radio value="0" checked='{{!isSms||isSms==0}}' />
+      </label>
+    </radio-group>
+  </view>
+  <view class='btnWrapper'>
+    <button>提交</button>
+  </view>
+</view>
+
+<view wx:if='{{selectedTabIndex==2&&micro_website_campus&&micro_website_campus.length>0}}'>
+  <view class='campus' bindtap='calling' wx:for='{{micro_website_campus}}' wx:key='{{item.id}}' data-tel='{{item.contackPhone}}'>
+    <view>
+      <image src='/imgs/micro_website/a.png' mode='aspectFit'></image>{{item.name}}</view>
+    <view>
+      <image src='/imgs/micro_website/a1.png' mode='aspectFit'></image>{{item.contackName}}： {{item.contackPhone}}
+    </view>
+    <view>
+      <image src='/imgs/micro_website/a2.png' mode='aspectFit'></image>地址：{{item.address}}</view>
+  </view>
+</view>

@@ -1,0 +1,63 @@
+.body{
+  padding: 20rpx;
+}
+.deleteImg{
+  width: 50rpx;
+  height: 50rpx;
+}
+.deleteSlot{
+  height: 100%;
+  background: #A375FF;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.top{
+  display: flex;
+}
+.top .title{
+  width: 50%;
+  color: #333333;
+  font-size: 32rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.top .time{
+  width: 50%;
+  text-align: right;
+  color: #333;
+  font-size: 32rpx;
+}
+.content{
+  color: #666;
+  font-size: 30rpx;
+  white-space: normal;
+  /* line-height: 40rpx;
+  height: 120rpx;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+}
+.btnWrapper{
+  position: fixed;
+  bottom: 0px;
+  padding: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  z-index: 111;
+}
+.btnWrapper button{
+  border-radius: 0px;
+}
+.btnWrapper button::after{
+  display: none;
+}
+.listItem{
+  padding-top: 20rpx;
+  background: #f3f3f7;
+}
+page{
+  padding-bottom: 200rpx;
+  background: white;
+}

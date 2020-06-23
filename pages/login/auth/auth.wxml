@@ -1,0 +1,2 @@
+<!--pages/login/auth/auth.wxml-->
+<web-view src="{{SERVER_WEB}}weixin/check?insId={{insId}}&userId={{userId}}&goType={{goType}}" />

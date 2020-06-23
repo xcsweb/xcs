@@ -1,0 +1,35 @@
+<!--pages/jiaowu/order/order_list/order_list.wxml-->
+<view class='order_list'>
+  <view class='order_title'>
+    <text>朝阳分校 国画A班</text>
+    <image src='/imgs/order/order_up.png'></image>
+  </view>
+  <view class='order_li'>
+    <view class='li'>
+      <text>王萌萌</text>
+      <text>12345678910</text>
+      <text style='background-image: url("/imgs/order/order_rank.png");' class='rank'>1</text>
+    </view>
+    <view class='li'>
+      <text>王萌萌</text>
+      <text>12345678910</text>
+      <text style='background-image: url("/imgs/order/order_rank.png");' class='rank'>2</text>
+    </view>
+    <view class='li'>
+      <text>王萌萌</text>
+      <text>12345678910</text>
+      <text style='background-image: url("/imgs/order/order_rank.png");' class='rank'>3</text>
+    </view>
+    <view class='li'>
+      <text>王萌萌</text>
+      <text>12345678910</text>
+      <text class='rank'>4</text>
+    </view>
+    <view class='li'>
+      <text>王萌萌</text>
+      <text>12345678910</text>
+      <text class='rank'>14</text>
+    </view>
+  </view>
+   <text class='nomore'>暂无更多</text>
+</view>

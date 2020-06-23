@@ -1,0 +1,37 @@
+.top {
+  display: flex;
+  background: white;
+  padding: 20rpx;
+  justify-content: space-between;
+  align-items: center;
+  color: #333;
+  font-size: 34rpx;
+}
+.top image {
+  width: 44rpx;
+  height: 44rpx;
+}
+.top .content {
+  flex: 1;
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 10rpx;
+}
+.textarea{
+  padding: 20rpx;
+  display: flex;
+}
+.textarea textarea{
+  background: white;
+  padding: 20rpx;
+  font-size: 34rpx;
+  width: 100%;
+  border: 1px solid #f1f1f1;
+}
+
+.btnWrapper {
+  padding: 15px;
+}
+

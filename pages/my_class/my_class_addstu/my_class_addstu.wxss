@@ -1,0 +1,25 @@
+.footer {
+  height: 80rpx;
+  background: #FF7547;
+  color: white;
+  font-size: 34rpx;
+  text-align: center;
+  line-height: 80rpx;
+  position: fixed;
+  width: 100%;
+  bottom: 0rpx; }
+
+.footer_ {
+  height: 80rpx; }
+
+.listItem {
+  display: flex;
+  background: white;
+  border-bottom: 1rpx solid #eee;
+  color: #333;
+  font-size: 34rpx; }
+  .listItem checkbox {
+    padding: 20rpx;
+    padding-left: 70rpx; }
+    .listItem checkbox view {
+      padding-left: 100rpx; }

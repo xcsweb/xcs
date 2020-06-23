@@ -1,0 +1,25 @@
+<view class='main'>
+  <view class='info-title'>
+    <view class='img-info'>
+      <image class='t-img' src="{{listinfo.studentIcon}}" binderror='errorImg'></image>
+      <text class='img-name'>{{listinfo.studentName}}</text>
+    </view>
+    <view>
+      <text class='t-info' id='time' style='padding-left:76rpx;'>测试时间:\t{{listinfo.day_}}</text>
+      <text class='t-info' style='float:right; padding-right:62rpx;'>操作人:\t{{listinfo.teacherName}}</text>
+    </view>
+    <view class='t-info'>校区/分馆:\t{{listinfo.campusName}}</view>
+  </view>
+  <view class='info-body' wx:for="{{tpsRecord}}" wx:key='{{item.id}}'>
+    <text>测试项目:\t{{item.itemName}}</text>
+    <text>测试数据:\t{{item.val1}}</text>
+    <text wx:if='{{item.score&&item.itemName!="骨密度"&&item.itemName!="反应能力"&&item.itemName!="灵敏能力"}}'>测试得分：\t{{item.score}}</text>
+    <text>测试评语:\t{{item.analwords}}</text>
+    <!-- <rich-text nodes='{{item.commemt}}'>测试评语:</rich-text> -->
+    <!-- <text>结果分析：\t</text> -->
+      <!-- <text class='analwords' style='padding-left:66rpx;padding-right:50rpx;'>{{item.analwords}}</text> -->
+       <!-- <view class='analwords' ><rich-text nodes='{{item.analwords}}'  ></rich-text></view> -->
+  </view>
+</view>
+<view style='height:120rpx;'></view>
+<button class='infobutton'  bindtap='lookAdvice'>查看专家建议</button>

@@ -1,0 +1,10 @@
+ <view class="_item-box">
+  <view class="_item">
+    <view bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" style="{{wxExparserNodeId==__wxExparserNodeId__?txtStyle:''}}" class="txt">
+      <slot name='body'></slot>
+    </view>
+    <view bindtap="del_item" class="inner del" style='width:{{delBtnWidth+"rpx"}}' bindtap='_delete'>
+      <slot name='del'></slot>
+    </view>
+  </view>
+</view>

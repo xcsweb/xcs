@@ -1,0 +1,49 @@
+
+.top{
+  text-align: center;
+  padding: 20rpx 0rpx;
+  font-size: 34rpx;
+  background: white;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.top .circle{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 100%;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  background: #FE8158;
+  border: 3px solid #FEE4DB;
+  color: white;
+  text-align: center;
+  justify-content: center;
+}
+.top .name{
+  color: #333;
+}
+.listItem{
+  background: white;
+  display: flex;
+  padding: 20rpx;
+  border-bottom: 1px solid #f1f1f1;
+  color: #333;
+  font-size: 34rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-items: center;
+}
+.listItem .time{
+  color: #666;
+}
+
+.listItem .score{
+  color: #fe8158;
+}
+.listItem .body{
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,99 @@
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+.weui-search-bar__cancel-btn{
+  font-size: 17px;
+  color:#ac82ed;
+}
+.weui-search-bar{
+  border-bottom: none;
+}
+.toolsArea{
+  background: white;
+  display: flex;
+  margin-bottom: 1px;
+}
+.toolsArea .toolWraper{
+  border:1px solid #ccc;
+  border-radius: 5px;
+  height: 20px;
+  padding: 0px;
+  color: #666;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toolsArea .toolWraper image{
+  width: 16px;
+  vertical-align: middle;
+  height: 16px;
+  margin-right: 3px;
+}
+.toolsArea .toolWraper text{
+  vertical-align: middle;
+}
+.nodata{
+  padding-top: 150rpx;
+  text-align: center;
+}
+.nodata image{
+  width:40%;
+  height: 200rpx;
+}
+.listItem{
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+.listItem .img1{
+  width: 100px;
+  height: 100px;
+  margin-right: 20rpx;
+  background: gray;
+}
+.listItem .img1 image{
+  width: 100px;
+  height: 100px;
+}
+.listItem .item_end{
+  width: 50px;
+  font-size: 14px;
+  color: #333;
+  text-align: right;
+  min-width: 50px;
+  overflow: hidden;
+}
+.listItem .body{
+  flex: 1;
+  font-size: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 20px;
+}
+.listItem .body .title{
+  font-weight: bold;
+  margin-right:20px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.listItem .item_end image{
+  width: 20px;
+  height: 30px;
+}
+.classTypeIcon{
+  width: 20px;
+  height: 25px;
+  float: right;
+}

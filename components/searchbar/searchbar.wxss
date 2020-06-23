@@ -1,0 +1,43 @@
+@import "../../weui.wxss";
+.searchbar-result{
+    margin-top: 0;
+    font-size: 14px;
+}
+.searchbar-result:before{
+    display: none;
+}
+.weui-search-bar__input{
+  font-size: 30rpx;
+  color: #666;
+}
+.weui-cell{
+    padding: 12px 15px 12px 35px;
+}
+.weui-search-bar__cancel-btn{
+  font-size: 34rpx;
+  color:#ac82ed;
+}
+.weui-search-bar{
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+}
+.btn1{
+  height: 30px;
+  background: white;
+  border: 1rpx solid #e6e6ea;
+  font-size: 34rpx;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-left: 5rpx;
+  white-space: nowrap;
+  color: #333;
+  overflow: hidden;
+  line-height: 30px;
+  width: 150rpx;
+  text-align: center;
+}
+.weui-search-bar__text{
+  margin-top: -8rpx;
+  color: #ccc;
+}

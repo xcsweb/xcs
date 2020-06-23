@@ -1,0 +1,57 @@
+<view class='body'>
+  <view class='media' wx:if='{{detailData.attachments.length>0||detailData.vodfiles.length>0}}'>
+    <view class='vod_vfra' wx:if="{{vodUrl}}">
+      <video class='vod' src="{{vodUrl}}" id='myVod'></video>
+    </view>
+    <view class='all'>
+      <view class='vods' wx:if='{{detailData.vodfiles.length>0}}'>
+        <view wx:for='{{detailData.vodfiles}}' wx:key='{{item}}' class='{{vodIndex==index?"selected":""}}' bindtap='changeVod' data-index='{{index}}'>{{index+1}}</view>
+      </view>
+      <view class='imgs' wx:if='{{detailData.attachments.length>0}}'>
+        <com-attachments mode='3' attachments='{{detailData.attachments}}' title='' edit='{{false}}'></com-attachments>
+      </view>
+    </view>
+  </view>
+  <view class='layout'>
+    <view class='tt'><view class="circle"></view><view>作业介绍</view></view>
+    <view class='ctt'>{{detailData.content}}</view>
+    <view class='stt' wx:if='{{detailData.studentTaskTerms.length>0}}'>
+      <view class='stta'>训练要求</view>
+      <view class='sttb' wx:for='{{detailData.studentTaskTerms}}' wx:key='{{item.teachLabelId}}'>
+        <text class='ttl'>{{item.labelName}}</text>
+        <text class='ttr'>{{item.val}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='layout'>
+    <view class='tt'><view class="circle"></view><view>提交作业</view></view>
+    <view class='totska' wx:if='{{detailData.studentTaskTerms.length>0}}'>
+      <view class='ctdc' wx:for='{{detailData.studentTaskTerms}}' wx:key='{{item.teachLabelId}}'>
+        <view class='ttl'>{{item.labelName}}</view>
+        <view class="progress">
+            <slider bindchanging="sliderChange" bindchange="sliderChange" data-index="{{index}}" min="0" max="{{item.val}}" block-size="18" value="{{item.completeVal}}" />
+        </view>
+        <view class='ttr'>{{item.completeVal}}/{{item.val}}</view>
+      </view>
+    </view>
+    <view class='totskb'>
+      <com-attachments title='' bindchange='changeAttachments' />
+    </view>
+    <view class='totskc'>
+      <textarea bindinput='changeTaskContent' placeholder='填写作业内容说明，让训练更有质量哦 ^_^' value='{{formData.content}}'></textarea>
+    </view>
+    <view class='totskd'>
+      <button bindtap='subWork'>提交</button>
+    </view>
+  </view>
+
+  <view class='layout'>
+    <view class='tt'>作业提交记录</view>
+    <view class='tkct' bindtap='toDetail' data-studenttaskcompleteid='{{item.studentTaskCompleteId}}' wx:for='{{detailData.StudentTasksCompletes}}' wx:key='{{item.studentTaskCompleteId}}' style='{{(index==detailData.StudentTasksCompletes.length-1)?"border:none":""}}'>
+      <view class='ltt'>{{item.createDt}}</view>
+      <view class='rtt'>{{item.isApproveState}} > </view>
+    </view>
+  </view>
+
+</view>

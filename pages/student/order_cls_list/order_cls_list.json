@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "新增预约",
+    "usingComponents": {
+      "com-calendar": "/components/calendar/calendar"
+    },
+    "navigationBarBackgroundColor": "#78A6FF"
+}

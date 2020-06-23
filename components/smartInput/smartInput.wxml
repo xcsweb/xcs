@@ -1,0 +1,2 @@
+<input bindinput='_bindinput' value='{{value}}' placeholder='{{placeholder}}' wx:if='{{!textarea}}' disabled='{{disabled}}' name='{{name}}' placeholder-style='color:#ccc;'></input>
+<textarea fixed='{{fixed}}' bindinput='_bindinput' value='{{value}}' placeholder='{{placeholder}}' wx:if='{{textarea}}' disabled='{{disabled}}' name='{{name}}' placeholder-style='color:#ccc;' />

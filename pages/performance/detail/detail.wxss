@@ -1,0 +1,79 @@
+.listItem {
+  padding: 20rpx;
+  background: white;
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 34rpx;
+  border-bottom: 1rpx solid #f1f1f1; }
+  .listItem .title {
+    flex: 2;
+    white-space: nowrap; }
+  .listItem .arrow {
+    color: #c7c7cc;
+    font-size: 26rpx; }
+  .listItem .arrow_white {
+    color: #fff;
+    font-size: 26rpx; }
+  .listItem input, .listItem com-input, .listItem com-picker {
+    text-align: right;
+    color: #666 !important; }
+  .listItem picker view {
+    color: #666 !important; }
+  .listItem picker, .listItem input {
+    flex: 10;
+    text-align: right; }
+  .listItem picker text {
+    min-width: 50rpx;
+    text-align: right;
+    color: #666; }
+  .listItem .iconfont {
+    width: 38rpx; }
+
+.btnWrapper {
+  padding: 0px;
+  position: fixed;
+  width: 100%;
+  bottom: 0px; }
+  .btnWrapper button {
+    border-radius: 0px; }
+  .btnWrapper button::after {
+    border: none; }
+
+.date {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #f1f1f1;
+  font-size: 34rpx;
+  color: #333;
+  background: white; }
+  .date text {
+    font-size: 30rpx;
+    padding: 10rpx;
+    color: #666; }
+  .date .dateStr {
+    flex: 1;
+    text-align: center; }
+
+.charts {
+  padding: 20rpx;
+  background: white;
+  box-sizing: border-box; }
+  .charts .chartsLine {
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap; }
+  .charts .columeChart {
+    box-shadow: 0rpx 0rpx 10rpx #ccc;
+    margin-bottom: 30rpx; }
+  .charts .ringCanvas {
+    position: relative; }
+  .charts .legend {
+    text-align: center;
+    font-size: 26rpx;
+    color: #666;
+    position: absolute;
+    bottom: 10%;
+    width: 100%; }

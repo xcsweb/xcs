@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "健康报告",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs",
+    "select": "/components/select/select"
+  },
+  "navigationBarBackgroundColor": "#78A6FF"
+}

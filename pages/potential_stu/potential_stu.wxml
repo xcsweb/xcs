@@ -1,0 +1,66 @@
+<view class="page__hd">
+  <com-searchfilter filterParam='{{filterParam}}' bindinput='inputTyping' bindclear='inputTyping' bindhide='inputTyping' placeholder='请输入姓名/电话' />
+</view>
+<view class="page__hd_"></view>
+<view class='topBtnArea weui-flex' wx:if="{{!inputShowed}}">
+  <view>
+    <checkbox class='circleCheckbox' wx:if='{{selectMode}}' bindtap='selectAll' checked='{{selectAll}}' />
+    <button type="default" size="mini" bindtap='selectMode'>{{selectBtnTxt}}</button>
+  </view>
+   <view class='txt'>
+    学员数：{{count}}
+  </view>
+  <view>
+    <button class="weui-btn mini-btn weui-flex__item" type="default" size="mini" bindtap='addstudent'>
+      新增
+    </button>
+  </view>
+</view>
+
+<view class='noData' wx:if='{{!students||students.length==0}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<checkbox-group bindchange='studentBindChange' wx:if="{{!inputShowed}}">
+  <view class='listItem' wx:for='{{students}}' wx:key='{{item.studentId}}'>
+    <checkbox class='circleCheckbox' value='{{index}}' wx:if='{{selectMode}}' catchtap='e' checked='{{item.selected}}' />
+    <image src='{{item.avatar}}' binderror='imageError' class='avatar' data-index='{{index}}'></image>
+    <view class='body' bindtap='toDetail' data-index='{{index}}'>
+      <text class='name'>{{item.name}}<text class='position' wx:if='{{item.saleName}}'>({{item.saleName}}销售)</text>
+      <text class='position_' wx:if='{{!item.saleName}}'>(未分配)</text></text>
+      <text>\n{{(item.saleCourseName||'')+'   '+(item.saleIntention||'')+'   ￥'+(item.saleCoursePrice)+'   '}}<text style='color:{{item.stageLableColor}}'>{{(item.stageLable||'')}}</text></text>
+      <text>\n{{item.createDt_}}</text>
+    </view>
+  </view>
+</checkbox-group>
+<view class='writeEvalArea' wx:if='{{showEvalInput}}' bindtap='showEvalInput'>
+  <view class='writeEvalInner' catchtap='c'>
+    <view class='top'>
+      <!-- <picker bindchange="bindNoticeTypeChange" name='noticeType' value="{{noticeTypeIndex}}" range="{{noticeType}}" range-key="codeDisplay">
+        <view>{{noticeType[noticeTypeIndex].codeDisplay}}
+          <image src='/imgs/common/trangle.png' mode='aspectFill'></image>
+        </view>
+      </picker> -->
+      <view>编辑短信（不超过60字）</view>
+      <view style='flex:1;'></view>
+      <button size='mini' bindtap='notice_add_sub'>发送</button>
+    </view>
+    <view class='center'>
+      <view class='centerIner'>
+        <!-- <view>标题：</view>
+        <input data-name='title' value='{{title}}' bindinput='bindinput' placeholder='输入标题' placeholder-style='color:#ccc'></input> -->
+        <view>内容：</view>
+        <textarea data-name='content' value='{{content}}' bindinput='bindinput' placeholder='输入内容' placeholder-style='color:#ccc' maxlength='60'></textarea>
+      </view>
+    </view>
+    <!-- <view class='bottom'>
+      <checkbox-group bindchange='isUseConfirm'>短信提醒：
+        <checkbox style='height:10px;' value='1' /></checkbox-group>
+    </view> -->
+  </view>
+</view>
+<view class='footer_'></view>
+<view class='footer {{isIpx?"fix-iphonex-button":""}}' wx:if="{{!inputShowed}}">
+  <view bindtap='relsale'>关联销售</view>
+  <view bindtap='showEvalInput'>群发通知</view>
+  <view bindtap='stu_change_clstatus' bindtap='trialcourse'>安排试课</view>
+</view>

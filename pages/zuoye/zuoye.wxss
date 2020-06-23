@@ -1,0 +1,60 @@
+/* pages/zuoye/zuoye.wxss */
+
+/* pages/jiaowu/studentrial/studentrial.wxss */
+
+.list {
+  display: flex;
+  position: relative;
+  /* align-items: center; */
+  padding: 20rpx 20rpx;
+  background: #fff;
+  border: 1px solid #f1f1f1;
+}
+
+
+.list  .avatar {
+  height: 104rpx;
+  width: 104rpx;
+  border-radius: 50%;
+  background: #e7d6ba;
+  margin-right: 10rpx;
+}
+
+.list  .name {
+  color: #333;
+}
+
+.list .mess {
+  flex: 1;
+  font-size: 34rpx;
+  color: #666;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 44rpx;
+}
+
+.list .mess text {
+  line-height: 1;
+  margin-bottom: 15rpx;
+  display: block;
+  font-size: 30rpx;
+}
+
+.list .mess text.text {
+  position: absolute;
+  bottom:0;
+  font-size: 25rpx;
+  color: #b4b3b3;
+}
+.list .type {
+  position: absolute;
+  top: 18rpx;
+  right: 20rpx;
+  font-size: 25rpx;
+  color: #ccc;
+}
+
+.list .type.on {
+  color: #a375ff;
+}

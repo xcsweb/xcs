@@ -1,0 +1,112 @@
+<view class='tab1content'>
+  <view class='divider'>基本资料</view>
+  <view class='listItem' bindtap='chooseImgUpload'>
+    <view class='title'>头像</view>
+    <image src='{{avatar_||"/imgs/common/104-104@2x.png"}}' class='touxiang'></image>
+    <text class='iconfont icon-arrow arrow' id='touxiangjiantou'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>姓名</view>
+    <input placeholder='必填' value='{{name}}' data-name='name' bindinput='bindinput'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>性别</view>
+    <picker range='{{sexes}}' value='{{index}}' bindchange='pickerChange' data-indexname='sexIndex'>
+      <view>{{sexes[sexIndex||0]}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>手机号</view>
+    <input placeholder='必填' value='{{tel}}' bindinput='bindinput' data-name='tel'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>城市</view>
+    <picker range='{{areaCampus}}' range-key='areaName' value='{{index}}' bindchange='pickerChange' data-indexname='areaCampusIndex'>
+      <view>{{areaCampus[areaCampusIndex||0].areaName}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title' placeholder='必选'>校区/分馆</view>
+    <picker range='{{areaCampus[areaCampusIndex||0].campuses}}' range-key='campusName' value='{{index}}' bindchange='pickerChange' data-indexname='campusesIndex'>
+      <view>{{areaCampus[areaCampusIndex||0].campuses[campusesIndex||0].campusName}}</view>
+    </picker> 
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='divider'>销售资料</view>
+  <view class='listItem'>
+    <view class='title' placeholder='可选'>关联销售</view>
+    <picker range='{{sales}}' range-key='name' value='{{index}}' bindchange='pickerChange' data-indexname='salesIndex'>
+      <view>{{sales[salesIndex].name||"请选择"}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+
+  <view class='listItem'>
+    <view class='title' placeholder='可选'>客户来源</view>
+    <picker range='{{sourceCrmtags}}' range-key='name' value='{{index}}' bindchange='pickerChange' data-indexname='sourceCrmtagsIndex'>
+      <view>{{sourceCrmtags[sourceCrmtagsIndex].name||"请选择"}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title' placeholder='可选'>意向产品</view>
+    <picker range='{{courses_}}' range-key='name' value='{{index}}' bindchange='pickerChange' data-indexname='saleCourseIndex'>
+      <view>{{courses_[saleCourseIndex||0].name||"请选择"}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>意向程度</view>
+    <picker range='{{intentions}}' range-key='codeDisplay' value='{{index}}' bindchange='pickerChange' data-indexname='intentionsIndex'>
+      <view>{{intentions[intentionsIndex||0].codeDisplay||"请选择"}}</view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>潜在收入</view>
+    <input placeholder='必填' value='{{courses_[saleCourseIndex||0].salesAmount||0}}' type='digit' bindinput='bindinput' data-name='saleCoursePrice'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='divider'>个人信息</view>
+  <view class='listItem'>
+    <view class='title'>生日</view>
+    <picker mode="date" value="{{date}}" start="1950-01-01" end="{{endBirth}}" bindchange="bindDateChange">
+      <view> {{date||"请选择"}} </view>
+    </picker>
+    <text class='iconfont icon-arrow arrow'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title'>微信</view>
+    <input placeholder='可填' value='{{wechatNum}}' bindinput='bindinput' data-name='wechatNum'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title' placeholder='必填'>地址</view>
+    <input placeholder='可填' value='{{address}}' bindinput='bindinput' data-name='address'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <view class='listItem'>
+    <view class='title' placeholder='必填'>身份证号</view>
+    <input placeholder='可填' value='{{idNum}}' bindinput='bindinput' data-name='idNum'></input>
+    <text class='iconfont icon-arrow arrow_white'></text>
+  </view>
+  <com-parent class='com-parent' wx:for='{{parentAdd}}' wx:key='*this' />
+  <view class='parentAdd' bindtap='parentAdd'>
+    <image src='/imgs/common/add.png'></image>
+  </view>
+  <!-- <view class='btnWrapper'>
+    <button bindtap='' hover-class="btn-hover"  class='button'>取消</button>
+    <button bindtap='enroll_newstu_sub' hover-class="btn-hover"  class='button'>确定</button>
+  </view> -->
+  
+<view class='footer'>
+  <view bindtap='back' hover-class="btn-hover">取消</view>
+  <view bindtap='enroll_newstu_sub' hover-class="btn-hover">确定</view>
+</view>
+</view>
+
+

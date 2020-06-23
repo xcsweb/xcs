@@ -1,0 +1,159 @@
+/* pages/student/memcard/memcard.wxss */
+
+page {
+  background: #fff;
+}
+
+.card {
+  padding: 30rpx 20rpx;
+}
+
+.card_li {
+  margin-bottom: 30rpx;
+  position: relative;
+  color: #fff;
+}
+
+.card_li .bg {
+  position: absolute;
+  z-index: -1;
+  width: 707rpx;
+  height: 394rpx;
+}
+
+.card_li .logo_bg {
+  padding-top: 65rpx;
+  text-align: center;
+}
+
+.card_li .logo {
+  display: block;
+  margin: 0 auto;
+  width: 139rpx;
+  height: 138rpx;
+}
+
+.card_li .type {
+  display: block;
+  font-size: 24rpx;
+}
+
+.card_li .name {
+  position: absolute;
+  top: 32rpx;
+  right: 20rpx;
+  font-size: 24rpx;
+}
+
+.card_li .num {
+  position: absolute;
+  top: 130rpx;
+  left: 20rpx;
+  font-size: 60rpx;
+}
+
+.card_li .mess {
+  margin-top: 15rpx;
+  position: relative;
+  padding: 25rpx 20rpx;
+  font-size: 24rpx;
+}
+
+.card_li text {
+  display: block;
+}
+
+.card_li .type_m {
+  position: absolute;
+  bottom: 30rpx;
+  right: 20rpx;
+  font-size: 30rpx;
+}
+
+.range_top {
+  display: flex;
+  padding: 20rpx 0;
+  background: #fff;
+}
+
+.range_top button {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 34rpx;
+  line-height: 2;
+  padding: 0 30rpx;
+  border: 1px solid #eee;
+}
+.range_top button::after{
+  display: none;
+}
+.range_top .trangle {
+  margin-left: 10rpx;
+  width: 14rpx;
+  height: 10rpx;
+}
+
+.class_li {
+  border-top: 20rpx solid #f7f7f7;
+}
+
+.class_li .tr {
+  display: flex;
+  justify-content: space-between;
+  padding: 25rpx 0;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 30rpx;
+  color: #333;
+  text-align: center;
+}
+
+.class_li .tr.first {
+  font-size: 34rpx;
+}
+
+.class_li .tr .td1 {
+  flex: 1;
+}
+
+.class_li .tr .td2 {
+  width: 240rpx;
+}
+
+.class_li .tr .td3 {
+  width: 240rpx;
+}
+
+.fee_li .tr {
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx 0;
+  border-bottom: 1px solid #f2f2f2;
+  font-size: 30rpx;
+  color: #333;
+  text-align: center;
+}
+
+.fee_li .tr.first {
+  font-size: 34rpx;
+}
+
+.fee_li .tr .td1 {
+  flex: 1;
+}
+
+.fee_li .tr .td2 {
+  width: 140rpx;
+}
+
+.fee_li .tr .td3 {
+  width: 120rpx;
+}
+
+.fee_li .tr .td4 {
+  width: 140rpx;
+}
+
+.fee_li .tr .td5 {
+  width: 210rpx;
+}

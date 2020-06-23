@@ -1,0 +1,113 @@
+swiper {
+  width: 100%;
+  background: #ccc;
+  position: relative;
+  height: 400rpx; }
+  swiper .swiperNum {
+    position: absolute;
+    z-index: 111;
+    right: 10rpx;
+    bottom: 10rpx;
+    font-size: 30rpx;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50rpx;
+    width: 90rpx;
+    text-align: center; }
+
+swiper-item image {
+  width: 100%;
+  height: 400rpx; }
+
+.tags {
+  display: flex;
+  background: white;
+  padding: 20rpx;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin: 20rpx 0rpx; }
+  .tags .tag {
+    color: #666;
+    font-size: 34rpx;
+    border: 1px solid #eee;
+    border-radius: 100rpx;
+    margin-right: 14rpx;
+    padding: 0rpx 20rpx; }
+  .tags .active {
+    color: #a375ff;
+    border-color: #a375ff; }
+
+.listItem {
+  font-size: 34rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #333;
+  background: white;
+  padding: 20rpx;
+  margin-bottom: 20rpx; }
+  .listItem .body {
+    display: flex; }
+    .listItem .body .logo {
+      width: 300rpx;
+      height: 200rpx;
+      background: #ccc;
+      min-width: 300rpx;
+      margin-right: 20rpx;
+      position: relative; }
+      .listItem .body .logo image {
+        width: 300rpx;
+        height: 200rpx;
+        position: absolute;
+        top: 0rpx; }
+      .listItem .body .logo .tag {
+        position: absolute;
+        top: 0rpx;
+        right: 0rpx;
+        color: white;
+        background: #999;
+        padding: 0rpx 10rpx; }
+    .listItem .body .brife {
+      overflow: hidden;
+      color: #333; }
+      .listItem .body .brife view {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
+      .listItem .body .brife .rating {
+        display: flex;
+        height: 50rpx; }
+  .listItem .operators {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10rpx;
+    box-sizing: border-box; }
+    .listItem .operators .button {
+      flex: 1;
+      margin: 0rpx 30rpx;
+      white-space: nowrap;
+      font-size: 34rpx;
+      color: #333;
+      border-radius: 10rpx;
+      border: 1px solid #ddd;
+      padding: 6rpx;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .listItem .operators .button image {
+        width: 35rpx;
+        height: 35rpx;
+        margin-right: 10rpx; }
+    .listItem .operators .button:first-child {
+      margin-left: 0rpx; }
+    .listItem .operators .button:last-child {
+      margin-right: 0rpx; }
+  .listItem .date {
+    color: #999;
+    padding: 10rpx 0rpx 5rpx 0rpx; }
+    .listItem .date text {
+      float: right; }

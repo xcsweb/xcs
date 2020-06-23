@@ -1,0 +1,60 @@
+/* pages/my_class/my_class.wxss */
+
+.list_title {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 25rpx 30rpx;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+  font-size: 34rpx;
+  color: #333;
+}
+
+.list_title>text {
+  min-width: 5em;
+  text-align: center;
+}
+
+.list_title .btn {
+  position: absolute;
+  top: 45rpx;
+  right: 50rpx;
+  width: 25rpx;
+  height: 16rpx;
+}
+
+.list_body {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+}
+
+.list_body .cover {
+  margin-right: 15rpx;
+  width: 190rpx;
+  height: 190rpx;
+  background: #D9D9D9;
+}
+.list_body .mess{
+  flex: 1;
+  position: relative;
+}
+.list_body .mess text{
+  display: block;
+  font-size: 30rpx;
+  line-height:40rpx;  
+  color: #333;
+}
+.list_body .mess .classname{
+  font-weight: 600;
+}
+.list_body .mess .type{
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #999;
+}
+.list_body .mess .type.on{
+  color: #fe8158;
+}

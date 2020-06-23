@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "积分商城",
+  "navigationBarBackgroundColor": "#78A6FF",
+  "usingComponents": {
+    "com-picker": "/components/smartPicker/smartPicker",
+    "com-tabs": "/components/tabs/tabs"
+  }
+}

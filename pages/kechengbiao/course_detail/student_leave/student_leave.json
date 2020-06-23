@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "添加学员",
+      "usingComponents": {
+        "com-multichoice": "/components/multichoice/multichoice"
+      }
+}

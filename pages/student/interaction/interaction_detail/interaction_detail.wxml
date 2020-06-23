@@ -1,0 +1,49 @@
+<view class='postWrapper' wx:for='{{post_list}}' wx:key='{{item.postId}}'>
+  <view class='userInfo'>
+    <image src='{{item.avatar}}' class='avatar' binderror='errorImg' data-index='{{index}}'></image>
+    <view class='nameDate'>
+      <view class='username'>{{item.nickName}}</view>
+      <view class='date'>{{item.createDt_}}</view>
+    </view>
+  </view>
+  <view class='content'>{{item.content}}</view>
+  <com-attachments attachments='{{item.attachments}}' edit='{{false}}' title=''></com-attachments>
+  <view class='prises' wx:if='{{item.postPraiseList.length>0}}'>
+    <image src='/imgs/interaction/v.png' class='fav'></image>
+    <image src='{{item.avatar}}' class='user' wx:for='{{item.postPraiseList}}' wx:key='*this' wx:for-index='subindex' binderror='errorImg2' data-index='{{index}}' data-subindex='{{subindex}}'></image>
+    <view class='more' hidden='true'>展开更多</view>
+  </view>
+  <view class='operators'>
+    <view class='button' bindtap='add_praise' data-postid='{{item.postId}}'>
+      <image src='{{item.isPraise?"/imgs/interaction/e.png":"/imgs/interaction/rt.png"}}'></image>点赞
+    </view>
+    <view class='button' bindtap='add_comment_show' data-postid='{{item.postId}}'>
+      <image src='/imgs/interaction/gf.png'></image>评论
+    </view>
+    <view class='button' wx:if='{{item.val}}' style='color:#ddc5ff'>
+      <image src='/imgs/interaction/a.png'></image>{{item.val}}
+    </view>
+  </view>
+</view>
+<view class='comment' wx:for='{{post_list[0].postContent}}' wx:key='*this'>
+  <image src='{{item.avatar}}' binderror='errorImg3' data-index='{{index}}'></image>
+  <view class='nameDate'>
+    <view class='username'>{{item.nickName}}
+      <text>{{item.createDt_}}</text>
+    </view>
+    <view class='content'>{{item.content}}</view>
+  </view>
+</view>
+<view class='writeEvalArea' wx:if='{{add_comment_show}}' bindtap='add_comment_show'>
+  <view class='writeEvalInner' catchtap='c'>
+
+    <view class='center'>
+      <view class='centerIner'>
+        <com-input value='{{content}}' fixed='true' textarea='1' name='content' placeholder='评论写点什么吧...' />
+      </view>
+    </view>
+    <view class='top'>
+      <button size='mini' bindtap='add_comment'>发送</button>
+    </view>
+  </view>
+</view>

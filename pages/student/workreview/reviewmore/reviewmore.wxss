@@ -1,0 +1,48 @@
+/* pages/student/workreview/reviewmore/reviewmore.wxss */
+.mess {
+  margin-top: 20rpx;
+  padding: 30rpx;
+  background: #fff;
+  font-size: 34rpx;
+  border-bottom: 1px solid #FBFBFB;
+}
+
+.mess .title {
+  display: block;
+  color: #333;
+}
+
+.mess .title>text {
+  color: #666;
+}
+.star_list{
+  padding: 25rpx 30rpx;
+  background: #fff;
+  font-size: 34rpx;
+}
+.star_li{
+  display: flex;
+  align-items: center;
+}
+.star_li image{
+  width: 25rpx;
+  height: 24rpx;
+}
+.nr{
+  background: #fff;
+  font-size: 34rpx;
+}
+.nr .title{
+  padding: 30rpx 30rpx 10rpx 30rpx;
+  display: block;
+  color: #333;
+}
+.nr .more{
+  display: block;
+  padding: 30rpx;
+  color: #666;
+  background: #F9F9F9;
+}
+.attachmentswrapper{
+  padding: 20rpx;
+}

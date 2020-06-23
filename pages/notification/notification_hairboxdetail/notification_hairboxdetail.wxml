@@ -1,0 +1,33 @@
+<view class='videoContainer' wx:if='{{showVideo}}'>
+  <view class='close' bindtap='closeVideo'>关闭</view>
+  <video src="{{videoSrc}}" controls autoplay='true'></video>
+</view>
+<view class="brife">
+  <view class='title'>标题：{{notice_detail.title}}</view>\n
+  <view class='descs'>发送时间：{{notice_detail.sendDt}}</view>\n
+  <view class='descs'>通知类型：{{notice_detail.noticeType}}</view>\n
+  <view class='descs'>发送人：{{notice_detail.name}}</view>\n
+  <view class='descs' bindtap='todetail2'>已读：
+    <text style='color:#9966ff'>{{notice_detail.readNum}}</text>/{{notice_detail.num}} <block wx:if='{{notice_detail.isUseConfirm==1}}'>已确认：
+    <text style='color:#9966ff'>{{notice_detail.confirmNum}}</text>/{{notice_detail.num}}</block>
+  </view>
+</view>
+<view class="content" wx:if='{{notice_detail.content}}'>
+  <view class='title'>内容</view>\n
+  <view class='descs'>
+    {{notice_detail.content}}
+  </view>
+</view>
+<view class="attachments" wx:if='{{notice_detail.imgfiles.length+notice_detail.vodfiles.length>0}}'>
+  <view class='title'>图片及视频</view>
+  <view class='attachmentRow'>
+    <view class='attachment' wx:for='{{notice_detail.imgfiles}}' wx:key='*this' bindtap='viewAttachment' data-attachment='{{item}}'>
+      <image src='{{img_url+item}}' class='prev' mode='aspectFill'></image>
+    </view>
+
+    <view class='attachment' wx:for='{{notice_detail.vodfiles}}' wx:key='*this' bindtap='viewAttachment' data-attachment='{{item}}' data-video='1'>
+      <image src='/imgs/video.png' class='videoflag'></image>
+      <image src='{{vod_url+item+"?vframe/jpg/offset/0/w/640/h/360"}}' class='prev' mode='aspectFill'></image>
+    </view>
+  </view>
+</view>

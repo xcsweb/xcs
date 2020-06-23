@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "com-calendar": "/components/calendar/calendar"
+  },
+  "navigationBarTitleText": "安排试课"
+}

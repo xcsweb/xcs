@@ -1,0 +1,76 @@
+<view style='padding-top:20rpx;'>
+  <com-tabs tabs='{{["体测记录","指标曲线","查看报告"]}}' tab-width='33.33%' normal-color='#333' selected-color='#78a6ff' bindchange='tabchange' class="title" />
+  <!-- 体测记录 -->
+  <view class='body-main' wx:if='{{tabIndex==0&&stu_tps_record_list_data&&stu_tps_record_list_data.length>0}}'>
+    <text class='t-title'>序号</text>
+    <text class='t-title'>测试时间</text>
+    <text class='t-title'>校区</text>
+    <text class='t-title'>测试人</text>
+
+
+    <view class='main-body' wx:for="{{stu_tps_record_list_data}}" wx:for-item="item" wx:key='{{item.id}}' bindtap='reportinfo' data-id='{{item.id}}'>
+      <text class='b-title' style='width:17%;'>{{item.id}}</text>
+      <text class='b-title'>{{item.day_}}</text>
+      <text class='b-title' style='width:20%;'>{{item.campusName}}</text>
+      <text class='b-title'>{{item.teacherName}}</text>
+      <image class='b-img' src='/imgs/arrow_right.png'></image>
+    </view>
+  </view>
+  <!-- 指标曲线 -->
+  <view class='target-main' wx:if='{{tabIndex==1}}'>
+    <view>
+      <view class='target-select'>
+        <!-- <select prop-array='{{selectArray}}' maxheight='70' class="t-select" bindchange="onChangeShowState" showText="身体姿态"></select> -->
+        <picker range='{{selectArray}}' range-key='name' bindchange='onChangeShowState' class="t-select" value='{{index||0}}'>
+        {{selectArray[index||0].name}}<image src='/imgs/trangle.png'></image>
+        </picker>
+      </view>
+      <view hidden='{{page==1}}'>
+        <view class='one'>
+          <view class='onebuttonview'>
+            <button size="mini" class='onebutton' wx:for="{{buttonitem}}" wx:for-item="item" wx:key='{{item.id}}' bindtap='tapcontent' data-title='{{item.title}}' data-item='{{item.id}}'>{{item.title}}</button>
+          </view>
+          <view>
+            <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
+          </view>
+          <view class='index-body'>
+            <text>姓名:\t{{usernames}}</text>
+            <text>测试日期:\t{{mininfo}}</text>
+            <text>测试数据:\t{{recordInfo.val1}}</text>
+            <!-- <text>测试意义:\t{{recordInfo.testSignificance}}</text> -->
+            <view class='richtext'> 测试意义：\t
+              <rich-text nodes='{{recordInfo.testSignificance}}'></rich-text>
+            </view>
+            <text>结果:\t{{recordInfo.content}}</text>
+          </view>
+          <button class='infobutton' bindtap='lookAdvice' wx:if='{{zjbutton == 1}}'>查看专家建议</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 查看报告 -->
+  <view class='body-main' wx:if='{{tabIndex==2&&report_list&&report_list.length>0}}'>
+    <view class='body-main2'>
+      <text class='r-title'>序号</text>
+      <text class='r-title' style='padding-left:63rpx;'>报告标题</text>
+      <text class='r-title' style='padding-left:88rpx;'>报告时间</text>
+    </view>
+    <navigator class='main-report' wx:for='{{report_list}}' url='./report_detail/report_detail?reportId={{item.reportId}}'>
+      <text class='m-title'>{{index+1}}</text>
+      <text class='m-title' style='margin-right:60rpx;'>{{item.title}}</text>
+      <text class='m-title' style='width:25%;'>{{item.createDt}}</text>
+      <button size='mini' class='body-button'>查看</button>
+    </navigator>
+  </view>
+</view>
+
+<view class='noData' wx:if='{{tabIndex==0&&(!stu_tps_record_list_data||stu_tps_record_list_data.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+
+<view class='noData' wx:if='{{tabIndex==1&&page==1}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='noData' wx:if='{{tabIndex==2&&(!report_list||report_list.length==0)}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>

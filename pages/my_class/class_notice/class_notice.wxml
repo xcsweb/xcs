@@ -1,0 +1,26 @@
+<view wx:for='{{cls_noticelist}}' wx:key='*this' class='listItem'>
+  <com-sliding-listitem class='com-sliding-listitem' del-btn-width='120' bindopen='open' binddelete='deleteNotice' data-index='{{index}}'>
+    <view slot='body' class='body'>
+      <view class='top'>
+        <view class='title'>{{item.title}}</view>
+        <view class='time'>{{item.createDt}}</view>
+      </view>
+      <view class='content'>
+        {{item.content}}
+      </view>
+    </view>
+    <view slot='del' class='deleteSlot'>
+      <image src='/imgs/delete1.png' class='deleteImg'></image>
+    </view>
+  </com-sliding-listitem>
+</view>
+
+<view class='noData' wx:if='{{!cls_noticelist||cls_noticelist.length==0}}'>
+  <image mode='aspectFit' src='/imgs/common/nodata.png'></image>
+</view>
+<view class='btnWrapper'>
+  <navigator url='./class_notice_add/class_notice_add'>
+    <button hover-class='btn-hover'>添加公告
+    </button>
+  </navigator>
+</view>

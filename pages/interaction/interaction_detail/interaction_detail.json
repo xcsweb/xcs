@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "帖子详情",
+  "navigationBarBackgroundColor": "#608de5",
+  "usingComponents": {
+    "com-picker": "/components/smartPicker/smartPicker",
+    "com-input": "/components/smartInput/smartInput",
+    "com-attachments": "/components/attachments/attachments"
+  }
+}

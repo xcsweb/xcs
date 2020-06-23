@@ -1,0 +1,11 @@
+<!--pages/my_class/class_mess/class_messlist/class_measslist.wxml-->
+<view class='lest'>
+  <view class='li' bindtap='onGoto' wx:for="{{messdate}}" wx:for-item="item" wx:key="item.smsRecordId" data-smsid='{{item.smsRecordId}}'>
+    <text>发送人：{{item.name||"系统"}}</text>
+    <text>时间：{{item.sendDt}}</text>
+    <text>内容：{{item.content}}</text>
+    <text>短信条数：<text class='num'>{{item.num}}</text>条</text>
+    <text class='type' wx:if="{{item.smsResult ==0}}">已发送</text>
+    <text class='type false' wx:if="{{item.smsResult ==1}}">发送失败</text>
+  </view>
+</view>

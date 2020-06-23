@@ -1,0 +1,117 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+    <form bindsubmit="notice_add_sub">
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">标题</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入标题" placeholder-style='color:b2b2b2' value='{{title}}' name='title' />
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">接收人</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" disabled='true' placeholder="请选择" value='{{selectedInfo}}' placeholder-style='color:b2b2b2' />
+          </view>
+          <view class="weui-cell__ft" bindtap='toAddpersonPage'>
+            <image src='/imgs/common/add.png' mode='aspectFit'></image>
+          </view>
+        </view>
+      </view>
+
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">消息类型</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindNoticeTypeChange" name='noticeType' value="{{noticeTypeIndex}}" range="{{noticeType}}" range-key="codeDisplay">
+              <view class="weui-select weui-select_in-select-after">{{noticeType[noticeTypeIndex].codeDisplay}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <view class='weui-label'>内容</view>
+            <textarea class="weui-textarea" maxlength='144' placeholder="短信内容不能超过144字" bindinput='oninput' style="height: 3.3em" name='content'>{{content}}</textarea>
+            <view class="weui-textarea-counter">{{contentLength}}/144</view>
+          </view>
+        </view>
+      </view>
+      <view style='background:white;border-top:1px solid #D9D9D9;border-bottom:1px solid #D9D9D9;margin-top:20rpx;padding:0rpx 20rpx;'>
+        <com-attachments bindchange='attachmentsChange' />
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input" style='height: 44px;'>
+          <view class="weui-cell__hd">
+            <view class="weui-label" style='width:auto;'>是否开启接收确认反馈</view>
+          </view>
+          <view class="weui-cell__bd ">
+            <checkbox-group bindchange="bindIsUseConfirm">
+              <label>
+              <checkbox style='height:10px;' name='isUseConfirm' value='1' />
+              <view class='tip'>(非短信)</view>
+              </label>
+             </checkbox-group>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input" style='height: 44px;'>
+          <view class="weui-cell__hd">
+            <view class="weui-label">是否短信提醒</view>
+          </view>
+          <view class="weui-cell__bd paddingleft">
+            <radio-group bindchange="radioChange" name='isSms'>
+              <label>是 <radio value="1"  checked='{{isSms==1}}'  disabled='{{isUseConfirm==1||attachments.length>0}}'/></label>
+              <label>否 <radio value="0" checked='{{!isSms||isSms==0}}'  disabled='{{isUseConfirm==1||attachments.length>0}}'/></label>
+            </radio-group>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">定时发送</view>
+          <view class="weui-cell__ft">
+            <switch name='isSendDt' bindchange='bindIsSend' />
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title" hidden='{{!isSendDt}}'>
+        <view class="weui-cell weui-cell_select">
+          <view class="weui-cell__hd weui-cell__hd_in-select-after">
+            <view class="weui-label">定时发送</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker mode="date" value="{{sendDt}}" name='sendDt' start="{{sendDtTo}}" bindchange="bindDateChange">
+              <view class="weui-input" style='display:flex;align-items: center;justify-content: space-between;'>
+                <text>{{sendDt}}</text>
+                <image src='/imgs/common/calendar.png' style='width:47rpx;height:49rpx;'></image>
+              </view>
+            </picker>
+          </view>
+          <view class="weui-cell__ft">
+            <image class="weui-vcode-img" src="/imgs/arrow_right.png" mode='aspectFit' style='width:8px;margin-right:10px;'></image>
+          </view>
+        </view>
+      </view>
+      <view class='btnWrapper'>
+        <button hover-class="btn-hover"  class="weui-btn" type="primary" formType="submit">确定</button>
+      </view>
+    </form>
+  </view>
+</view>

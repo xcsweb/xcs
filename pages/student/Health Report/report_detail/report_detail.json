@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "查看报告",
+  "navigationBarBackgroundColor": "#78A6FF",
+  "usingComponents": {
+    "com-rating": "/components/rating/rating",
+    "com-attachments": "/components/attachments/attachments"
+  }
+}

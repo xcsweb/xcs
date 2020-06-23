@@ -1,0 +1,22 @@
+.daterange{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  background: white;
+  font-size: 28rpx;
+  padding: 20rpx;
+}
+.daterange image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.daterange picker view{
+  border-bottom: 1rpx solid #eee;
+  padding: 0rpx 20rpx;
+  color: #999;
+}
+.daterange text{
+  margin: 0rpx 30rpx;
+}

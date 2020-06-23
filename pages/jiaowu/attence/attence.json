@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "考勤记录",
+  "usingComponents": {
+    "com-searchfilter": "/components/searchfilter/index"
+  }
+}

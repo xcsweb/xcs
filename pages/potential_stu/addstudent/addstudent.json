@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "新增学员",
+  "usingComponents": {
+    "com-parent": "/components/parent/parent"
+  }
+}

@@ -1,0 +1,24 @@
+<!--pages/student/workreview/reviewmore/reviewmore.wxml-->
+<view class='mess'>
+  <view class='title'>班级：
+    <text>{{className}}</text> </view>
+  <view class='title'>上课时间：
+    <text>{{dayStr}}</text> </view>
+  <view class='title'>点评人：
+    <text>{{teacherName}}</text> </view>
+  <view class='title'>点评时间：
+    <text>{{teachingEvaluateDt}}</text> </view>
+</view>
+<view class='star_list'>
+  <text>评星：</text>
+  <view class='star_li'>
+    <com-rating bindchange='rating' rating='{{teachingPerformance}}' disabled='true' />
+  </view>
+</view>
+<view class='nr'>
+  <text class='title'>点评内容：</text>
+  <text class='more'>{{teachingEvaluate}}</text>
+</view>
+<view class='attachmentswrapper' wx:if='{{attachments&&attachments.length>0}}'>
+  <com-attachments title='' edit='{{false}}' attachments='{{attachments}}' bindchange='change' />
+</view>

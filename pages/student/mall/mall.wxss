@@ -1,0 +1,158 @@
+.top{
+  display: flex;
+  justify-content: space-around;
+  padding: 20rpx 0rpx;
+  background: white;
+  margin: 20rpx 0rpx;
+}
+.tab1content .listItem{
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 5rpx;
+}
+.tab1content .listItem .img1{
+  width: 200rpx;
+  height: 160rpx;
+  background: #ccc;
+  margin-right: 4px;
+}
+.tab1content .listItem .body{
+  flex: 1;
+  font-size: 34rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.tab1content .listItem .body .title{
+  color: #333;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.tab1content .listItem .body .price{
+  color: #ff8359;
+  font-size: 42rpx;
+  vertical-align: middle;
+}
+.tab1content .listItem .body .price button{
+  float: right;
+  margin-top: 10rpx;
+}
+.tab1content .listItem .body .info{
+  color: #999;
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.tab2content .listItem{
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #f1f1f1;
+  align-items: center;
+  color: #333;
+  font-size: 34rpx;
+  white-space: nowrap;
+}
+.tab2content .listItem text{
+  text-align: center;
+}
+.tab2content .listItem text:nth-child(1){
+  flex: 25%;
+}
+.tab2content .listItem text:nth-child(2){
+  flex: 25%;
+}
+.tab2content .listItem text:nth-child(3){
+  flex:50%;
+}
+.tab2content .allScoreWrapper{
+  display: flex;
+  background: white;
+  justify-content: center;
+  padding-top: 20rpx;
+}
+
+.tab2content .allScoreWrapper .allScore1{
+  font-size: 34rpx;
+  color: #333;
+  width: 200rpx;
+  height: 200rpx;
+  background: white;
+  border-radius: 200rpx;
+  overflow: hidden;
+  border: 10rpx solid #FEEBE5;
+}
+.tab2content .allScoreWrapper .allScore2{
+  font-size: 40rpx;
+  width: 196rpx;
+  height: 196rpx;
+  background: #FE9E9F;
+  overflow: hidden;
+  border-radius: 200rpx;
+  margin-top: 2rpx;
+  margin-left: 2rpx;
+  line-height: 196rpx;
+  text-align: center;
+  color: white;
+}
+.tab2content .current{
+  text-align: center;
+  background: white;
+  font-size: 34rpx;
+  color: #333;
+  border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 20rpx;
+}
+.tab2content .listItem .score{
+  color: #FE9E9F;
+}
+
+.tab3content .listItem{
+  display: flex;
+  padding: 20rpx;
+  background: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-bottom: 1px solid #f1f1f1;
+  align-items: center;
+  color: #333;
+  font-size: 34rpx;
+  white-space: nowrap;
+}
+.tab3content .listItem .info{
+  flex: 1;
+  overflow: hidden;
+  line-height: 44rpx;
+}
+.tab3content .listItem .btnSend{
+  background-color: #66CCFF;
+  color: white;
+}
+.tab3content .listItem .btnDark{
+  background-color: #ddd;
+  color: white;
+}
+.tab3content .listItem .status{
+  color: #999;
+  font-size: 30rpx;
+  text-align: center;
+}
+.tab3content .listItem .price{
+  color: #ff8359;
+  font-size: 42rpx;
+}
+.tab3content .listItem button{
+  height: 60rpx;
+  padding: 0rpx 10rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  margin: 15rpx 0rpx;
+}

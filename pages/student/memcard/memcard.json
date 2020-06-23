@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "会员卡",
+  "navigationBarBackgroundColor": "#78A6FF",
+  "usingComponents": {
+    "com-tabs": "/components/tabs/tabs"
+  }
+}
